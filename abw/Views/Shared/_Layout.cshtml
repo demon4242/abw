@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>@ViewBag.Title</title>
+	@RenderSection("styles", false)
+</head>
+<body>
+	<div>
+		@Html.ActionLink(@Localization.Main, "Index", "Home")
+		@Html.ActionLink(@Localization.SparesCatalogue, "SparesCatalogue", "Home")
+		@Html.ActionLink(@Localization.Contacts, "Contacts", "Home")
+		@Html.ActionLink(@Localization.About, "About", "Home")
+		@Html.ActionLink(@Localization.DeliveryAndPayment, "DeliveryAndPayment", "Home")
+	</div>
+	@RenderBody()
+	@RenderSection("scripts", false)
+</body>
+</html>

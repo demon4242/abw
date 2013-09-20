@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abw", "abw\abw.csproj", "{44A5A11F-62AE-4E67-B5F5-0EF8E236C3FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abw.Resources", "abw.Resources\abw.Resources.csproj", "{13950DF7-18B5-4406-AB2C-05EBE61EB6A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44A5A11F-62AE-4E67-B5F5-0EF8E236C3FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A5A11F-62AE-4E67-B5F5-0EF8E236C3FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A5A11F-62AE-4E67-B5F5-0EF8E236C3FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A5A11F-62AE-4E67-B5F5-0EF8E236C3FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13950DF7-18B5-4406-AB2C-05EBE61EB6A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13950DF7-18B5-4406-AB2C-05EBE61EB6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13950DF7-18B5-4406-AB2C-05EBE61EB6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13950DF7-18B5-4406-AB2C-05EBE61EB6A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
