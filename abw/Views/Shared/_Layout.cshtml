@@ -1,18 +1,27 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <html>
 <head>
 	<title>@ViewBag.Title</title>
+	@Styles.Render("~/global")
 	@RenderSection("styles", false)
 </head>
 <body>
-	<div>
-		@Html.ActionLink(@Localization.Main, "Index", "Home")
-		@Html.ActionLink(@Localization.SparesCatalogue, "SparesCatalogue", "Home")
-		@Html.ActionLink(@Localization.Contacts, "Contacts", "Home")
-		@Html.ActionLink(@Localization.About, "About", "Home")
-		@Html.ActionLink(@Localization.DeliveryAndPayment, "DeliveryAndPayment", "Home")
-	</div>
+	<header>
+		@{ Html.RenderPartial("_Phones"); }
+
+		<ul class="nav nav-tabs">
+			<li>@Html.ActionLink(@Localization.Main, "Index", "Home")</li>
+			<li>@Html.ActionLink(@Localization.SparesCatalogue, "SparesCatalogue", "Home")</li>
+			<li>@Html.ActionLink(@Localization.Contacts, "Contacts", "Home")</li>
+			<li>@Html.ActionLink(@Localization.About, "About", "Home")</li>
+			<li>@Html.ActionLink(@Localization.DeliveryAndPayment, "DeliveryAndPayment", "Home")</li>
+		</ul>
+	</header>
 	@RenderBody()
+	<footer>
+		&copy; @DateTime.Now.Year
+	</footer>
 	@RenderSection("scripts", false)
 </body>
 </html>

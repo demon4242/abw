@@ -129,7 +129,13 @@
   <data name="Main" xml:space="preserve">
     <value>Main</value>
   </data>
+  <data name="MTS" xml:space="preserve">
+    <value>MTS</value>
+  </data>
   <data name="SparesCatalogue" xml:space="preserve">
     <value>Spares Catalogue</value>
+  </data>
+  <data name="Velcom" xml:space="preserve">
+    <value>Velcom</value>
   </data>
 </root>

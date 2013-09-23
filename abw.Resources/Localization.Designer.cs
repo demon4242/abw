@@ -97,11 +97,29 @@ namespace abw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MTS.
+        /// </summary>
+        public static string MTS {
+            get {
+                return ResourceManager.GetString("MTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Spares Catalogue.
         /// </summary>
         public static string SparesCatalogue {
             get {
                 return ResourceManager.GetString("SparesCatalogue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Velcom.
+        /// </summary>
+        public static string Velcom {
+            get {
+                return ResourceManager.GetString("Velcom", resourceCulture);
             }
         }
     }
