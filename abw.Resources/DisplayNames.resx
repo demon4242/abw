@@ -117,25 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>About</value>
+  <data name="Make" xml:space="preserve">
+    <value>Марка</value>
   </data>
-  <data name="Contacts" xml:space="preserve">
-    <value>Contacts</value>
+  <data name="Model" xml:space="preserve">
+    <value>Модель</value>
   </data>
-  <data name="DeliveryAndPayment" xml:space="preserve">
-    <value>Delivery &amp; Payment</value>
+  <data name="Models" xml:space="preserve">
+    <value>Модели</value>
   </data>
-  <data name="Main" xml:space="preserve">
-    <value>Main</value>
-  </data>
-  <data name="MTS" xml:space="preserve">
-    <value>MTS</value>
-  </data>
-  <data name="SparesCatalogue" xml:space="preserve">
-    <value>Spares Catalogue</value>
-  </data>
-  <data name="Velcom" xml:space="preserve">
-    <value>Velcom</value>
+  <data name="Year" xml:space="preserve">
+    <value>Год</value>
   </data>
 </root>

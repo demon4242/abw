@@ -3,25 +3,28 @@
 <html>
 <head>
 	<title>@ViewBag.Title</title>
-	@Styles.Render("~/global")
+	@Styles.Render("~/globalStyles")
 	@RenderSection("styles", false)
 </head>
 <body>
 	<header>
 		@{ Html.RenderPartial("_Phones"); }
-
 		<ul class="nav nav-tabs">
-			<li>@Html.ActionLink(@Localization.Main, "Index", "Home")</li>
-			<li>@Html.ActionLink(@Localization.SparesCatalogue, "SparesCatalogue", "Home")</li>
-			<li>@Html.ActionLink(@Localization.Contacts, "Contacts", "Home")</li>
-			<li>@Html.ActionLink(@Localization.About, "About", "Home")</li>
-			<li>@Html.ActionLink(@Localization.DeliveryAndPayment, "DeliveryAndPayment", "Home")</li>
+			<li>@Html.ActionLink("Машины", "All", "Cars")</li>
+			<li>@Html.ActionLink("Мои машины", "All", "MyCars")</li>
+		</ul>
+		<ul class="nav nav-tabs">
+			<li>@Html.ActionLink("Главная", "Index", "Home")</li>
+			<li>@Html.ActionLink("Каталог запчастей", "SparesCatalogue", "Home")</li>
+			<li>@Html.ActionLink("Контакты", "Contacts", "Home")</li>
+			<li>@Html.ActionLink("О нас", "About", "Home")</li>
 		</ul>
 	</header>
 	@RenderBody()
 	<footer>
 		&copy; @DateTime.Now.Year
 	</footer>
+	@Scripts.Render("~/globalScripts")
 	@RenderSection("scripts", false)
 </body>
 </html>

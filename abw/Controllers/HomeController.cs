@@ -23,10 +23,5 @@ namespace abw.Controllers
 		{
 			return View();
 		}
-
-		public ActionResult DeliveryAndPayment()
-		{
-			return View();
-		}
 	}
 }

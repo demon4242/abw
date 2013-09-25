@@ -22,14 +22,14 @@ namespace abw.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Localization {
+    public class DisplayNames {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Localization() {
+        internal DisplayNames() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace abw.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("abw.Resources.Localization", typeof(Localization).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("abw.Resources.DisplayNames", typeof(DisplayNames).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,65 +61,38 @@ namespace abw.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About.
+        ///   Looks up a localized string similar to Марка.
         /// </summary>
-        public static string About {
+        public static string Make {
             get {
-                return ResourceManager.GetString("About", resourceCulture);
+                return ResourceManager.GetString("Make", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contacts.
+        ///   Looks up a localized string similar to Модель.
         /// </summary>
-        public static string Contacts {
+        public static string Model {
             get {
-                return ResourceManager.GetString("Contacts", resourceCulture);
+                return ResourceManager.GetString("Model", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delivery &amp; Payment.
+        ///   Looks up a localized string similar to Модели.
         /// </summary>
-        public static string DeliveryAndPayment {
+        public static string Models {
             get {
-                return ResourceManager.GetString("DeliveryAndPayment", resourceCulture);
+                return ResourceManager.GetString("Models", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Main.
+        ///   Looks up a localized string similar to Год.
         /// </summary>
-        public static string Main {
+        public static string Year {
             get {
-                return ResourceManager.GetString("Main", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to MTS.
-        /// </summary>
-        public static string MTS {
-            get {
-                return ResourceManager.GetString("MTS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Spares Catalogue.
-        /// </summary>
-        public static string SparesCatalogue {
-            get {
-                return ResourceManager.GetString("SparesCatalogue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Velcom.
-        /// </summary>
-        public static string Velcom {
-            get {
-                return ResourceManager.GetString("Velcom", resourceCulture);
+                return ResourceManager.GetString("Year", resourceCulture);
             }
         }
     }

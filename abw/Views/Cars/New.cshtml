@@ -1,0 +1,39 @@
+﻿@using System.Web.Optimization
+@model abw.ViewModels.Car
+@{
+	ViewBag.Title = "Новая машина";
+}
+@section scripts
+{
+	@Scripts.Render("~/validation")
+}
+@using (Html.BeginForm("New"))
+{
+	@Html.ActionLink("Назад", "All", null, new { @class = "btn btn-primary" })
+	<h3>Новая машина</h3>
+	<hr />
+
+	@Html.HiddenFor(m => m.Id)
+
+	<div>
+		@Html.LabelFor(m => m.Make)
+		@Html.TextBoxFor(m => m.Make)
+		@Html.ValidationMessageFor(m => m.Make)
+	</div>
+
+	<div id="modelsLabel">
+		@Html.LabelFor(m => m.Models)
+		<input type="button" class="btn btn-success btn-xs" value="Добавить" />
+	</div>
+	for (int i = 0; i < Model.Models.Count; i++)
+	{
+	<div>
+		@Html.TextBoxFor(m => m.Models[i].Name)
+		@Html.ValidationMessageFor(m => m.Models[i].Name)
+	</div>
+	}
+
+	<hr />
+	<input type="submit" value="Сохранить" class="btn btn-primary" />
+	@Html.ValidationSummary(true)
+}
