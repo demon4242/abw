@@ -1,11 +1,101 @@
 ﻿@using System.Web.Optimization
+@using abw.Helpers
 @model abw.ViewModels.Car
 @{
 	ViewBag.Title = "Новая машина";
 }
+@section styles
+{
+	@Styles.Render("~/car")
+}
 @section scripts
 {
 	@Scripts.Render("~/validation")
+	@Scripts.Render("~/knockout")
+	<script type="text/javascript">
+		$(function () {
+			var viewModel = @Html.Raw(NewtonJson.Serialize(Model));
+
+			function CarModel() {
+				this.id = ko.observable();
+				this.name = ko.observable();
+			}
+
+			// adds dom elements to jQuery validation context
+			viewModel.addToValidationContext = function (elements) {
+				var form;
+				var dataValElementNames = [];
+				// validation rules from jquery validation object
+				var jqueryRules;
+				// validation rules from DOM
+				var domRules;
+
+				if (!(elements instanceof Array)) {
+					elements = [elements];
+				}
+
+				ko.utils.arrayForEach(elements, function (element) {
+					// ignore element in array if its nodeType is not ELEMENT_NODE
+					if (element.nodeType === 1) {
+						var dataValElements = [];
+						if ($(element).attr('data-val')) {
+							dataValElements.push(element);
+						} else {
+							dataValElements = $(element).find('[data-val]');
+						}
+						if (dataValElements.length) {
+							if (!form) {
+								form = $(dataValElements).closest('form');
+							}
+							ko.utils.arrayForEach(dataValElements, function (dataValElement) {
+								// adds rules to 'domRules'
+								$.validator.unobtrusive.parseElement(dataValElement);
+								dataValElementNames.push(dataValElement.name);
+							});
+						}
+					}
+				});
+
+				if (!form) {
+					return;
+				}
+
+				jqueryRules = form.validate().settings.rules;
+				domRules = form.data('unobtrusiveValidation').options.rules;
+
+				ko.utils.arrayForEach(dataValElementNames, function (name) {
+					var jqueryMessages, domMessages;
+					if (!jqueryRules[name] && domRules[name]) {
+						jqueryRules[name] = domRules[name];
+						// add error messages if necessary
+						jqueryMessages = form.validate().settings.messages;
+						domMessages = form.data('unobtrusiveValidation').options.messages;
+						if (!jqueryMessages[name] && domMessages[name]) {
+							jqueryMessages[name] = domMessages[name];
+						}
+					}
+				});
+			};
+
+			// adds new car model
+			viewModel.addModel = function() {
+				var carModel = new CarModel();
+				viewModel.models.push(carModel);
+			};
+
+			// deletes car model
+			viewModel.deleteCarModel = function(carViewModel) {
+				var carModels = viewModel.models;
+				if (carModels().length <= 1) {
+					return;
+				}
+				carModels.remove(carViewModel);
+			};
+
+			viewModel = ko.mapping.fromJS(viewModel);
+			ko.applyBindings(viewModel);
+		});
+	</script>
 }
 @using (Html.BeginForm("New"))
 {
@@ -13,25 +103,27 @@
 	<h3>Новая машина</h3>
 	<hr />
 
-	@Html.HiddenFor(m => m.Id)
+	@Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
 
 	<div>
 		@Html.LabelFor(m => m.Make)
-		@Html.TextBoxFor(m => m.Make)
+		@Html.TextBoxFor(m => m.Make, new { data_bind = "value: make" })
 		@Html.ValidationMessageFor(m => m.Make)
 	</div>
 
-	<div id="modelsLabel">
+	<div id="carModelsLabel">
 		@Html.LabelFor(m => m.Models)
-		<input type="button" class="btn btn-success btn-xs" value="Добавить" />
+		<input type="button" data-bind="click: addModel" class="btn btn-success btn-xs" value="Добавить" />
 	</div>
-	for (int i = 0; i < Model.Models.Count; i++)
-	{
-	<div>
-		@Html.TextBoxFor(m => m.Models[i].Name)
-		@Html.ValidationMessageFor(m => m.Models[i].Name)
+
+	<!-- ko foreach: { data: models, afterAdd: addToValidationContext } -->
+	<div class="car-model">
+		@Html.HiddenFor(m => m.Models[0].Id, new { data_bind = "value: id, attr: { name: 'Models[' + $index() + '].Id' }" })
+		@Html.TextBoxFor(m => m.Models[0].Name, new { data_bind = "value: name, attr: { name: 'Models[' + $index() + '].Name' }" })
+		<input type="button" data-bind="visible: $parent.models().length > 1, click: $parent.deleteCarModel" class="btn btn-danger btn-xs" value="Удалить" />
+		@Html.ValidationMessageFor(m => m.Models[0].Name, null, new { data_bind = "attr: { 'data-valmsg-for': 'Models[' + $index() + '].Name' }" })
 	</div>
-	}
+	<!-- /ko -->
 
 	<hr />
 	<input type="submit" value="Сохранить" class="btn btn-primary" />

@@ -29,7 +29,7 @@
 
 	<div>
 		@Html.LabelFor(m => m.Year)
-		@Html.TextBoxFor(m => m.Year)
+		@Html.DropDownListFor(m => m.Year, Model.Years)
 		@Html.ValidationMessageFor(m => m.Year)
 	</div>
 
