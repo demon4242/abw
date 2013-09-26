@@ -15,12 +15,12 @@ namespace abw.Controllers
 
 		public ActionResult New()
 		{
-			Car car = new Car();
+			CarViewModel car = new CarViewModel();
 			return View(car);
 		}
 
 		[HttpPost]
-		public ActionResult New(Car car)
+		public ActionResult New(CarViewModel car)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -36,7 +36,7 @@ namespace abw.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Edit(Car car)
+		public ActionResult Edit(CarViewModel car)
 		{
 			if (!ModelState.IsValid)
 			{

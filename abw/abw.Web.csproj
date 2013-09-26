@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -135,11 +136,11 @@
     <Compile Include="Helpers\NewtonJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Cars\CarBase.cs" />
-    <Compile Include="ViewModels\Cars\Car.cs" />
+    <Compile Include="ViewModels\Cars\CarViewModel.cs" />
     <Compile Include="ViewModels\Cars\CarForDisplay.cs" />
     <Compile Include="ViewModels\Grid.cs" />
-    <Compile Include="ViewModels\Cars\CarModel.cs" />
-    <Compile Include="ViewModels\MyCars\MyCar.cs" />
+    <Compile Include="ViewModels\Cars\CarModelViewModel.cs" />
+    <Compile Include="ViewModels\MyCars\MyCarViewModel.cs" />
     <Compile Include="ViewModels\MyCars\MyCarForDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,9 +178,7 @@
     <Content Include="Views\MyCars\All.cshtml" />
     <Content Include="Views\MyCars\New.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

@@ -3,7 +3,7 @@ using abw.Resources;
 
 namespace abw.ViewModels
 {
-	public class CarModel
+	public class CarModelViewModel
 	{
 		public long Id { get; set; }
 

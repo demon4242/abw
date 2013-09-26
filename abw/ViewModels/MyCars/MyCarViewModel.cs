@@ -7,7 +7,7 @@ using abw.ViewModels.MyCars;
 
 namespace abw.ViewModels
 {
-	public class MyCar : MyCarForDisplay
+	public class MyCarViewModel : MyCarForDisplay
 	{
 		[Display(ResourceType = typeof(DisplayNames), Name = "Make")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
