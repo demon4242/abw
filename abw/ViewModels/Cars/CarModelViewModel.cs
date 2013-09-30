@@ -9,6 +9,7 @@ namespace abw.ViewModels
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Model")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
+		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
 		public string Name { get; set; }
 	}
 }

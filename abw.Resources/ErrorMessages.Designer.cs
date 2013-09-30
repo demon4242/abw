@@ -68,5 +68,14 @@ namespace abw.Resources {
                 return ResourceManager.GetString("Required", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Максимальная длина поля {0} - {1} символов.
+        /// </summary>
+        public static string StringMaxLength {
+            get {
+                return ResourceManager.GetString("StringMaxLength", resourceCulture);
+            }
+        }
     }
 }

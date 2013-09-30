@@ -45,6 +45,9 @@
     <Reference Include="dotless.Core">
       <HintPath>..\packages\dotless.1.3.1.0\lib\dotless.Core.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -55,7 +58,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -192,6 +194,10 @@
     <Content Include="Views\Home\Contacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\abw.DAL\abw.DAL.csproj">
+      <Project>{19F73776-3170-4121-9F0B-F8EEB41D14FB}</Project>
+      <Name>abw.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\abw.Resources\abw.Resources.csproj">
       <Project>{13950df7-18b5-4406-ab2c-05ebe61eb6a3}</Project>
       <Name>abw.Resources</Name>

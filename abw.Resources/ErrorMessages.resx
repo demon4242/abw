@@ -120,4 +120,7 @@
   <data name="Required" xml:space="preserve">
     <value>Поле {0} - обязательное</value>
   </data>
+  <data name="StringMaxLength" xml:space="preserve">
+    <value>Максимальная длина поля {0} - {1} символов</value>
+  </data>
 </root>

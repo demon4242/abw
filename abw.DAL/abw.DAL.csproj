@@ -34,7 +34,9 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,11 +44,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbwDbContext.cs" />
+    <Compile Include="AbwDbInitializer.cs" />
+    <Compile Include="Contracts\ICarsRepository.cs" />
+    <Compile Include="Contracts\IMyCarsRepository.cs" />
+    <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\CarModel.cs" />
     <Compile Include="Entities\MyCar.cs" />
+    <Compile Include="Migrations\AbwDbMigrationsConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Contracts\IRepository.cs" />
+    <Compile Include="Repositories\CarsRepository.cs" />
+    <Compile Include="Repositories\MyCarsRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\abw.Resources\abw.Resources.csproj">
+      <Project>{13950DF7-18B5-4406-AB2C-05EBE61EB6A3}</Project>
+      <Name>abw.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,10 +11,12 @@ namespace abw.ViewModels
 	{
 		[Display(ResourceType = typeof(DisplayNames), Name = "Make")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
+		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
 		public override string Make { get; set; }
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Model")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
+		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
 		public override string Model { get; set; }
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Year")]
