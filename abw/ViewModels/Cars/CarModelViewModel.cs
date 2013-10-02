@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using abw.DAL.Entities;
 using abw.Resources;
 
 namespace abw.ViewModels
@@ -11,5 +12,15 @@ namespace abw.ViewModels
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
 		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
 		public string Name { get; set; }
+
+		public CarModel ToEntity()
+		{
+			CarModel carModel = new CarModel();
+
+			carModel.Id = Id;
+			carModel.Name = Name;
+
+			return carModel;
+		}
 	}
 }

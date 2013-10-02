@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using abw.DAL.Entities;
 using abw.Resources;
 
 namespace abw.ViewModels
@@ -18,6 +20,17 @@ namespace abw.ViewModels
 		public CarViewModel()
 		{
 			Models = new List<CarModelViewModel> { new CarModelViewModel() };
+		}
+
+		public Car ToEntity()
+		{
+			Car car = new Car();
+
+			car.Id = Id;
+			car.Make = Make;
+			car.Models = Models.ConvertAll(m => m.ToEntity());
+
+			return car;
 		}
 	}
 }

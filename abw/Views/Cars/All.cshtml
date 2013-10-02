@@ -3,4 +3,36 @@
 @{
 	ViewBag.Title = "Машины";
 }
-@Html.ActionLink("Новая", "New", null, new { @class = "btn btn-primary" })
+@{ Html.RenderPartial("Buttons/_New"); }
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Марка</th>
+			<th>Модели</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (CarForDisplay car in Model.List)
+		{
+			<tr>
+				<td>
+					@Html.ActionLink(car.Make, "Edit", new { id = car.Id })
+				</td>
+				<td>
+					@foreach (string carModel in car.Models)
+					{
+						<div>@carModel</div>
+					}
+				</td>
+				<td>
+					<input type="button" class="btn btn-danger btn-sm" value="Удалить" />
+				</td>
+			</tr>
+		}
+		@if (Model.List.Count == 0)
+		{
+			Html.RenderPartial("_NoRecordsFound", 3);
+		}
+	</tbody>
+</table>

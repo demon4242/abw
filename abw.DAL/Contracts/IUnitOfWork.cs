@@ -1,6 +1,8 @@
-﻿namespace abw.DAL.Contracts
+﻿using System;
+
+namespace abw.DAL.Contracts
 {
-	public interface IUnitOfWork
+	public interface IUnitOfWork : IDisposable
 	{
 		void Save();
 

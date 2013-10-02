@@ -45,7 +45,8 @@
     <Reference Include="dotless.Core">
       <HintPath>..\packages\dotless.1.3.1.0\lib\dotless.Core.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +59,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -129,6 +131,7 @@
   <ItemGroup>
     <Compile Include="App_Start\LessTransform.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyCarsController.cs" />
@@ -142,8 +145,10 @@
     <Compile Include="ViewModels\Cars\CarForDisplay.cs" />
     <Compile Include="ViewModels\Grid.cs" />
     <Compile Include="ViewModels\Cars\CarModelViewModel.cs" />
+    <Compile Include="ViewModels\MyCars\MyCarBase.cs" />
     <Compile Include="ViewModels\MyCars\MyCarViewModel.cs" />
     <Compile Include="ViewModels\MyCars\MyCarForDisplay.cs" />
+    <Compile Include="ViewModels\ViewModelsProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -179,6 +184,11 @@
     <Content Include="Views\Cars\New.cshtml" />
     <Content Include="Views\MyCars\All.cshtml" />
     <Content Include="Views\MyCars\New.cshtml" />
+    <Content Include="Views\Cars\Edit.cshtml" />
+    <Content Include="Views\MyCars\Edit.cshtml" />
+    <Content Include="Views\Shared\Buttons\_New.cshtml" />
+    <Content Include="Views\Shared\Buttons\_Back.cshtml" />
+    <Content Include="Views\Shared\_NoRecordsFound.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

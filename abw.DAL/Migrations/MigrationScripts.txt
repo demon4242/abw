@@ -1,0 +1,3 @@
+﻿Add-Migration -project:abw.DAL -Force
+
+Update-Database -project:abw.DAL -Force -Verbose

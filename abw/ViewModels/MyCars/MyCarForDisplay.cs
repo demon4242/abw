@@ -1,11 +1,9 @@
-﻿namespace abw.ViewModels.MyCars
+﻿using abw.ViewModels.MyCars;
+
+namespace abw.ViewModels
 {
-	public class MyCarForDisplay
+	public class MyCarForDisplay : MyCarBase
 	{
-		public long Id { get; set; }
-
-		public virtual string Make { get; set; }
-
-		public virtual string Model { get; set; }
+		public string MakeAndModel { get; set; }
 	}
 }

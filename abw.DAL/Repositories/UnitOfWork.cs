@@ -1,20 +1,27 @@
-﻿using System;
-using abw.DAL.Contracts;
+﻿using abw.DAL.Contracts;
 
 namespace abw.DAL.Repositories
 {
 	public class UnitOfWork : IUnitOfWork
 	{
-		public void Save()
-		{
-			throw new NotImplementedException();
-		}
+		#region Private
+
+		private readonly AbwDbContext _dbContext = new AbwDbContext();
+
+		private ICarsRepository _cars;
+
+		private IMyCarsRepository _myCars;
+
+		#endregion Private
+
+		#region Public
 
 		public ICarsRepository Cars
 		{
 			get
 			{
-				throw new NotImplementedException();
+				ICarsRepository cars = _cars ?? (_cars = new CarsRepository(_dbContext));
+				return cars;
 			}
 		}
 
@@ -22,8 +29,21 @@ namespace abw.DAL.Repositories
 		{
 			get
 			{
-				throw new NotImplementedException();
+				IMyCarsRepository myCars = _myCars ?? (_myCars = new MyCarsRepository(_dbContext));
+				return myCars;
 			}
 		}
+
+		public void Save()
+		{
+			_dbContext.SaveChanges();
+		}
+
+		public void Dispose()
+		{
+			_dbContext.Dispose();
+		}
+
+		#endregion Public
 	}
 }

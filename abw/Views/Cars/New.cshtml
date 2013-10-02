@@ -99,7 +99,7 @@
 }
 @using (Html.BeginForm("New"))
 {
-	@Html.ActionLink("Назад", "All", null, new { @class = "btn btn-primary" })
+	Html.RenderPartial("Buttons/_Back");
 	<h3>Новая машина</h3>
 	<hr />
 
