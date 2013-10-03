@@ -67,6 +67,10 @@
     <Compile Include="Repositories\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\abw.Common\abw.Common.csproj">
+      <Project>{402516C1-C07C-490D-8FDD-FDF458499C9E}</Project>
+      <Name>abw.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\abw.Resources\abw.Resources.csproj">
       <Project>{13950DF7-18B5-4406-AB2C-05EBE61EB6A3}</Project>
       <Name>abw.Resources</Name>

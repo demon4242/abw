@@ -2,11 +2,14 @@
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Linq;
+using abw.Common;
 using abw.DAL.Contracts;
+using abw.DAL.Entities;
 
 namespace abw.DAL.Repositories
 {
-	public abstract class Repository<T> : IRepository<T> where T : class
+	public abstract class Repository<T> : IRepository<T> where T : BaseEntity
 	{
 		private DbContext DbContext { get; set; }
 
@@ -18,9 +21,17 @@ namespace abw.DAL.Repositories
 			DbSet = DbContext.Set<T>();
 		}
 
-		public IEnumerable<T> GetAll()
+		public IQueryable<T> GetAll(int? page)
 		{
-			return DbSet;
+			if (!page.HasValue)
+			{
+				page = 1;
+			}
+			IQueryable<T> entities = DbSet
+				.OrderBy(m => m.Id)
+				.Skip((page.Value - 1) * WebConfigManager.GridPageSize)
+				.Take(WebConfigManager.GridPageSize);
+			return entities;
 		}
 
 		public T GetById(long id)

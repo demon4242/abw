@@ -1,11 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abw.Web", "abw\abw.Web.csproj", "{44A5A11F-62AE-4E67-B5F5-0EF8E236C3FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abw.Web", "abw.Web\abw.Web.csproj", "{44A5A11F-62AE-4E67-B5F5-0EF8E236C3FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abw.Resources", "abw.Resources\abw.Resources.csproj", "{13950DF7-18B5-4406-AB2C-05EBE61EB6A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abw.DAL", "abw.DAL\abw.DAL.csproj", "{19F73776-3170-4121-9F0B-F8EEB41D14FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{711F4D76-6852-4BA1-87FA-A544DE702FA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abw.BusinessLogic", "abw.BusinessLogic\abw.BusinessLogic.csproj", "{FF81E385-1CDB-4064-BABE-362396B33B95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abw.BusinessLogic.Interfaces", "abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj", "{F255E5D3-4FBE-4F97-B5DC-A14A06BE4109}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{FF091BF8-5EDB-4F51-8332-24CAF692F24A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abw.Common", "abw.Common\abw.Common.csproj", "{402516C1-C07C-490D-8FDD-FDF458499C9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abw.Logging", "abw.Logging\abw.Logging.csproj", "{B45368DB-336A-4563-A466-E78F71A6D33E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,8 +37,31 @@ Global
 		{19F73776-3170-4121-9F0B-F8EEB41D14FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F73776-3170-4121-9F0B-F8EEB41D14FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19F73776-3170-4121-9F0B-F8EEB41D14FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF81E385-1CDB-4064-BABE-362396B33B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF81E385-1CDB-4064-BABE-362396B33B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF81E385-1CDB-4064-BABE-362396B33B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF81E385-1CDB-4064-BABE-362396B33B95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F255E5D3-4FBE-4F97-B5DC-A14A06BE4109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F255E5D3-4FBE-4F97-B5DC-A14A06BE4109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F255E5D3-4FBE-4F97-B5DC-A14A06BE4109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F255E5D3-4FBE-4F97-B5DC-A14A06BE4109}.Release|Any CPU.Build.0 = Release|Any CPU
+		{402516C1-C07C-490D-8FDD-FDF458499C9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{402516C1-C07C-490D-8FDD-FDF458499C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{402516C1-C07C-490D-8FDD-FDF458499C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{402516C1-C07C-490D-8FDD-FDF458499C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B45368DB-336A-4563-A466-E78F71A6D33E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B45368DB-336A-4563-A466-E78F71A6D33E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B45368DB-336A-4563-A466-E78F71A6D33E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B45368DB-336A-4563-A466-E78F71A6D33E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FF81E385-1CDB-4064-BABE-362396B33B95} = {711F4D76-6852-4BA1-87FA-A544DE702FA8}
+		{F255E5D3-4FBE-4F97-B5DC-A14A06BE4109} = {711F4D76-6852-4BA1-87FA-A544DE702FA8}
+		{13950DF7-18B5-4406-AB2C-05EBE61EB6A3} = {FF091BF8-5EDB-4F51-8332-24CAF692F24A}
+		{402516C1-C07C-490D-8FDD-FDF458499C9E} = {FF091BF8-5EDB-4F51-8332-24CAF692F24A}
+		{B45368DB-336A-4563-A466-E78F71A6D33E} = {FF091BF8-5EDB-4F51-8332-24CAF692F24A}
 	EndGlobalSection
 EndGlobal

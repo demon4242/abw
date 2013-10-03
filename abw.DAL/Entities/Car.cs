@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using abw.Resources;
+using abw.Common;
 
 namespace abw.DAL.Entities
 {
