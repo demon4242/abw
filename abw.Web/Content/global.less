@@ -57,3 +57,28 @@ input[type=text] {
 #noRecordsFound {
 	text-align: center;
 }
+
+.icon-remove {
+	color: red;
+	cursor: pointer;
+	font-size: 1.5em;
+}
+
+.grid {
+	th {
+		border-bottom-width: 1px !important;
+	}
+
+	tr:hover:not(#noRecordsFound) {
+		td {
+			background-color: #EBEBEB !important;
+		}
+	}
+
+	tr:not(#noRecordsFound) td:last-of-type {
+		padding: 7px 8px;
+		text-align: center;
+		vertical-align: middle;
+		cursor: pointer;
+	}
+}
