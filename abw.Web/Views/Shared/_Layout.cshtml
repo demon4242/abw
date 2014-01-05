@@ -21,7 +21,39 @@
 		</ul>
 	</header>
 	@RenderBody()
-	@Scripts.Render("~/globalScripts")
+	<script src="@Url.Content("~/Scripts/require.js")"></script>
+	<script type="text/javascript">
+		(function () {
+			var baseUrl = '@Url.Content("~/Scripts/")';
+			requirejs.config({
+				paths: {
+					'jquery': baseUrl + 'jquery-2.0.3',
+					'bootstrap': baseUrl + 'bootstrap',
+					'validation': baseUrl + 'validation/jquery.validate',
+					'unobtrusive-validation': baseUrl + 'validation/jquery.validate.unobtrusive',
+					'knockout': baseUrl + 'knockout/knockout-2.3.0',
+					'knockout-mapping': baseUrl + 'knockout/knockout.mapping-2.4.0',
+					'newCar': baseUrl + 'custom/newCar'
+				},
+				shim: {
+					'bootstrap': {
+						deps: ['jquery']
+					},
+					'validation': {
+						deps: ['jquery']
+					},
+					'unobtrusive-validation': {
+						deps: ['validation']
+					},
+					'knockout-mapping': {
+						deps: ['knockout']
+					}
+				}
+			});
+
+			require(['jquery', 'bootstrap']);
+		}());
+	</script>
 	@RenderSection("scripts", false)
 </body>
 </html>

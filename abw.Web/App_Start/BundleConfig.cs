@@ -6,27 +6,6 @@ namespace abw.App_Start
 	{
 		public static void RegisterBundles(BundleCollection bundles)
 		{
-			#region Scripts
-
-			// global scripts
-			Bundle globalScripts = new Bundle("~/globalScripts")
-				.Include("~/Scripts/bootstrap.js")
-				.Include("~/Scripts/jquery-{version}.js");
-			bundles.Add(globalScripts);
-
-			// validation
-			Bundle validation = new Bundle("~/validation")
-				.Include("~/Scripts/validation/jquery.validate.js")
-				.Include("~/Scripts/validation/jquery.validate.unobtrusive.js");
-			bundles.Add(validation);
-
-			// knockout
-			Bundle knockout = new Bundle("~/knockout")
-				.IncludeDirectory("~/Scripts/knockout", "*.js");
-			bundles.Add(knockout);
-
-			#endregion Scripts
-
 			#region Styles
 
 			// global styles

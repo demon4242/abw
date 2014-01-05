@@ -1,11 +1,12 @@
-﻿@using System.Web.Optimization
-@model abw.ViewModels.MyCarViewModel
+﻿@model abw.ViewModels.MyCarViewModel
 @{
 	ViewBag.Title = "Моя новая машина";
 }
 @section scripts
 {
-	@Scripts.Render("~/validation")
+	<script type="text/javascript">
+		require(['validation', 'unobtrusive-validation']);
+	</script>
 }
 @using (Html.BeginForm("New"))
 {
