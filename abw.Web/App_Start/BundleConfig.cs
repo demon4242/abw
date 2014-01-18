@@ -13,7 +13,6 @@ namespace abw.App_Start
 			// global styles
 			Bundle globalStyles = new Bundle("~/globalStyles")
 				.IncludeDirectory(stylesDirectory + "bootstrap-3.0.3", "*.css")
-				.Include(stylesDirectory + "font-awesome-3.2.1.css")
 				.Include(stylesDirectory + "custom/global.less");
 			AddStyleBundle(ref bundles, globalStyles);
 
