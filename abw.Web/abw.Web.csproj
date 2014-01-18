@@ -164,28 +164,28 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Content\bootstrap\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap\bootstrap.css" />
-    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\styles\bootstrap-3.0.3\bootstrap-theme.css" />
+    <Content Include="Content\styles\bootstrap-3.0.3\bootstrap.css" />
+    <Content Include="Content\styles\font-awesome-3.2.1.css" />
     <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\mts.gif" />
     <Content Include="Content\images\velcom.gif" />
     <Content Include="Global.asax" />
-    <Content Include="Content\car.less" />
+    <Content Include="Content\styles\custom\car.less" />
     <Content Include="Content\font\fontawesome-webfont.woff" />
     <Content Include="Content\font\fontawesome-webfont.ttf" />
     <Content Include="Content\font\fontawesome-webfont.eot" />
     <Content Include="Content\font\FontAwesome.otf" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap-3.0.3.js" />
     <Content Include="Scripts\custom\newCar.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
-    <None Include="Scripts\validation\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\validation\jquery.validate-1.11.1-vsdoc.js" />
+    <Content Include="Scripts\knockout\knockout-3.0.0.js" />
     <Content Include="Scripts\knockout\knockout.mapping-2.4.0.js" />
-    <Content Include="Scripts\require.js" />
-    <Content Include="Scripts\validation\jquery.validate.js" />
+    <Content Include="Scripts\require-2.1.9.js" />
+    <Content Include="Scripts\validation\jquery.validate-1.11.1.js" />
     <Content Include="Scripts\validation\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\knockout\knockout-2.3.0.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -252,7 +252,7 @@
     <Content Include="Views\Shared\_Phones.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\global.less" />
+    <Content Include="Content\styles\custom\global.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

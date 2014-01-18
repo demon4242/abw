@@ -21,17 +21,17 @@
 		</ul>
 	</header>
 	@RenderBody()
-	<script src="@Url.Content("~/Scripts/require.js")"></script>
+	<script src="@Url.Content("~/Scripts/require-2.1.9.js")"></script>
 	<script type="text/javascript">
 		(function () {
 			var baseUrl = '@Url.Content("~/Scripts/")';
 			requirejs.config({
 				paths: {
 					'jquery': baseUrl + 'jquery-2.0.3',
-					'bootstrap': baseUrl + 'bootstrap',
-					'validation': baseUrl + 'validation/jquery.validate',
+					'bootstrap': baseUrl + 'bootstrap-3.0.3',
+					'validation': baseUrl + 'validation/jquery.validate-1.11.1',
 					'unobtrusive-validation': baseUrl + 'validation/jquery.validate.unobtrusive',
-					'knockout': baseUrl + 'knockout/knockout-2.3.0',
+					'knockout': baseUrl + 'knockout/knockout-3.0.0',
 					'knockout-mapping': baseUrl + 'knockout/knockout.mapping-2.4.0',
 					'newCar': baseUrl + 'custom/newCar'
 				},

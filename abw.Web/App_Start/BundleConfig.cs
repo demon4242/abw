@@ -8,16 +8,18 @@ namespace abw.App_Start
 		{
 			#region Styles
 
+			const string stylesDirectory = "~/Content/styles/";
+
 			// global styles
 			Bundle globalStyles = new Bundle("~/globalStyles")
-				.IncludeDirectory("~/Content/bootstrap", "*.css")
-				.Include("~/Content/font-awesome.css")
-				.Include("~/Content/global.less");
+				.IncludeDirectory(stylesDirectory + "bootstrap-3.0.3", "*.css")
+				.Include(stylesDirectory + "font-awesome-3.2.1.css")
+				.Include(stylesDirectory + "custom/global.less");
 			AddStyleBundle(ref bundles, globalStyles);
 
 			// car styles
 			Bundle carStyles = new Bundle("~/car")
-				.Include("~/Content/car.less");
+				.Include(stylesDirectory + "custom/car.less");
 			AddStyleBundle(ref bundles, carStyles);
 
 			#endregion Styles
