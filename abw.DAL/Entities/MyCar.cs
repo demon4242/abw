@@ -5,7 +5,7 @@ namespace abw.DAL.Entities
 	public class MyCar : BaseEntity
 	{
 		[Required]
-		public long CarModelId { get; set; }
+		public int CarModelId { get; set; }
 
 		public CarModel CarModel { get; set; }
 

@@ -8,12 +8,12 @@ namespace abw.BusinessLogic.Interfaces
 	{
 		List<T> GetAll(int? page);
 
-		T GetById(long id);
+		T GetById(int id);
 
 		void Create(T car);
 
 		void Update(T car);
 
-		bool Delete(long id);
+		bool Delete(int id);
 	}
 }

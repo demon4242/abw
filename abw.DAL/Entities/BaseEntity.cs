@@ -5,6 +5,6 @@ namespace abw.DAL.Entities
 	public abstract class BaseEntity
 	{
 		[Required]
-		public long Id { get; set; }
+		public int Id { get; set; }
 	}
 }

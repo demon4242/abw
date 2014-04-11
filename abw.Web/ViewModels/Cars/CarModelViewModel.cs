@@ -7,7 +7,7 @@ namespace abw.ViewModels
 {
 	public class CarModelViewModel
 	{
-		public long Id { get; set; }
+		public int Id { get; set; }
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Model")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]

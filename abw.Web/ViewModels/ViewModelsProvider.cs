@@ -22,7 +22,7 @@ namespace abw.ViewModels
 			return grid;
 		}
 
-		public static CarViewModel GetEditCar(this ICarService carService, long id)
+		public static CarViewModel GetEditCar(this ICarService carService, int id)
 		{
 			Car car = carService.GetById(id);
 			CarViewModel viewModel = car.ToViewModel();
@@ -44,7 +44,7 @@ namespace abw.ViewModels
 			return grid;
 		}
 
-		public static MyCarViewModel GetEditCar(this IMyCarService myCarService, long id)
+		public static MyCarViewModel GetEditCar(this IMyCarService myCarService, int id)
 		{
 			MyCar myCar = myCarService.GetById(id);
 			MyCarViewModel viewModel = myCar.ToViewModel();

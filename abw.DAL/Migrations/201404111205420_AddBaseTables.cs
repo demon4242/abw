@@ -2,7 +2,7 @@ namespace abw.DAL.Migrations
 {
 	using System.Data.Entity.Migrations;
 
-	public partial class BaseTables : DbMigration
+	public partial class AddBaseTables : DbMigration
 	{
 		public override void Up()
 		{
@@ -10,7 +10,7 @@ namespace abw.DAL.Migrations
 				"dbo.Cars",
 				c => new
 					{
-						Id = c.Long(nullable: false, identity: true),
+						Id = c.Int(nullable: false, identity: true),
 						Make = c.String(nullable: false, maxLength: 255),
 					})
 				.PrimaryKey(t => t.Id);
@@ -19,9 +19,9 @@ namespace abw.DAL.Migrations
 				"dbo.CarModels",
 				c => new
 					{
-						Id = c.Long(nullable: false, identity: true),
+						Id = c.Int(nullable: false, identity: true),
 						Name = c.String(nullable: false, maxLength: 255),
-						CarId = c.Long(nullable: false),
+						CarId = c.Int(nullable: false),
 					})
 				.PrimaryKey(t => t.Id)
 				.ForeignKey("dbo.Cars", t => t.CarId, cascadeDelete: true)
@@ -31,8 +31,8 @@ namespace abw.DAL.Migrations
 				"dbo.MyCars",
 				c => new
 					{
-						Id = c.Long(nullable: false, identity: true),
-						CarModelId = c.Long(nullable: false),
+						Id = c.Int(nullable: false, identity: true),
+						CarModelId = c.Int(nullable: false),
 						Year = c.Int(nullable: false),
 					})
 				.PrimaryKey(t => t.Id)

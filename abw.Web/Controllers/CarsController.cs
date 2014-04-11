@@ -36,7 +36,7 @@ namespace abw.Controllers
 			return RedirectToAction("All");
 		}
 
-		public ActionResult Edit(long id)
+		public ActionResult Edit(int id)
 		{
 			CarViewModel car = Service.GetEditCar(id);
 			return View(car);
@@ -54,7 +54,7 @@ namespace abw.Controllers
 			return RedirectToAction("All");
 		}
 
-		public JsonResult Delete(long id)
+		public JsonResult Delete(int id)
 		{
 			bool success = Service.Delete(id);
 			if (!success)

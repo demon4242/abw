@@ -202,7 +202,28 @@
     <Content Include="Views\Shared\Buttons\_Back.cshtml" />
     <Content Include="Views\Shared\_NoRecordsFound.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">
+      <Project>{f255e5d3-4fbe-4f97-b5dc-a14a06be4109}</Project>
+      <Name>abw.BusinessLogic.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abw.BusinessLogic\abw.BusinessLogic.csproj">
+      <Project>{ff81e385-1cdb-4064-babe-362396b33b95}</Project>
+      <Name>abw.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abw.Common\abw.Common.csproj">
+      <Project>{402516c1-c07c-490d-8fdd-fdf458499c9e}</Project>
+      <Name>abw.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abw.DAL\abw.DAL.csproj">
+      <Project>{19f73776-3170-4121-9f0b-f8eeb41d14fb}</Project>
+      <Name>abw.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abw.Resources\abw.Resources.csproj">
+      <Project>{13950df7-18b5-4406-ab2c-05ebe61eb6a3}</Project>
+      <Name>abw.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -214,28 +235,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Contacts.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">
-      <Project>{F255E5D3-4FBE-4F97-B5DC-A14A06BE4109}</Project>
-      <Name>abw.BusinessLogic.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\abw.BusinessLogic\abw.BusinessLogic.csproj">
-      <Project>{FF81E385-1CDB-4064-BABE-362396B33B95}</Project>
-      <Name>abw.BusinessLogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\abw.Common\abw.Common.csproj">
-      <Project>{402516C1-C07C-490D-8FDD-FDF458499C9E}</Project>
-      <Name>abw.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\abw.DAL\abw.DAL.csproj">
-      <Project>{19F73776-3170-4121-9F0B-F8EEB41D14FB}</Project>
-      <Name>abw.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\abw.Resources\abw.Resources.csproj">
-      <Project>{13950df7-18b5-4406-ab2c-05ebe61eb6a3}</Project>
-      <Name>abw.Resources</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Layout.cshtml" />

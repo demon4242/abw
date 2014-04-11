@@ -33,7 +33,7 @@ namespace abw.DAL.Repositories
 			return entities;
 		}
 
-		public T GetById(long id)
+		public T GetById(int id)
 		{
 			T entity = DbSet.Find(id);
 			return entity;
@@ -51,7 +51,7 @@ namespace abw.DAL.Repositories
 			dbEntityEntry.State = EntityState.Modified;
 		}
 
-		public bool Delete(long id)
+		public bool Delete(int id)
 		{
 			T entity = GetById(id);
 			if (entity == null)

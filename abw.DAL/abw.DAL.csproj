@@ -54,9 +54,9 @@
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\CarModel.cs" />
     <Compile Include="Entities\MyCar.cs" />
-    <Compile Include="Migrations\201310021027184_BaseTables.cs" />
-    <Compile Include="Migrations\201310021027184_BaseTables.Designer.cs">
-      <DependentUpon>201310021027184_BaseTables.cs</DependentUpon>
+    <Compile Include="Migrations\201404111205420_AddBaseTables.cs" />
+    <Compile Include="Migrations\201404111205420_AddBaseTables.Designer.cs">
+      <DependentUpon>201404111205420_AddBaseTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbwDbMigrationsConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,8 +84,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201310021027184_BaseTables.resx">
-      <DependentUpon>201310021027184_BaseTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201404111205420_AddBaseTables.resx">
+      <DependentUpon>201404111205420_AddBaseTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

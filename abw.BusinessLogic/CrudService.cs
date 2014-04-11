@@ -24,7 +24,7 @@ namespace abw.BusinessLogic
 			return all;
 		}
 
-		public T GetById(long id)
+		public T GetById(int id)
 		{
 			T entity = Repository.GetById(id);
 			return entity;
@@ -42,7 +42,7 @@ namespace abw.BusinessLogic
 			Save();
 		}
 
-		public bool Delete(long id)
+		public bool Delete(int id)
 		{
 			bool success = Repository.Delete(id);
 			if (success)

@@ -7,12 +7,12 @@ namespace abw.DAL.Contracts
 	{
 		IQueryable<T> GetAll(int? page);
 
-		T GetById(long id);
+		T GetById(int id);
 
 		void Create(T entity);
 
 		void Update(T entity);
 
-		bool Delete(long id);
+		bool Delete(int id);
 	}
 }

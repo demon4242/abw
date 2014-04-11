@@ -10,7 +10,7 @@ namespace abw.DAL.Entities
 		public string Name { get; set; }
 
 		[Required]
-		public long CarId { get; set; }
+		public int CarId { get; set; }
 
 		public Car Car { get; set; }
 	}

@@ -2,7 +2,7 @@
 {
 	public abstract class CarBase
 	{
-		public long Id { get; set; }
+		public int Id { get; set; }
 
 		public virtual string Make { get; set; }
 	}
