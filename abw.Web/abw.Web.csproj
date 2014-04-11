@@ -176,6 +176,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap-3.0.3.js" />
+    <Content Include="Scripts\custom\allCars.js" />
     <Content Include="Scripts\custom\newCar.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <None Include="Scripts\validation\jquery.validate-1.11.1-vsdoc.js" />

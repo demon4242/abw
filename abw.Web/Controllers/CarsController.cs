@@ -5,6 +5,7 @@ using abw.ViewModels;
 
 namespace abw.Controllers
 {
+	// todo: implement as API controller
 	public class CarsController : BaseController<ICarService>
 	{
 		public CarsController(ICarService service)
@@ -65,7 +66,7 @@ namespace abw.Controllers
 					errorMessage = "Car has not been found"
 				});
 			}
-			return Json(new { success = true });
+			return Json(new { success = true }, JsonRequestBehavior.AllowGet);
 		}
 	}
 }
