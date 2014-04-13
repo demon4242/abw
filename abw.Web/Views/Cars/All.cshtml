@@ -13,7 +13,7 @@
 	</script>
 }
 @{ Html.RenderPartial("Buttons/_New"); }
-<table class="table table-striped table-bordered grid">
+<table data-bind="css: { 'no-data': !list().length }" class="table table-striped table-bordered grid">
 	<thead>
 		<tr>
 			<th>Марка</th>
@@ -35,8 +35,6 @@
 			</td>
 		</tr>
 		<!-- /ko -->
-		<!-- ko ifnot: list().length -->
 		@{ Html.RenderPartial("_NoRecordsFound", 3); }
-		<!-- /ko -->
 	</tbody>
 </table>
