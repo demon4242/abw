@@ -5,7 +5,6 @@ using abw.ViewModels;
 
 namespace abw.Controllers
 {
-	// todo: implement as API controller
 	public class CarsController : BaseController<ICarService>
 	{
 		public CarsController(ICarService service)

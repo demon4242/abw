@@ -1,11 +1,11 @@
 ﻿define(['knockout',
-	'knockout-mapping',
-	'validation',
-	'unobtrusive-validation'],
+		'knockout-mapping',
+		'validation',
+		'unobtrusive-validation'],
 function (ko, mapping) {
-	function newCar(viewModel) {
+	function car(viewModel) {
 		function CarModel() {
-			this.id = ko.observable();
+			this.id = ko.observable(0);
 			this.name = ko.observable();
 		}
 
@@ -66,13 +66,13 @@ function (ko, mapping) {
 		};
 
 		// adds new car model
-		viewModel.addModel = function() {
+		viewModel.addModel = function () {
 			var carModel = new CarModel();
 			viewModel.models.push(carModel);
 		};
 
 		// deletes car model
-		viewModel.deleteCarModel = function(carViewModel) {
+		viewModel.deleteCarModel = function (carViewModel) {
 			var carModels = viewModel.models;
 			if (carModels().length <= 1) {
 				return;
@@ -84,5 +84,5 @@ function (ko, mapping) {
 		ko.applyBindings(viewModel);
 	}
 
-	return newCar;
+	return car;
 });

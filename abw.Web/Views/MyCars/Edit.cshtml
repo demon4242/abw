@@ -1,1 +1,15 @@
 ﻿@model abw.ViewModels.MyCarViewModel
+@{
+	const string title = "Редактировать мою машину";
+	ViewBag.Title = title;
+}
+@section scripts
+{
+	<script type="text/javascript">
+		require(['validation', 'unobtrusive-validation']);
+	</script>
+}
+@{
+	Html.RenderPartial("Buttons/_Back", title);
+	Html.RenderPartial("_MyCar");
+}

@@ -177,7 +177,7 @@
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap-3.0.3.js" />
     <Content Include="Scripts\custom\allCars.js" />
-    <Content Include="Scripts\custom\newCar.js" />
+    <Content Include="Scripts\custom\car.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <None Include="Scripts\validation\jquery.validate-1.11.1-vsdoc.js" />
     <Content Include="Scripts\knockout\knockout-3.0.0.js" />
@@ -202,6 +202,8 @@
     <Content Include="Views\Shared\Buttons\_New.cshtml" />
     <Content Include="Views\Shared\Buttons\_Back.cshtml" />
     <Content Include="Views\Shared\_NoRecordsFound.cshtml" />
+    <Content Include="Views\Shared\_Car.cshtml" />
+    <Content Include="Views\Shared\_MyCar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">

@@ -1,6 +1,7 @@
 ﻿@model abw.ViewModels.MyCarViewModel
 @{
-	ViewBag.Title = "Моя новая машина";
+	const string title = "Моя новая машина";
+	ViewBag.Title = title;
 }
 @section scripts
 {
@@ -8,34 +9,7 @@
 		require(['validation', 'unobtrusive-validation']);
 	</script>
 }
-@using (Html.BeginForm("New"))
-{
-	Html.RenderPartial("Buttons/_Back");
-	<h3>Моя новая машина</h3>
-	<hr />
-
-	@Html.HiddenFor(m => m.Id)
-
-	<div>
-		@Html.LabelFor(m => m.Make)
-		@Html.TextBoxFor(m => m.Make)
-		@Html.ValidationMessageFor(m => m.Make)
-	</div>
-
-	<div>
-		@Html.LabelFor(m => m.Model)
-		@Html.TextBoxFor(m => m.Model)
-		@Html.ValidationMessageFor(m => m.Model)
-	</div>
-
-	<div>
-		@Html.LabelFor(m => m.Year)
-		@Html.DropDownListFor(m => m.Year, Model.Years)
-		@Html.ValidationMessageFor(m => m.Year)
-	</div>
-
-	<hr />
-	<input type="submit" value="Сохранить" class="btn btn-primary" />
-	@Html.ValidationSummary(true)
+@{
+	Html.RenderPartial("Buttons/_Back", title);
+	Html.RenderPartial("_MyCar");
 }
-

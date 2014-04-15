@@ -1,1 +1,4 @@
-﻿@Html.ActionLink("Назад", "All", null, new { @class = "btn btn-primary" })
+﻿@* form's title *@
+@model string
+@Html.ActionLink("Назад", "All", null, new { @class = "btn btn-primary" })
+<h3 id="formTitle">@Model</h3>

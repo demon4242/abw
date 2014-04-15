@@ -1,0 +1,28 @@
+﻿@model abw.ViewModels.MyCarViewModel
+@using (Html.BeginForm())
+{
+	<hr />
+	@Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
+
+	<div>
+		@Html.LabelFor(m => m.Make)
+		@Html.TextBoxFor(m => m.Make, new { data_bind = "value: make" })
+		@Html.ValidationMessageFor(m => m.Make)
+	</div>
+
+	<div>
+		@Html.LabelFor(m => m.Model)
+		@Html.TextBoxFor(m => m.Model, new { data_bind = "value: model" })
+		@Html.ValidationMessageFor(m => m.Model)
+	</div>
+
+	<div>
+		@Html.LabelFor(m => m.Year)
+		@Html.DropDownListFor(m => m.Year, Model.Years)
+		@Html.ValidationMessageFor(m => m.Year)
+	</div>
+
+	<hr />
+	<input type="submit" value="Сохранить" class="btn btn-primary" />
+	@Html.ValidationSummary(true)
+}

@@ -1,1 +1,21 @@
-﻿@model abw.ViewModels.CarViewModel
+﻿@using System.Web.Optimization
+@using abw.Helpers
+@model abw.ViewModels.CarViewModel
+@{
+	const string title = "Редактировать машину";
+	ViewBag.Title = title;
+}
+@section styles
+{
+	@Styles.Render("~/car")
+}
+@section scripts
+{
+	<script type="text/javascript">
+		require(['car'], function (car) {
+			car(@Html.Raw(NewtonJson.Serialize(Model)));
+		});
+	</script>
+}
+@{ Html.RenderPartial("Buttons/_Back", title); }
+@{ Html.RenderPartial("_Car"); }
