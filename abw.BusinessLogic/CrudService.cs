@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Contracts;
 using abw.DAL.Entities;
@@ -16,11 +15,12 @@ namespace abw.BusinessLogic
 			Uow = uow;
 		}
 
+		// todo: get repository using reflection
 		protected abstract IRepository<T> Repository { get; }
 
 		public List<T> GetAll(int? page)
 		{
-			List<T> all = Repository.GetAll(page).ToList();
+			List<T> all = Repository.GetAll(page);
 			return all;
 		}
 
@@ -30,15 +30,15 @@ namespace abw.BusinessLogic
 			return entity;
 		}
 
-		public void Create(T car)
+		public void Create(T entity)
 		{
-			Repository.Create(car);
+			Repository.Create(entity);
 			Save();
 		}
 
-		public void Update(T car)
+		public void Update(T entity)
 		{
-			Repository.Update(car);
+			Repository.Update(entity);
 			Save();
 		}
 

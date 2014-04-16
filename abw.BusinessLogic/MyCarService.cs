@@ -16,8 +16,7 @@ namespace abw.BusinessLogic
 		{
 			get
 			{
-				IRepository<MyCar> repository = Uow.MyCars;
-				return repository;
+				return Uow.MyCars;
 			}
 		}
 	}

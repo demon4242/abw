@@ -54,6 +54,7 @@ namespace abw.Controllers
 			return RedirectToAction("All");
 		}
 
+		[HttpPost]
 		public JsonResult Delete(int id)
 		{
 			bool success = Service.Delete(id);
@@ -65,7 +66,16 @@ namespace abw.Controllers
 					errorMessage = "Car has not been found"
 				});
 			}
-			return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+			return Json(new { success = true });
+		}
+
+		/// <summary>
+		/// Ensures that make of the car is unique
+		/// </summary>
+		public JsonResult CarMakeIsUnique(string make, int id)
+		{
+			bool isUnique = Service.CarMakeIsUnique(make, id);
+			return Json(isUnique, JsonRequestBehavior.AllowGet);
 		}
 	}
 }

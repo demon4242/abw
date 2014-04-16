@@ -9,7 +9,7 @@ function (ko) {
 			var result = confirm('Are you sure?');
 			if (result) {
 				// todo: implement 'loader' module
-				$.get('../cars/delete/' + car.id).done(function (data) {
+				$.post('../cars/delete/' + car.id).done(function (data) {
 					if (!data.success) {
 						alert(data.errorMessage);
 					} else {

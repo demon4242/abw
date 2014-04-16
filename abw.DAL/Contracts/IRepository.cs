@@ -1,11 +1,14 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using abw.DAL.Entities;
 
 namespace abw.DAL.Contracts
 {
 	public interface IRepository<T> where T : BaseEntity
 	{
-		IQueryable<T> GetAll(int? page);
+		IQueryable<T> All { get; }
+
+		List<T> GetAll(int? page);
 
 		T GetById(int id);
 

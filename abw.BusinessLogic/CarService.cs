@@ -1,4 +1,5 @@
-﻿using abw.BusinessLogic.Interfaces;
+﻿using System.Linq;
+using abw.BusinessLogic.Interfaces;
 using abw.DAL.Contracts;
 using abw.DAL.Entities;
 using abw.DAL.Repositories;
@@ -12,12 +13,17 @@ namespace abw.BusinessLogic
 		{
 		}
 
+		public bool CarMakeIsUnique(string make, int id)
+		{
+			bool isUnique = Repository.All.SingleOrDefault(m => m.Id != id && m.Make.Trim().ToLower() == make.Trim().ToLower()) == null;
+			return isUnique;
+		}
+
 		protected override IRepository<Car> Repository
 		{
 			get
 			{
-				IRepository<Car> repository = Uow.Cars;
-				return repository;
+				return Uow.Cars;
 			}
 		}
 	}

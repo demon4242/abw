@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -20,16 +21,25 @@ namespace abw.DAL.Repositories
 			DbSet = DbContext.Set<T>();
 		}
 
-		public IQueryable<T> GetAll(int? page)
+		public IQueryable<T> All
 		{
-			if (!page.HasValue)
+			get
 			{
-				page = 1;
+				return DbSet;
 			}
-			IQueryable<T> entities = DbSet
+		}
+
+		public List<T> GetAll(int? page)
+		{
+			int pageValue = page.HasValue
+				? page.Value
+				: 1;
+
+			List<T> entities = DbSet
 				.OrderBy(m => m.Id)
-				.Skip((page.Value - 1) * WebConfigManager.GridPageSize)
-				.Take(WebConfigManager.GridPageSize);
+				.Skip((pageValue - 1) * WebConfigManager.GridPageSize)
+				.Take(WebConfigManager.GridPageSize)
+				.ToList();
 			return entities;
 		}
 
