@@ -126,4 +126,7 @@
   <data name="UniqueCarMake" xml:space="preserve">
     <value>Данная марка уже существует</value>
   </data>
+  <data name="UniqueCarModels" xml:space="preserve">
+    <value>Модели должны быть уникальными</value>
+  </data>
 </root>

@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using abw.Common;
 using abw.DAL.Entities;
 using abw.Resources;
+using abw.ValidationAttributes;
 
 namespace abw.ViewModels
 {
@@ -17,6 +18,7 @@ namespace abw.ViewModels
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Models")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
+		[UniqueCarModels]
 		public List<CarModelViewModel> Models { get; set; }
 
 		public CarViewModel()
@@ -30,7 +32,7 @@ namespace abw.ViewModels
 
 			car.Id = Id;
 			car.Make = Make;
-			car.Models = Models.ConvertAll(m => m.ToEntity());
+			car.Models = Models.ConvertAll(m => m.ToEntity(car.Id));
 
 			return car;
 		}

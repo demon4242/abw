@@ -12,8 +12,11 @@
 @section scripts
 {
 	<script type="text/javascript">
-		require(['car'], function (car) {
-			car(@Html.Raw(NewtonJson.Serialize(Model)));
+		require(['car', 'uniqueCarModels'], function (car) {
+			@{
+				List<string> errorMessages = CommonHelpers.GetErrorMessages(ViewData.ModelState);
+			}
+			car(@Html.ToJs(Model), @Html.ToJs(errorMessages));
 		});
 	</script>
 }

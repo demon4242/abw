@@ -14,12 +14,13 @@ namespace abw.ViewModels
 		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
 		public string Name { get; set; }
 
-		public CarModel ToEntity()
+		public CarModel ToEntity(int carId)
 		{
 			CarModel carModel = new CarModel();
 
 			carModel.Id = Id;
 			carModel.Name = Name;
+			carModel.CarId = carId;
 
 			return carModel;
 		}

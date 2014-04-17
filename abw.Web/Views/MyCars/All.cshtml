@@ -8,7 +8,7 @@
 {
 	<script type="text/javascript">
 		require(['allMyCars'], function (allMyCars) {
-			allMyCars(@Html.Raw(NewtonJson.Serialize(Model)));
+			allMyCars(@Html.ToJs(Model));
 		});
 	</script>
 }

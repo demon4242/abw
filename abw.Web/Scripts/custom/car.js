@@ -3,7 +3,7 @@
 		'validation',
 		'unobtrusive-validation'],
 function (ko, mapping) {
-	function car(viewModel) {
+	function car(viewModel, errorMessages) {
 		function CarModel() {
 			this.id = ko.observable(0);
 			this.name = ko.observable();
@@ -81,6 +81,7 @@ function (ko, mapping) {
 		};
 
 		viewModel = mapping.fromJS(viewModel);
+		viewModel.errorMessages = errorMessages;
 		ko.applyBindings(viewModel);
 	}
 

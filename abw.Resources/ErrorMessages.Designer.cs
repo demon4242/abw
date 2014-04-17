@@ -86,5 +86,14 @@ namespace abw.Resources {
                 return ResourceManager.GetString("UniqueCarMake", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Модели должны быть уникальными.
+        /// </summary>
+        public static string UniqueCarModels {
+            get {
+                return ResourceManager.GetString("UniqueCarModels", resourceCulture);
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace abw.DAL.Repositories
 {
 	public abstract class Repository<T> : IRepository<T> where T : BaseEntity
 	{
-		private DbContext DbContext { get; set; }
+		protected DbContext DbContext { get; set; }
 
 		private DbSet<T> DbSet { get; set; }
 
@@ -51,13 +51,13 @@ namespace abw.DAL.Repositories
 
 		public void Create(T entity)
 		{
-			DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
+			DbEntityEntry<T> dbEntityEntry = DbContext.Entry(entity);
 			dbEntityEntry.State = EntityState.Added;
 		}
 
-		public void Update(T entity)
+		public virtual void Update(T entity)
 		{
-			DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
+			DbEntityEntry<T> dbEntityEntry = DbContext.Entry(entity);
 			dbEntityEntry.State = EntityState.Modified;
 		}
 
@@ -68,7 +68,7 @@ namespace abw.DAL.Repositories
 			{
 				return false;
 			}
-			DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
+			DbEntityEntry<T> dbEntityEntry = DbContext.Entry(entity);
 			dbEntityEntry.State = EntityState.Deleted;
 			return true;
 		}

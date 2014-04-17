@@ -142,14 +142,17 @@
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyCarsController.cs" />
+    <Compile Include="Helpers\CommonHelpers.cs" />
     <Compile Include="Helpers\DependencyResolution\Ioc.cs" />
     <Compile Include="Helpers\DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="Helpers\DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\NewtonJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationAttributes\UniqueCarModelsAttribute.cs" />
     <Compile Include="ViewModels\Cars\CarBase.cs" />
     <Compile Include="ViewModels\Cars\CarViewModel.cs" />
     <Compile Include="ViewModels\Cars\CarForDisplay.cs" />
@@ -178,6 +181,7 @@
     <Content Include="Scripts\bootstrap-3.0.3.js" />
     <Content Include="Scripts\custom\allCars.js" />
     <Content Include="Scripts\custom\car.js" />
+    <Content Include="Scripts\custom\validation\uniqueCarModels.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <None Include="Scripts\validation\jquery.validate-1.11.1-vsdoc.js" />
     <Content Include="Scripts\knockout\knockout-3.0.0.js" />

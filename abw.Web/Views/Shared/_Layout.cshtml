@@ -25,17 +25,22 @@
 	<script type="text/javascript">
 		(function () {
 			var baseUrl = '@Url.Content("~/Scripts/")';
+			var validationFolder = baseUrl + 'validation/';
+			var knockoutFolder = baseUrl + 'knockout/';
+			var customFolder = baseUrl + 'custom/';
 			requirejs.config({
 				paths: {
 					'jquery': baseUrl + 'jquery-2.0.3',
 					'bootstrap': baseUrl + 'bootstrap-3.0.3',
-					'validation': baseUrl + 'validation/jquery.validate-1.11.1',
-					'unobtrusive-validation': baseUrl + 'validation/jquery.validate.unobtrusive',
-					'knockout': baseUrl + 'knockout/knockout-3.0.0',
-					'knockout-mapping': baseUrl + 'knockout/knockout.mapping-2.4.0',
-					'car': baseUrl + 'custom/car',
-					'allCars': baseUrl + 'custom/allCars',
-					'allMyCars': baseUrl + 'custom/allMyCars'
+					'validation': validationFolder + 'jquery.validate-1.11.1',
+					'unobtrusive-validation': validationFolder + 'jquery.validate.unobtrusive',
+					'knockout': knockoutFolder + 'knockout-3.0.0',
+					'knockout-mapping': knockoutFolder + 'knockout.mapping-2.4.0',
+					// custom
+					'car': customFolder + 'car',
+					'allCars': customFolder + 'allCars',
+					'allMyCars': customFolder + 'allMyCars',
+					'uniqueCarModels': customFolder + 'validation/uniqueCarModels'
 				},
 				shim: {
 					'bootstrap': {
