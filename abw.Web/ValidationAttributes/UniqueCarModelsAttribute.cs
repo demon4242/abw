@@ -6,7 +6,9 @@ using abw.ViewModels;
 
 namespace abw.ValidationAttributes
 {
-	// todo: add client validation
+	/// <summary>
+	/// Ensures that car has not duplicate models
+	/// </summary>
 	public class UniqueCarModelsAttribute : ValidationAttribute
 	{
 		public UniqueCarModelsAttribute()
@@ -18,6 +20,7 @@ namespace abw.ValidationAttributes
 		public override bool IsValid(object value)
 		{
 			List<string> carModels = ((List<CarModelViewModel>)value)
+				.Where(m => !string.IsNullOrWhiteSpace(m.Name))
 				.Select(m => m.Name.Trim().ToLower())
 				.ToList();
 

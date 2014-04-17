@@ -1,27 +1,23 @@
-﻿define(['jquery', 'unobtrusive-validation'],
+﻿// todo: validation is not working properly (it works only with elements which were added dynamically)
+// ensures that car has not duplicate models
+define(['jquery', 'unobtrusive-validation'],
 function ($) {
-	$.validator.addMethod('uniqueCarModels', function (value, a, b, c, d) {
-		return false;
-		debugger;
-		//if (value !== 'Security') {
-		//	return true;
-		//}
-		//var securityLegsCount = 0;
-		//var legTypes = $('.removable-item select[name*=LegType]');
-		//var i;
-		//for (i = 0; i < legTypes.length; i++) {
-		//	if (legTypes[i].value === 'Security') {
-		//		if (securityLegsCount === 1) {
-		//			return false;
-		//		}
-		//		securityLegsCount++;
-		//	}
-		//}
-		//return true;
+	var METHOD = 'unique-car-models';
+
+	$.validator.addMethod(METHOD, function (value, element) {
+		var carModelValue = value.trim().toLowerCase();
+		var elements = $('.car-model input[type=text][name$="].Name"]');
+		for (var i = 0; i < elements.length; i++) {
+			var carModelElement = elements[i];
+			if (carModelElement !== element && carModelElement.value === carModelValue) {
+				return false;
+			}
+		}
+		return true;
 	});
 
-	$.validator.unobtrusive.adapters.add('uniqueCarModels', function (options) {
-		options.messages['uniqueCarModels'] = options.message;
-		options.rules['uniqueCarModels'] = options.params;
+	$.validator.unobtrusive.adapters.add(METHOD, function (options) {
+		options.messages[METHOD] = options.message;
+		options.rules[METHOD] = options.params;
 	});
 });
