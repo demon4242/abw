@@ -7,7 +7,7 @@
 
 	<div>
 		@Html.LabelFor(m => m.Make)
-		@Html.TextBoxFor(m => m.Make, new { data_bind = "value: make" })
+		@Html.TextBoxFor(m => m.Make, new { data_bind = "value: make", autocomplete = "off" })
 		@Html.ValidationMessageFor(m => m.Make)
 	</div>
 
@@ -22,7 +22,8 @@
 		@Html.TextBoxFor(m => m.Models[0].Name, new
 		{
 			data_bind = "value: name, attr: { name: 'Models[' + $index() + '].Name' }",
-			data_val_unique_car_models = ErrorMessages.UniqueCarModels
+			data_val_unique_car_models = ErrorMessages.UniqueCarModels,
+			autocomplete = "off"
 		})
 		<input type="button" data-bind="css: { visible: $parent.models().length > 1 }, click: $parent.deleteCarModel" class="btn btn-danger btn-xs" value="Удалить" />
 		@Html.ValidationMessageFor(m => m.Models[0].Name, null, new { data_bind = "attr: { 'data-valmsg-for': 'Models[' + $index() + '].Name' }" })
