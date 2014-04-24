@@ -16,6 +16,7 @@
 		<input type="button" data-bind="click: addModel" class="btn btn-success btn-xs" value="Добавить" />
 	</div>
 
+	<!-- ko template: { afterRender: addToValidationContext } -->
 	<!-- ko foreach: { data: models, afterAdd: addToValidationContext } -->
 	<div class="car-model">
 		@Html.HiddenFor(m => m.Models[0].Id, new { data_bind = "value: id, attr: { name: 'Models[' + $index() + '].Id' }" })
@@ -28,6 +29,7 @@
 		<input type="button" data-bind="css: { visible: $parent.models().length > 1 }, click: $parent.deleteCarModel" class="btn btn-danger btn-xs" value="Удалить" />
 		@Html.ValidationMessageFor(m => m.Models[0].Name, null, new { data_bind = "attr: { 'data-valmsg-for': 'Models[' + $index() + '].Name' }" })
 	</div>
+	<!-- /ko -->
 	<!-- /ko -->
 
 	<hr />
