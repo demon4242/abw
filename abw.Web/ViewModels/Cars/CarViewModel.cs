@@ -26,15 +26,15 @@ namespace abw.ViewModels
 			Models = new List<CarModelViewModel> { new CarModelViewModel() };
 		}
 
-		public Car ToEntity()
+		public CarMake ToEntity()
 		{
-			Car car = new Car();
+			CarMake carMake = new CarMake();
 
-			car.Id = Id;
-			car.Make = Make;
-			car.Models = Models.ConvertAll(m => m.ToEntity(car.Id));
+			carMake.Id = Id;
+			carMake.Name = Make;
+			carMake.Cars = Models.ConvertAll(m => m.ToEntity(carMake.Id));
 
-			return car;
+			return carMake;
 		}
 	}
 }

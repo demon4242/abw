@@ -13,7 +13,7 @@ namespace abw.ViewModels
 
 		public static Grid<CarForDisplay> GetCarsGrid(this ICarService carService, int? page)
 		{
-			List<Car> cars = carService.GetAll(page);
+			List<CarMake> cars = carService.GetAll(page);
 			List<CarForDisplay> list = cars.ConvertAll(ToDisplayViewModel);
 			Grid<CarForDisplay> grid = new Grid<CarForDisplay>
 			{
@@ -24,8 +24,8 @@ namespace abw.ViewModels
 
 		public static CarViewModel GetEditCar(this ICarService carService, int id)
 		{
-			Car car = carService.GetById(id);
-			CarViewModel viewModel = car.ToViewModel();
+			CarMake carMake = carService.GetById(id);
+			CarViewModel viewModel = carMake.ToViewModel();
 			return viewModel;
 		}
 
@@ -59,34 +59,34 @@ namespace abw.ViewModels
 
 		#region Car
 
-		private static CarViewModel ToViewModel(this Car car)
+		private static CarViewModel ToViewModel(this CarMake carMake)
 		{
 			CarViewModel viewModel = new CarViewModel();
 
-			viewModel.Id = car.Id;
-			viewModel.Make = car.Make;
-			viewModel.Models = car.Models.Select(ToViewModel).ToList();
+			viewModel.Id = carMake.Id;
+			viewModel.Make = carMake.Name;
+			viewModel.Models = carMake.Cars.Select(ToViewModel).ToList();
 
 			return viewModel;
 		}
 
-		private static CarForDisplay ToDisplayViewModel(this Car car)
+		private static CarForDisplay ToDisplayViewModel(this CarMake carMake)
 		{
 			CarForDisplay viewModel = new CarForDisplay();
 
-			viewModel.Id = car.Id;
-			viewModel.Make = car.Make;
-			viewModel.Models = car.Models.Select(m => m.Name).ToList();
+			viewModel.Id = carMake.Id;
+			viewModel.Make = carMake.Name;
+			viewModel.Models = carMake.Cars.Select(m => m.Model).ToList();
 
 			return viewModel;
 		}
 
-		private static CarModelViewModel ToViewModel(CarModel carModel)
+		private static CarModelViewModel ToViewModel(Car car)
 		{
 			CarModelViewModel viewModel = new CarModelViewModel();
 
-			viewModel.Id = carModel.Id;
-			viewModel.Name = carModel.Name;
+			viewModel.Id = car.Id;
+			viewModel.Name = car.Model;
 
 			return viewModel;
 		}
@@ -100,8 +100,8 @@ namespace abw.ViewModels
 			MyCarViewModel viewModel = new MyCarViewModel();
 
 			viewModel.Id = myCar.Id;
-			viewModel.Make = myCar.CarModel.Car.Make;
-			viewModel.Model = myCar.CarModel.Name;
+			viewModel.Make = myCar.Car.Make.Name;
+			viewModel.Model = myCar.Car.Model;
 
 			return viewModel;
 		}
@@ -111,7 +111,7 @@ namespace abw.ViewModels
 			MyCarForDisplay viewModel = new MyCarForDisplay();
 
 			viewModel.Id = myCar.Id;
-			viewModel.MakeAndModel = string.Format("{0} {1}", myCar.CarModel.Car.Make, myCar.CarModel.Name);
+			viewModel.MakeAndModel = string.Format("{0} {1}", myCar.Car.Make.Name, myCar.Car.Model);
 			viewModel.Year = myCar.Year;
 
 			return viewModel;

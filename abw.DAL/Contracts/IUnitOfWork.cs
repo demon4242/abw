@@ -6,7 +6,7 @@ namespace abw.DAL.Contracts
 	{
 		void Save();
 
-		ICarsRepository Cars { get; }
+		ICarMakesRepository CarMakes { get; }
 
 		IMyCarsRepository MyCars { get; }
 	}

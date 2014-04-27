@@ -1,7 +1,6 @@
 ﻿define(['knockout',
 		'knockout-mapping',
-		'validation',
-		'unobtrusive-validation'],
+		'uniqueCarModels'],
 function (ko, mapping) {
 	function car(viewModel, errorMessages) {
 		function CarModel() {

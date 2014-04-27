@@ -8,7 +8,7 @@ namespace abw.DAL.Repositories
 
 		private readonly AbwDbContext _dbContext = new AbwDbContext();
 
-		private ICarsRepository _cars;
+		private ICarMakesRepository _carMakes;
 
 		private IMyCarsRepository _myCars;
 
@@ -16,12 +16,12 @@ namespace abw.DAL.Repositories
 
 		#region Public
 
-		public ICarsRepository Cars
+		public ICarMakesRepository CarMakes
 		{
 			get
 			{
-				ICarsRepository cars = _cars ?? (_cars = new CarsRepository(_dbContext));
-				return cars;
+				ICarMakesRepository carMakes = _carMakes ?? (_carMakes = new CarMakesRepository(_dbContext));
+				return carMakes;
 			}
 		}
 

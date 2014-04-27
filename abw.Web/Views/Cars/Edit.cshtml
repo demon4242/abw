@@ -12,7 +12,7 @@
 @section scripts
 {
 	<script type="text/javascript">
-		require(['car', 'uniqueCarModels'], function (car) {
+		require(['car'], function (car) {
 			@{
 				List<string> errorMessages = CommonHelpers.GetErrorMessages(ViewData.ModelState);
 			}

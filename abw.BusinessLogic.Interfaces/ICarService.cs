@@ -2,7 +2,7 @@
 
 namespace abw.BusinessLogic.Interfaces
 {
-	public interface ICarService : ICrudService<Car>
+	public interface ICarService : ICrudService<CarMake>
 	{
 		bool CarMakeIsUnique(string make, int id);
 	}

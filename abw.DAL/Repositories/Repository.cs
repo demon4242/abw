@@ -55,9 +55,9 @@ namespace abw.DAL.Repositories
 			dbEntityEntry.State = EntityState.Added;
 		}
 
-		public virtual void Update(T entity)
+		public virtual void Update(T carMake)
 		{
-			DbEntityEntry<T> dbEntityEntry = DbContext.Entry(entity);
+			DbEntityEntry<T> dbEntityEntry = DbContext.Entry(carMake);
 			dbEntityEntry.State = EntityState.Modified;
 		}
 

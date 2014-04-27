@@ -6,7 +6,7 @@ using abw.DAL.Repositories;
 
 namespace abw.BusinessLogic
 {
-	public class CarService : CrudService<Car>, ICarService
+	public class CarService : CrudService<CarMake>, ICarService
 	{
 		public CarService(UnitOfWork uow)
 			: base(uow)
@@ -15,15 +15,16 @@ namespace abw.BusinessLogic
 
 		public bool CarMakeIsUnique(string make, int id)
 		{
-			bool isUnique = Repository.All.SingleOrDefault(m => m.Id != id && m.Make.Trim().ToLower() == make.Trim().ToLower()) == null;
+			bool isUnique = Repository.All.SingleOrDefault(m => m.Id != id
+				&& m.Name.Trim().ToLower() == make.Trim().ToLower()) == null;
 			return isUnique;
 		}
 
-		protected override IRepository<Car> Repository
+		protected override IRepository<CarMake> Repository
 		{
 			get
 			{
-				return Uow.Cars;
+				return Uow.CarMakes;
 			}
 		}
 	}

@@ -14,7 +14,7 @@ namespace abw.DAL.Contracts
 
 		void Create(T entity);
 
-		void Update(T entity);
+		void Update(T carMake);
 
 		bool Delete(int id);
 	}

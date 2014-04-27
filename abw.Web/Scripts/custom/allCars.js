@@ -18,6 +18,8 @@ function (ko) {
 					}
 				}).fail(function () {
 					alert('Sorry, an error occurred while processing your request');
+				}).always(function() {
+					// todo: hide loader
 				});
 			}
 		};

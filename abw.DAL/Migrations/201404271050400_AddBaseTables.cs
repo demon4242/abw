@@ -7,49 +7,49 @@ namespace abw.DAL.Migrations
 		public override void Up()
 		{
 			CreateTable(
-				"dbo.Cars",
-				c => new
-					{
-						Id = c.Int(nullable: false, identity: true),
-						Make = c.String(nullable: false, maxLength: 255),
-					})
-				.PrimaryKey(t => t.Id);
-
-			CreateTable(
-				"dbo.CarModels",
+				"dbo.CarMakes",
 				c => new
 					{
 						Id = c.Int(nullable: false, identity: true),
 						Name = c.String(nullable: false, maxLength: 255),
-						CarId = c.Int(nullable: false),
+					})
+				.PrimaryKey(t => t.Id);
+
+			CreateTable(
+				"dbo.Cars",
+				c => new
+					{
+						Id = c.Int(nullable: false, identity: true),
+						MakeId = c.Int(nullable: false),
+						Model = c.String(nullable: false, maxLength: 255),
 					})
 				.PrimaryKey(t => t.Id)
-				.ForeignKey("dbo.Cars", t => t.CarId, cascadeDelete: true)
-				.Index(t => t.CarId);
+				.ForeignKey("dbo.CarMakes", t => t.MakeId, cascadeDelete: true)
+				.Index(t => t.MakeId);
 
 			CreateTable(
 				"dbo.MyCars",
 				c => new
 					{
 						Id = c.Int(nullable: false, identity: true),
-						CarModelId = c.Int(nullable: false),
+						CarId = c.Int(nullable: false),
 						Year = c.Int(nullable: false),
 					})
 				.PrimaryKey(t => t.Id)
-				.ForeignKey("dbo.CarModels", t => t.CarModelId, cascadeDelete: true)
-				.Index(t => t.CarModelId);
+				.ForeignKey("dbo.Cars", t => t.CarId, cascadeDelete: true)
+				.Index(t => t.CarId);
 
 		}
 
 		public override void Down()
 		{
-			DropIndex("dbo.MyCars", new[] { "CarModelId" });
-			DropIndex("dbo.CarModels", new[] { "CarId" });
-			DropForeignKey("dbo.MyCars", "CarModelId", "dbo.CarModels");
-			DropForeignKey("dbo.CarModels", "CarId", "dbo.Cars");
+			DropIndex("dbo.MyCars", new[] { "CarId" });
+			DropIndex("dbo.Cars", new[] { "MakeId" });
+			DropForeignKey("dbo.MyCars", "CarId", "dbo.Cars");
+			DropForeignKey("dbo.Cars", "MakeId", "dbo.CarMakes");
 			DropTable("dbo.MyCars");
-			DropTable("dbo.CarModels");
 			DropTable("dbo.Cars");
+			DropTable("dbo.CarMakes");
 		}
 	}
 }

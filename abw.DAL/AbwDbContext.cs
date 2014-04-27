@@ -10,9 +10,9 @@ namespace abw.DAL
 		{
 		}
 
-		public DbSet<Car> Cars { get; set; }
+		public DbSet<CarMake> CarMakes { get; set; }
 
-		public DbSet<CarModel> CarModels { get; set; }
+		public DbSet<Car> Cars { get; set; }
 
 		public DbSet<MyCar> MyCars { get; set; }
 	}

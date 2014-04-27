@@ -11,7 +11,7 @@ namespace abw.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201404111205420_AddBaseTables"; }
+            get { return "201404271050400_AddBaseTables"; }
         }
         
         string IMigrationMetadata.Source

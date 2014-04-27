@@ -8,42 +8,42 @@ using abw.DAL.Entities;
 
 namespace abw.DAL.Repositories
 {
-	public class CarsRepository : Repository<Car>, ICarsRepository
+	public class CarMakesRepository : Repository<CarMake>, ICarMakesRepository
 	{
-		public CarsRepository(DbContext dbContext)
+		public CarMakesRepository(DbContext dbContext)
 			: base(dbContext)
 		{
 		}
 
-		public override void Update(Car car)
+		public override void Update(CarMake carMake)
 		{
-			Car originalCar = All.Single(m => m.Id == car.Id);
-			ICollection<CarModel> originalCarModels = originalCar.Models.ToList();
-			foreach (CarModel originalCarModel in originalCarModels)
+			CarMake originalCarMake = All.Single(m => m.Id == carMake.Id);
+			ICollection<Car> originalCars = originalCarMake.Cars.ToList();
+			foreach (Car originalCar in originalCars)
 			{
-				DbEntityEntry<CarModel> entry = DbContext.Entry(originalCarModel);
-				CarModel carModel = car.Models.SingleOrDefault(m => m.Id == originalCarModel.Id);
-				// car model has been deleted
-				if (carModel == null)
+				DbEntityEntry<Car> entry = DbContext.Entry(originalCar);
+				Car car = carMake.Cars.SingleOrDefault(m => m.Id == originalCar.Id);
+				// car has been deleted
+				if (car == null)
 				{
 					entry.State = EntityState.Deleted;
 				}
 				// car has been modified
 				else
 				{
-					entry.CurrentValues.SetValues(carModel);
+					entry.CurrentValues.SetValues(car);
 				}
 			}
-			foreach (CarModel carModel in car.Models)
+			foreach (Car car in carMake.Cars)
 			{
 				// car has been added
-				if (originalCarModels.SingleOrDefault(m => m.Id == carModel.Id) == null)
+				if (originalCars.SingleOrDefault(m => m.Id == car.Id) == null)
 				{
-					originalCar.Models.Add(carModel);
+					originalCarMake.Cars.Add(car);
 				}
 			}
-			DbEntityEntry<Car> originalCarEntry = DbContext.Entry(originalCar);
-			originalCarEntry.CurrentValues.SetValues(car);
+			DbEntityEntry<CarMake> originalCarMakeEntry = DbContext.Entry(originalCarMake);
+			originalCarMakeEntry.CurrentValues.SetValues(carMake);
 		}
 	}
 }

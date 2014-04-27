@@ -31,7 +31,7 @@ namespace abw.Controllers
 			{
 				return View(car);
 			}
-			Car entity = car.ToEntity();
+			CarMake entity = car.ToEntity();
 			Service.Create(entity);
 			return RedirectToAction("All");
 		}
@@ -49,7 +49,7 @@ namespace abw.Controllers
 			{
 				return View(car);
 			}
-			Car entity = car.ToEntity();
+			CarMake entity = car.ToEntity();
 			Service.Update(entity);
 			return RedirectToAction("All");
 		}
