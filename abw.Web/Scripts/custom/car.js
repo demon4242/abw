@@ -1,7 +1,7 @@
 ﻿define(['knockout',
 		'knockout-mapping',
 		'uniqueCarModels'],
-function (ko, mapping) {
+function (ko, koMapping) {
 	function car(viewModel, errorMessages) {
 		function CarModel() {
 			this.id = ko.observable(0);
@@ -79,7 +79,7 @@ function (ko, mapping) {
 			carModels.remove(carViewModel);
 		};
 
-		viewModel = mapping.fromJS(viewModel);
+		viewModel = koMapping.fromJS(viewModel);
 		viewModel.errorMessages = errorMessages;
 		ko.applyBindings(viewModel);
 	}

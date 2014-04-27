@@ -8,7 +8,7 @@ namespace abw.DAL.Entities
 		[Required]
 		public int MakeId { get; set; }
 
-		public CarMake Make { get; set; }
+		public virtual CarMake Make { get; set; }
 
 		[Required]
 		[MaxLength(Constants.MaxStringLength)]

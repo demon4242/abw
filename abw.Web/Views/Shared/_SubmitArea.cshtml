@@ -1,0 +1,6 @@
+﻿<hr />
+<input type="submit" value="Сохранить" class="btn btn-primary" />
+
+<div data-bind="foreach: errorMessages, css: { show: errorMessages.length }" class="alert alert-danger">
+	<div data-bind="text: $data"></div>
+</div>

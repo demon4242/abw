@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
 
@@ -44,10 +45,39 @@ namespace abw.ViewModels
 			return grid;
 		}
 
+		public static MyCarViewModel GetNewCar(this IMyCarService myCarService)
+		{
+			List<SelectListItem> makes = myCarService.GetAllCarMakesSelectList();
+
+			MyCarViewModel viewModel = new MyCarViewModel
+			{
+				Makes = makes
+			};
+			return viewModel;
+		}
+
+		public static List<SelectListItem> GetCarModelsSelectListByMake(this IMyCarService myCarService, int makeId)
+		{
+			List<Car> carModels = myCarService.GetCarModelsByMake(makeId);
+			List<SelectListItem> result = carModels.ConvertAll(m => new SelectListItem
+			{
+				Value = m.Id.ToString(),
+				Text = m.Model
+			});
+			return result;
+		}
+
 		public static MyCarViewModel GetEditCar(this IMyCarService myCarService, int id)
 		{
 			MyCar myCar = myCarService.GetById(id);
+			List<SelectListItem> makes = myCarService.GetAllCarMakesSelectList();
+			List<SelectListItem> models = myCarService.GetCarModelsSelectListByMake(myCar.Car.MakeId);
+
 			MyCarViewModel viewModel = myCar.ToViewModel();
+
+			viewModel.Makes = makes;
+			viewModel.Models = models;
+
 			return viewModel;
 		}
 
@@ -100,8 +130,9 @@ namespace abw.ViewModels
 			MyCarViewModel viewModel = new MyCarViewModel();
 
 			viewModel.Id = myCar.Id;
-			viewModel.Make = myCar.Car.Make.Name;
-			viewModel.Model = myCar.Car.Model;
+			viewModel.MakeId = myCar.Car.MakeId;
+			viewModel.ModelId = myCar.CarId;
+			viewModel.Year = myCar.Year;
 
 			return viewModel;
 		}
@@ -115,6 +146,18 @@ namespace abw.ViewModels
 			viewModel.Year = myCar.Year;
 
 			return viewModel;
+		}
+
+		public static List<SelectListItem> GetAllCarMakesSelectList(this IMyCarService myCarService)
+		{
+			List<CarMake> carMakes = myCarService.GetAllCarMakes();
+
+			List<SelectListItem> makes = carMakes.ConvertAll(m => new SelectListItem
+			{
+				Value = m.Id.ToString(),
+				Text = m.Name.ToString()
+			});
+			return makes;
 		}
 
 		#endregion MyCar

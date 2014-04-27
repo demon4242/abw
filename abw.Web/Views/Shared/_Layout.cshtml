@@ -38,6 +38,7 @@
 					'knockout-mapping': knockoutFolder + 'knockout.mapping-2.4.0',
 					// custom
 					'car': customFolder + 'car',
+					'myCar': customFolder + 'myCar',
 					'allCars': customFolder + 'allCars',
 					'allMyCars': customFolder + 'allMyCars',
 					'uniqueCarModels': customFolder + 'validation/uniqueCarModels'
@@ -60,6 +61,10 @@
 
 			require(['jquery', 'bootstrap']);
 		}());
+	</script>
+	<script type="text/javascript">
+		// todo: implement via requirejs module
+		window.siteUrl = '@Url.Content("~")';
 	</script>
 	@RenderSection("scripts", false)
 </body>

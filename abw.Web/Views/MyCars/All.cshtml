@@ -29,7 +29,7 @@
 				<a data-bind="text: makeAndModel, attr: { href: '@Url.Action("Edit")' + '/' + id }" title="Редактировать"></a>
 			</td>
 			<td data-bind="text: year"></td>
-			<td title="Удалить">
+			<td data-bind="click: $root.deleteMyCar" title="Удалить">
 				<i class="glyphicon glyphicon-remove" title="Удалить"></i>
 			</td>
 		</tr>

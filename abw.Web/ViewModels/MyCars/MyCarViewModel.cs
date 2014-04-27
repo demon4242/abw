@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using abw.Common;
 using abw.DAL.Entities;
 using abw.Resources;
 using abw.ViewModels.MyCars;
@@ -11,17 +10,23 @@ namespace abw.ViewModels
 {
 	public class MyCarViewModel : MyCarBase
 	{
-		[Display(ResourceType = typeof(DisplayNames), Name = "Make")]
-		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
-		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages),
-			ErrorMessageResourceName = "StringMaxLength")]
-		public string Make { get; set; }
+		public MyCarViewModel()
+		{
+			Makes = new List<SelectListItem>();
+			Models = new List<SelectListItem>();
+		}
 
-		[Display(ResourceType = typeof(DisplayNames), Name = "Model")]
+		public List<SelectListItem> Makes { get; set; }
+
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
-		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages),
-			ErrorMessageResourceName = "StringMaxLength")]
-		public string Model { get; set; }
+		[Display(ResourceType = typeof(DisplayNames), Name = "Make")]
+		public int MakeId { get; set; }
+
+		public List<SelectListItem> Models { get; set; }
+
+		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
+		[Display(ResourceType = typeof(DisplayNames), Name = "Model")]
+		public int ModelId { get; set; }
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Year")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
@@ -50,7 +55,9 @@ namespace abw.ViewModels
 		{
 			MyCar myCar = new MyCar();
 
-			// todo: implement
+			myCar.Id = Id;
+			myCar.CarId = ModelId;
+			myCar.Year = Year;
 
 			return myCar;
 		}

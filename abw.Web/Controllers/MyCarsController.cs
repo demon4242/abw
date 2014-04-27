@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
 using abw.ViewModels;
@@ -20,7 +22,7 @@ namespace abw.Controllers
 
 		public ActionResult New()
 		{
-			MyCarViewModel myCar = new MyCarViewModel();
+			MyCarViewModel myCar = Service.GetNewCar();
 			return View(myCar);
 		}
 
@@ -66,6 +68,13 @@ namespace abw.Controllers
 				});
 			}
 			return Json(new { success = true });
+		}
+
+		// todo: return lower case json
+		public JsonResult GetCarModelsByMake(int makeId)
+		{
+			List<SelectListItem> carModels = Service.GetCarModelsSelectListByMake(makeId);
+			return Json(carModels, JsonRequestBehavior.AllowGet);
 		}
 	}
 }

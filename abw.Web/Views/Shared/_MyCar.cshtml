@@ -5,23 +5,36 @@
 	@Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
 
 	<div>
-		@Html.LabelFor(m => m.Make)
-		@Html.TextBoxFor(m => m.Make, new { data_bind = "value: make" })
-		@Html.ValidationMessageFor(m => m.Make)
+		@Html.LabelFor(m => m.MakeId)
+		@* todo: make partial view *@
+		@for (int i = 0; i < Model.Makes.Count; i++)
+		{
+			@Html.HiddenFor(m => m.Makes[i].Value)
+			@Html.HiddenFor(m => m.Makes[i].Text)
+		}
+		@Html.DropDownListFor(m => m.MakeId, Model.Makes,
+			new { data_bind = "options: makes, optionsValue: 'value', optionsText: 'text', optionsCaption: 'Выберите марку', value: makeId, event: { change: carMakeChanged }" })
+		@Html.ValidationMessageFor(m => m.MakeId)
 	</div>
 
 	<div>
-		@Html.LabelFor(m => m.Model)
-		@Html.TextBoxFor(m => m.Model, new { data_bind = "value: model" })
-		@Html.ValidationMessageFor(m => m.Model)
+		@Html.LabelFor(m => m.ModelId)
+		@* todo: make partial view *@
+		@for (int i = 0; i < Model.Models.Count; i++)
+		{
+			@Html.HiddenFor(m => m.Models[i].Value)
+			@Html.HiddenFor(m => m.Models[i].Text)
+		}
+		@Html.DropDownListFor(m => m.ModelId, Model.Models,
+			new { data_bind = "options: models, optionsValue: 'value', optionsText: 'text', optionsCaption: 'Выберите модель', value: modelId" })
+		@Html.ValidationMessageFor(m => m.ModelId)
 	</div>
 
 	<div>
 		@Html.LabelFor(m => m.Year)
-		@Html.DropDownListFor(m => m.Year, Model.Years)
+		@Html.DropDownListFor(m => m.Year, Model.Years, "Выберите год")
 		@Html.ValidationMessageFor(m => m.Year)
 	</div>
 
-	<hr />
-	<input type="submit" value="Сохранить" class="btn btn-primary" />
+	Html.RenderPartial("_SubmitArea");
 }

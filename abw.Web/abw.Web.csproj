@@ -179,8 +179,10 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap-3.0.3.js" />
+    <Content Include="Scripts\custom\allMyCars.js" />
     <Content Include="Scripts\custom\allCars.js" />
     <Content Include="Scripts\custom\car.js" />
+    <Content Include="Scripts\custom\myCar.js" />
     <Content Include="Scripts\custom\validation\uniqueCarModels.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <None Include="Scripts\validation\jquery.validate-1.11.1-vsdoc.js" />
@@ -208,6 +210,7 @@
     <Content Include="Views\Shared\_NoRecordsFound.cshtml" />
     <Content Include="Views\Shared\_Car.cshtml" />
     <Content Include="Views\Shared\_MyCar.cshtml" />
+    <Content Include="Views\Shared\_SubmitArea.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">
