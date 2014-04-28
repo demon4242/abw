@@ -1,29 +1,26 @@
-﻿// todo: implement beautiful notifications
-define(function () {
+﻿define(function () {
 	var self = {};
 
-	var notificationElementClass = '.notifications';
-
-	self.success = function (message) {
-		// todo: make common notify settings with self.error
-		$(notificationElementClass).notify({
-			type: 'success',
-			message: { text: message },
+	function showNotification(type, message) {
+		$('#notification').notify({
+			type: type,
+			message: { html: message },
 			closable: true
 		}).show();
+	};
+
+	self.success = function (message) {
+		showNotification('success', message);
 	};
 
 	self.error = function (message) {
 		if (!message) {
 			message = 'Извините, произошла ошибка';
 		}
-		$(notificationElementClass).notify({
-			type: 'danger',
-			message: { text: message },
-			closable: true
-		}).show();
+		showNotification('danger', message);
 	};
 
+	// todo: implement custom bootstrap confirm
 	self.confirm = function (message) {
 		var result = confirm(message);
 		return result;

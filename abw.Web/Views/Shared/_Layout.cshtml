@@ -23,7 +23,7 @@
 
 	@RenderBody()
 
-	<div class="notifications top-right"></div>
+	<div id="notification"></div>
 
 	<script src="@Url.Content("~/Scripts/require-2.1.9.js")"></script>
 	<script type="text/javascript">
@@ -35,7 +35,7 @@
 			requirejs.config({
 				paths: {
 					'jquery': baseUrl + 'jquery-2.0.3',
-					'bootstrap': baseUrl + 'bootstrap-3.0.3',
+					'bootstrap': baseUrl + 'bootstrap-3.1.1',
 					'bootstrap-notify': baseUrl + 'bootstrap-notify-1.0',
 					'validation': validationFolder + 'jquery.validate-1.11.1',
 					'unobtrusive-validation': validationFolder + 'jquery.validate.unobtrusive',

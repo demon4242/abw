@@ -14,8 +14,8 @@ function (ko, notifications, loader) {
 		});
 
 		viewModel.deleteCar = function (car) {
-			var name = car.make || car.makeAndModel;
-			var result = notifications.confirm('Вы уверены что хотите удалить машину ' + name + '?');
+			var nameHtml = '<strong>' + (car.make || car.makeAndModel) + '</strong>';
+			var result = notifications.confirm('Вы уверены что хотите удалить машину ' + nameHtml + '?');
 			if (result) {
 				loader.show();
 				$.post(url + '/' + car.id).done(function (data) {
@@ -23,7 +23,7 @@ function (ko, notifications, loader) {
 						notifications.error(data.errorMessage);
 					} else {
 						viewModel.list.remove(car);
-						notifications.success('Машина ' + name + ' удалена');
+						notifications.success('Машина ' + nameHtml + ' удалена');
 					}
 				}).fail(function () {
 					notifications.error();

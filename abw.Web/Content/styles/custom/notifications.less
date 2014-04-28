@@ -1,0 +1,42 @@
+﻿@-webkit-keyframes notification {
+	0% {
+		-webkit-transform: rotateY(-90deg);
+		opacity: 0;
+	}
+
+	70% {
+		-webkit-transform: rotateY(20deg);
+		opacity: .8;
+	}
+
+	90% {
+		-webkit-transform: rotateY(-10deg);
+		opacity: 1;
+	}
+
+	100% {
+		-webkit-transform: rotateY(-0deg);
+		opacity: 1;
+	}
+}
+
+#notification {
+	position: fixed;
+	right: 15px;
+	top: 10px;
+
+	.alert {
+		-webkit-animation: notification .75s linear;
+		-moz-animation: notification .75s linear;
+		-ms-animation: notification .75s linear;
+		-o-animation: notification .75s linear;
+		animation: notification .75s linear;
+		position: relative;
+		padding-right: 35px;
+
+		a.close {
+			position: absolute;
+			right: 10px;
+		}
+	}
+}
