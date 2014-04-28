@@ -1,25 +1,34 @@
-﻿define(['knockout'],
-function (ko) {
-	function allCars(viewModel) {
+﻿define(['knockout',
+		'notifications',
+		'loader'],
+function (ko, notifications, loader) {
+	function allCars(viewModel, url) {
 		var cars = viewModel.list;
 		viewModel.list = ko.observableArray(cars);
 
+		viewModel.css = ko.computed(function () {
+			var css = !viewModel.list().length
+				? 'no-data'
+				: null;
+			return css;
+		});
+
 		viewModel.deleteCar = function (car) {
-			// todo: implement notification module
-			var result = confirm('Are you sure?');
+			var name = car.make || car.makeAndModel;
+			var result = notifications.confirm('Вы уверены что хотите удалить машину ' + name + '?');
 			if (result) {
-				// todo: implement 'loader' module
-				$.post('../cars/delete/' + car.id).done(function (data) {
+				loader.show();
+				$.post(url + '/' + car.id).done(function (data) {
 					if (!data.success) {
-						alert(data.errorMessage);
+						notifications.error(data.errorMessage);
 					} else {
 						viewModel.list.remove(car);
-						alert('Car has been deleted');
+						notifications.success('Машина ' + name + ' удалена');
 					}
 				}).fail(function () {
-					alert('Sorry, an error occurred while processing your request');
-				}).always(function() {
-					// todo: hide loader
+					notifications.error();
+				}).always(function () {
+					loader.hide();
 				});
 			}
 		};

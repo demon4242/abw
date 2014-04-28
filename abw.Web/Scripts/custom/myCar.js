@@ -1,7 +1,9 @@
 ﻿define(['knockout',
 		'knockout-mapping',
+		'notifications',
+		'globalVars',
 		'unobtrusive-validation'],
-function (ko, koMapping) {
+function (ko, koMapping, notifications, globalVars) {
 	function myCar(viewModel, errorMessages) {
 		viewModel.carMakeChanged = function (car) {
 			var makeId = car.makeId();
@@ -9,8 +11,8 @@ function (ko, koMapping) {
 				viewModel.models.removeAll();
 				return;
 			}
-			$.get(window.siteUrl + 'myCars/getCarModelsByMake?makeId=' + makeId).done(function (data) {
-				// todo: make daga lower case on server
+			$.get(globalVars.siteUrl + 'myCars/getCarModelsByMake?makeId=' + makeId).done(function (data) {
+				// todo: make data lower case on server
 				var lowerCaseData = [];
 				ko.utils.arrayForEach(data, function (carModel) {
 					lowerCaseData.push({
@@ -21,7 +23,7 @@ function (ko, koMapping) {
 				});
 				viewModel.models(lowerCaseData);
 			}).fail(function () {
-				alert('Sorry, an error occurred while processing your request');
+				notifications.error();
 			});
 		};
 

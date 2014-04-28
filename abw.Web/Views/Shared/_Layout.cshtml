@@ -40,8 +40,10 @@
 					'car': customFolder + 'car',
 					'myCar': customFolder + 'myCar',
 					'allCars': customFolder + 'allCars',
-					'allMyCars': customFolder + 'allMyCars',
-					'uniqueCarModels': customFolder + 'validation/uniqueCarModels'
+					'uniqueCarModels': customFolder + 'validation/uniqueCarModels',
+					'notifications': customFolder + 'notifications',
+					'loader': customFolder + 'loader',
+					'globalVars': customFolder + 'globalVars'
 				},
 				shim: {
 					'bootstrap': {
@@ -63,8 +65,9 @@
 		}());
 	</script>
 	<script type="text/javascript">
-		// todo: implement via requirejs module
-		window.siteUrl = '@Url.Content("~")';
+		require(['globalVars'], function (globalVars) {
+			globalVars.siteUrl = '@Url.Content("~")';
+		});
 	</script>
 	@RenderSection("scripts", false)
 </body>

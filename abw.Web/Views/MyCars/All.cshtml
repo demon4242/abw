@@ -7,14 +7,13 @@
 @section scripts
 {
 	<script type="text/javascript">
-		require(['allMyCars'], function (allMyCars) {
-			allMyCars(@Html.ToJs(Model));
+		require(['allCars'], function (allCars) {
+			allCars(@Html.ToJs(Model), '@Url.Action("Delete")');
 		});
 	</script>
 }
 @{ Html.RenderPartial("Buttons/_New"); }
-@* todo: move init of 'no-data' css class to js *@
-<table data-bind="css: { 'no-data': !list().length }" class="table table-striped table-bordered grid">
+<table data-bind="css: css" class="table table-striped table-bordered grid">
 	<thead>
 		<tr>
 			<th>Марка и модель</th>
@@ -29,7 +28,7 @@
 				<a data-bind="text: makeAndModel, attr: { href: '@Url.Action("Edit")' + '/' + id }" title="Редактировать"></a>
 			</td>
 			<td data-bind="text: year"></td>
-			<td data-bind="click: $root.deleteMyCar" title="Удалить">
+			<td data-bind="click: $root.deleteCar" title="Удалить">
 				<i class="glyphicon glyphicon-remove" title="Удалить"></i>
 			</td>
 		</tr>
