@@ -172,6 +172,7 @@
     <Content Include="Content\styles\bootstrap-3.0.3\bootstrap.css" />
     <Content Include="Content\images\mts.gif" />
     <Content Include="Content\images\velcom.gif" />
+    <Content Include="Content\styles\bootstrap-notify-1.0.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\styles\custom\car.less" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
@@ -179,6 +180,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap-3.0.3.js" />
+    <Content Include="Scripts\bootstrap-notify-1.0.js" />
     <Content Include="Scripts\custom\allCars.js" />
     <Content Include="Scripts\custom\car.js" />
     <Content Include="Scripts\custom\globalVars.js" />

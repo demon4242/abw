@@ -1,5 +1,4 @@
-﻿// todo: validation is not working properly (it works only with elements which were added dynamically)
-// ensures that car has not duplicate models
+﻿// ensures that car has not duplicate models
 define(['jquery', 'unobtrusive-validation'],
 function ($) {
 	var METHOD = 'unique-car-models';
