@@ -15,8 +15,7 @@ function (ko, notifications, loader) {
 
 		viewModel.deleteCar = function (car) {
 			var nameHtml = '<strong>' + (car.make || car.makeAndModel) + '</strong>';
-			var result = notifications.confirm('Вы уверены что хотите удалить машину ' + nameHtml + '?');
-			if (result) {
+			notifications.confirm('Удаление машины ' + nameHtml, 'Вы уверены?', function () {
 				loader.show();
 				$.post(url + '/' + car.id).done(function (data) {
 					if (!data.success) {
@@ -30,7 +29,7 @@ function (ko, notifications, loader) {
 				}).always(function () {
 					loader.hide();
 				});
-			}
+			});
 		};
 
 		ko.applyBindings(viewModel);

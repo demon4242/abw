@@ -14,7 +14,8 @@ namespace abw.App_Start
 			Bundle globalStyles = new Bundle("~/globalStyles")
 				.IncludeDirectory(stylesDirectory + "bootstrap-3.1.1", "*.css")
 				.Include(stylesDirectory + "custom/global.less")
-				.Include(stylesDirectory + "custom/notifications.less");
+				.Include(stylesDirectory + "custom/notifications.less")
+				.Include(stylesDirectory + "custom/spinner.less");
 			AddStyleBundle(ref bundles, globalStyles);
 
 			// car styles

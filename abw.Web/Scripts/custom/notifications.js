@@ -20,10 +20,17 @@
 		showNotification('danger', message);
 	};
 
-	// todo: implement custom bootstrap confirm
-	self.confirm = function (message) {
-		var result = confirm(message);
-		return result;
+	self.confirm = function (title, message, yesHandler) {
+		var modal = $('#confirm');
+		modal.find('.modal-title').html(title);
+		modal.find('.modal-body').html(message);
+		var yesButton = modal.find('.btn-primary');
+		yesButton.off('click');
+		yesButton.on('click', function () {
+			modal.modal('hide');
+			yesHandler();
+		});
+		modal.modal();
 	};
 
 	return self;

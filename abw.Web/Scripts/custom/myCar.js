@@ -11,6 +11,7 @@ function (ko, koMapping, notifications, globalVars) {
 				viewModel.models.removeAll();
 				return;
 			}
+			// todo: disable models drop down list
 			$.get(globalVars.siteUrl + 'myCars/getCarModelsByMake?makeId=' + makeId).done(function (data) {
 				// todo: make data lower case on server
 				var lowerCaseData = [];

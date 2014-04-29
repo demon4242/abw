@@ -11,6 +11,7 @@ namespace abw.DAL.Migrations
 			AutomaticMigrationsEnabled = false;
 		}
 
+		// todo: method is invoked after every new build
 		protected override void Seed(AbwDbContext context)
 		{
 			CarMake audi = new CarMake

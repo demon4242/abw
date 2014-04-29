@@ -1,12 +1,14 @@
 ﻿define(function () {
 	var self = {};
 
+	var LOADER_SELECTOR = '#spinnerComplex';
+
 	self.show = function () {
-		// todo: show loader
+		$(LOADER_SELECTOR).show();
 	};
 
 	self.hide = function () {
-		// todo: hide loader
+		$(LOADER_SELECTOR).hide();
 	};
 
 	return self;

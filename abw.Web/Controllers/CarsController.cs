@@ -63,7 +63,7 @@ namespace abw.Controllers
 				return Json(new
 				{
 					success = false,
-					errorMessage = "Car has not been found"
+					errorMessage = "Машина не найдена"
 				});
 			}
 			return Json(new { success = true });

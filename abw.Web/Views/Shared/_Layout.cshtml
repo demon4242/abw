@@ -25,6 +25,44 @@
 
 	<div id="notification"></div>
 
+	<div id="confirm" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title"></h4>
+				</div>
+				<div class="modal-body"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Yes</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="spinnerComplex">
+		<div id="spinnerBackground"></div>
+		<div id="spinnerWrapper">
+			<div>
+				<div id="spinner">
+					<div id="bar1"></div>
+					<div id="bar2"></div>
+					<div id="bar3"></div>
+					<div id="bar4"></div>
+					<div id="bar5"></div>
+					<div id="bar6"></div>
+					<div id="bar7"></div>
+					<div id="bar8"></div>
+					<div id="bar9"></div>
+					<div id="bar10"></div>
+					<div id="bar11"></div>
+					<div id="bar12"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<script src="@Url.Content("~/Scripts/require-2.1.9.js")"></script>
 	<script type="text/javascript">
 		(function () {
