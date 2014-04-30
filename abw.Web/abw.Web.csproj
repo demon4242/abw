@@ -188,6 +188,7 @@
     <Content Include="Scripts\custom\loader.js" />
     <Content Include="Scripts\custom\myCar.js" />
     <Content Include="Scripts\custom\notifications.js" />
+    <Content Include="Scripts\custom\validation\addToValidationContext.js" />
     <Content Include="Scripts\custom\validation\uniqueCarModels.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <None Include="Scripts\validation\jquery.validate-1.11.1-vsdoc.js" />

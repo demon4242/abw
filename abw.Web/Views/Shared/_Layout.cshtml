@@ -70,6 +70,7 @@
 			var validationFolder = baseUrl + 'validation/';
 			var knockoutFolder = baseUrl + 'knockout/';
 			var customFolder = baseUrl + 'custom/';
+			var customValidationFolder = customFolder + 'validation/';
 			requirejs.config({
 				paths: {
 					'jquery': baseUrl + 'jquery-2.0.3',
@@ -83,7 +84,8 @@
 					'car': customFolder + 'car',
 					'myCar': customFolder + 'myCar',
 					'allCars': customFolder + 'allCars',
-					'uniqueCarModels': customFolder + 'validation/uniqueCarModels',
+					'uniqueCarModels': customValidationFolder + 'uniqueCarModels',
+					'addToValidationContext': customValidationFolder + 'addToValidationContext',
 					'notifications': customFolder + 'notifications',
 					'loader': customFolder + 'loader',
 					'globalVars': customFolder + 'globalVars'
@@ -103,6 +105,9 @@
 					},
 					'notifications': {
 						deps: ['bootstrap-notify']
+					},
+					'bootstrap-notify': {
+						deps: ['jquery']
 					}
 				}
 			});

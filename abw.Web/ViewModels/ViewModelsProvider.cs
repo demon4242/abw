@@ -106,7 +106,7 @@ namespace abw.ViewModels
 
 			viewModel.Id = carMake.Id;
 			viewModel.Make = carMake.Name;
-			viewModel.Models = carMake.Cars.Select(m => m.Model).ToList();
+			viewModel.Models = carMake.Cars.Select(m => m.Model).OrderBy(m => m).ToList();
 
 			return viewModel;
 		}
