@@ -122,3 +122,16 @@ form .alert.alert-danger {
 #confirm .modal-dialog {
 	width: 300px;
 }
+
+input[type=submit] {
+	background-image: url(../../images/facebook-loader.gif);
+	background-repeat: no-repeat;
+	background-position: -100px;
+
+	&.loading {
+		width: 97px;
+		text-indent: -999px;
+		background-position: center;
+		opacity: 1;
+	}
+}

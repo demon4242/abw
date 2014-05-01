@@ -1,36 +1,31 @@
 ﻿@using abw.Resources
 @model abw.ViewModels.CarViewModel
-@using (Html.BeginForm())
-{
-	<hr />
-	@Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
 
-	<div>
-		@Html.LabelFor(m => m.Make)
-		@Html.TextBoxFor(m => m.Make, new { data_bind = "value: make", autocomplete = "off" })
-		@Html.ValidationMessageFor(m => m.Make)
-	</div>
+<hr />
+@Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
 
-	<div id="carModelsLabel">
-		@Html.LabelFor(m => m.Models)
-		<input type="button" data-bind="click: addModel" class="btn btn-success btn-xs" value="Добавить" />
-	</div>
+<div>
+	@Html.LabelFor(m => m.Make)
+	@Html.TextBoxFor(m => m.Make, new { data_bind = "value: make", autocomplete = "off" })
+	@Html.ValidationMessageFor(m => m.Make)
+</div>
 
-	<!-- ko template: { afterRender: addToValidationContext } -->
-	<!-- ko foreach: { data: models, afterAdd: addToValidationContext } -->
-	<div class="car-model">
-		@Html.HiddenFor(m => m.Models[0].Id, new { data_bind = "value: id, attr: { name: 'Models[' + $index() + '].Id' }" })
-		@Html.TextBoxFor(m => m.Models[0].Name, new
-		{
-			data_bind = "value: name, attr: { name: 'Models[' + $index() + '].Name' }",
-			data_val_unique_car_models = ErrorMessages.UniqueCarModels,
-			autocomplete = "off"
-		})
-		<input type="button" data-bind="css: { visible: $parent.models().length > 1 }, click: $parent.deleteCarModel" class="btn btn-danger btn-xs" value="Удалить" />
-		@Html.ValidationMessageFor(m => m.Models[0].Name, null, new { data_bind = "attr: { 'data-valmsg-for': 'Models[' + $index() + '].Name' }" })
-	</div>
-	<!-- /ko -->
-	<!-- /ko -->
+<div id="carModelsLabel">
+	@Html.LabelFor(m => m.Models)
+	<input type="button" data-bind="click: addModel" class="btn btn-success btn-xs" value="Добавить" />
+</div>
 
-	Html.RenderPartial("_SubmitArea");
-}
+<!-- ko foreach: { data: models, afterAdd: addToValidationContext } -->
+<div class="car-model">
+	@Html.HiddenFor(m => m.Models[0].Id, new { data_bind = "value: id, attr: { name: 'Models[' + $index() + '].Id' }" })
+	@Html.TextBoxFor(m => m.Models[0].Name, new
+	{
+		data_bind = "value: name, attr: { name: 'Models[' + $index() + '].Name' }",
+		data_val_unique_car_models = ErrorMessages.UniqueCarModels,
+		autocomplete = "off"
+	})
+	<input type="button" data-bind="css: { visible: $parent.models().length > 1 }, click: $parent.deleteCarModel" class="btn btn-danger btn-xs" value="Удалить" />
+	@Html.ValidationMessageFor(m => m.Models[0].Name, null, new { data_bind = "attr: { 'data-valmsg-for': 'Models[' + $index() + '].Name' }" })
+</div>
+<!-- /ko -->
+@{ Html.RenderPartial("_SubmitArea"); }

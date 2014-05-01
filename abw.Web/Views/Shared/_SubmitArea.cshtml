@@ -1,6 +1,7 @@
 ﻿<hr />
-@* todo: disable submit button after it is pushed *@
-<input type="submit" value="Сохранить" class="btn btn-primary" />
+@* 'cancel' class prevents double call of submit method *@
+<input type="submit" data-bind="css: { loading: loading }, disable: loading" value="Сохранить" class="btn btn-primary cancel" />
+<br />
 
 <div data-bind="foreach: errorMessages, css: { show: errorMessages.length }" class="alert alert-danger">
 	<div data-bind="text: $data"></div>

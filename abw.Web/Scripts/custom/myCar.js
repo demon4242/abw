@@ -1,17 +1,19 @@
 ﻿define(['knockout',
 		'knockout-mapping',
+		'baseCar',
 		'notifications',
 		'globalVars',
 		'unobtrusive-validation'],
-function (ko, koMapping, notifications, globalVars) {
+function (ko, koMapping, baseCar, notifications, globalVars) {
 	function myCar(viewModel, errorMessages) {
+		viewModel = baseCar(viewModel, errorMessages);
+
 		viewModel.carMakeChanged = function (car) {
 			var makeId = car.makeId();
 			if (!makeId) {
 				viewModel.models.removeAll();
 				return;
 			}
-			// todo: disable models drop down list
 			$.get(globalVars.siteUrl + 'myCars/getCarModelsByMake?makeId=' + makeId).done(function (data) {
 				// todo: make data lower case on server
 				var lowerCaseData = [];
@@ -28,8 +30,6 @@ function (ko, koMapping, notifications, globalVars) {
 			});
 		};
 
-		viewModel = koMapping.fromJS(viewModel);
-		viewModel.errorMessages = errorMessages;
 		ko.applyBindings(viewModel);
 	}
 

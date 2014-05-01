@@ -1,15 +1,18 @@
 ﻿define(['knockout',
 		'knockout-mapping',
+		'baseCar',
 		'addToValidationContext',
 		'uniqueCarModels'],
-function (ko, koMapping, addToValidationContext) {
+function (ko, koMapping, baseCar, addToValidationContext) {
 	function car(viewModel, errorMessages) {
+		viewModel = baseCar(viewModel, errorMessages);
+
+		viewModel.addToValidationContext = addToValidationContext;
+
 		function CarModel() {
 			this.id = ko.observable(0);
 			this.name = ko.observable();
 		}
-
-		viewModel.addToValidationContext = addToValidationContext;
 
 		// adds new car model
 		viewModel.addModel = function () {
@@ -26,8 +29,6 @@ function (ko, koMapping, addToValidationContext) {
 			carModels.remove(carViewModel);
 		};
 
-		viewModel = koMapping.fromJS(viewModel);
-		viewModel.errorMessages = errorMessages;
 		ko.applyBindings(viewModel);
 	}
 

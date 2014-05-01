@@ -167,6 +167,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\images\facebook-loader.gif" />
     <Content Include="Content\styles\bootstrap-3.1.1\bootstrap-theme.css" />
     <Content Include="Content\styles\bootstrap-3.1.1\bootstrap.css" />
     <Content Include="Content\images\mts.gif" />
@@ -183,6 +184,7 @@
     <Content Include="Scripts\bootstrap-notify-1.0.js" />
     <Content Include="Scripts\bootstrap-3.1.1.js" />
     <Content Include="Scripts\custom\allCars.js" />
+    <Content Include="Scripts\custom\baseCar.js" />
     <Content Include="Scripts\custom\car.js" />
     <Content Include="Scripts\custom\globalVars.js" />
     <Content Include="Scripts\custom\loader.js" />
