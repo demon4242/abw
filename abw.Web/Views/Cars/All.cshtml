@@ -27,8 +27,8 @@
 			<td>
 				<a data-bind="text: make, attr: { href: '@Url.Action("Edit")' + '/' + id }" title="Редактировать"></a>
 			</td>
-			<td data-bind="foreach: models">
-				<div data-bind="text: $data"></div>
+			<td data-bind="foreach: models" id="carMakesColumn">
+				<span data-bind="text: $data"></span>
 			</td>
 			<td data-bind="click: $root.deleteCar" title="Удалить">
 				<i class="glyphicon glyphicon-remove" title="Удалить"></i>

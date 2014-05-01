@@ -4,8 +4,6 @@
 
 <div>
 	@Html.LabelFor(m => m.MakeId)
-	@* todo: make partial view *@
-	@* todo: use knockout to set hidden fields values *@
 	@for (int i = 0; i < Model.Makes.Count; i++)
 	{
 		@Html.HiddenFor(m => m.Makes[i].Value)
@@ -18,12 +16,10 @@
 
 <div>
 	@Html.LabelFor(m => m.ModelId)
-	@* todo: make partial view *@
-	@for (int i = 0; i < Model.Models.Count; i++)
-	{
-		@Html.HiddenFor(m => m.Models[i].Value)
-		@Html.HiddenFor(m => m.Models[i].Text)
-	}
+	<!-- ko foreach: models -->
+	<input type="hidden" data-bind="value: value, attr: { name: 'Models[' + $index() + '].Value' }">
+	<input type="hidden" data-bind="value: text, attr: { name: 'Models[' + $index() + '].Text' }">
+	<!-- /ko -->
 	@Html.DropDownListFor(m => m.ModelId, Model.Models,
 		new { data_bind = "options: models, optionsValue: 'value', optionsText: 'text', optionsCaption: 'Выберите модель', value: modelId" })
 	@Html.ValidationMessageFor(m => m.ModelId)
