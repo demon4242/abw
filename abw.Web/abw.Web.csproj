@@ -142,6 +142,7 @@
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyCarsController.cs" />
+    <Compile Include="Helpers\JsonNetResult.cs" />
     <Compile Include="Helpers\CommonHelpers.cs" />
     <Compile Include="Helpers\DependencyResolution\Ioc.cs" />
     <Compile Include="Helpers\DependencyResolution\StructureMapDependencyResolver.cs" />
@@ -150,7 +151,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelpers.cs" />
-    <Compile Include="Helpers\NewtonJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationAttributes\UniqueCarModelsAttribute.cs" />
     <Compile Include="ViewModels\Cars\CarBase.cs" />

@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
+using abw.Helpers;
 using abw.ViewModels;
 
 namespace abw.Controllers
@@ -69,11 +70,10 @@ namespace abw.Controllers
 			return Json(new { success = true });
 		}
 
-		// todo: return lower case json
-		public JsonResult GetCarModelsByMake(int makeId)
+		public JsonNetResult GetCarModelsByMake(int makeId)
 		{
 			List<SelectListItem> carModels = Service.GetCarModelsSelectListByMake(makeId);
-			return Json(carModels, JsonRequestBehavior.AllowGet);
+			return new JsonNetResult(carModels);
 		}
 	}
 }

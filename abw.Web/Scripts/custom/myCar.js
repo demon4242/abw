@@ -15,16 +15,7 @@ function (ko, koMapping, baseCar, notifications, globalVars) {
 				return;
 			}
 			$.get(globalVars.siteUrl + 'myCars/getCarModelsByMake?makeId=' + makeId).done(function (data) {
-				// todo: make data lower case on server
-				var lowerCaseData = [];
-				ko.utils.arrayForEach(data, function (carModel) {
-					lowerCaseData.push({
-						value: carModel.Value,
-						text: carModel.Text,
-						selected: carModel.selected
-					});
-				});
-				viewModel.models(lowerCaseData);
+				viewModel.models(data);
 			}).fail(function () {
 				notifications.error();
 			});
