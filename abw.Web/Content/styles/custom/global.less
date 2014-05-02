@@ -90,24 +90,32 @@ input[type=text] {
 			}
 		}
 
-		&:last-child td#pageInfo {
-			background-color: white;
-			border: none;
-			text-align: center;
+		&:last-child#pageInfo {
+			display: none;
 
-			&:hover {
-				background-color: white !important;
+			&.visible {
+				display: table-row;
 			}
 
-			> div {
-				&:first-child {
-					font-weight: bold;
+			td {
+				background-color: white;
+				border: none;
+				text-align: center;
+
+				&:hover {
+					background-color: white !important;
 				}
 
-				&#scrollingTip {
-					font-size: 13px;
-					color: gray;
-					font-style: italic;
+				> div {
+					&:first-child {
+						font-weight: bold;
+					}
+
+					&#scrollingTip {
+						font-size: 13px;
+						color: gray;
+						font-style: italic;
+					}
 				}
 			}
 		}
