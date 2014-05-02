@@ -3,8 +3,8 @@
 		'loader'],
 function (ko, notifications, loader) {
 	function carsGrid(viewModel, deleteUrl, getUrl) {
-		var cars = viewModel.list;
-		viewModel.list = ko.observableArray(cars);
+		viewModel.list = ko.observableArray(viewModel.list);
+		viewModel.totalCount = ko.observable(viewModel.totalCount);
 
 		viewModel.css = ko.computed(function () {
 			var css = !viewModel.list().length
@@ -22,6 +22,7 @@ function (ko, notifications, loader) {
 						notifications.error(data.errorMessage);
 					} else {
 						viewModel.list.remove(car);
+						viewModel.totalCount(viewModel.totalCount() - 1);
 						notifications.success('Машина ' + nameHtml + ' удалена');
 					}
 				}).fail(function () {
@@ -33,7 +34,7 @@ function (ko, notifications, loader) {
 		};
 
 		viewModel.pageInfo = ko.computed(function () {
-			var pageInfo = '1-' + viewModel.list().length + ' of ' + viewModel.totalCount;
+			var pageInfo = '1-' + viewModel.list().length + ' of ' + viewModel.totalCount();
 			return pageInfo;
 		});
 		viewModel.loading = ko.observable(false);
@@ -47,7 +48,7 @@ function (ko, notifications, loader) {
 				return;
 			}
 			// todo: request total count every time
-			if (viewModel.list().length === viewModel.totalCount) {
+			if (viewModel.list().length === viewModel.totalCount()) {
 				$(window).off('scroll', loadMore);
 				return;
 			}
