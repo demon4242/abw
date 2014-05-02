@@ -7,8 +7,8 @@
 @section scripts
 {
 	<script type="text/javascript">
-		require(['allCars'], function (allCars) {
-			allCars(@Html.ToJs(Model), '@Url.Action("Delete")');
+		require(['carsGrid'], function (carsGrid) {
+			carsGrid(@Html.ToJs(Model), '@Url.Action("Delete")', '@Url.Action("All")');
 		});
 	</script>
 }
@@ -33,7 +33,7 @@
 			</td>
 		</tr>
 		<!-- /ko -->
-		@{ Html.RenderPartial("_NoRecordsFound", 3); }
+		@{ Html.RenderPartial("_GridFooter", 3); }
 	</tbody>
 </table>
 

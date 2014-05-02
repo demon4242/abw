@@ -8,7 +8,7 @@ namespace abw.DAL.Contracts
 	{
 		IQueryable<T> All { get; }
 
-		List<T> GetAll(int? page);
+		List<T> GetAll(int page = 1);
 
 		T GetById(int id);
 

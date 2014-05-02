@@ -110,6 +110,48 @@ namespace abw.DAL.Migrations
 				{
 					"X-Trail"
 				});
+				InsertCars("Mitsubishi", new List<string>
+				{
+					"Lancer"
+				});
+				InsertCars("Cadillac", new List<string>
+				{
+					"Escalade"
+				});
+				InsertCars("Renault", new List<string>
+				{
+					"Duster"
+				});
+				InsertCars("Peugeot", new List<string>
+				{
+					"405",
+					"406",
+					"407",
+					"408"
+				});
+				InsertCars("Rover", new List<string>
+				{
+					"600"
+				});
+				InsertCars("Mercedes", new List<string>
+				{
+					"Vito",
+					"Viano"
+				});
+				InsertCars("BMW", new List<string>
+				{
+					"525"
+				});
+				InsertCars("Fiat", new List<string>
+				{
+					"Tipo",
+					"Punto"
+				});
+				InsertCars("Ford", new List<string>
+				{
+					"Galaxy"
+				});
+
 				_dbContext.SaveChanges();
 			}
 		}

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Contracts;
 using abw.DAL.Entities;
@@ -18,7 +19,14 @@ namespace abw.BusinessLogic
 		// todo: get repository using reflection
 		protected abstract IRepository<T> Repository { get; }
 
-		public List<T> GetAll(int? page)
+		public List<T> GetAll(out int totalCount)
+		{
+			List<T> all = Repository.GetAll();
+			totalCount = Repository.All.Count();
+			return all;
+		}
+
+		public List<T> GetAll(int page)
 		{
 			List<T> all = Repository.GetAll(page);
 			return all;

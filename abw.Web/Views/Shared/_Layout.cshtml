@@ -10,8 +10,8 @@
 	<header>
 		@{ Html.RenderPartial("_Phones"); }
 		<ul class="nav nav-tabs">
-			<li>@Html.ActionLink("Машины", "All", "Cars")</li>
-			<li>@Html.ActionLink("Мои машины", "All", "MyCars")</li>
+			<li>@Html.ActionLink("Машины", "Grid", "Cars")</li>
+			<li>@Html.ActionLink("Мои машины", "Grid", "MyCars")</li>
 		</ul>
 		<ul class="nav nav-tabs">
 			<li>@Html.ActionLink("Главная", "Index", "Home")</li>
@@ -84,7 +84,7 @@
 					'baseCar': customFolder + 'baseCar',
 					'car': customFolder + 'car',
 					'myCar': customFolder + 'myCar',
-					'allCars': customFolder + 'allCars',
+					'carsGrid': customFolder + 'carsGrid',
 					'uniqueCarModels': customValidationFolder + 'uniqueCarModels',
 					'addToValidationContext': customValidationFolder + 'addToValidationContext',
 					'notifications': customFolder + 'notifications',

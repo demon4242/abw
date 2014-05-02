@@ -183,7 +183,7 @@
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap-notify-1.0.js" />
     <Content Include="Scripts\bootstrap-3.1.1.js" />
-    <Content Include="Scripts\custom\allCars.js" />
+    <Content Include="Scripts\custom\carsGrid.js" />
     <Content Include="Scripts\custom\baseCar.js" />
     <Content Include="Scripts\custom\car.js" />
     <Content Include="Scripts\custom\globalVars.js" />
@@ -207,15 +207,15 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Cars\All.cshtml" />
+    <Content Include="Views\Cars\Grid.cshtml" />
     <Content Include="Views\Cars\New.cshtml" />
-    <Content Include="Views\MyCars\All.cshtml" />
+    <Content Include="Views\MyCars\Grid.cshtml" />
     <Content Include="Views\MyCars\New.cshtml" />
     <Content Include="Views\Cars\Edit.cshtml" />
     <Content Include="Views\MyCars\Edit.cshtml" />
     <Content Include="Views\Shared\Buttons\_New.cshtml" />
     <Content Include="Views\Shared\Buttons\_Back.cshtml" />
-    <Content Include="Views\Shared\_NoRecordsFound.cshtml" />
+    <Content Include="Views\Shared\_GridFooter.cshtml" />
     <Content Include="Views\Shared\_Car.cshtml" />
     <Content Include="Views\Shared\_MyCar.cshtml" />
     <Content Include="Views\Shared\_SubmitArea.cshtml" />

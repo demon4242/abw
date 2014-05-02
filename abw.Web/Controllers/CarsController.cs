@@ -1,6 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
+using abw.Helpers;
 using abw.ViewModels;
 
 namespace abw.Controllers
@@ -12,10 +14,16 @@ namespace abw.Controllers
 		{
 		}
 
-		public ActionResult All(int? page)
+		public ActionResult Grid()
 		{
-			Grid<CarForDisplay> grid = Service.GetCarsGrid(page);
+			Grid<CarForDisplay> grid = Service.GetCarsGrid();
 			return View(grid);
+		}
+
+		public JsonNetResult All(int page)
+		{
+			List<CarForDisplay> cars = Service.GetCars(page);
+			return new JsonNetResult(cars);
 		}
 
 		public ActionResult New()
@@ -33,7 +41,7 @@ namespace abw.Controllers
 			}
 			CarMake entity = car.ToEntity();
 			Service.Create(entity);
-			return RedirectToAction("All");
+			return RedirectToAction("Grid");
 		}
 
 		public ActionResult Edit(int id)
@@ -51,7 +59,7 @@ namespace abw.Controllers
 			}
 			CarMake entity = car.ToEntity();
 			Service.Update(entity);
-			return RedirectToAction("All");
+			return RedirectToAction("Grid");
 		}
 
 		[HttpPost]

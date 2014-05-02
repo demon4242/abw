@@ -29,15 +29,11 @@ namespace abw.DAL.Repositories
 			}
 		}
 
-		public List<T> GetAll(int? page)
+		public List<T> GetAll(int page = 1)
 		{
-			int pageValue = page.HasValue
-				? page.Value
-				: 1;
-
 			List<T> entities = DbSet
 				.OrderBy(m => m.Id)
-				.Skip((pageValue - 1) * WebConfigManager.GridPageSize)
+				.Skip((page - 1) * WebConfigManager.GridPageSize)
 				.Take(WebConfigManager.GridPageSize)
 				.ToList();
 			return entities;

@@ -6,7 +6,9 @@ namespace abw.BusinessLogic.Interfaces
 {
 	public interface ICrudService<T> : IDisposable where T : BaseEntity
 	{
-		List<T> GetAll(int? page);
+		List<T> GetAll(out int totalCount);
+
+		List<T> GetAll(int page);
 
 		T GetById(int id);
 

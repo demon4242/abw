@@ -14,10 +14,16 @@ namespace abw.Controllers
 		{
 		}
 
-		public ActionResult All(int? page)
+		public ActionResult Grid()
 		{
-			Grid<MyCarForDisplay> grid = Service.GetMyCarsGrid(page);
+			Grid<MyCarForDisplay> grid = Service.GetMyCarsGrid();
 			return View(grid);
+		}
+
+		public JsonNetResult All(int page)
+		{
+			List<MyCarForDisplay> myCars = Service.GetMyCars(page);
+			return new JsonNetResult(myCars);
 		}
 
 		public ActionResult New()
@@ -35,7 +41,7 @@ namespace abw.Controllers
 			}
 			MyCar entity = myCar.ToEntity();
 			Service.Create(entity);
-			return RedirectToAction("All");
+			return RedirectToAction("Grid");
 		}
 
 		public ActionResult Edit(int id)
@@ -53,7 +59,7 @@ namespace abw.Controllers
 			}
 			MyCar entity = myCar.ToEntity();
 			Service.Update(entity);
-			return RedirectToAction("All");
+			return RedirectToAction("Grid");
 		}
 
 		public JsonResult Delete(int id)
