@@ -12,10 +12,10 @@ namespace abw.ViewModels
 
 		#region Car
 
-		public static Grid<CarForDisplay> GetCarsGrid(this ICarService carService)
+		public static Grid<CarForDisplay> GetCarsGrid(this ICarService carService, int page = 1)
 		{
 			int totalCount;
-			List<CarMake> cars = carService.GetAll(out totalCount);
+			List<CarMake> cars = carService.GetAll(page, out totalCount);
 			List<CarForDisplay> list = cars.ConvertAll(ToDisplayViewModel);
 			Grid<CarForDisplay> grid = new Grid<CarForDisplay>
 			{
@@ -23,13 +23,6 @@ namespace abw.ViewModels
 				TotalCount = totalCount
 			};
 			return grid;
-		}
-
-		public static List<CarForDisplay> GetCars(this ICarService carService, int page)
-		{
-			List<CarMake> cars = carService.GetAll(page);
-			List<CarForDisplay> list = cars.ConvertAll(ToDisplayViewModel);
-			return list;
 		}
 
 		public static CarViewModel GetEditCar(this ICarService carService, int id)
@@ -43,10 +36,10 @@ namespace abw.ViewModels
 
 		#region MyCar
 
-		public static Grid<MyCarForDisplay> GetMyCarsGrid(this IMyCarService myCarService)
+		public static Grid<MyCarForDisplay> GetMyCarsGrid(this IMyCarService myCarService, int page = 1)
 		{
 			int totalCount;
-			List<MyCar> myCars = myCarService.GetAll(out totalCount);
+			List<MyCar> myCars = myCarService.GetAll(page, out totalCount);
 			List<MyCarForDisplay> list = myCars.ConvertAll(ToDisplayViewModel);
 			Grid<MyCarForDisplay> grid = new Grid<MyCarForDisplay>
 			{
@@ -54,13 +47,6 @@ namespace abw.ViewModels
 				TotalCount = totalCount
 			};
 			return grid;
-		}
-
-		public static List<MyCarForDisplay> GetMyCars(this IMyCarService myCarService, int page)
-		{
-			List<MyCar> myCars = myCarService.GetAll(page);
-			List<MyCarForDisplay> list = myCars.ConvertAll(ToDisplayViewModel);
-			return list;
 		}
 
 		public static MyCarViewModel GetNewCar(this IMyCarService myCarService)

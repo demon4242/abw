@@ -1,8 +1,13 @@
-﻿@using abw.Helpers
+﻿@using System.Web.Optimization
+@using abw.Helpers
 @model abw.ViewModels.MyCarViewModel
 @{
 	const string title = "Моя новая машина";
 	ViewBag.Title = title;
+}
+@section styles
+{
+	@Styles.Render("~/car")
 }
 @section scripts
 {

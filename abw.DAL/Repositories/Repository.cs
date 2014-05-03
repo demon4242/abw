@@ -29,7 +29,7 @@ namespace abw.DAL.Repositories
 			}
 		}
 
-		public List<T> GetAll(int page = 1)
+		public List<T> GetAll(int page)
 		{
 			List<T> entities = DbSet
 				.OrderBy(m => m.Id)

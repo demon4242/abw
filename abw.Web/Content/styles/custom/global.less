@@ -1,5 +1,4 @@
-﻿// todo: divide into several less files
-body {
+﻿body {
 	display: table;
 	margin: 10px auto;
 }
@@ -16,23 +15,6 @@ header {
 	}
 }
 
-hr {
-	margin: 15px 0;
-}
-
-#formTitle {
-	margin: 0 0 0 10px;
-	display: inline-block;
-	line-height: 34px;
-	vertical-align: middle;
-}
-
-form {
-	label {
-		display: block;
-	}
-}
-
 .phones tr td:not(:last-child) {
 	padding-right: 5px;
 }
@@ -46,139 +28,6 @@ form {
 	color: red;
 }
 
-input[type=text] {
-	border: 1px solid #ABADB3;
-	padding: 2px 4px;
-}
-
-#newButton {
-	margin-bottom: 10px;
-}
-
-.grid {
-	border-width: 1px 0 0 0;
-
-	&.no-data tbody {
-		tr#noRecordsFound {
-			display: table-row;
-		}
-	}
-
-	&:not(.no-data) tbody {
-		tr:not(#noRecordsFound) {
-			display: table-row;
-		}
-	}
-
-	th {
-		border-bottom-width: 1px !important;
-	}
-
-	tbody tr:not(#noRecordsFound) {
-		display: none;
-
-		td:first-child:not([colspan]) {
-			padding: 0;
-
-			a {
-				display: block;
-				width: 100%;
-				height: 100%;
-				overflow: auto;
-				text-indent: 8px;
-				line-height: 28px;
-			}
-		}
-
-		&:last-child#pageInfo {
-			display: none;
-
-			&.visible {
-				display: table-row;
-			}
-
-			td {
-				background-color: white;
-				border: none;
-				text-align: center;
-
-				&:hover {
-					background-color: white !important;
-				}
-
-				> div {
-					&:first-child {
-						font-weight: bold;
-					}
-
-					&#scrollingTip {
-						font-size: 13px;
-						color: gray;
-						font-style: italic;
-					}
-				}
-			}
-		}
-	}
-
-	tr:hover:not(#noRecordsFound) {
-		td {
-			background-color: #EBEBEB !important;
-		}
-	}
-
-	tr:not(#noRecordsFound) td:last-of-type:not([colspan]) {
-		padding: 7px 8px;
-		text-align: center;
-		vertical-align: middle;
-		cursor: pointer;
-	}
-
-	.glyphicon-remove {
-		color: red;
-		cursor: pointer;
-		font-size: 1.5em;
-	}
-
-	#noRecordsFound {
-		display: none;
-		text-align: center;
-	}
-}
-
-form .alert.alert-danger {
-	font-weight: bold;
-	margin-top: 15px;
-	display: none;
-}
-
 #confirm .modal-dialog {
 	width: 300px;
-}
-
-input[type=submit] {
-	background-image: url(../../images/facebook-loader.gif);
-	background-repeat: no-repeat;
-	background-position: -100px;
-
-	&.loading {
-		width: 97px;
-		text-indent: -999px;
-		background-position: center;
-		opacity: 1;
-	}
-}
-
-#carMakesColumn {
-	width: 250px;
-	padding: 8px 6px 6px 8px;
-
-	span {
-		border: 1px solid gray;
-		border-radius: 5px;
-		padding: 2px 4px;
-		display: inline-block;
-		margin: 0 4px 4px 0;
-		background-color: lightgray;
-	}
 }

@@ -22,8 +22,8 @@ namespace abw.Controllers
 
 		public JsonNetResult All(int page)
 		{
-			List<CarForDisplay> cars = Service.GetCars(page);
-			return new JsonNetResult(cars);
+			Grid<CarForDisplay> grid = Service.GetCarsGrid(page);
+			return new JsonNetResult(grid);
 		}
 
 		public ActionResult New()

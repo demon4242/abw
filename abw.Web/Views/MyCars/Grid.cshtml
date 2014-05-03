@@ -1,8 +1,13 @@
-﻿@using abw.Helpers
+﻿@using System.Web.Optimization
+@using abw.Helpers
 @using abw.ViewModels
 @model Grid<MyCarForDisplay>
 @{
 	ViewBag.Title = "Мои машины";
+}
+@section styles
+{
+	@Styles.Render("~/grid")
 }
 @section scripts
 {

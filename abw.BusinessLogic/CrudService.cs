@@ -19,16 +19,10 @@ namespace abw.BusinessLogic
 		// todo: get repository using reflection
 		protected abstract IRepository<T> Repository { get; }
 
-		public List<T> GetAll(out int totalCount)
-		{
-			List<T> all = Repository.GetAll();
-			totalCount = Repository.All.Count();
-			return all;
-		}
-
-		public List<T> GetAll(int page)
+		public List<T> GetAll(int page, out int totalCount)
 		{
 			List<T> all = Repository.GetAll(page);
+			totalCount = Repository.All.Count();
 			return all;
 		}
 

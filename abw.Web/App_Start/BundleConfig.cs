@@ -6,24 +6,23 @@ namespace abw.App_Start
 	{
 		public static void RegisterBundles(BundleCollection bundles)
 		{
-			#region Styles
-
 			const string stylesDirectory = "~/Content/styles/";
+			string customStylesDirectory = string.Format("{0}custom/", stylesDirectory);
 
-			// global styles
 			Bundle globalStyles = new Bundle("~/globalStyles")
 				.IncludeDirectory(stylesDirectory + "bootstrap-3.1.1", "*.css")
-				.Include(stylesDirectory + "custom/global.less")
-				.Include(stylesDirectory + "custom/notifications.less")
-				.Include(stylesDirectory + "custom/spinner.less");
+				.Include(customStylesDirectory + "global.less")
+				.Include(customStylesDirectory + "notifications.less")
+				.Include(customStylesDirectory + "spinner.less");
 			AddStyleBundle(ref bundles, globalStyles);
 
-			// car styles
 			Bundle carStyles = new Bundle("~/car")
-				.Include(stylesDirectory + "custom/car.less");
+				.Include(customStylesDirectory + "car.less");
 			AddStyleBundle(ref bundles, carStyles);
 
-			#endregion Styles
+			Bundle gridStyles = new Bundle("~/grid")
+				.Include(customStylesDirectory + "grid.less");
+			AddStyleBundle(ref bundles, gridStyles);
 		}
 
 		private static void AddStyleBundle(ref BundleCollection bundles, Bundle styleBundle)

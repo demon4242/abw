@@ -47,16 +47,16 @@ function (ko, notifications, loader) {
 			if ($(window).scrollTop() !== ($(document).height() - $(window).height())) {
 				return;
 			}
-			// todo: request total count every time
 			if (viewModel.list().length === viewModel.totalCount()) {
 				$(window).off('scroll', loadMore);
 				return;
 			}
 			viewModel.loading(true);
 			$.get(getUrl + '?page=' + ++page).done(function (data) {
-				ko.utils.arrayForEach(data, function (car) {
+				ko.utils.arrayForEach(data.list, function (car) {
 					viewModel.list.push(car);
 				});
+				viewModel.totalCount(data.totalCount);
 			}).fail(function () {
 				notifications.error();
 			}).always(function () {
