@@ -189,6 +189,7 @@
     <Content Include="Scripts\custom\car.js" />
     <Content Include="Scripts\custom\globalVars.js" />
     <Content Include="Scripts\custom\loader.js" />
+    <Content Include="Scripts\custom\main.js" />
     <Content Include="Scripts\custom\myCar.js" />
     <Content Include="Scripts\custom\notifications.js" />
     <Content Include="Scripts\custom\validation\addToValidationContext.js" />

@@ -3,13 +3,13 @@
 <html>
 <head>
 	<title>@ViewBag.Title</title>
-	@Styles.Render("~/globalStyles")
+	@Styles.Render("~/global")
 	@RenderSection("styles", false)
 </head>
 <body>
 	<header>
 		@{ Html.RenderPartial("_Phones"); }
-		<ul class="nav nav-tabs">
+		<ul class="nav nav-pills">
 			<li>@Html.ActionLink("Машины", "Grid", "Cars")</li>
 			<li>@Html.ActionLink("Мои машины", "Grid", "MyCars")</li>
 		</ul>
@@ -81,6 +81,7 @@
 					'knockout': knockoutFolder + 'knockout-3.0.0',
 					'knockout-mapping': knockoutFolder + 'knockout.mapping-2.4.0',
 					// custom
+					'main': customFolder + 'main',
 					'baseCar': customFolder + 'baseCar',
 					'car': customFolder + 'car',
 					'myCar': customFolder + 'myCar',
@@ -117,8 +118,9 @@
 		}());
 	</script>
 	<script type="text/javascript">
-		require(['globalVars'], function (globalVars) {
+		require(['globalVars', 'main'], function (globalVars, main) {
 			globalVars.siteUrl = '@Url.Content("~")';
+			main.setActivePage();
 		});
 	</script>
 	@RenderSection("scripts", false)
