@@ -142,7 +142,7 @@
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyCarsController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Helpers\JsonNetResult.cs" />
     <Compile Include="Helpers\CommonHelpers.cs" />
     <Compile Include="Helpers\DependencyResolution\Ioc.cs" />
