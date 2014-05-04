@@ -12,6 +12,8 @@ namespace abw.DAL.Repositories
 
 		private IMyCarsRepository _myCars;
 
+		private IUsersRepository _users;
+
 		#endregion Private
 
 		#region Public
@@ -31,6 +33,15 @@ namespace abw.DAL.Repositories
 			{
 				IMyCarsRepository myCars = _myCars ?? (_myCars = new MyCarsRepository(_dbContext));
 				return myCars;
+			}
+		}
+
+		public IUsersRepository Users
+		{
+			get
+			{
+				IUsersRepository users = _users ?? (_users = new UsersRepository(_dbContext));
+				return users;
 			}
 		}
 

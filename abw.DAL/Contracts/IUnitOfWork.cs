@@ -9,5 +9,7 @@ namespace abw.DAL.Contracts
 		ICarMakesRepository CarMakes { get; }
 
 		IMyCarsRepository MyCars { get; }
+
+		IUsersRepository Users { get; }
 	}
 }

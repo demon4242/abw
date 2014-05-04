@@ -1,12 +1,12 @@
 ﻿define(['knockout',
 		'knockout-mapping',
-		'baseCar',
+		'baseForm',
 		'notifications',
 		'globalVars',
 		'unobtrusive-validation'],
-function (ko, koMapping, baseCar, notifications, globalVars) {
+function (ko, koMapping, baseForm, notifications, globalVars) {
 	function myCar(viewModel, errorMessages) {
-		viewModel = baseCar(viewModel, errorMessages);
+		viewModel = baseForm(viewModel, errorMessages);
 
 		viewModel.carMakeChanged = function (car) {
 			var makeId = car.makeId();

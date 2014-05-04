@@ -8,11 +8,28 @@
 </head>
 <body>
 	<header>
+		<div id="authInfo">
+			@if (!User.Identity.IsAuthenticated)
+			{
+				@Html.ActionLink("Войти", "SignIn", "Account")
+			}
+			else
+			{
+				<div>
+					Привет, @User.Identity.Name
+				</div>
+				@Html.ActionLink("Выйти", "SignOut", "Account")
+			}
+		</div>
+
 		@{ Html.RenderPartial("_Phones"); }
-		<ul class="nav nav-pills">
-			<li>@Html.ActionLink("Машины", "Grid", "Cars")</li>
-			<li>@Html.ActionLink("Мои машины", "Grid", "MyCars")</li>
-		</ul>
+		@if (User.Identity.IsAuthenticated)
+		{
+			<ul class="nav nav-pills">
+				<li>@Html.ActionLink("Машины", "Grid", "Cars")</li>
+				<li>@Html.ActionLink("Мои машины", "Grid", "MyCars")</li>
+			</ul>
+		}
 		<ul class="nav nav-tabs">
 			<li>@Html.ActionLink("Главная", "Index", "Home")</li>
 			<li>@Html.ActionLink("Каталог запчастей", "SparesCatalogue", "Home")</li>
@@ -82,9 +99,10 @@
 					'knockout-mapping': knockoutFolder + 'knockout.mapping-2.4.0',
 					// custom
 					'main': customFolder + 'main',
-					'baseCar': customFolder + 'baseCar',
+					'baseForm': customFolder + 'baseForm',
 					'car': customFolder + 'car',
 					'myCar': customFolder + 'myCar',
+					'signIn': customFolder + 'signIn',
 					'carsGrid': customFolder + 'carsGrid',
 					'uniqueCarModels': customValidationFolder + 'uniqueCarModels',
 					'addToValidationContext': customValidationFolder + 'addToValidationContext',

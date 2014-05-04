@@ -15,5 +15,7 @@ namespace abw.DAL
 		public DbSet<Car> Cars { get; set; }
 
 		public DbSet<MyCar> MyCars { get; set; }
+
+		public DbSet<User> Users { get; set; }
 	}
 }

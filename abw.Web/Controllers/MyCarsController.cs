@@ -7,6 +7,7 @@ using abw.ViewModels;
 
 namespace abw.Controllers
 {
+	[Authorize]
 	public class MyCarsController : BaseController<IMyCarService>
 	{
 		public MyCarsController(IMyCarService service)

@@ -50,10 +50,12 @@
     <Compile Include="Contracts\ICarMakesRepository.cs" />
     <Compile Include="Contracts\IMyCarsRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="Contracts\IUsersRepository.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\CarMake.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\MyCar.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Migrations\201404271050400_AddBaseTables.cs" />
     <Compile Include="Migrations\201404271050400_AddBaseTables.Designer.cs">
       <DependentUpon>201404271050400_AddBaseTables.cs</DependentUpon>
@@ -62,6 +64,14 @@
     <Compile Include="Migrations\201404300900326_AddDefaultCars.Designer.cs">
       <DependentUpon>201404300900326_AddDefaultCars.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405031344291_AddUsersTable.cs" />
+    <Compile Include="Migrations\201405031344291_AddUsersTable.Designer.cs">
+      <DependentUpon>201405031344291_AddUsersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405041805504_AddAdminUser.cs" />
+    <Compile Include="Migrations\201405041805504_AddAdminUser.Designer.cs">
+      <DependentUpon>201405041805504_AddAdminUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbwDbMigrationsConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contracts\IRepository.cs" />
@@ -69,6 +79,7 @@
     <Compile Include="Repositories\MyCarsRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
+    <Compile Include="Repositories\UsersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abw.Common\abw.Common.csproj">
@@ -93,6 +104,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201404300900326_AddDefaultCars.resx">
       <DependentUpon>201404300900326_AddDefaultCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405031344291_AddUsersTable.resx">
+      <DependentUpon>201405031344291_AddUsersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405041805504_AddAdminUser.resx">
+      <DependentUpon>201405041805504_AddAdminUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

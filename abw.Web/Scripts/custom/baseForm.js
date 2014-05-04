@@ -1,7 +1,8 @@
 ﻿define(['knockout',
-		'knockout-mapping'],
+		'knockout-mapping',
+		'unobtrusive-validation'],
 function (ko, koMapping) {
-	function baseCar(viewModel, errorMessages) {
+	function baseForm(viewModel, errorMessages) {
 		viewModel = koMapping.fromJS(viewModel);
 
 		viewModel.loading = ko.observable(false);
@@ -14,9 +15,12 @@ function (ko, koMapping) {
 		};
 
 		viewModel.errorMessages = errorMessages;
+		if (errorMessages.length) {
+			$('body').animate({ scrollTop: $(document).height() }, 500);
+		}
 
 		return viewModel;
 	}
 
-	return baseCar;
+	return baseForm;
 });

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
 using abw.Helpers;
@@ -7,6 +6,7 @@ using abw.ViewModels;
 
 namespace abw.Controllers
 {
+	[Authorize]
 	public class CarsController : BaseController<ICarService>
 	{
 		public CarsController(ICarService service)

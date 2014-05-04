@@ -142,6 +142,7 @@
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyCarsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Helpers\JsonNetResult.cs" />
     <Compile Include="Helpers\CommonHelpers.cs" />
     <Compile Include="Helpers\DependencyResolution\Ioc.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="ViewModels\MyCars\MyCarBase.cs" />
     <Compile Include="ViewModels\MyCars\MyCarViewModel.cs" />
     <Compile Include="ViewModels\MyCars\MyCarForDisplay.cs" />
+    <Compile Include="ViewModels\SignIn.cs" />
     <Compile Include="ViewModels\ViewModelsProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,17 +183,19 @@
     <Content Include="Content\styles\custom\notifications.less" />
     <Content Include="Content\styles\custom\spinner.less" />
     <Content Include="Content\styles\custom\grid.less" />
+    <Content Include="Content\styles\custom\forms.less" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap-notify-1.0.js" />
     <Content Include="Scripts\bootstrap-3.1.1.js" />
     <Content Include="Scripts\custom\carsGrid.js" />
-    <Content Include="Scripts\custom\baseCar.js" />
+    <Content Include="Scripts\custom\baseForm.js" />
     <Content Include="Scripts\custom\car.js" />
     <Content Include="Scripts\custom\globalVars.js" />
     <Content Include="Scripts\custom\loader.js" />
     <Content Include="Scripts\custom\main.js" />
     <Content Include="Scripts\custom\myCar.js" />
     <Content Include="Scripts\custom\notifications.js" />
+    <Content Include="Scripts\custom\signIn.js" />
     <Content Include="Scripts\custom\validation\addToValidationContext.js" />
     <Content Include="Scripts\custom\validation\uniqueCarModels.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
@@ -221,6 +225,7 @@
     <Content Include="Views\Shared\_Car.cshtml" />
     <Content Include="Views\Shared\_MyCar.cshtml" />
     <Content Include="Views\Shared\_SubmitArea.cshtml" />
+    <Content Include="Views\Account\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">
