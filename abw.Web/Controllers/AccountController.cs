@@ -16,37 +16,41 @@ namespace abw.Controllers
 
 		// todo: implement logIn popup
 		// todo: add [NonAuthorize]
-		public ActionResult SignIn()
+		public ActionResult SignIn(string returnUrl)
 		{
-			return View(new SignIn());
+			SignInModel signInModel = new SignInModel();
+			signInModel.ReturnUrl = returnUrl;
+			return View(signInModel);
 		}
 
 		// todo: add [NonAuthorize]
 		[HttpPost]
-		public ActionResult SignIn(SignIn signIn)
+		public ActionResult SignIn(SignInModel signInModel)
 		{
 			if (!ModelState.IsValid)
 			{
-				return View(signIn);
+				return View(signInModel);
 			}
-			User user = Service.GetUser(signIn.Name, signIn.Password);
+			User user = Service.GetUser(signInModel.Name, signInModel.Password);
 			if (user == null)
 			{
 				ModelState.AddModelError(string.Empty, ErrorMessages.InvalidUsernameOrPassword);
-				return View(signIn);
+				return View(signInModel);
 			}
-			FormsAuthentication.SetAuthCookie(signIn.Name, true);
+			FormsAuthentication.SetAuthCookie(signInModel.Name, true);
 
-			// todo: use returnUrl
+			if (!string.IsNullOrEmpty(signInModel.ReturnUrl))
+			{
+				return Redirect(signInModel.ReturnUrl);
+			}
 			return RedirectToAction("Index", "Home");
 		}
 
 		[Authorize]
-		public ActionResult SignOut()
+		public ActionResult SignOut(string returnUrl)
 		{
 			FormsAuthentication.SignOut();
-			// todo: stay on the same page
-			return RedirectToAction("Index", "Home");
+			return Redirect(returnUrl);
 		}
 	}
 }

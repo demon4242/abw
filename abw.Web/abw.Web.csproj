@@ -162,7 +162,7 @@
     <Compile Include="ViewModels\MyCars\MyCarBase.cs" />
     <Compile Include="ViewModels\MyCars\MyCarViewModel.cs" />
     <Compile Include="ViewModels\MyCars\MyCarForDisplay.cs" />
-    <Compile Include="ViewModels\SignIn.cs" />
+    <Compile Include="ViewModels\SignInModel.cs" />
     <Compile Include="ViewModels\ViewModelsProvider.cs" />
   </ItemGroup>
   <ItemGroup>

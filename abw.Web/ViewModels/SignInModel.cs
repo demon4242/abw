@@ -4,7 +4,7 @@ using abw.Resources;
 
 namespace abw.ViewModels
 {
-	public class SignIn
+	public class SignInModel
 	{
 		[Display(ResourceType = typeof(DisplayNames), Name = "Name")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
@@ -15,5 +15,7 @@ namespace abw.ViewModels
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
 		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
 		public string Password { get; set; }
+
+		public string ReturnUrl { get; set; }
 	}
 }

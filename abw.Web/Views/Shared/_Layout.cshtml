@@ -18,7 +18,10 @@
 				<div>
 					Привет, @User.Identity.Name
 				</div>
-				@Html.ActionLink("Выйти", "SignOut", "Account")
+				string returnUrl = Request.Url != null
+					? Request.Url.AbsolutePath
+					: null;
+				@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
 			}
 		</div>
 

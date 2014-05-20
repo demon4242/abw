@@ -2,7 +2,7 @@
 		'knockout-mapping',
 		'unobtrusive-validation'],
 function (ko, koMapping) {
-	function baseForm(viewModel, errorMessages) {
+	function baseForm(viewModel, errorMessages, submitButtonText) {
 		viewModel = koMapping.fromJS(viewModel);
 
 		viewModel.loading = ko.observable(false);
@@ -13,6 +13,8 @@ function (ko, koMapping) {
 			viewModel.loading(true);
 			return true;
 		};
+
+		viewModel.submitButtonText = submitButtonText || 'Сохранить';
 
 		viewModel.errorMessages = errorMessages;
 		if (errorMessages.length) {
