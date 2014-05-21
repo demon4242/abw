@@ -14,7 +14,7 @@ function (ko, notifications, loader) {
 		});
 
 		viewModel.deleteCar = function (car) {
-			var nameHtml = '<strong>' + (car.make || car.makeAndModel) + '</strong>';
+			var nameHtml = '<strong>' + (car.make || car.makeAndModel + ' ' + car.year) + '</strong>';
 			notifications.confirm('Удаление машины ' + nameHtml, 'Вы уверены?', function () {
 				loader.show();
 				$.post(deleteUrl + '/' + car.id).done(function (data) {

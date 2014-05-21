@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201405041805504_AddAdminUser.Designer.cs">
       <DependentUpon>201405041805504_AddAdminUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405210638303_AddDefaultMyCars.cs" />
+    <Compile Include="Migrations\201405210638303_AddDefaultMyCars.Designer.cs">
+      <DependentUpon>201405210638303_AddDefaultMyCars.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbwDbMigrationsConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contracts\IRepository.cs" />
@@ -110,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405041805504_AddAdminUser.resx">
       <DependentUpon>201405041805504_AddAdminUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405210638303_AddDefaultMyCars.resx">
+      <DependentUpon>201405210638303_AddDefaultMyCars.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
