@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using abw.Attributes.Validation;
 using abw.Common;
 using abw.DAL.Entities;
 using abw.Resources;
-using abw.ValidationAttributes;
 
 namespace abw.ViewModels
 {

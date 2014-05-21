@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
+using abw.Attributes;
 using abw.BusinessLogic;
 using abw.DAL.Entities;
 using abw.Resources;
@@ -15,7 +16,7 @@ namespace abw.Controllers
 		}
 
 		// todo: implement logIn popup
-		// todo: add [NonAuthorize]
+		[NonAuthorize]
 		public ActionResult SignIn(string returnUrl)
 		{
 			SignInModel signInModel = new SignInModel();
@@ -23,8 +24,8 @@ namespace abw.Controllers
 			return View(signInModel);
 		}
 
-		// todo: add [NonAuthorize]
 		[HttpPost]
+		[NonAuthorize]
 		public ActionResult SignIn(SignInModel signInModel)
 		{
 			if (!ModelState.IsValid)

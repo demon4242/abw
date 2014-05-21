@@ -4,7 +4,7 @@ using System.Linq;
 using abw.Resources;
 using abw.ViewModels;
 
-namespace abw.ValidationAttributes
+namespace abw.Attributes.Validation
 {
 	/// <summary>
 	/// Ensures that car has not duplicate models
