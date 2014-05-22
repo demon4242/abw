@@ -24,6 +24,10 @@ namespace abw.App_Start
 			Bundle gridStyles = new Bundle("~/grid")
 				.Include(customStylesDirectory + "grid.less");
 			AddStyleBundle(ref bundles, gridStyles);
+
+			Bundle contactsStyles = new Bundle("~/contacts")
+				.Include(customStylesDirectory + "contacts.less");
+			AddStyleBundle(ref bundles, contactsStyles);
 		}
 
 		private static void AddStyleBundle(ref BundleCollection bundles, Bundle styleBundle)

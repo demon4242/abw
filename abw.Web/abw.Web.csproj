@@ -185,12 +185,14 @@
     <Content Include="Content\styles\custom\spinner.less" />
     <Content Include="Content\styles\custom\grid.less" />
     <Content Include="Content\styles\custom\forms.less" />
+    <Content Include="Content\styles\custom\contacts.less" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap-notify-1.0.js" />
     <Content Include="Scripts\bootstrap-3.1.1.js" />
     <Content Include="Scripts\custom\carsGrid.js" />
     <Content Include="Scripts\custom\baseForm.js" />
     <Content Include="Scripts\custom\car.js" />
+    <Content Include="Scripts\custom\contacts.js" />
     <Content Include="Scripts\custom\globalVars.js" />
     <Content Include="Scripts\custom\loader.js" />
     <Content Include="Scripts\custom\main.js" />

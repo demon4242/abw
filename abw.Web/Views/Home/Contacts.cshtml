@@ -1,8 +1,27 @@
-﻿@{
+﻿@using System.Web.Optimization
+@{
 	ViewBag.Title = "Контакты";
 }
-<h2>Контакты</h2>
-@{ Html.RenderPartial("_Phones"); }
-<div>
-	Авторынок "Малиновка" 34/12Н
+@section styles
+{
+	@Styles.Render("~/contacts")
+}
+@section scripts
+{
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD0NvPmuC93QnT8a9mQGEXfpEM1UgMps4Q&sensor=false&language=ru"></script>
+	<script type="text/javascript">
+		require(['contacts']);
+	</script>
+}
+@* todo: add yandex maps and mapbox *@
+@* todo: add button 'Get directions' *@
+<div id="googleMapsWrapper">
+	<div data-bind="template: { afterRender: initGoogleMaps }">
+	</div>
 </div>
+<div id="emailInfo">
+	<strong>email</strong>
+	<br />
+	<a href="mailto:demo_xxx@mail.ru">demo_xxx@mail.ru</a>
+</div>
+@{ Html.RenderPartial("_Phones"); }
