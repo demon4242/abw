@@ -39,32 +39,36 @@ function (ko, notifications, loader) {
 		});
 		viewModel.loading = ko.observable(false);
 
-		ko.applyBindings(viewModel);
-
 		var page = 1;
 
-		function loadMore() {
-			if ($(window).scrollTop() !== ($(document).height() - $(window).height())) {
-				return;
-			}
-			if (viewModel.list().length === viewModel.totalCount()) {
-				$(window).off('scroll', loadMore);
-				return;
-			}
+		viewModel.loadMore = function () {
 			viewModel.loading(true);
 			$.get(getUrl + '?page=' + ++page).done(function (data) {
 				ko.utils.arrayForEach(data.list, function (car) {
 					viewModel.list.push(car);
 				});
 				viewModel.totalCount(data.totalCount);
+
+				if (viewModel.list().length === viewModel.totalCount()) {
+					$(window).off('scroll', loadMoreByScrollDown);
+				}
 			}).fail(function () {
 				notifications.error();
 			}).always(function () {
 				viewModel.loading(false);
 			});
+		};
+
+		ko.applyBindings(viewModel);
+
+		function loadMoreByScrollDown() {
+			if ($(window).scrollTop() !== ($(document).height() - $(window).height())) {
+				return;
+			}
+			viewModel.loadMore();
 		}
 
-		$(window).on('scroll', loadMore);
+		$(window).on('scroll', loadMoreByScrollDown);
 	};
 
 	return carsGrid;

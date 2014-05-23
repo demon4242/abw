@@ -6,9 +6,8 @@
 <tr data-bind="css: { visible: list().length }" id="pageInfo">
 	<td colspan="@Model">
 		<div data-bind="text: pageInfo"></div>
-		<div data-bind="if: list().length !== totalCount() && !loading()" id="scrollingTip">
-			Прокрутите вниз, чтобы загрузить больше
-			@* todo: add text 'or click to load more' *@
+		<div data-bind="click: loadMore, if: list().length !== totalCount() && !loading()" id="scrollingTip">
+			Прокрутите вниз или нажмите, чтобы загрузить больше
 		</div>
 		<img data-bind="visible: loading" src="@Url.Content("~/Content/images/facebook-loader.gif")"
 			 alt="continuous pagination loader" />
