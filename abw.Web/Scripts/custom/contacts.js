@@ -8,13 +8,13 @@ function (ko) {
 		var googleMapsElement = $(elements).parent()[0];
 		var googleMaps = window.google.maps;
 		var settings = {
-			center: new googleMaps.LatLng(53.856980, 27.420352),
+			center: new googleMaps.LatLng(53.856967, 27.419279),
 			zoom: 14
 		};
 		var map = new googleMaps.Map(googleMapsElement, settings);
 
 		var marker = new googleMaps.Marker({
-			position: new googleMaps.LatLng(53.851941, 27.421823),
+			position: new googleMaps.LatLng(53.851716, 27.421215),
 			title: TITLE,
 			animation: googleMaps.Animation.DROP
 		});
