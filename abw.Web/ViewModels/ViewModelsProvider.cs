@@ -10,6 +10,13 @@ namespace abw.ViewModels
 	{
 		#region Public
 
+		public static List<string> GetMyCarsForDisplay(this IHomeService homeService)
+		{
+			List<MyCar> myCars = homeService.GetMyCars();
+			List<string> result = myCars.Select(m => string.Format("{0} {1} {2}", m.Car.Make.Name, m.Car.Model, m.Year)).ToList();
+			return result;
+		}
+
 		#region Car
 
 		public static Grid<CarForDisplay> GetCarsGrid(this ICarService carService, int page = 1)

@@ -1,14 +1,49 @@
-﻿#googleMapsWrapper {
+﻿.google-map-wrapper, #contacts {
 	box-shadow: 0 0 5px #40310a;
-	padding: 5px;
+}
+
+#googleMapsTitle {
+	font-weight: bold;
+	text-align: center;
 	margin-bottom: 10px;
+}
+
+.google-map-wrapper {
+	padding: 5px;
+	display: inline-block;
+
+	&:not(:last-child) {
+		margin-right: 10px;
+	}
 
 	> div {
 		height: 400px;
 		width: 400px;
 	}
+
+	> span {
+		display: block;
+		font-weight: bold;
+		text-align: center;
+		margin-top: 5px;
+	}
 }
 
-#emailInfo {
-	float: left;
+#dayOff {
+	font-weight: bold;
+	text-align: center;
+	margin: 10px 0;
+}
+
+#contacts {
+	width: auto;
+	margin: 0 auto;
+
+	th {
+		text-align: center;
+	}
+
+	> tbody > tr > td:first-child {
+		font-weight: bold;
+	}
 }

@@ -1,16 +1,16 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
 using abw.Attributes;
-using abw.BusinessLogic;
+using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
 using abw.Resources;
 using abw.ViewModels;
 
 namespace abw.Controllers
 {
-	public class AccountController : BaseController<AccountService>
+	public class AccountController : BaseController<IAccountService>
 	{
-		public AccountController(AccountService service)
+		public AccountController(IAccountService service)
 			: base(service)
 		{
 		}

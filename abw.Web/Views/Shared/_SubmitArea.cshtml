@@ -1,9 +1,11 @@
 ﻿<hr />
 @* 'cancel' class prevents double call of submit method *@
-@* todo: submit button is not of the same size while loading (e.g. signIn page) *@
 <input type="submit" data-bind="value: submitButtonText, css: { loading: loading }, disable: loading" class="btn btn-primary cancel" />
 <br />
 
-<div data-bind="foreach: errorMessages, css: { show: errorMessages.length }" class="alert alert-danger">
+<div data-bind="css: { show: errorMessages.length }" class="alert alert-danger">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true" title="Закрыть">&times;</button>
+	<!-- ko foreach: errorMessages -->
 	<div data-bind="text: $data"></div>
+	<!-- /ko -->
 </div>

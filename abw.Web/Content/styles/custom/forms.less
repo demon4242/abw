@@ -11,6 +11,14 @@ hr {
 }
 
 form {
+	&#signInForm input[type=submit] {
+		width: 66px;
+	}
+
+	&:not(#signInForm) input[type=submit] {
+		width: 97px;
+	}
+
 	label {
 		display: block;
 	}
@@ -26,7 +34,6 @@ form {
 		background-position: -100px;
 
 		&.loading {
-			width: 97px;
 			text-indent: -999px;
 			background-position: center;
 			opacity: 1;

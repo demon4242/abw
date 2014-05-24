@@ -1,13 +1,19 @@
 ﻿body {
 	display: table;
 	margin: 10px auto;
+	// todo: set proper min-width
+	// min-width: 834px;
 }
 
 header {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 
 	#authInfo {
 		float: left;
+	}
+
+	.phones {
+		float: right;
 	}
 
 	.nav {
@@ -19,12 +25,8 @@ header {
 	}
 }
 
-.phones {
-	float: right;
-
-	tr td:not(:last-child) {
-		padding-right: 5px;
-	}
+.phones tr td:not(:last-child) {
+	padding-right: 5px;
 }
 
 .input-validation-error {
@@ -38,4 +40,8 @@ header {
 
 #confirm .modal-dialog {
 	width: 300px;
+}
+
+#carsCatalogueTitle {
+	margin-bottom: 10px;
 }

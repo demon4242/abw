@@ -21,7 +21,7 @@
 				string returnUrl = Request.Url != null
 					? Request.Url.AbsolutePath
 					: null;
-				@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
+					@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
 			}
 		</div>
 
@@ -35,7 +35,7 @@
 		}
 		<ul class="nav nav-tabs">
 			<li>@Html.ActionLink("Главная", "Index", "Home")</li>
-			<li>@Html.ActionLink("Каталог запчастей", "SparesCatalogue", "Home")</li>
+			<li>@Html.ActionLink("Каталог машин", "CarsCatalogue", "Home")</li>
 			<li>@Html.ActionLink("Контакты", "Contacts", "Home")</li>
 			<li>@Html.ActionLink("О нас", "About", "Home")</li>
 		</ul>

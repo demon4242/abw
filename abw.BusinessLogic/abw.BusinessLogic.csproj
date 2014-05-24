@@ -40,8 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountService.cs" />
+    <Compile Include="BaseService.cs" />
     <Compile Include="CarService.cs" />
     <Compile Include="CrudService.cs" />
+    <Compile Include="HomeService.cs" />
     <Compile Include="MyCarService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,13 +7,11 @@ using abw.DAL.Repositories;
 
 namespace abw.BusinessLogic
 {
-	public abstract class CrudService<T> : ICrudService<T> where T : BaseEntity
+	public abstract class CrudService<T> : BaseService, ICrudService<T> where T : BaseEntity
 	{
-		protected readonly UnitOfWork Uow;
-
 		protected CrudService(UnitOfWork uow)
+			: base(uow)
 		{
-			Uow = uow;
 		}
 
 		// todo: get repository using reflection
@@ -52,11 +50,6 @@ namespace abw.BusinessLogic
 				Save();
 			}
 			return success;
-		}
-
-		public void Dispose()
-		{
-			Uow.Dispose();
 		}
 
 		private void Save()

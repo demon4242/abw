@@ -271,7 +271,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\SparesCatalogue.cshtml" />
+    <Content Include="Views\Home\CarsCatalogue.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Phones.cshtml" />

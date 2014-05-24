@@ -19,6 +19,8 @@ namespace abw.Helpers.DependencyResolution
 			{
 				m.For<ICarService>().Use<CarService>();
 				m.For<IMyCarService>().Use<MyCarService>();
+				m.For<IAccountService>().Use<AccountService>();
+				m.For<IHomeService>().Use<HomeService>();
 			});
 
 			return ObjectFactory.Container;

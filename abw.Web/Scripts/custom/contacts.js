@@ -2,28 +2,49 @@
 function (ko) {
 	var viewModel = {};
 
-	viewModel.initGoogleMaps = function (elements) {
-		var TITLE = 'Авторынок "Малиновка", павильон 34/12н';
-
+	function initGoogleMap(elements, title, center, markerPosition) {
 		var googleMapsElement = $(elements).parent()[0];
 		var googleMaps = window.google.maps;
 		var settings = {
-			center: new googleMaps.LatLng(53.856967, 27.419279),
+			center: center,
 			zoom: 14
 		};
 		var map = new googleMaps.Map(googleMapsElement, settings);
 
 		var marker = new googleMaps.Marker({
-			position: new googleMaps.LatLng(53.851716, 27.421215),
-			title: TITLE,
+			position: markerPosition,
+			title: title,
 			animation: googleMaps.Animation.DROP
 		});
 		marker.setMap(map);
 
 		var infoWindow = new googleMaps.InfoWindow({
-			content: '<strong>' + TITLE + '</strong>'
+			content: '<strong>' + title + '</strong>'
 		});
 		infoWindow.open(map, marker);
+	}
+
+	viewModel.initMarketMap = function (elements) {
+		var TITLE = 'Авторынок "Малиновка", павильон 34/12н';
+
+		var googleMaps = window.google.maps;
+		var center = new googleMaps.LatLng(53.856967, 27.419279);
+		var markerPosition = new googleMaps.LatLng(53.851716, 27.421215);
+
+		initGoogleMap(elements, TITLE, center, markerPosition);
+	};
+
+	viewModel.initStorehouseMap = function (elements) {
+		var TITLE = 'Склад на Скрипникова, 43&nbsp;';
+		var LATITUDE = 53.898823;
+		var LONGITUDE = 27.421431;
+
+		var googleMaps = window.google.maps;
+		var center = new googleMaps.LatLng(LATITUDE, LONGITUDE);
+		var markerPosition = new googleMaps.LatLng(LATITUDE, LONGITUDE);
+
+		initGoogleMap(elements, TITLE, center, markerPosition);
+
 	};
 
 	ko.applyBindings(viewModel);

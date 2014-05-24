@@ -15,13 +15,45 @@
 }
 @* todo: add yandex maps and mapbox *@
 @* todo: add button 'Get directions' *@
-<div id="googleMapsWrapper">
-	<div data-bind="template: { afterRender: initGoogleMaps }">
+<div>
+	<div id="googleMapsTitle">Время и место работы</div>
+	<div class="google-map-wrapper">
+		<div data-bind="template: { afterRender: initMarketMap }">
+		</div>
+		<span>
+			09:00 - 14:00
+		</span>
+	</div>
+	<div class="google-map-wrapper">
+		<div data-bind="template: { afterRender: initStorehouseMap }">
+		</div>
+		<span>
+			14:00 - 21:00
+		</span>
 	</div>
 </div>
-<div id="emailInfo">
-	<strong>email</strong>
-	<br />
-	<a href="mailto:demo_xxx@mail.ru">demo_xxx@mail.ru</a>
+<div id="dayOff">
+	Выходной: понедельник
 </div>
-@{ Html.RenderPartial("_Phones"); }
+
+<table id="contacts" class="table table-bordered">
+	<tr>
+		<th colspan="2">Контакты</th>
+	</tr>
+	<tr>
+		<td>
+			Электронная почта
+		</td>
+		<td>
+			<a href="mailto:demo_xxx@mail.ru">demo_xxx@mail.ru</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Телефоны
+		</td>
+		<td>
+			@{ Html.RenderPartial("_Phones"); }
+		</td>
+	</tr>
+</table>

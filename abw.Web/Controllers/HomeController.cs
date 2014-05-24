@@ -1,17 +1,26 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using abw.BusinessLogic.Interfaces;
+using abw.ViewModels;
 
 namespace abw.Controllers
 {
-	public class HomeController : Controller
+	public class HomeController : BaseController<IHomeService>
 	{
+		public HomeController(IHomeService service)
+			: base(service)
+		{
+		}
+
 		public ActionResult Index()
 		{
 			return View();
 		}
 
-		public ActionResult SparesCatalogue()
+		public ActionResult CarsCatalogue()
 		{
-			return View();
+			List<string> myCars = Service.GetMyCarsForDisplay();
+			return View(myCars);
 		}
 
 		public ActionResult About()
