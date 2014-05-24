@@ -24,6 +24,7 @@ function ($, globalVars) {
 			var linkFullPath = link.href.replace(location.origin, '');
 			var isSpecialPage = ifSpecialPage(linkFullPath);
 
+			// todo: make 'http://localhost/abw' and 'http://localhost/abw/', http://localhost/abw/Home/CarsCatalogue and http://localhost/abw/Home/CarsCatalogue/ the same
 			if (isSpecialPage || link.href.toLowerCase() === location.href.toLowerCase()) {
 				$(link).removeAttr('href').closest('li').addClass('active');
 				break;
