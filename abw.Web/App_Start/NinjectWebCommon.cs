@@ -1,7 +1,4 @@
-using abw.BusinessLogic;
-using abw.BusinessLogic.Interfaces;
-using abw.DAL.Contracts;
-using abw.DAL.Repositories;
+using Ninject.Extensions.Conventions;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(abw.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(abw.App_Start.NinjectWebCommon), "Stop")]
@@ -66,12 +63,10 @@ namespace abw.App_Start
 		/// <param name="kernel">The kernel.</param>
 		private static void RegisterServices(IKernel kernel)
 		{
-			kernel.Bind<IHomeService>().To<HomeService>();
-			kernel.Bind<IAccountService>().To<AccountService>();
-			kernel.Bind<ICarService>().To<CarService>();
-			kernel.Bind<IMyCarService>().To<MyCarService>();
-
-			kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+			kernel.Bind(m => m
+			.FromAssembliesMatching("*")
+			.SelectAllClasses()
+			.BindDefaultInterface());
 		}
 	}
 }
