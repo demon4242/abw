@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using abw.BusinessLogic.Interfaces;
+using abw.DAL.Contracts;
 using abw.DAL.Entities;
-using abw.DAL.Repositories;
 
 namespace abw.BusinessLogic
 {
 	public class HomeService : BaseService, IHomeService
 	{
-		public HomeService(UnitOfWork uow)
+		public HomeService(IUnitOfWork uow)
 			: base(uow)
 		{
 		}

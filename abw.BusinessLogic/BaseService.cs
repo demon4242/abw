@@ -1,13 +1,13 @@
 ﻿using abw.BusinessLogic.Interfaces;
-using abw.DAL.Repositories;
+using abw.DAL.Contracts;
 
 namespace abw.BusinessLogic
 {
 	public abstract class BaseService : IBaseService
 	{
-		protected readonly UnitOfWork Uow;
+		protected readonly IUnitOfWork Uow;
 
-		protected BaseService(UnitOfWork uow)
+		protected BaseService(IUnitOfWork uow)
 		{
 			Uow = uow;
 		}

@@ -2,13 +2,12 @@
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Contracts;
 using abw.DAL.Entities;
-using abw.DAL.Repositories;
 
 namespace abw.BusinessLogic
 {
 	public class CarService : CrudService<CarMake>, ICarService
 	{
-		public CarService(UnitOfWork uow)
+		public CarService(IUnitOfWork uow)
 			: base(uow)
 		{
 		}

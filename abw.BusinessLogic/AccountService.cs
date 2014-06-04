@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using abw.BusinessLogic.Interfaces;
+using abw.DAL.Contracts;
 using abw.DAL.Entities;
-using abw.DAL.Repositories;
 
 namespace abw.BusinessLogic
 {
 	public class AccountService : BaseService, IAccountService
 	{
-		public AccountService(UnitOfWork uow)
+		public AccountService(IUnitOfWork uow)
 			: base(uow)
 		{
 		}

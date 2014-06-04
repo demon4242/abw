@@ -3,13 +3,12 @@ using System.Linq;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Contracts;
 using abw.DAL.Entities;
-using abw.DAL.Repositories;
 
 namespace abw.BusinessLogic
 {
 	public class MyCarService : CrudService<MyCar>, IMyCarService
 	{
-		public MyCarService(UnitOfWork uow)
+		public MyCarService(IUnitOfWork uow)
 			: base(uow)
 		{
 		}

@@ -3,13 +3,12 @@ using System.Linq;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Contracts;
 using abw.DAL.Entities;
-using abw.DAL.Repositories;
 
 namespace abw.BusinessLogic
 {
 	public abstract class CrudService<T> : BaseService, ICrudService<T> where T : BaseEntity
 	{
-		protected CrudService(UnitOfWork uow)
+		protected CrudService(IUnitOfWork uow)
 			: base(uow)
 		{
 		}
