@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3F1F73DE-85CC-4AF5-B797-4CA5D5896DEE}</ProjectGuid>
+    <ProjectGuid>{FF81E385-1CDB-4064-BABE-362396B33B95}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>abw.IoC</RootNamespace>
-    <AssemblyName>abw.IoC</AssemblyName>
+    <RootNamespace>abw.BusinessLogic</RootNamespace>
+    <AssemblyName>abw.BusinessLogic</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,25 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IocConfigurator.cs" />
+    <Compile Include="AccountService.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="CarService.cs" />
+    <Compile Include="CrudService.cs" />
+    <Compile Include="HomeService.cs" />
+    <Compile Include="MyCarService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registries\asdf.cs" />
-    <Compile Include="Registries\BusinessLogicRegistry.cs" />
-    <Compile Include="Registries\ControllerRegistry.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">
       <Project>{F255E5D3-4FBE-4F97-B5DC-A14A06BE4109}</Project>
       <Name>abw.BusinessLogic.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\abw.BusinessLogic\abw.BusinessLogic.csproj">
-      <Project>{FF81E385-1CDB-4064-BABE-362396B33B95}</Project>
-      <Name>abw.BusinessLogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\abw.DAL\abw.DAL.csproj">
+    <ProjectReference Include="..\..\abw.DAL\abw.DAL.csproj">
       <Project>{19F73776-3170-4121-9F0B-F8EEB41D14FB}</Project>
       <Name>abw.DAL</Name>
     </ProjectReference>

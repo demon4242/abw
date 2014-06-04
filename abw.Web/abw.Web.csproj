@@ -239,23 +239,23 @@
     <Content Include="Views\Account\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">
-      <Project>{f255e5d3-4fbe-4f97-b5dc-a14a06be4109}</Project>
-      <Name>abw.BusinessLogic.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\abw.BusinessLogic\abw.BusinessLogic.csproj">
-      <Project>{ff81e385-1cdb-4064-babe-362396b33b95}</Project>
-      <Name>abw.BusinessLogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\abw.Common\abw.Common.csproj">
-      <Project>{402516c1-c07c-490d-8fdd-fdf458499c9e}</Project>
-      <Name>abw.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\abw.DAL\abw.DAL.csproj">
       <Project>{19f73776-3170-4121-9f0b-f8eeb41d14fb}</Project>
       <Name>abw.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\abw.Resources\abw.Resources.csproj">
+    <ProjectReference Include="..\BusinessLogic\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">
+      <Project>{f255e5d3-4fbe-4f97-b5dc-a14a06be4109}</Project>
+      <Name>abw.BusinessLogic.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessLogic\abw.BusinessLogic\abw.BusinessLogic.csproj">
+      <Project>{ff81e385-1cdb-4064-babe-362396b33b95}</Project>
+      <Name>abw.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\abw.Common\abw.Common.csproj">
+      <Project>{402516c1-c07c-490d-8fdd-fdf458499c9e}</Project>
+      <Name>abw.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\abw.Resources\abw.Resources.csproj">
       <Project>{13950df7-18b5-4406-ab2c-05ebe61eb6a3}</Project>
       <Name>abw.Resources</Name>
     </ProjectReference>

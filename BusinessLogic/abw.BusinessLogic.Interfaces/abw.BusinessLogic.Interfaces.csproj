@@ -48,7 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\abw.DAL\abw.DAL.csproj">
+    <ProjectReference Include="..\..\abw.DAL\abw.DAL.csproj">
       <Project>{19F73776-3170-4121-9F0B-F8EEB41D14FB}</Project>
       <Name>abw.DAL</Name>
     </ProjectReference>
