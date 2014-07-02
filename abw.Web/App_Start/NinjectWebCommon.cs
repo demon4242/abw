@@ -64,9 +64,9 @@ namespace abw.App_Start
 		private static void RegisterServices(IKernel kernel)
 		{
 			kernel.Bind(m => m
-			.FromAssembliesMatching("*")
-			.SelectAllClasses()
-			.BindDefaultInterface());
+				.FromAssembliesMatching("*")
+				.SelectAllClasses()
+				.BindDefaultInterface());
 		}
 	}
 }

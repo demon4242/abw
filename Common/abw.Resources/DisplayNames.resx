@@ -132,6 +132,9 @@
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
   </data>
+  <data name="Photo" xml:space="preserve">
+    <value>Фото</value>
+  </data>
   <data name="Year" xml:space="preserve">
     <value>Год</value>
   </data>

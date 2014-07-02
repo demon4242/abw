@@ -120,6 +120,9 @@
   <data name="InvalidUsernameOrPassword" xml:space="preserve">
     <value>Неверное имя или пароль</value>
   </data>
+  <data name="MaxFileSize" xml:space="preserve">
+    <value>Максимальный размер файла "{0}" - {1} мб</value>
+  </data>
   <data name="Required" xml:space="preserve">
     <value>Поле {0} - обязательное</value>
   </data>
@@ -131,5 +134,8 @@
   </data>
   <data name="UniqueCarModels" xml:space="preserve">
     <value>Модели должны быть уникальными</value>
+  </data>
+  <data name="ValidFileExtensions" xml:space="preserve">
+    <value>Допустимые расширения для файла "{0}": {1}</value>
   </data>
 </root>

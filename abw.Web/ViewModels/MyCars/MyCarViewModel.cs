@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 using System.Web.Mvc;
+using abw.Attributes.Validation;
+using abw.Common;
 using abw.DAL.Entities;
 using abw.Resources;
 using abw.ViewModels.MyCars;
+using Newtonsoft.Json;
 
 namespace abw.ViewModels
 {
@@ -31,6 +35,14 @@ namespace abw.ViewModels
 		[Display(ResourceType = typeof(DisplayNames), Name = "Year")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
 		public override int Year { get; set; }
+
+		// todo: proper 'required' validation on UI
+		[Display(ResourceType = typeof(DisplayNames), Name = "Photo")]
+		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
+		[ValidFileExtensions(Constants.ValidPhotoExtensions)]
+		[MaxFileSize(Constants.MaxFileSize)]
+		[JsonIgnore]
+		public HttpPostedFileBase Photo { get; set; }
 
 		public List<SelectListItem> Years
 		{

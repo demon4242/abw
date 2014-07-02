@@ -70,6 +70,15 @@ namespace abw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Максимальный размер файла &quot;{0}&quot; - {1} мб.
+        /// </summary>
+        public static string MaxFileSize {
+            get {
+                return ResourceManager.GetString("MaxFileSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Поле {0} - обязательное.
         /// </summary>
         public static string Required {
@@ -102,6 +111,15 @@ namespace abw.Resources {
         public static string UniqueCarModels {
             get {
                 return ResourceManager.GetString("UniqueCarModels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Допустимые расширения для файла &quot;{0}&quot;: {1}.
+        /// </summary>
+        public static string ValidFileExtensions {
+            get {
+                return ResourceManager.GetString("ValidFileExtensions", resourceCulture);
             }
         }
     }

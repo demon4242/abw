@@ -151,6 +151,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Attributes\NonAuthorizeAttribute.cs" />
+    <Compile Include="Attributes\Validation\MaxFileSizeAttribute.cs" />
+    <Compile Include="Attributes\Validation\ValidFileExtensionsAttribute.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -257,6 +259,10 @@
     <ProjectReference Include="..\Common\abw.Common\abw.Common.csproj">
       <Project>{402516c1-c07c-490d-8fdd-fdf458499c9e}</Project>
       <Name>abw.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\abw.Logging\abw.Logging.csproj">
+      <Project>{B45368DB-336A-4563-A466-E78F71A6D33E}</Project>
+      <Name>abw.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\abw.Resources\abw.Resources.csproj">
       <Project>{13950df7-18b5-4406-ab2c-05ebe61eb6a3}</Project>

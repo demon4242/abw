@@ -106,6 +106,15 @@ namespace abw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Фото.
+        /// </summary>
+        public static string Photo {
+            get {
+                return ResourceManager.GetString("Photo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Год.
         /// </summary>
         public static string Year {
