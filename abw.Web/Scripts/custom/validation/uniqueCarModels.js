@@ -1,5 +1,6 @@
 ﻿// ensures that car has not duplicate models
-define(['jquery', 'unobtrusive-validation'],
+define(['jquery',
+		'unobtrusive-validation'],
 function ($) {
 	var METHOD = 'unique-car-models';
 

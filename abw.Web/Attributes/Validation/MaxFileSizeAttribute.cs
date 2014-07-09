@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
+using System.Web.Mvc;
 using abw.Logging;
 using abw.Resources;
 
 namespace abw.Attributes.Validation
 {
-	// todo: add client validation
 	/// <summary>
 	/// Restricts max file size
 	/// </summary>
-	public class MaxFileSizeAttribute : ValidationAttribute
+	public class MaxFileSizeAttribute : ValidationAttribute, IClientValidatable
 	{
 		private readonly int _sizeInMb;
 
@@ -54,6 +55,17 @@ namespace abw.Attributes.Validation
 				throw new Exception(errorMessage);
 			}
 			return file;
+		}
+
+		public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
+		{
+			ModelClientValidationRule rule = new ModelClientValidationRule
+			{
+				ValidationType = "maxfilesize",
+				ErrorMessage = FormatErrorMessage(metadata.DisplayName),
+			};
+			rule.ValidationParameters.Add("sizeinmb", _sizeInMb);
+			yield return rule;
 		}
 	}
 }

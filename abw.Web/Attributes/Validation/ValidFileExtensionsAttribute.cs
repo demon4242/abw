@@ -4,18 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using abw.Resources;
 using abw.Logging;
 
 namespace abw.Attributes.Validation
 {
-	// todo: add client validation
 	/// <summary>
 	/// Restricts file extension
 	/// </summary>
-	public class ValidFileExtensionsAttribute : ValidationAttribute
+	public class ValidFileExtensionsAttribute : ValidationAttribute, IClientValidatable
 	{
-		#region Public
+		private readonly List<string> _extensions;
 
 		/// <param name="extensions">extensions separated by comma</param>
 		public ValidFileExtensionsAttribute(string extensions)
@@ -39,7 +39,13 @@ namespace abw.Attributes.Validation
 				return true;
 			}
 
-			HttpPostedFileBase file = GetFileFromValue(value, GetType());
+			HttpPostedFileBase file = value as HttpPostedFileBase;
+			if (file == null)
+			{
+				string errorMessage = string.Format("'{0}' can be used only with properties of type '{1}'", GetType().Name, typeof(HttpPostedFileBase).Name);
+				Logger.Error(errorMessage);
+				throw new Exception(errorMessage);
+			}
 
 			string extension = Path.GetExtension(file.FileName);
 			if (string.IsNullOrWhiteSpace(extension))
@@ -55,27 +61,15 @@ namespace abw.Attributes.Validation
 			return isValid;
 		}
 
-		#endregion Public
-
-		#region Private
-
-		private readonly List<string> _extensions;
-
-		/// <summary>
-		/// Converts object into HttpPostedFileBase
-		/// </summary>
-		private static HttpPostedFileBase GetFileFromValue(object value, Type attributeType)
+		public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
 		{
-			HttpPostedFileBase file = value as HttpPostedFileBase;
-			if (file == null)
+			ModelClientValidationRule rule = new ModelClientValidationRule
 			{
-				string errorMessage = string.Format("'{0}' can be used only with properties of type '{1}'", attributeType.Name, typeof(HttpPostedFileBase).Name);
-				Logger.Error(errorMessage);
-				throw new Exception(errorMessage);
-			}
-			return file;
+				ValidationType = "validfileextensions",
+				ErrorMessage = FormatErrorMessage(metadata.DisplayName),
+			};
+			rule.ValidationParameters.Add("extensions", string.Join(",", _extensions));
+			yield return rule;
 		}
-
-		#endregion Private
 	}
 }

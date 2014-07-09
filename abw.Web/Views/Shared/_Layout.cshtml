@@ -90,14 +90,15 @@
 			var validationFolder = baseUrl + 'validation/';
 			var knockoutFolder = baseUrl + 'knockout/';
 			var customFolder = baseUrl + 'custom/';
-			var customValidationFolder = customFolder + 'validation/';
 			requirejs.config({
 				paths: {
 					'jquery': baseUrl + 'jquery-2.0.3',
 					'bootstrap': baseUrl + 'bootstrap-3.1.1',
 					'bootstrap-notify': baseUrl + 'bootstrap-notify-1.0',
+					// validation
 					'validation': validationFolder + 'jquery.validate-1.11.1',
 					'unobtrusive-validation': validationFolder + 'jquery.validate.unobtrusive',
+					// knockout
 					'knockout': knockoutFolder + 'knockout-3.0.0',
 					'knockout-mapping': knockoutFolder + 'knockout.mapping-2.4.0',
 					// custom
@@ -107,12 +108,12 @@
 					'myCar': customFolder + 'myCar',
 					'signIn': customFolder + 'signIn',
 					'carsGrid': customFolder + 'carsGrid',
-					'uniqueCarModels': customValidationFolder + 'uniqueCarModels',
-					'addToValidationContext': customValidationFolder + 'addToValidationContext',
 					'notifications': customFolder + 'notifications',
 					'loader': customFolder + 'loader',
 					'globalVars': customFolder + 'globalVars',
-					'contacts': customFolder + 'contacts'
+					'contacts': customFolder + 'contacts',
+					// folders
+					'customValidation': customFolder + 'validation'
 				},
 				shim: {
 					'bootstrap': {

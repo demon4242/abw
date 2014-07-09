@@ -33,7 +33,7 @@
 
 <div>
 	@Html.LabelFor(m => m.Photo)
-	@Html.TextBoxFor(m => m.Photo, new { type = "file" })
+	@Html.TextBoxFor(m => m.Photo, new { type = "file", data_bind = "event: { change: photoChanged }" })
 	@Html.ValidationMessageFor(m => m.Photo)
 </div>
 

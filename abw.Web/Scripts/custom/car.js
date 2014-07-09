@@ -1,8 +1,8 @@
 ﻿define(['knockout',
 		'knockout-mapping',
 		'baseForm',
-		'addToValidationContext',
-		'uniqueCarModels'],
+		'customValidation/addToValidationContext',
+		'customValidation/uniqueCarModels'],
 function (ko, koMapping, baseForm, addToValidationContext) {
 	function car(viewModel, errorMessages) {
 		viewModel = baseForm(viewModel, errorMessages);
