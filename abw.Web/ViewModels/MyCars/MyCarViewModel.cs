@@ -36,7 +36,6 @@ namespace abw.ViewModels
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
 		public override int Year { get; set; }
 
-		// todo: proper 'required' validation on UI
 		[Display(ResourceType = typeof(DisplayNames), Name = "Photo")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
 		[ValidFileExtensions(Constants.ValidPhotoExtensions)]
@@ -70,6 +69,7 @@ namespace abw.ViewModels
 			myCar.Id = Id;
 			myCar.CarId = ModelId;
 			myCar.Year = Year;
+			myCar.Photo = Photo.FileName;
 
 			return myCar;
 		}

@@ -21,6 +21,12 @@ namespace abw.BusinessLogic
 			}
 		}
 
+		new public int Create(MyCar myCar)
+		{
+			base.Create(myCar);
+			return myCar.Id;
+		}
+
 		public List<CarMake> GetAllCarMakes()
 		{
 			List<CarMake> carMakes = Uow.CarMakes.All.ToList();

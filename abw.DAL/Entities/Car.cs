@@ -5,7 +5,6 @@ namespace abw.DAL.Entities
 {
 	public class Car : BaseEntity
 	{
-		[Required]
 		public int MakeId { get; set; }
 
 		public virtual CarMake Make { get; set; }

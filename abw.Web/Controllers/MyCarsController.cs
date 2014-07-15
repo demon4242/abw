@@ -41,7 +41,8 @@ namespace abw.Controllers
 				return View(myCar);
 			}
 			MyCar entity = myCar.ToEntity();
-			Service.Create(entity);
+			int myCarId = Service.Create(entity);
+			FileManager.SaveMyCarPhoto(myCar.Photo, myCarId, Server);
 			return RedirectToAction("Grid");
 		}
 

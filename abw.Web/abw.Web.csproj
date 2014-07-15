@@ -158,6 +158,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyCarsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Helpers\FileManager.cs" />
     <Compile Include="Helpers\JsonNetResult.cs" />
     <Compile Include="Helpers\CommonHelpers.cs" />
     <Compile Include="Global.asax.cs">
