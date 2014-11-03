@@ -79,15 +79,6 @@ namespace abw.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Модели.
-        /// </summary>
-        public static string Models {
-            get {
-                return ResourceManager.GetString("Models", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Имя.
         /// </summary>
         public static string Name {

@@ -129,12 +129,6 @@
   <data name="StringMaxLength" xml:space="preserve">
     <value>Максимальная длина поля {0} - {1} символов</value>
   </data>
-  <data name="UniqueCarMake" xml:space="preserve">
-    <value>Данная марка уже существует</value>
-  </data>
-  <data name="UniqueCarModels" xml:space="preserve">
-    <value>Модели должны быть уникальными</value>
-  </data>
   <data name="ValidFileExtensions" xml:space="preserve">
     <value>Допустимые расширения для файла "{0}": {1}</value>
   </data>

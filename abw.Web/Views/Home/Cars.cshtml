@@ -1,0 +1,21 @@
+﻿@using abw.ViewModels;
+@model List<CarForDisplay>
+@{
+	ViewBag.Title = "Каталог машин";
+}
+@if (Model.Any())
+{
+	<div id="carsTitle">
+		У нас Вы можете приобрести различные запчасти к следующим б/у автомобилям:
+	</div>
+	foreach (CarForDisplay car in Model)
+	{
+		<div>
+			<strong>@car.Make @car.Model @car.Year</strong>
+		</div>
+	}
+}
+else
+{
+	<text>К сожалению, в данный момент автомобилей на запчасти нет</text>
+}

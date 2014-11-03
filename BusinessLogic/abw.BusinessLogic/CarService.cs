@@ -1,30 +1,30 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Contracts;
 using abw.DAL.Entities;
 
 namespace abw.BusinessLogic
 {
-	public class CarService : CrudService<CarMake>, ICarService
+	public class CarService : CrudService<Car>, ICarService
 	{
 		public CarService(IUnitOfWork uow)
 			: base(uow)
 		{
 		}
 
-		public bool CarMakeIsUnique(string make, int id)
-		{
-			bool isUnique = Repository.All.SingleOrDefault(m => m.Id != id
-				&& m.Name.Trim().ToLower() == make.Trim().ToLower()) == null;
-			return isUnique;
-		}
-
-		protected override IRepository<CarMake> Repository
+		protected override IRepository<Car> Repository
 		{
 			get
 			{
-				return Uow.CarMakes;
+				return Uow.Cars;
 			}
+		}
+
+		public List<Car> GetAll()
+		{
+			List<Car> cars = Uow.Cars.All.ToList();
+			return cars;
 		}
 	}
 }

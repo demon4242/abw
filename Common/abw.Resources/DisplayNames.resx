@@ -123,9 +123,6 @@
   <data name="Model" xml:space="preserve">
     <value>Модель</value>
   </data>
-  <data name="Models" xml:space="preserve">
-    <value>Модели</value>
-  </data>
   <data name="Name" xml:space="preserve">
     <value>Имя</value>
   </data>

@@ -153,10 +153,9 @@
     <Compile Include="Attributes\NonAuthorizeAttribute.cs" />
     <Compile Include="Attributes\Validation\MaxFileSizeAttribute.cs" />
     <Compile Include="Attributes\Validation\ValidFileExtensionsAttribute.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MyCarsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Helpers\FileManager.cs" />
     <Compile Include="Helpers\JsonNetResult.cs" />
@@ -166,15 +165,9 @@
     </Compile>
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Attributes\Validation\UniqueCarModelsAttribute.cs" />
-    <Compile Include="ViewModels\Cars\CarBase.cs" />
     <Compile Include="ViewModels\Cars\CarViewModel.cs" />
     <Compile Include="ViewModels\Cars\CarForDisplay.cs" />
     <Compile Include="ViewModels\Grid.cs" />
-    <Compile Include="ViewModels\Cars\CarModelViewModel.cs" />
-    <Compile Include="ViewModels\MyCars\MyCarBase.cs" />
-    <Compile Include="ViewModels\MyCars\MyCarViewModel.cs" />
-    <Compile Include="ViewModels\MyCars\MyCarForDisplay.cs" />
     <Compile Include="ViewModels\SignInModel.cs" />
     <Compile Include="ViewModels\ViewModelsProvider.cs" />
   </ItemGroup>
@@ -208,13 +201,10 @@
     <Content Include="Scripts\custom\globalVars.js" />
     <Content Include="Scripts\custom\loader.js" />
     <Content Include="Scripts\custom\main.js" />
-    <Content Include="Scripts\custom\myCar.js" />
     <Content Include="Scripts\custom\notifications.js" />
     <Content Include="Scripts\custom\signIn.js" />
-    <Content Include="Scripts\custom\validation\addToValidationContext.js" />
     <Content Include="Scripts\custom\validation\validFileExtensions.js" />
     <Content Include="Scripts\custom\validation\maxFileSize.js" />
-    <Content Include="Scripts\custom\validation\uniqueCarModels.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <None Include="Scripts\validation\jquery.validate-1.11.1-vsdoc.js" />
     <Content Include="Scripts\knockout\knockout-3.0.0.js" />
@@ -234,15 +224,10 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Cars\Grid.cshtml" />
     <Content Include="Views\Cars\New.cshtml" />
-    <Content Include="Views\MyCars\Grid.cshtml" />
-    <Content Include="Views\MyCars\New.cshtml" />
     <Content Include="Views\Cars\Edit.cshtml" />
-    <Content Include="Views\MyCars\Edit.cshtml" />
-    <Content Include="Views\Shared\Buttons\_New.cshtml" />
     <Content Include="Views\Shared\Buttons\_Back.cshtml" />
     <Content Include="Views\Shared\_GridFooter.cshtml" />
     <Content Include="Views\Shared\_Car.cshtml" />
-    <Content Include="Views\Shared\_MyCar.cshtml" />
     <Content Include="Views\Shared\_SubmitArea.cshtml" />
     <Content Include="Views\Account\SignIn.cshtml" />
   </ItemGroup>
@@ -291,7 +276,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\CarsCatalogue.cshtml" />
+    <Content Include="Views\Home\Cars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Phones.cshtml" />

@@ -5,9 +5,9 @@ using abw.ViewModels;
 
 namespace abw.Controllers
 {
-	public class HomeController : BaseController<IHomeService>
+	public class HomeController : BaseController<ICarService>
 	{
-		public HomeController(IHomeService service)
+		public HomeController(ICarService service)
 			: base(service)
 		{
 		}
@@ -17,10 +17,10 @@ namespace abw.Controllers
 			return View();
 		}
 
-		public ActionResult CarsCatalogue()
+		public ActionResult Cars()
 		{
-			List<string> myCars = Service.GetMyCarsForDisplay();
-			return View(myCars);
+			List<CarForDisplay> cars = Service.GetCarsForDisplay();
+			return View(cars);
 		}
 
 		public ActionResult About()

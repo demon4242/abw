@@ -2,7 +2,7 @@
 
 namespace abw.DAL.Contracts
 {
-	public interface ICarMakesRepository : IRepository<CarMake>
+	public interface ICarsRepository : IRepository<Car>
 	{
 	}
 }

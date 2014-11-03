@@ -1,31 +1,30 @@
-﻿@using abw.Resources
-@model abw.ViewModels.CarViewModel
+﻿@model abw.ViewModels.CarViewModel
 
 <hr />
 @Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
 
 <div>
 	@Html.LabelFor(m => m.Make)
-	@Html.TextBoxFor(m => m.Make, new { data_bind = "value: make", autocomplete = "off" })
+	@Html.TextBoxFor(m => m.Make, new { autocomplete = "off" })
 	@Html.ValidationMessageFor(m => m.Make)
 </div>
 
-<div id="carModelsLabel">
-	@Html.LabelFor(m => m.Models)
-	<input type="button" data-bind="click: addModel" class="btn btn-success btn-xs" value="Добавить" />
+<div>
+	@Html.LabelFor(m => m.Model)
+	@Html.TextBoxFor(m => m.Model, new { autocomplete = "off" })
+	@Html.ValidationMessageFor(m => m.Model)
 </div>
 
-<!-- ko foreach: { data: models, afterAdd: addToValidationContext } -->
-<div class="car-model">
-	@Html.HiddenFor(m => m.Models[0].Id, new { data_bind = "value: id, attr: { name: 'Models[' + $index() + '].Id' }" })
-	@Html.TextBoxFor(m => m.Models[0].Name, new
-	{
-		data_bind = "value: name, attr: { name: 'Models[' + $index() + '].Name' }",
-		data_val_unique_car_models = ErrorMessages.UniqueCarModels,
-		autocomplete = "off"
-	})
-	<input type="button" data-bind="css: { visible: $parent.models().length > 1 }, click: $parent.deleteCarModel" class="btn btn-danger btn-xs" value="Удалить" />
-	@Html.ValidationMessageFor(m => m.Models[0].Name, null, new { data_bind = "attr: { 'data-valmsg-for': 'Models[' + $index() + '].Name' }" })
+<div>
+	@Html.LabelFor(m => m.Year)
+	@Html.DropDownListFor(m => m.Year, Model.Years, "Выберите год")
+	@Html.ValidationMessageFor(m => m.Year)
 </div>
-<!-- /ko -->
+
+<div>
+	@Html.LabelFor(m => m.Photo)
+	@Html.TextBoxFor(m => m.Photo, new { type = "file", data_bind = "event: { change: photoChanged }" })
+	@Html.ValidationMessageFor(m => m.Photo)
+</div>
+
 @{ Html.RenderPartial("_SubmitArea"); }

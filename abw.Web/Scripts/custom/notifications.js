@@ -1,6 +1,8 @@
 ﻿define(function () {
 	var self = {};
 
+	var ERROR_MESSAGE = 'Извините, произошла ошибка';
+
 	function showNotification(type, message) {
 		$('#notification').notify({
 			type: type,
@@ -15,7 +17,7 @@
 
 	self.error = function (message) {
 		if (!message) {
-			message = 'Извините, произошла ошибка';
+			message = ERROR_MESSAGE;
 		}
 		showNotification('danger', message);
 	};

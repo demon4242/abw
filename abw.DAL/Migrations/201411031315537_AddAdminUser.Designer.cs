@@ -5,13 +5,13 @@ namespace abw.DAL.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class AddUsersTable : IMigrationMetadata
+    public sealed partial class AddAdminUser : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddUsersTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAdminUser));
         
         string IMigrationMetadata.Id
         {
-            get { return "201405031344291_AddUsersTable"; }
+            get { return "201411031315537_AddAdminUser"; }
         }
         
         string IMigrationMetadata.Source

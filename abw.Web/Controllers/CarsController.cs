@@ -39,14 +39,14 @@ namespace abw.Controllers
 			{
 				return View(car);
 			}
-			CarMake entity = car.ToEntity();
+			Car entity = car.ToEntity();
 			Service.Create(entity);
 			return RedirectToAction("Grid");
 		}
 
 		public ActionResult Edit(int id)
 		{
-			CarViewModel car = Service.GetEditCar(id);
+			CarViewModel car = Service.GetCar(id);
 			return View(car);
 		}
 
@@ -57,7 +57,7 @@ namespace abw.Controllers
 			{
 				return View(car);
 			}
-			CarMake entity = car.ToEntity();
+			Car entity = car.ToEntity();
 			Service.Update(entity);
 			return RedirectToAction("Grid");
 		}
@@ -75,15 +75,6 @@ namespace abw.Controllers
 				});
 			}
 			return Json(new { success = true });
-		}
-
-		/// <summary>
-		/// Ensures that make of the car is unique
-		/// </summary>
-		public JsonResult CarMakeIsUnique(string make, int id)
-		{
-			bool isUnique = Service.CarMakeIsUnique(make, id);
-			return Json(isUnique, JsonRequestBehavior.AllowGet);
 		}
 	}
 }

@@ -1,9 +1,10 @@
-﻿using abw.DAL.Entities;
+﻿using System.Collections.Generic;
+using abw.DAL.Entities;
 
 namespace abw.BusinessLogic.Interfaces
 {
-	public interface ICarService : ICrudService<CarMake>
+	public interface ICarService : ICrudService<Car>
 	{
-		bool CarMakeIsUnique(string make, int id);
+		List<Car> GetAll();
 	}
 }

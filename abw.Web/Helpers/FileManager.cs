@@ -7,9 +7,9 @@ namespace abw.Helpers
 	{
 		private const string PhotosDirectory = "photos";
 
-		public static void SaveMyCarPhoto(HttpPostedFileBase photo, int myCarId, HttpServerUtilityBase server)
+		public static void SaveCarPhoto(HttpPostedFileBase photo, int carId, HttpServerUtilityBase server)
 		{
-			string photoDirectory = server.MapPath(string.Format("~/{0}/{1}", PhotosDirectory, myCarId));
+			string photoDirectory = server.MapPath(string.Format("~/{0}/{1}", PhotosDirectory, carId));
 			bool exists = Directory.Exists(photoDirectory);
 			if (!exists)
 			{

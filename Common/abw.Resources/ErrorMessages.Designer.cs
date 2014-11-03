@@ -97,24 +97,6 @@ namespace abw.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Данная марка уже существует.
-        /// </summary>
-        public static string UniqueCarMake {
-            get {
-                return ResourceManager.GetString("UniqueCarMake", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Модели должны быть уникальными.
-        /// </summary>
-        public static string UniqueCarModels {
-            get {
-                return ResourceManager.GetString("UniqueCarModels", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Допустимые расширения для файла &quot;{0}&quot;: {1}.
         /// </summary>
         public static string ValidFileExtensions {

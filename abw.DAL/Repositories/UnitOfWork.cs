@@ -8,9 +8,7 @@ namespace abw.DAL.Repositories
 
 		private readonly AbwDbContext _dbContext = new AbwDbContext();
 
-		private ICarMakesRepository _carMakes;
-
-		private IMyCarsRepository _myCars;
+		private ICarsRepository _cars;
 
 		private IUsersRepository _users;
 
@@ -18,21 +16,12 @@ namespace abw.DAL.Repositories
 
 		#region Public
 
-		public ICarMakesRepository CarMakes
+		public ICarsRepository Cars
 		{
 			get
 			{
-				ICarMakesRepository carMakes = _carMakes ?? (_carMakes = new CarMakesRepository(_dbContext));
-				return carMakes;
-			}
-		}
-
-		public IMyCarsRepository MyCars
-		{
-			get
-			{
-				IMyCarsRepository myCars = _myCars ?? (_myCars = new MyCarsRepository(_dbContext));
-				return myCars;
+				ICarsRepository cars = _cars ?? (_cars = new CarsRepository(_dbContext));
+				return cars;
 			}
 		}
 

@@ -1,33 +1,19 @@
 ﻿define(['knockout',
 		'knockout-mapping',
 		'baseForm',
-		'customValidation/addToValidationContext',
-		'customValidation/uniqueCarModels'],
-function (ko, koMapping, baseForm, addToValidationContext) {
+		'customValidation/maxFileSize',
+		'customValidation/validFileExtensions'],
+function (ko, koMapping, baseForm) {
 	function car(viewModel, errorMessages) {
 		viewModel = baseForm(viewModel, errorMessages);
 
-		viewModel.addToValidationContext = addToValidationContext;
-
-		function CarModel() {
-			this.id = ko.observable(0);
-			this.name = ko.observable();
+		// automatically validates file input after its value has been changed
+		viewModel.photoChanged = function (myCarViewModel, event) {
+			var target = $(event.target || event.srcElement);
+			var form = target.closest('form');
+			var validator = form.validate();
+			validator.element(target);
 		}
-
-		// adds new car model
-		viewModel.addModel = function () {
-			var carModel = new CarModel();
-			viewModel.models.push(carModel);
-		};
-
-		// deletes car model
-		viewModel.deleteCarModel = function (carViewModel) {
-			var carModels = viewModel.models;
-			if (carModels().length <= 1) {
-				return;
-			}
-			carModels.remove(carViewModel);
-		};
 
 		ko.applyBindings(viewModel);
 	}

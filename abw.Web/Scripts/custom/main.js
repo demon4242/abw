@@ -24,7 +24,7 @@ function ($, globalVars) {
 			var linkFullPath = link.href.replace(location.origin, '');
 			var isAdminPage = ifAdminPage(linkFullPath);
 
-			// converts http://localhost/abw → http://localhost/abw/, http://localhost/abw/Home/CarsCatalogue → http://localhost/abw/Home/CarsCatalogue/
+			// converts http://localhost/abw → http://localhost/abw/, http://localhost/abw/Home/Cars → http://localhost/abw/Home/Cars/
 			function getHref(href) {
 				href = href.toLowerCase();
 				if (href[href.length - 1] !== '/') {

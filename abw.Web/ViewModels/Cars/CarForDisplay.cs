@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
-
-namespace abw.ViewModels
+﻿namespace abw.ViewModels
 {
-	public class CarForDisplay : CarBase
+	public class CarForDisplay
 	{
-		public List<string> Models { get; set; }
+		public int Id { get; set; }
+
+		public virtual string Make { get; set; }
+
+		public virtual string Model { get; set; }
+
+		public virtual int Year { get; set; }
 	}
 }

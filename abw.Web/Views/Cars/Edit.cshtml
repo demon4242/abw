@@ -23,7 +23,7 @@
 }
 @{
 	Html.RenderPartial("Buttons/_Back", title);
-	using (Html.BeginForm("Edit", "Cars", FormMethod.Post, new { data_bind = "submit: submit" }))
+	using (Html.BeginForm("Edit", "Cars", FormMethod.Post, new { data_bind = "submit: submit", enctype = "multipart/form-data" }))
 	{
 		Html.RenderPartial("_Car");
 	}
