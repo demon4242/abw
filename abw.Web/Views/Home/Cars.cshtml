@@ -3,19 +3,25 @@
 @{
 	ViewBag.Title = "Каталог машин";
 }
-@if (Model.Any())
+
+@if (!Model.Any())
+{
+	@:К сожалению, в данный момент автомобилей на запчасти нет
+}
+else
 {
 	<div id="carsTitle">
 		У нас Вы можете приобрести различные запчасти к следующим б/у автомобилям:
 	</div>
 	foreach (CarForDisplay car in Model)
 	{
+		string carFullName = string.Format("{0} {1} {2}", car.Make, car.Model, car.Year);
 		<div>
-			<strong>@car.Make @car.Model @car.Year</strong>
+			<strong>@carFullName</strong>
 		</div>
+		foreach (string photo in car.Photos)
+		{
+			<img src="@Url.Content(photo)" class="car-photo" alt="@carFullName photo" />
+		}
 	}
-}
-else
-{
-	<text>К сожалению, в данный момент автомобилей на запчасти нет</text>
 }

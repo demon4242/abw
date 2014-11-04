@@ -61,6 +61,15 @@ namespace abw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Машина не найдена.
+        /// </summary>
+        public static string CarNotFound {
+            get {
+                return ResourceManager.GetString("CarNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Неверное имя или пароль.
         /// </summary>
         public static string InvalidUsernameOrPassword {

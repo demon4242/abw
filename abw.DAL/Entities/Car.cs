@@ -14,9 +14,5 @@ namespace abw.DAL.Entities
 		public string Model { get; set; }
 
 		public int Year { get; set; }
-
-		[Required]
-		[MaxLength(Constants.MaxStringLength)]
-		public string Photo { get; set; }
 	}
 }

@@ -2,6 +2,7 @@
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
 using abw.Helpers;
+using abw.Resources;
 using abw.ViewModels;
 
 namespace abw.Controllers
@@ -16,13 +17,13 @@ namespace abw.Controllers
 
 		public ActionResult Grid()
 		{
-			Grid<CarForDisplay> grid = Service.GetCarsGrid();
+			Grid<CarForGrid> grid = Service.GetCarsGrid();
 			return View(grid);
 		}
 
 		public JsonNetResult All(int page)
 		{
-			Grid<CarForDisplay> grid = Service.GetCarsGrid(page);
+			Grid<CarForGrid> grid = Service.GetCarsGrid(page);
 			return new JsonNetResult(grid);
 		}
 
@@ -41,6 +42,7 @@ namespace abw.Controllers
 			}
 			Car entity = car.ToEntity();
 			Service.Create(entity);
+			PhotoManager.Save(car);
 			return RedirectToAction("Grid");
 		}
 
@@ -57,6 +59,7 @@ namespace abw.Controllers
 			{
 				return View(car);
 			}
+			// todo: handle photos
 			Car entity = car.ToEntity();
 			Service.Update(entity);
 			return RedirectToAction("Grid");
@@ -65,16 +68,19 @@ namespace abw.Controllers
 		[HttpPost]
 		public JsonResult Delete(int id)
 		{
+			Car car = Service.GetById(id);
 			bool success = Service.Delete(id);
-			if (!success)
+			if (success)
 			{
-				return Json(new
-				{
-					success = false,
-					errorMessage = "Машина не найдена"
-				});
+				PhotoManager.Delete(car);
+				return Json(new { success = true });
 			}
-			return Json(new { success = true });
+
+			return Json(new
+			{
+				success = false,
+				errorMessage = ErrorMessages.CarNotFound
+			});
 		}
 	}
 }

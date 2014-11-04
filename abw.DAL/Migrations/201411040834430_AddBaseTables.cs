@@ -14,7 +14,6 @@ namespace abw.DAL.Migrations
 						Make = c.String(nullable: false, maxLength: 255),
 						Model = c.String(nullable: false, maxLength: 255),
 						Year = c.Int(nullable: false),
-						Photo = c.String(nullable: false, maxLength: 255),
 					})
 				.PrimaryKey(t => t.Id);
 

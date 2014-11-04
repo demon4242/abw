@@ -1,7 +1,7 @@
 ﻿@model abw.ViewModels.CarViewModel
 
 <hr />
-@Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
+@Html.HiddenFor(m => m.Id)
 
 <div>
 	@Html.LabelFor(m => m.Make)
@@ -22,9 +22,9 @@
 </div>
 
 <div>
-	@Html.LabelFor(m => m.Photo)
-	@Html.TextBoxFor(m => m.Photo, new { type = "file", data_bind = "event: { change: photoChanged }" })
-	@Html.ValidationMessageFor(m => m.Photo)
+	@Html.LabelFor(m => m.Photos)
+	@Html.TextBoxFor(m => m.Photos, new { type = "file", data_bind = "event: { change: photosChanged }", multiple = "multiple" })
+	@Html.ValidationMessageFor(m => m.Photos)
 </div>
 
 @{ Html.RenderPartial("_SubmitArea"); }

@@ -53,13 +53,17 @@
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201411031315333_AddBaseTables.cs" />
-    <Compile Include="Migrations\201411031315333_AddBaseTables.Designer.cs">
-      <DependentUpon>201411031315333_AddBaseTables.cs</DependentUpon>
+    <Compile Include="Migrations\201411040834430_AddBaseTables.cs" />
+    <Compile Include="Migrations\201411040834430_AddBaseTables.Designer.cs">
+      <DependentUpon>201411040834430_AddBaseTables.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201411031315537_AddAdminUser.cs" />
-    <Compile Include="Migrations\201411031315537_AddAdminUser.Designer.cs">
-      <DependentUpon>201411031315537_AddAdminUser.cs</DependentUpon>
+    <Compile Include="Migrations\201411040835099_AddAdminUser.cs" />
+    <Compile Include="Migrations\201411040835099_AddAdminUser.Designer.cs">
+      <DependentUpon>201411040835099_AddAdminUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411041206086_AddDefaultCars.cs" />
+    <Compile Include="Migrations\201411041206086_AddDefaultCars.Designer.cs">
+      <DependentUpon>201411041206086_AddDefaultCars.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbwDbMigrationsConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,11 +87,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201411031315333_AddBaseTables.resx">
-      <DependentUpon>201411031315333_AddBaseTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201411040834430_AddBaseTables.resx">
+      <DependentUpon>201411040834430_AddBaseTables.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201411031315537_AddAdminUser.resx">
-      <DependentUpon>201411031315537_AddAdminUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201411040835099_AddAdminUser.resx">
+      <DependentUpon>201411040835099_AddAdminUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411041206086_AddDefaultCars.resx">
+      <DependentUpon>201411041206086_AddDefaultCars.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

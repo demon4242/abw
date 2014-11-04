@@ -97,11 +97,11 @@ namespace abw.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Фото.
+        ///   Looks up a localized string similar to Фотографии.
         /// </summary>
-        public static string Photo {
+        public static string Photos {
             get {
-                return ResourceManager.GetString("Photo", resourceCulture);
+                return ResourceManager.GetString("Photos", resourceCulture);
             }
         }
         

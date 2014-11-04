@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
-using abw.Attributes.Validation;
 using abw.Common;
 using abw.DAL.Entities;
 using abw.Resources;
 
 namespace abw.ViewModels
 {
-	public class CarViewModel : CarForDisplay
+	public class CarViewModel : CarForGrid
 	{
 		[Display(ResourceType = typeof(DisplayNames), Name = "Make")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
@@ -45,11 +44,12 @@ namespace abw.ViewModels
 			}
 		}
 
-		[Display(ResourceType = typeof(DisplayNames), Name = "Photo")]
-		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
-		[ValidFileExtensions(Constants.ValidPhotoExtensions)]
-		[MaxFileSize(Constants.MaxFileSize)]
-		public HttpPostedFileBase Photo { get; set; }
+		[Display(ResourceType = typeof(DisplayNames), Name = "Photos")]
+		// todo: add [Required], [ValidFileExtensions], [MaxFileSize]
+		// [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
+		// [ValidFileExtensions(Constants.ValidPhotoExtensions)]
+		// [MaxFileSize(Constants.MaxFileSize)]
+		public List<HttpPostedFileBase> Photos { get; set; }
 
 		public Car ToEntity()
 		{
@@ -59,7 +59,6 @@ namespace abw.ViewModels
 			car.Make = Make;
 			car.Model = Model;
 			car.Year = Year;
-			car.Photo = Photo.FileName;
 
 			return car;
 		}

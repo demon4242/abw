@@ -5,13 +5,13 @@ namespace abw.DAL.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class AddBaseTables : IMigrationMetadata
+    public sealed partial class AddDefaultCars : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddBaseTables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDefaultCars));
         
         string IMigrationMetadata.Id
         {
-            get { return "201411031315333_AddBaseTables"; }
+            get { return "201411041206086_AddDefaultCars"; }
         }
         
         string IMigrationMetadata.Source

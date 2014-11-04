@@ -6,7 +6,7 @@ function ($, globalVars) {
 	self.setActivePage = function () {
 		function ifAdminPage(fullPath) {
 			fullPath = fullPath.toLowerCase();
-			var specialPages = ['cars', 'mycars'];
+			var specialPages = ['cars'];
 			var pathname = location.pathname.toLowerCase();
 			for (var j = 0; j < specialPages.length; j++) {
 				var searchPattern = globalVars.siteUrl.toLowerCase() + specialPages[i];

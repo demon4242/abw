@@ -1,13 +1,9 @@
-﻿namespace abw.ViewModels
+﻿using System.Collections.Generic;
+
+namespace abw.ViewModels
 {
-	public class CarForDisplay
+	public class CarForDisplay : CarBase
 	{
-		public int Id { get; set; }
-
-		public virtual string Make { get; set; }
-
-		public virtual string Model { get; set; }
-
-		public virtual int Year { get; set; }
+		public List<string> Photos { get; set; }
 	}
 }
