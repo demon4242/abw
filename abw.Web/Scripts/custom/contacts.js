@@ -19,7 +19,7 @@ function (ko) {
 		marker.setMap(map);
 
 		var infoWindow = new googleMaps.InfoWindow({
-			content: '<strong>' + title + '</strong>'
+			content: '<div class="scroll-fix">' + title + '</div>'
 		});
 		infoWindow.open(map, marker);
 	}
@@ -35,7 +35,7 @@ function (ko) {
 	};
 
 	viewModel.initStorehouseMap = function (elements) {
-		var TITLE = 'Склад на Скрипникова, 43&nbsp;';
+		var TITLE = 'Склад на Скрипникова, 43';
 		var LATITUDE = 53.898823;
 		var LONGITUDE = 27.421431;
 
