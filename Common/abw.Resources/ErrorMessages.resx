@@ -120,11 +120,14 @@
   <data name="CarNotFound" xml:space="preserve">
     <value>Машина не найдена</value>
   </data>
+  <data name="InvalidAttributeUsage" xml:space="preserve">
+    <value>'{0}' can be used only with properties of type '{1}'</value>
+  </data>
   <data name="InvalidUsernameOrPassword" xml:space="preserve">
     <value>Неверное имя или пароль</value>
   </data>
   <data name="MaxFileSize" xml:space="preserve">
-    <value>Максимальный размер файла "{0}" - {1} мб</value>
+    <value>Максимальный размер одного файла "{0}" - {1} мб</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Поле {0} - обязательное</value>

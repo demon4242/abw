@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
+using abw.Attributes.Validation;
 using abw.Common;
 using abw.DAL.Entities;
 using abw.Resources;
@@ -52,10 +53,8 @@ namespace abw.ViewModels
 		public Dictionary<string, bool> CurrentPhotos { get; set; }
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Photos")]
-		// todo: add [Required], [ValidFileExtensions], [MaxFileSize]
-		// [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
-		// [ValidFileExtensions(Constants.ValidPhotoExtensions)]
-		// [MaxFileSize(Constants.MaxFileSize)]
+		[ValidFileExtensions(Constants.ValidPhotoExtensions)]
+		[MaxFileSize(Constants.MaxFileSize)]
 		public List<HttpPostedFileBase> Photos { get; set; }
 
 		public Car ToEntity()

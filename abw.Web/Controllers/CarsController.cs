@@ -38,6 +38,8 @@ namespace abw.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
+				// hack in order to make 'HtmlHelpers.ToJs' method work
+				car.Photos = null;
 				return View(car);
 			}
 			Car entity = car.ToEntity();
@@ -57,10 +59,12 @@ namespace abw.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
+				// hack in order to make 'HtmlHelpers.ToJs' method work
+				car.Photos = null;
 				return View(car);
 			}
 
-			// need to get original name before entity is updated	
+			// need to get original name before entity is updated
 			Car originalEntity = Service.GetById(car.Id);
 			string originalName = PhotoManager.GetCarName(originalEntity);
 

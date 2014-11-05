@@ -9,8 +9,10 @@ using abw.Resources;
 namespace abw.Attributes.Validation
 {
 	/// <summary>
-	/// Restricts max file size
+	/// Restricts max file size.
+	/// Applicable only for a List of HttpPostedFileBase
 	/// </summary>
+	[AttributeUsage(AttributeTargets.Property)]
 	public class MaxFileSizeAttribute : ValidationAttribute, IClientValidatable
 	{
 		private readonly int _sizeInMb;
@@ -35,26 +37,31 @@ namespace abw.Attributes.Validation
 				return true;
 			}
 
-			HttpPostedFileBase file = GetFileFromValue(value, GetType());
-			int sizeInBytes = _sizeInMb * 1024 * 1024;
-
-			bool isValid = file.ContentLength <= sizeInBytes;
-			return isValid;
-		}
-
-		/// <summary>
-		/// Converts object into HttpPostedFileBase
-		/// </summary>
-		private static HttpPostedFileBase GetFileFromValue(object value, Type attributeType)
-		{
-			HttpPostedFileBase file = value as HttpPostedFileBase;
-			if (file == null)
+			List<HttpPostedFileBase> files = value as List<HttpPostedFileBase>;
+			if (files == null)
 			{
-				string errorMessage = string.Format("'{0}' can be used only with properties of type '{1}'", attributeType.Name, typeof(HttpPostedFileBase).Name);
+				Type attributeType = GetType();
+				string errorMessage = string.Format(ErrorMessages.InvalidAttributeUsage, attributeType.Name, "List<HttpPostedFileBase>");
 				Logger.Error(errorMessage);
 				throw new Exception(errorMessage);
 			}
-			return file;
+
+			if (files.Count == 0 || files[0] == null)
+			{
+				return true;
+			}
+
+			foreach (HttpPostedFileBase file in files)
+			{
+				int sizeInBytes = _sizeInMb * 1024 * 1024;
+
+				bool isValid = file.ContentLength <= sizeInBytes;
+				if (!isValid)
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 
 		public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)

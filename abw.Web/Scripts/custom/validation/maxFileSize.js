@@ -5,13 +5,20 @@ function ($) {
 	var METHOD = 'maxFileSize';
 
 	$.validator.addMethod(METHOD, function (value, element, sizeInMb) {
-		if (!element.files.length) {
+		var files = element.files;
+		if (!files.length) {
 			return true;
 		}
-		var fileSizeInBytes = element.files[0].size;
-		var maxFileSizeInBytes = sizeInMb * 1024 * 1024;
-		var result = fileSizeInBytes <= maxFileSizeInBytes;
-		return result;
+
+		for (var i = 0; i < files.length; i++) {
+			var fileSizeInBytes = files[i].size;
+			var maxFileSizeInBytes = sizeInMb * 1024 * 1024;
+			var isValid = fileSizeInBytes <= maxFileSizeInBytes;
+			if (!isValid) {
+				return false;
+			}
+		}
+		return true;
 	});
 
 	$.validator.unobtrusive.adapters.add(METHOD, ['sizeInMb'], function (options) {

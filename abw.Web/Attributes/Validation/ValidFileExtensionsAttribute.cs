@@ -11,8 +11,10 @@ using abw.Logging;
 namespace abw.Attributes.Validation
 {
 	/// <summary>
-	/// Restricts file extension
+	/// Restricts file extension.
+	/// Applicable only for a List of HttpPostedFileBase
 	/// </summary>
+	[AttributeUsage(AttributeTargets.Property)]
 	public class ValidFileExtensionsAttribute : ValidationAttribute, IClientValidatable
 	{
 		private readonly List<string> _extensions;
@@ -39,26 +41,39 @@ namespace abw.Attributes.Validation
 				return true;
 			}
 
-			HttpPostedFileBase file = value as HttpPostedFileBase;
-			if (file == null)
+			List<HttpPostedFileBase> files = value as List<HttpPostedFileBase>;
+			if (files == null)
 			{
-				string errorMessage = string.Format("'{0}' can be used only with properties of type '{1}'", GetType().Name, typeof(HttpPostedFileBase).Name);
+				Type attributeType = GetType();
+				string errorMessage = string.Format(ErrorMessages.InvalidAttributeUsage, attributeType.Name, "List<HttpPostedFileBase>");
 				Logger.Error(errorMessage);
 				throw new Exception(errorMessage);
 			}
 
-			string extension = Path.GetExtension(file.FileName);
-			if (string.IsNullOrWhiteSpace(extension))
+			if (files.Count == 0 || files[0] == null)
 			{
-				const string errorMessage = "File extension cannot be determined";
-				Logger.Error(errorMessage);
-				throw new Exception(errorMessage);
+				return true;
 			}
-			// convert .jpg → jpg, .gif → gif, etc.
-			extension = extension.Replace(".", string.Empty).ToLower();
 
-			bool isValid = _extensions.Contains(extension);
-			return isValid;
+			foreach (HttpPostedFileBase file in files)
+			{
+				string extension = Path.GetExtension(file.FileName);
+				if (string.IsNullOrWhiteSpace(extension))
+				{
+					const string errorMessage = "File extension cannot be determined";
+					Logger.Error(errorMessage);
+					throw new Exception(errorMessage);
+				}
+				// convert .jpg → jpg, .gif → gif, etc.
+				extension = extension.Replace(".", string.Empty).ToLower();
+
+				bool isValid = _extensions.Contains(extension);
+				if (!isValid)
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 
 		public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)

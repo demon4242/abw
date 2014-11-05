@@ -70,6 +70,15 @@ namespace abw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; can be used only with properties of type &apos;{1}&apos;.
+        /// </summary>
+        public static string InvalidAttributeUsage {
+            get {
+                return ResourceManager.GetString("InvalidAttributeUsage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Неверное имя или пароль.
         /// </summary>
         public static string InvalidUsernameOrPassword {
@@ -79,7 +88,7 @@ namespace abw.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Максимальный размер файла &quot;{0}&quot; - {1} мб.
+        ///   Looks up a localized string similar to Максимальный размер одного файла &quot;{0}&quot; - {1} мб.
         /// </summary>
         public static string MaxFileSize {
             get {
