@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using abw.DAL.Entities;
+using abw.Logging;
 using abw.ViewModels;
 
 namespace abw.Helpers
@@ -14,6 +15,8 @@ namespace abw.Helpers
 
 		private static readonly HttpServerUtility Server = HttpContext.Current.Server;
 
+		#region Public methods
+
 		public static void Save(CarViewModel car)
 		{
 			if (car.Photos[0] == null)
@@ -21,7 +24,7 @@ namespace abw.Helpers
 				return;
 			}
 
-			string path = Server.MapPath(string.Format("~/{0}/{1} {2} {3}", Folder, car.Make, car.Model, car.Year));
+			string path = GetPath(car);
 			bool exists = Directory.Exists(path);
 			if (!exists)
 			{
@@ -53,6 +56,43 @@ namespace abw.Helpers
 			return files.ToList();
 		}
 
+		public static void Update(string originalName, CarViewModel car)
+		{
+			string newName = GetCarName(car);
+			string newPath = GetPath(newName);
+
+			if (originalName.ToLower() != newName.ToLower())
+			{
+				bool exists = Directory.Exists(newPath);
+				if (!exists)
+				{
+					string originalPath = GetPath(originalName);
+					Directory.Move(originalPath, newPath);
+				}
+			}
+
+			foreach (KeyValuePair<string, bool> currentPhoto in car.CurrentPhotos)
+			{
+				// if current photo is NOT marked as 'must be deleted'
+				if (!currentPhoto.Value)
+				{
+					continue;
+				}
+
+				string fileName = Path.GetFileName(currentPhoto.Key);
+				if (fileName == null)
+				{
+					const string errorMessage = "Current photo file name cannot be null";
+					Logger.Error(errorMessage);
+					throw new Exception(errorMessage);
+				}
+				string filePath = Path.Combine(newPath, fileName);
+				File.Delete(filePath);
+			}
+
+			Save(car);
+		}
+
 		public static void Delete(Car car)
 		{
 			string path = GetPath(car);
@@ -63,10 +103,42 @@ namespace abw.Helpers
 			}
 		}
 
-		private static string GetPath(Car car)
+		public static string GetCarName(Car car)
 		{
-			string path = Server.MapPath(string.Format("~/{0}/{1} {2} {3}", Folder, car.Make, car.Model, car.Year));
+			string carName = string.Format("{0} {1} {2}", car.Make, car.Model, car.Year);
+			return carName;
+		}
+
+		#endregion Public methods
+
+		#region Private methods
+
+		private static string GetCarName(CarViewModel car)
+		{
+			string carName = string.Format("{0} {1} {2}", car.Make.Trim(), car.Model.Trim(), car.Year);
+			return carName;
+		}
+
+		private static string GetPath(string carName)
+		{
+			string path = Server.MapPath(string.Format("~/{0}/{1}", Folder, carName));
 			return path;
 		}
+
+		private static string GetPath(Car car)
+		{
+			string carName = GetCarName(car);
+			string path = GetPath(carName);
+			return path;
+		}
+
+		private static string GetPath(CarViewModel car)
+		{
+			string carName = GetCarName(car);
+			string path = GetPath(carName);
+			return path;
+		}
+
+		#endregion Private methods
 	}
 }

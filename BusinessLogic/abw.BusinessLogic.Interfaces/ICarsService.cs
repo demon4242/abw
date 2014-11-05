@@ -3,7 +3,7 @@ using abw.DAL.Entities;
 
 namespace abw.BusinessLogic.Interfaces
 {
-	public interface ICarService : ICrudService<Car>
+	public interface ICarsService : ICrudService<Car>
 	{
 		List<Car> GetAll();
 	}

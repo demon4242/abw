@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="AccountService.cs" />
     <Compile Include="Base\BaseService.cs" />
-    <Compile Include="CarService.cs" />
+    <Compile Include="CarsService.cs" />
     <Compile Include="Base\CrudService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -53,8 +53,9 @@ namespace abw.DAL.Repositories
 
 		public virtual void Update(T entity)
 		{
-			DbEntityEntry<T> dbEntityEntry = DbContext.Entry(entity);
-			dbEntityEntry.State = EntityState.Modified;
+			T originalEntity = GetById(entity.Id);
+			DbEntityEntry<T> dbEntityEntry = DbContext.Entry(originalEntity);
+			dbEntityEntry.CurrentValues.SetValues(entity);
 		}
 
 		public bool Delete(int id)

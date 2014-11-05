@@ -8,9 +8,9 @@ using abw.ViewModels;
 namespace abw.Controllers
 {
 	[Authorize]
-	public class CarsController : BaseController<ICarService>
+	public class CarsController : BaseController<ICarsService>
 	{
-		public CarsController(ICarService service)
+		public CarsController(ICarsService service)
 			: base(service)
 		{
 		}
@@ -59,9 +59,16 @@ namespace abw.Controllers
 			{
 				return View(car);
 			}
-			// todo: handle photos
+
+			// need to get original name before entity is updated	
+			Car originalEntity = Service.GetById(car.Id);
+			string originalName = PhotoManager.GetCarName(originalEntity);
+
 			Car entity = car.ToEntity();
 			Service.Update(entity);
+
+			PhotoManager.Update(originalName, car);
+
 			return RedirectToAction("Grid");
 		}
 

@@ -6,9 +6,9 @@ using abw.DAL.Entities;
 
 namespace abw.BusinessLogic
 {
-	public class CarService : CrudService<Car>, ICarService
+	public class CarsService : CrudService<Car>, ICarsService
 	{
-		public CarService(IUnitOfWork uow)
+		public CarsService(IUnitOfWork uow)
 			: base(uow)
 		{
 		}

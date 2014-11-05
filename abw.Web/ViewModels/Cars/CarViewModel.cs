@@ -11,6 +11,11 @@ namespace abw.ViewModels
 {
 	public class CarViewModel : CarForGrid
 	{
+		public CarViewModel()
+		{
+			CurrentPhotos = new Dictionary<string, bool>();
+		}
+
 		[Display(ResourceType = typeof(DisplayNames), Name = "Make")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
 		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
@@ -44,6 +49,8 @@ namespace abw.ViewModels
 			}
 		}
 
+		public Dictionary<string, bool> CurrentPhotos { get; set; }
+
 		[Display(ResourceType = typeof(DisplayNames), Name = "Photos")]
 		// todo: add [Required], [ValidFileExtensions], [MaxFileSize]
 		// [Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
@@ -56,8 +63,8 @@ namespace abw.ViewModels
 			Car car = new Car();
 
 			car.Id = Id;
-			car.Make = Make;
-			car.Model = Model;
+			car.Make = Make.Trim();
+			car.Model = Model.Trim();
 			car.Year = Year;
 
 			return car;

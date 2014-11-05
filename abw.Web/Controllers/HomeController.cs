@@ -5,9 +5,9 @@ using abw.ViewModels;
 
 namespace abw.Controllers
 {
-	public class HomeController : BaseController<ICarService>
+	public class HomeController : BaseController<ICarsService>
 	{
-		public HomeController(ICarService service)
+		public HomeController(ICarsService service)
 			: base(service)
 		{
 		}

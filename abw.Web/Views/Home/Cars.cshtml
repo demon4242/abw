@@ -1,9 +1,13 @@
-﻿@using abw.ViewModels;
+﻿@using System.Web.Optimization
+@using abw.ViewModels;
 @model List<CarForDisplay>
 @{
 	ViewBag.Title = "Каталог машин";
 }
-
+@section styles
+{
+	@Styles.Render("~/cars")
+}
 @if (!Model.Any())
 {
 	@:К сожалению, в данный момент автомобилей на запчасти нет

@@ -23,6 +23,18 @@
 
 <div>
 	@Html.LabelFor(m => m.Photos)
+
+	@foreach (KeyValuePair<string, bool> currentPhoto in Model.CurrentPhotos)
+	{
+		<div class="car-photo-wrapper">
+			<img src="@Url.Content(currentPhoto.Key)" class="car-photo" alt="@Model.Make @Model.Model @Model.Year photo" />
+			<label class="checkbox-wrapper">
+				@Html.CheckBoxFor(m => m.CurrentPhotos[currentPhoto.Key], new { data_val = false })
+				Удалить фото
+			</label>
+		</div>
+	}
+
 	@Html.TextBoxFor(m => m.Photos, new { type = "file", data_bind = "event: { change: photosChanged }", multiple = "multiple" })
 	@Html.ValidationMessageFor(m => m.Photos)
 </div>

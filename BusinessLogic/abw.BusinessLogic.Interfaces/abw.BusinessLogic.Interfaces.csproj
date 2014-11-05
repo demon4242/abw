@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="IAccountService.cs" />
     <Compile Include="Base\IBaseService.cs" />
-    <Compile Include="ICarService.cs" />
+    <Compile Include="ICarsService.cs" />
     <Compile Include="Base\ICrudService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

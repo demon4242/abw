@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
 using abw.Helpers;
@@ -9,10 +10,10 @@ namespace abw.ViewModels
 	{
 		#region Public
 
-		public static Grid<CarForGrid> GetCarsGrid(this ICarService carService, int page = 1)
+		public static Grid<CarForGrid> GetCarsGrid(this ICarsService carsService, int page = 1)
 		{
 			int totalCount;
-			List<Car> cars = carService.GetAll(page, out totalCount);
+			List<Car> cars = carsService.GetAll(page, out totalCount);
 			List<CarForGrid> list = cars.ConvertAll(ToGridViewModel);
 			Grid<CarForGrid> grid = new Grid<CarForGrid>
 			{
@@ -22,16 +23,16 @@ namespace abw.ViewModels
 			return grid;
 		}
 
-		public static List<CarForDisplay> GetCarsForDisplay(this ICarService carService)
+		public static List<CarForDisplay> GetCarsForDisplay(this ICarsService carsService)
 		{
-			List<Car> cars = carService.GetAll();
+			List<Car> cars = carsService.GetAll();
 			List<CarForDisplay> result = cars.ConvertAll(ToDisplayViewModel);
 			return result;
 		}
 
-		public static CarViewModel GetCar(this ICarService carService, int id)
+		public static CarViewModel GetCar(this ICarsService carsService, int id)
 		{
-			Car car = carService.GetById(id);
+			Car car = carsService.GetById(id);
 			CarViewModel viewModel = car.ToViewModel();
 			return viewModel;
 		}
@@ -48,6 +49,8 @@ namespace abw.ViewModels
 			viewModel.Make = car.Make;
 			viewModel.Model = car.Model;
 			viewModel.Year = car.Year;
+			List<string> paths = PhotoManager.Get(car);
+			viewModel.CurrentPhotos = paths.ToDictionary(m => m, m => default(bool));
 
 			return viewModel;
 		}
