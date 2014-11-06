@@ -177,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\images\facebook-loader.gif" />
+    <Content Include="Content\images\certificate.jpg" />
     <Content Include="Content\styles\bootstrap-3.1.1\bootstrap-theme.css" />
     <Content Include="Content\styles\bootstrap-3.1.1\bootstrap.css" />
     <Content Include="Content\images\mts.gif" />

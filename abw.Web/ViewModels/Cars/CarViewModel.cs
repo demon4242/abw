@@ -10,6 +10,7 @@ using abw.Resources;
 
 namespace abw.ViewModels
 {
+	// todo: add validation for unique car name
 	public class CarViewModel : CarForGrid
 	{
 		public CarViewModel()

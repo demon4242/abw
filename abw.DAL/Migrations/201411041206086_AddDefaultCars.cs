@@ -27,7 +27,8 @@ namespace abw.DAL.Migrations
 			"Volkswagen Caddy 2002",
 			"Volkswagen Lupo 2001",
 			"Volkswagen Polo 2001",
-			"Volkswagen Polo 2003"
+			"Volkswagen Polo 2003",
+			"Volkswagen Polo 2008"
 		};
 
 		public override void Up()
