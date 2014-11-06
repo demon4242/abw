@@ -1,0 +1,19 @@
+﻿@using System.Web.Optimization
+@using abw.ViewModels;
+@model CarForDisplay
+@{
+	string carFullName = string.Format("{0} {1} {2}", Model.Make, Model.Model, Model.Year);
+	ViewBag.Title = carFullName;
+}
+@section styles
+{
+	@Styles.Render("~/cars")
+}
+@Html.ActionLink("Назад", "Cars", null, new { id = "backButton", @class = "btn btn-primary" })
+<div>
+	<strong>@carFullName</strong>
+</div>
+@foreach (string photo in Model.Photos)
+{
+	<img src="@Url.Content(photo)" class="car-photo" alt="@carFullName photo" />
+}

@@ -166,7 +166,6 @@
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Cars\CarBase.cs" />
-    <Compile Include="ViewModels\Cars\CarForGrid.cs" />
     <Compile Include="ViewModels\Cars\CarViewModel.cs" />
     <Compile Include="ViewModels\Cars\CarForDisplay.cs" />
     <Compile Include="ViewModels\Grid.cs" />
@@ -235,6 +234,7 @@
     <Content Include="Views\Shared\_Car.cshtml" />
     <Content Include="Views\Shared\_SubmitArea.cshtml" />
     <Content Include="Views\Account\SignIn.cshtml" />
+    <Content Include="Views\Home\Cars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abw.DAL\abw.DAL.csproj">
@@ -281,7 +281,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Cars.cshtml" />
+    <Content Include="Views\Home\Car.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Phones.cshtml" />

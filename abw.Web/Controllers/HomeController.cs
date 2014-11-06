@@ -23,6 +23,12 @@ namespace abw.Controllers
 			return View(cars);
 		}
 
+		public ActionResult Car(int id)
+		{
+			CarForDisplay carForDisplay = Service.GetCarForDisplay(id);
+			return View(carForDisplay);
+		}
+
 		public ActionResult About()
 		{
 			return View();

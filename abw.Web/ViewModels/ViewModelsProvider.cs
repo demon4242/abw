@@ -23,6 +23,13 @@ namespace abw.ViewModels
 			return grid;
 		}
 
+		public static CarForDisplay GetCarForDisplay(this ICarsService carsService, int carId)
+		{
+			Car car = carsService.GetById(carId);
+			CarForDisplay carForDisplay = car.ToDisplayViewModel();
+			return carForDisplay;
+		}
+
 		public static List<CarForDisplay> GetCarsForDisplay(this ICarsService carsService)
 		{
 			List<Car> cars = carsService.GetAll();
@@ -59,6 +66,7 @@ namespace abw.ViewModels
 		{
 			CarForDisplay viewModel = new CarForDisplay();
 
+			viewModel.Id = car.Id;
 			viewModel.Make = car.Make;
 			viewModel.Model = car.Model;
 			viewModel.Year = car.Year;

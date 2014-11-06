@@ -2,7 +2,7 @@
 @using abw.ViewModels;
 @model List<CarForDisplay>
 @{
-	ViewBag.Title = "Каталог машин";
+	ViewBag.Title = "Машины";
 }
 @section styles
 {
@@ -21,7 +21,7 @@ else
 	{
 		string carFullName = string.Format("{0} {1} {2}", car.Make, car.Model, car.Year);
 		<div>
-			<strong>@carFullName</strong>
+			<strong>@Html.ActionLink(carFullName, "Car", new { id = car.Id })</strong>
 		</div>
 		foreach (string photo in car.Photos)
 		{

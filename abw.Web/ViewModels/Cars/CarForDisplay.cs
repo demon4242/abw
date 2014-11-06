@@ -2,7 +2,7 @@
 
 namespace abw.ViewModels
 {
-	public class CarForDisplay : CarBase
+	public class CarForDisplay : CarForGrid
 	{
 		public List<string> Photos { get; set; }
 	}
