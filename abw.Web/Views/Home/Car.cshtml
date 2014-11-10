@@ -2,8 +2,7 @@
 @using abw.ViewModels;
 @model CarForDisplay
 @{
-	string carFullName = string.Format("{0} {1} {2}", Model.Make, Model.Model, Model.Year);
-	ViewBag.Title = carFullName;
+	ViewBag.Title = Model.Name;
 }
 @section styles
 {
@@ -11,9 +10,9 @@
 }
 @Html.ActionLink("Назад", "Cars", null, new { id = "backButton", @class = "btn btn-primary" })
 <div>
-	<strong>@carFullName</strong>
+	<strong>@Model.Name</strong>
 </div>
 @foreach (string photo in Model.Photos)
 {
-	<img src="@Url.Content(photo)" class="car-photo" alt="@carFullName photo" />
+	<img src="@Url.Content(photo)" class="car-photo" alt="@Model.Name photo" />
 }

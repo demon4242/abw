@@ -8,6 +8,8 @@
 
 		public virtual string Model { get; set; }
 
-		public virtual int Year { get; set; }
+		public virtual int YearFrom { get; set; }
+
+		public virtual int? YearTo { get; set; }
 	}
 }

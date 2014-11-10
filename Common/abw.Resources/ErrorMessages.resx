@@ -126,6 +126,9 @@
   <data name="InvalidUsernameOrPassword" xml:space="preserve">
     <value>Неверное имя или пароль</value>
   </data>
+  <data name="InvalidYearTo" xml:space="preserve">
+    <value>Год должен быть не меньше года выпуска</value>
+  </data>
   <data name="MaxFileSize" xml:space="preserve">
     <value>Максимальный размер одного файла "{0}" - {1} мб</value>
   </data>

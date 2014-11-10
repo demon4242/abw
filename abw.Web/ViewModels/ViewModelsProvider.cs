@@ -55,7 +55,8 @@ namespace abw.ViewModels
 			viewModel.Id = car.Id;
 			viewModel.Make = car.Make;
 			viewModel.Model = car.Model;
-			viewModel.Year = car.Year;
+			viewModel.YearFrom = car.YearFrom;
+			viewModel.YearTo = car.YearTo;
 			List<string> paths = PhotoManager.Get(car);
 			viewModel.CurrentPhotos = paths.ToDictionary(m => m, m => default(bool));
 
@@ -64,12 +65,15 @@ namespace abw.ViewModels
 
 		private static CarForDisplay ToDisplayViewModel(this Car car)
 		{
+			const string nullYearToReplacer = "настоящее время";
+
 			CarForDisplay viewModel = new CarForDisplay();
 
 			viewModel.Id = car.Id;
-			viewModel.Make = car.Make;
-			viewModel.Model = car.Model;
-			viewModel.Year = car.Year;
+			string yearTo = car.YearTo.HasValue
+				? car.YearTo.ToString()
+				: nullYearToReplacer;
+			viewModel.Name = string.Format("{0} {1} {2} - {3}", car.Make, car.Model, car.YearFrom, yearTo);
 			List<string> photos = PhotoManager.Get(car);
 			viewModel.Photos = photos;
 
@@ -83,7 +87,8 @@ namespace abw.ViewModels
 			viewModel.Id = car.Id;
 			viewModel.Make = car.Make;
 			viewModel.Model = car.Model;
-			viewModel.Year = car.Year;
+			viewModel.YearFrom = car.YearFrom;
+			viewModel.YearTo = car.YearTo;
 
 			return viewModel;
 		}

@@ -88,6 +88,15 @@ namespace abw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Год должен быть не меньше года выпуска.
+        /// </summary>
+        public static string InvalidYearTo {
+            get {
+                return ResourceManager.GetString("InvalidYearTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Максимальный размер одного файла &quot;{0}&quot; - {1} мб.
         /// </summary>
         public static string MaxFileSize {

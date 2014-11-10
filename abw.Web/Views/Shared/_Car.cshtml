@@ -15,10 +15,13 @@
 	@Html.ValidationMessageFor(m => m.Model)
 </div>
 
-<div>
-	@Html.LabelFor(m => m.Year)
-	@Html.DropDownListFor(m => m.Year, Model.Years, "Выберите год")
-	@Html.ValidationMessageFor(m => m.Year)
+<div id="yearsSelector">
+	<strong>Год с</strong>
+	@Html.DropDownListFor(m => m.YearFrom, Model.Years, "Выберите год")
+	<strong>по</strong>
+	@Html.DropDownListFor(m => m.YearTo, Model.Years, "Выберите год")
+	@Html.ValidationMessageFor(m => m.YearFrom)
+	@Html.ValidationMessageFor(m => m.YearTo)
 </div>
 
 <div>
@@ -27,7 +30,7 @@
 	@foreach (KeyValuePair<string, bool> currentPhoto in Model.CurrentPhotos)
 	{
 		<div class="car-photo-wrapper">
-			<img src="@Url.Content(currentPhoto.Key)" class="car-photo" alt="@Model.Make @Model.Model @Model.Year photo" />
+			<img src="@Url.Content(currentPhoto.Key)" class="car-photo" alt="@Model.Make @Model.Model @Model.YearFrom-@Model.YearTo photo" />
 			<label class="checkbox-wrapper">
 				@Html.CheckBoxFor(m => m.CurrentPhotos[currentPhoto.Key], new { data_val = false })
 				Удалить фото

@@ -5,13 +5,13 @@ namespace abw.DAL.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class AddDefaultCars : IMigrationMetadata
+    public sealed partial class AddAdminUser : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDefaultCars));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAdminUser));
         
         string IMigrationMetadata.Id
         {
-            get { return "201411041206086_AddDefaultCars"; }
+            get { return "201411101326420_AddAdminUser"; }
         }
         
         string IMigrationMetadata.Source

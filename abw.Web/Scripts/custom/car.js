@@ -2,7 +2,8 @@
 		'knockout-mapping',
 		'baseForm',
 		'customValidation/maxFileSize',
-		'customValidation/validFileExtensions'],
+		'customValidation/validFileExtensions',
+		'customValidation/notLessThan'],
 function (ko, koMapping, baseForm) {
 	function car(viewModel, errorMessages) {
 		viewModel = baseForm(viewModel, errorMessages);

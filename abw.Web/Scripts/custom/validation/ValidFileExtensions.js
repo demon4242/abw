@@ -14,7 +14,7 @@ function ($) {
 		for (var i = 0; i < files.length; i++) {
 			var fileName = files[i].name;
 			var regExp = /(?:\.([^.]+))?$/;
-			var extension = regExp.exec(fileName)[1];
+			var extension = regExp.exec(fileName)[1].toLowerCase();
 			var isValid = extensions.indexOf(extension) !== -1;
 			if (!isValid) {
 				return false;

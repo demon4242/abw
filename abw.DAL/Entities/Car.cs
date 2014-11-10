@@ -13,6 +13,8 @@ namespace abw.DAL.Entities
 		[MaxLength(Constants.MaxStringLength)]
 		public string Model { get; set; }
 
-		public int Year { get; set; }
+		public int YearFrom { get; set; }
+
+		public int? YearTo { get; set; }
 	}
 }

@@ -13,7 +13,8 @@ namespace abw.DAL.Migrations
 						Id = c.Int(nullable: false, identity: true),
 						Make = c.String(nullable: false, maxLength: 255),
 						Model = c.String(nullable: false, maxLength: 255),
-						Year = c.Int(nullable: false),
+						YearFrom = c.Int(nullable: false),
+						YearTo = c.Int(),
 					})
 				.PrimaryKey(t => t.Id);
 

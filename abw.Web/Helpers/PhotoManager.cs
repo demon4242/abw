@@ -63,11 +63,15 @@ namespace abw.Helpers
 
 			if (originalName.ToLower() != newName.ToLower())
 			{
-				bool exists = Directory.Exists(newPath);
-				if (!exists)
+				bool newFolderExists = Directory.Exists(newPath);
+				if (!newFolderExists)
 				{
 					string originalPath = GetPath(originalName);
-					Directory.Move(originalPath, newPath);
+					bool originalFolderExists = Directory.Exists(originalPath);
+					if (originalFolderExists)
+					{
+						Directory.Move(originalPath, newPath);
+					}
 				}
 			}
 
@@ -105,7 +109,7 @@ namespace abw.Helpers
 
 		public static string GetCarName(Car car)
 		{
-			string carName = string.Format("{0} {1} {2}", car.Make, car.Model, car.Year);
+			string carName = string.Format("{0} {1} {2}-{3}", car.Make, car.Model, car.YearFrom, car.YearTo);
 			return carName;
 		}
 
@@ -115,7 +119,7 @@ namespace abw.Helpers
 
 		private static string GetCarName(CarViewModel car)
 		{
-			string carName = string.Format("{0} {1} {2}", car.Make.Trim(), car.Model.Trim(), car.Year);
+			string carName = string.Format("{0} {1} {2}-{3}", car.Make.Trim(), car.Model.Trim(), car.YearFrom, car.YearTo);
 			return carName;
 		}
 

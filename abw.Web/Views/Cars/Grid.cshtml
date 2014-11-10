@@ -19,13 +19,17 @@
 }
 @Html.ActionLink("Новая", "New", null, new { id = "newButton", @class = "btn btn-primary" })
 <table data-bind="css: css" class="table table-striped table-bordered grid">
+	@* todo: add sorting *@
 	<thead>
 		<tr>
-			@* todo: add sorting *@
-			<th>Марка</th>
-			<th>Модель</th>
-			<th>Год</th>
-			<th></th>
+			<th rowspan="2">Марка</th>
+			<th rowspan="2">Модель</th>
+			<th colspan="2" id="yearHeader">Год</th>
+			<th rowspan="2"></th>
+		</tr>
+		<tr>
+			<th>с</th>
+			<th>по</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -33,7 +37,8 @@
 		<tr>
 			<td data-bind="text: make"></td>
 			<td data-bind="text: model"></td>
-			<td data-bind="text: year"></td>
+			<td data-bind="text: yearFrom"></td>
+			<td data-bind="text: yearTo"></td>
 			<td>
 				<a data-bind="attr: { href: '@Url.Action("Edit")' + '/' + id }" title="Редактировать">
 					<i class="glyphicon glyphicon-edit"></i>

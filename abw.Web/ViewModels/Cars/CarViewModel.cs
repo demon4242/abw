@@ -30,14 +30,20 @@ namespace abw.ViewModels
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Year")]
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
-		public override int Year { get; set; }
+		public override int YearFrom { get; set; }
+
+		[NotLessThanAttribute("YearFrom", ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "InvalidYearTo")]
+		[Display(ResourceType = typeof(DisplayNames), Name = "Year")]
+		public override int? YearTo { get; set; }
 
 		public List<SelectListItem> Years
 		{
 			get
 			{
+				const int minYear = 1960;
+
 				List<SelectListItem> years = new List<SelectListItem>();
-				for (int i = DateTime.Now.Year; i >= 1960; i--)
+				for (int i = DateTime.Now.Year; i >= minYear; i--)
 				{
 					string year = i.ToString();
 					SelectListItem selectListItem = new SelectListItem
@@ -65,7 +71,8 @@ namespace abw.ViewModels
 			car.Id = Id;
 			car.Make = Make.Trim();
 			car.Model = Model.Trim();
-			car.Year = Year;
+			car.YearFrom = YearFrom;
+			car.YearTo = YearTo;
 
 			return car;
 		}
