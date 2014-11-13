@@ -177,6 +177,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\images\car-logos\nissan.jpg" />
+    <Content Include="Content\images\car-logos\seat.jpg" />
+    <Content Include="Content\images\car-logos\skoda.jpg" />
+    <Content Include="Content\images\car-logos\toyota.png" />
+    <Content Include="Content\images\car-logos\volkswagen.png" />
     <Content Include="Content\images\facebook-loader.gif" />
     <Content Include="Content\images\certificate.jpg" />
     <Content Include="Content\styles\bootstrap-3.1.1\bootstrap-theme.css" />
@@ -292,6 +297,7 @@
   <ItemGroup>
     <Content Include="Content\styles\custom\global.less" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

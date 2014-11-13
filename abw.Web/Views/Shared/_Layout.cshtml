@@ -32,6 +32,15 @@
 				<li>@Html.ActionLink("Машины", "Grid", "Cars")</li>
 			</ul>
 		}
+
+		<div id="carLogos">
+			<img src="@Url.Content("~/Content/images/car-logos/seat.jpg")" alt="seat logo" />
+			<img src="@Url.Content("~/Content/images/car-logos/skoda.jpg")" alt="skoda logo" />
+			<img src="@Url.Content("~/Content/images/car-logos/volkswagen.png")" alt="volkswagen logo" />
+			<img src="@Url.Content("~/Content/images/car-logos/nissan.jpg")" alt="nissan logo" />
+			<img src="@Url.Content("~/Content/images/car-logos/toyota.png")" alt="toyota logo" />
+		</div>
+
 		<ul class="nav nav-tabs">
 			<li>@Html.ActionLink("Главная", "Index", "Home")</li>
 			<li>@Html.ActionLink("Машины", "Cars", "Home")</li>

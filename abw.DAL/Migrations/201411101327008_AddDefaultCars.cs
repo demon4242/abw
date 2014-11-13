@@ -29,8 +29,7 @@ namespace abw.DAL.Migrations
 			"Toyota RAV4 2000 2005",
 			"Volkswagen Caddy 1995 2003",
 			"Volkswagen Lupo 1998 2005",
-			"Volkswagen Polo 1994 1999",
-			"Volkswagen Polo 1999 2002",
+			"Volkswagen Polo 1994 2002",
 			"Volkswagen Polo 2002 2006",
 			"Volkswagen Polo 2006 2009"
 		};
