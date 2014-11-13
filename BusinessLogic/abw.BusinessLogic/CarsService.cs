@@ -26,5 +26,11 @@ namespace abw.BusinessLogic
 			List<Car> cars = Uow.Cars.All.ToList();
 			return cars;
 		}
+
+		public List<Car> GetByMake(string make)
+		{
+			List<Car> cars = Uow.Cars.All.Where(m => m.Make.ToLower() == make.ToLower()).ToList();
+			return cars;
+		}
 	}
 }

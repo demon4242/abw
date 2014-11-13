@@ -6,5 +6,7 @@ namespace abw.BusinessLogic.Interfaces
 	public interface ICarsService : ICrudService<Car>
 	{
 		List<Car> GetAll();
+
+		List<Car> GetByMake(string make);
 	}
 }

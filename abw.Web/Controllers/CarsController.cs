@@ -21,6 +21,9 @@ namespace abw.Controllers
 			return View(grid);
 		}
 
+		/// <summary>
+		/// Is used for continuous scrolling
+		/// </summary>
 		public JsonNetResult All(int page)
 		{
 			Grid<CarForGrid> grid = Service.GetCarsGrid(page);

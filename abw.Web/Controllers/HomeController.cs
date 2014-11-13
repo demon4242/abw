@@ -23,6 +23,14 @@ namespace abw.Controllers
 			return View(cars);
 		}
 
+		// todo: rename after 'Routing' libraty is used
+		// todo: use another view
+		public ActionResult CarsByMake(string make)
+		{
+			List<CarForDisplay> cars = Service.GetCarsForDisplay(make);
+			return View("Cars", cars);
+		}
+
 		public ActionResult Car(int id)
 		{
 			CarForDisplay carForDisplay = Service.GetCarForDisplay(id);

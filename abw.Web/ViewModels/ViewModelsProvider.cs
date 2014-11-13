@@ -37,6 +37,13 @@ namespace abw.ViewModels
 			return result;
 		}
 
+		public static List<CarForDisplay> GetCarsForDisplay(this ICarsService carsService, string make)
+		{
+			List<Car> cars = carsService.GetByMake(make);
+			List<CarForDisplay> result = cars.ConvertAll(ToDisplayViewModel);
+			return result;
+		}
+
 		public static CarViewModel GetCar(this ICarsService carsService, int id)
 		{
 			Car car = carsService.GetById(id);
