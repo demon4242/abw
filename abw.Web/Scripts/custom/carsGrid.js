@@ -14,7 +14,10 @@ function (ko, notifications, loader) {
 		});
 
 		viewModel.deleteCar = function (car) {
-			var nameHtml = '<strong>' + (car.make + ' ' + car.model + ' ' + car.year) + '</strong>';
+			var yearTo = car.yearTo
+				? car.yearTo
+				: '';
+			var nameHtml = '<strong>' + (car.make + ' ' + car.model + ' ' + car.yearFrom + '-' + yearTo) + '</strong>';
 			notifications.confirm('Удалить машину <br />' + nameHtml, 'Вы уверены?', function () {
 				loader.show();
 				$.post(deleteUrl + '/' + car.id).done(function (data) {

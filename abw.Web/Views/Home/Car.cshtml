@@ -8,8 +8,7 @@
 {
 	@Styles.Render("~/cars")
 }
-@* todo: use another link name *@
-@Html.ActionLink("Назад", "Cars", null, new { id = "backButton", @class = "btn btn-primary" })
+@Html.ActionLink("Все машины", "Cars", null, new { id = "allCarsButton", @class = "btn btn-primary" })
 <div>
 	<strong>@Model.Name</strong>
 </div>

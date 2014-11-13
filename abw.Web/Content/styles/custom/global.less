@@ -6,7 +6,7 @@
 header {
 	display: table;
 	margin: 0 auto 10px auto;
-	width: 800px;
+	width: 834px;
 
 	#authInfo {
 		float: right;
@@ -36,8 +36,18 @@ header {
 	}
 }
 
-.phones tr td:not(:last-child) {
-	padding-right: 5px;
+.phones {
+	tr td:not(:last-child) {
+		padding-right: 5px;
+	}
+
+	tr td:first-child {
+		text-align: right;
+	}
+
+	img {
+		vertical-align: sub;
+	}
 }
 
 .input-validation-error {
@@ -53,21 +63,19 @@ header {
 	width: 300px;
 }
 
-#carsTitle {
-	margin-bottom: 10px;
-}
-
 .car-photo {
 	display: block;
 	max-width: 600px;
-}
-
-#certificate {
-	max-width: 700px;
 }
 
 #certificateInfo {
 	text-align: center;
 	margin-bottom: 5px;
 	font-weight: bold;
+}
+
+#certificate {
+	max-width: 700px;
+	display: block;
+	margin: 0 auto;
 }
