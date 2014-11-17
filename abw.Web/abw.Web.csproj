@@ -209,7 +209,6 @@
     <Content Include="Scripts\custom\baseForm.js" />
     <Content Include="Scripts\custom\car.js" />
     <Content Include="Scripts\custom\contacts.js" />
-    <Content Include="Scripts\custom\globalVars.js" />
     <Content Include="Scripts\custom\loader.js" />
     <Content Include="Scripts\custom\main.js" />
     <Content Include="Scripts\custom\notifications.js" />

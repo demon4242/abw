@@ -41,11 +41,17 @@ namespace abw.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				// hack in order to make 'HtmlHelpers.ToJs' method work
-				car.Photos = null;
+				PrepareInvalidCarForView(ref car);
 				return View(car);
 			}
 			Car entity = car.ToEntity();
+			bool carExists = Service.CheckIfCarExists(entity);
+			if (carExists)
+			{
+				ModelState.AddModelError(string.Empty, ErrorMessages.CarAlreadyExists);
+				PrepareInvalidCarForView(ref car);
+				return View(car);
+			}
 			Service.Create(entity);
 			PhotoManager.Save(car);
 			return RedirectToAction("Grid");
@@ -62,18 +68,25 @@ namespace abw.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				// hack in order to make 'HtmlHelpers.ToJs' method work
-				car.Photos = null;
+				PrepareInvalidCarForView(ref car);
 				return View(car);
 			}
 
+			Car entity = car.ToEntity();
 			// need to get original name before entity is updated
 			Car originalEntity = Service.GetById(car.Id);
-			string originalName = PhotoManager.GetCarName(originalEntity);
 
-			Car entity = car.ToEntity();
+			bool carExists = Service.CheckIfCarExists(entity, originalEntity);
+			if (carExists)
+			{
+				ModelState.AddModelError(string.Empty, ErrorMessages.CarAlreadyExists);
+				PrepareInvalidCarForView(ref car);
+				return View(car);
+			}
+
 			Service.Update(entity);
 
+			string originalName = PhotoManager.GetCarName(originalEntity);
 			PhotoManager.Update(originalName, car);
 
 			return RedirectToAction("Grid");
@@ -95,6 +108,15 @@ namespace abw.Controllers
 				success = false,
 				errorMessage = ErrorMessages.CarNotFound
 			});
+		}
+
+		/// <summary>
+		/// Prepares <see cref="CarViewModel"/> for a view if it has validation errors
+		/// </summary>
+		private void PrepareInvalidCarForView(ref CarViewModel car)
+		{
+			// hack in order to make 'HtmlHelpers.ToJs' method work
+			car.Photos = null;
 		}
 	}
 }

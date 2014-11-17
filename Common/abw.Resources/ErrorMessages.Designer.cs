@@ -61,6 +61,15 @@ namespace abw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Машина уже существует.
+        /// </summary>
+        public static string CarAlreadyExists {
+            get {
+                return ResourceManager.GetString("CarAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Машина не найдена.
         /// </summary>
         public static string CarNotFound {

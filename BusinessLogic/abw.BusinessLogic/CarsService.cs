@@ -32,5 +32,35 @@ namespace abw.BusinessLogic
 			List<Car> cars = Uow.Cars.All.Where(m => m.Make.ToLower() == make.ToLower()).ToList();
 			return cars;
 		}
+
+		public bool CheckIfCarExists(Car car, Car originalCar = null)
+		{
+			Car carFromDb = Uow.Cars.All.SingleOrDefault(m => m.Make.ToLower() == car.Make.ToLower()
+				&& m.Model.ToLower() == car.Model.ToLower()
+				&& m.YearFrom == car.YearFrom
+				&& (m.YearTo == car.YearTo
+				// next line is required
+					|| m.YearTo == null && car.YearTo == null));
+
+			if (carFromDb == null)
+			{
+				return false;
+			}
+
+			// check if original car is equal to car from db (it might happen in while editing)
+			if (originalCar != null &&
+					(
+						carFromDb.Make.ToLower() == originalCar.Make.ToLower()
+						&& carFromDb.Model.ToLower() == originalCar.Model.ToLower()
+						&& carFromDb.YearFrom == originalCar.YearFrom
+						&& carFromDb.YearTo == originalCar.YearTo
+					)
+				)
+			{
+				return false;
+			}
+
+			return true;
+		}
 	}
 }

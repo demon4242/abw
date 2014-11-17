@@ -137,7 +137,6 @@
 					'carsGrid': customFolder + 'carsGrid',
 					'notifications': customFolder + 'notifications',
 					'loader': customFolder + 'loader',
-					'globalVars': customFolder + 'globalVars',
 					'contacts': customFolder + 'contacts',
 					// folders
 					'customValidation': customFolder + 'validation'
@@ -168,8 +167,7 @@
 		}());
 	</script>
 	<script type="text/javascript">
-		require(['globalVars', 'main'], function (globalVars, main) {
-			globalVars.siteUrl = '@Url.Content("~")';
+		require(['main'], function (main) {
 			main.setActivePage();
 		});
 	</script>
