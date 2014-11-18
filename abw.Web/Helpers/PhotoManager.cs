@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using abw.DAL.Entities;
 using abw.Logging;
@@ -47,11 +48,15 @@ namespace abw.Helpers
 				return new List<string>();
 			}
 
+			string appPath = Server.MapPath("~");
+			// get rid of two back slashes in the end if they are
+			appPath = Regex.Replace(appPath, @"\\$", string.Empty);
+
 			string[] files = Directory.GetFiles(path);
 			// convert to relative path
 			for (int i = 0; i < files.Length; i++)
 			{
-				files[i] = "~" + files[i].Replace(Server.MapPath("~"), string.Empty);
+				files[i] = "~" + files[i].Replace(appPath, string.Empty);
 			}
 			return files.ToList();
 		}
