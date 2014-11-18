@@ -9,8 +9,11 @@ namespace abw.App_Start
 			const string stylesDirectory = "~/Content/styles/";
 			string customStylesDirectory = string.Format("{0}custom/", stylesDirectory);
 
+			Bundle bootstrapStyles = new Bundle("~/bootstrap")
+				.IncludeDirectory(stylesDirectory + "bootstrap-3.1.1", "*.css");
+			AddStyleBundle(ref bundles, bootstrapStyles, false);
+
 			Bundle globalStyles = new Bundle("~/global")
-				.IncludeDirectory(stylesDirectory + "bootstrap-3.1.1", "*.css")
 				.Include(customStylesDirectory + "global.less")
 				.Include(customStylesDirectory + "notifications.less")
 				.Include(customStylesDirectory + "spinner.less");
@@ -37,11 +40,14 @@ namespace abw.App_Start
 			AddStyleBundle(ref bundles, formsStyles);
 		}
 
-		private static void AddStyleBundle(ref BundleCollection bundles, Bundle styleBundle)
+		private static void AddStyleBundle(ref BundleCollection bundles, Bundle bundle, bool isLess = true)
 		{
-			styleBundle.Transforms.Add(new LessTransform());
-			styleBundle.Transforms.Add(new CssMinify());
-			bundles.Add(styleBundle);
+			if (isLess)
+			{
+				bundle.Transforms.Add(new LessTransform());
+			}
+			bundle.Transforms.Add(new CssMinify());
+			bundles.Add(bundle);
 		}
 	}
 }

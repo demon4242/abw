@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>@ViewBag.Title</title>
+	@Styles.Render("~/bootstrap")
 	@Styles.Render("~/global")
 	@RenderSection("styles", false)
 </head>
@@ -111,6 +112,7 @@
 		</div>
 	</div>
 
+	@* todo: add scripts minification *@
 	<script src="@Url.Content("~/Scripts/require-2.1.9.js")"></script>
 	<script type="text/javascript">
 		(function () {
