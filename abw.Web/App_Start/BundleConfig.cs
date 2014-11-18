@@ -9,33 +9,33 @@ namespace abw.App_Start
 			const string stylesDirectory = "~/Content/styles/";
 			string customStylesDirectory = string.Format("{0}custom/", stylesDirectory);
 
-			Bundle bootstrapStyles = new Bundle("~/bootstrap")
+			Bundle bootstrapStyles = new Bundle(stylesDirectory + "bootstrap-3.1.1/css")
 				.IncludeDirectory(stylesDirectory + "bootstrap-3.1.1", "*.css");
 			AddStyleBundle(ref bundles, bootstrapStyles, false);
 
-			Bundle globalStyles = new Bundle("~/global")
+			Bundle globalStyles = new Bundle(customStylesDirectory + "global")
 				.Include(customStylesDirectory + "global.less")
 				.Include(customStylesDirectory + "notifications.less")
 				.Include(customStylesDirectory + "spinner.less");
 			AddStyleBundle(ref bundles, globalStyles);
 
-			Bundle carStyles = new Bundle("~/car")
+			Bundle carStyles = new Bundle(customStylesDirectory + "car")
 				.Include(customStylesDirectory + "car.less");
 			AddStyleBundle(ref bundles, carStyles);
 
-			Bundle gridStyles = new Bundle("~/grid")
+			Bundle gridStyles = new Bundle(customStylesDirectory + "grid")
 				.Include(customStylesDirectory + "grid.less");
 			AddStyleBundle(ref bundles, gridStyles);
 
-			Bundle carsStyles = new Bundle("~/cars")
+			Bundle carsStyles = new Bundle(customStylesDirectory + "cars")
 				.Include(customStylesDirectory + "cars.less");
 			AddStyleBundle(ref bundles, carsStyles);
 
-			Bundle contactsStyles = new Bundle("~/contacts")
+			Bundle contactsStyles = new Bundle(customStylesDirectory + "contacts")
 				.Include(customStylesDirectory + "contacts.less");
 			AddStyleBundle(ref bundles, contactsStyles);
 
-			Bundle formsStyles = new Bundle("~/forms")
+			Bundle formsStyles = new Bundle(customStylesDirectory + "forms")
 				.Include(customStylesDirectory + "forms.less");
 			AddStyleBundle(ref bundles, formsStyles);
 		}
