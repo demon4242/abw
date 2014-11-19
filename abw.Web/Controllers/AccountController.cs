@@ -8,6 +8,7 @@ using abw.ViewModels;
 
 namespace abw.Controllers
 {
+	[RoutePrefix("account")]
 	public class AccountController : BaseController<IAccountService>
 	{
 		public AccountController(IAccountService service)
@@ -17,6 +18,7 @@ namespace abw.Controllers
 
 		// todo: implement logIn popup
 		[NonAuthorize]
+		[Route("signIn")]
 		public ActionResult SignIn(string returnUrl)
 		{
 			SignInModel signInModel = new SignInModel();
@@ -26,6 +28,7 @@ namespace abw.Controllers
 
 		[HttpPost]
 		[NonAuthorize]
+		[Route("signIn")]
 		public ActionResult SignIn(SignInModel signInModel)
 		{
 			if (!ModelState.IsValid)
@@ -48,6 +51,7 @@ namespace abw.Controllers
 		}
 
 		[Authorize]
+		[Route("signOut")]
 		public ActionResult SignOut(string returnUrl)
 		{
 			FormsAuthentication.SignOut();

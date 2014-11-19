@@ -13,7 +13,7 @@
 {
 	<script type="text/javascript">
 		require(['carsGrid'], function (carsGrid) {
-			carsGrid(@Html.ToJs(Model), '@Url.Action("Delete")', '@Url.Action("All")');
+			carsGrid(@Html.ToJs(Model), '@Url.Action("Delete")', '@Url.Action("cars", "admin")');
 		});
 	</script>
 }

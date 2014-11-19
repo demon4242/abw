@@ -8,6 +8,7 @@ using abw.ViewModels;
 namespace abw.Controllers
 {
 	[Authorize]
+	[RoutePrefix("admin/cars")]
 	public class CarsController : BaseController<ICarsService>
 	{
 		public CarsController(ICarsService service)
@@ -15,6 +16,7 @@ namespace abw.Controllers
 		{
 		}
 
+		[Route("")]
 		public ActionResult Grid()
 		{
 			Grid<CarForGrid> grid = Service.GetCarsGrid();
@@ -24,12 +26,14 @@ namespace abw.Controllers
 		/// <summary>
 		/// Is used for continuous scrolling
 		/// </summary>
+		[Route("{page}")]
 		public JsonNetResult All(int page)
 		{
 			Grid<CarForGrid> grid = Service.GetCarsGrid(page);
 			return new JsonNetResult(grid);
 		}
 
+		[Route("new")]
 		public ActionResult New()
 		{
 			CarViewModel car = new CarViewModel();
@@ -37,6 +41,7 @@ namespace abw.Controllers
 		}
 
 		[HttpPost]
+		[Route("new")]
 		public ActionResult New(CarViewModel car)
 		{
 			if (!ModelState.IsValid)
@@ -57,6 +62,7 @@ namespace abw.Controllers
 			return RedirectToAction("Grid");
 		}
 
+		[Route("edit/{id}")]
 		public ActionResult Edit(int id)
 		{
 			CarViewModel car = Service.GetCar(id);
@@ -64,6 +70,7 @@ namespace abw.Controllers
 		}
 
 		[HttpPost]
+		[Route("edit")]
 		public ActionResult Edit(CarViewModel car)
 		{
 			if (!ModelState.IsValid)

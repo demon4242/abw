@@ -46,7 +46,7 @@ function (ko, notifications, loader) {
 
 		viewModel.loadMore = function () {
 			viewModel.loading(true);
-			$.get(getUrl + '?page=' + ++page).done(function (data) {
+			$.get(getUrl + '/' + ++page).done(function (data) {
 				ko.utils.arrayForEach(data.list, function (car) {
 					viewModel.list.push(car);
 				});
