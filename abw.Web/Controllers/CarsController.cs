@@ -73,7 +73,6 @@ namespace abw.Controllers
 			}
 
 			Car entity = car.ToEntity();
-			// need to get original name before entity is updated
 			Car originalEntity = Service.GetById(car.Id);
 
 			bool carExists = Service.CheckIfCarExists(entity, originalEntity);
@@ -84,9 +83,10 @@ namespace abw.Controllers
 				return View(car);
 			}
 
+			// need to get original name before entity is updated
+			string originalName = PhotoManager.GetCarName(originalEntity);
 			Service.Update(entity);
 
-			string originalName = PhotoManager.GetCarName(originalEntity);
 			PhotoManager.Update(originalName, car);
 
 			return RedirectToAction("Grid");

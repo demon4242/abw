@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Configuration;
 using abw.DAL.Entities;
 using abw.Logging;
 using abw.ViewModels;
@@ -13,6 +14,7 @@ namespace abw.Helpers
 	public static class PhotoManager
 	{
 		private const string Folder = "photos";
+		private const string CarNamePattern = "{0}_{1}_{2}-{3}";
 
 		private static readonly HttpServerUtility Server = HttpContext.Current.Server;
 
@@ -114,7 +116,9 @@ namespace abw.Helpers
 
 		public static string GetCarName(Car car)
 		{
-			string carName = string.Format("{0} {1} {2}-{3}", car.Make, car.Model, car.YearFrom, car.YearTo);
+			string make = FormatString(car.Make);
+			string model = FormatString(car.Model);
+			string carName = string.Format(CarNamePattern, make, model, car.YearFrom, car.YearTo);
 			return carName;
 		}
 
@@ -122,9 +126,18 @@ namespace abw.Helpers
 
 		#region Private methods
 
+		private static string FormatString(string value)
+		{
+			// replace spaces with underscores
+			string result = value.Trim().Replace(' ', '_');
+			return result;
+		}
+
 		private static string GetCarName(CarViewModel car)
 		{
-			string carName = string.Format("{0} {1} {2}-{3}", car.Make.Trim(), car.Model.Trim(), car.YearFrom, car.YearTo);
+			string make = FormatString(car.Make);
+			string model = FormatString(car.Model);
+			string carName = string.Format(CarNamePattern, make, model, car.YearFrom, car.YearTo);
 			return carName;
 		}
 
