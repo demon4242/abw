@@ -47,7 +47,7 @@ namespace abw.Controllers
 			{
 				return Redirect(signInModel.ReturnUrl);
 			}
-			return RedirectToAction("Index", "Home");
+			return RedirectToAction("Grid", "Cars");
 		}
 
 		[Authorize]

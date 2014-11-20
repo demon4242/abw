@@ -205,8 +205,6 @@
     <Content Include="Content\styles\custom\cars.less" />
     <Content Include="Content\styles\bootstrap-3.1.1\bootstrap-theme.css.map" />
     <Content Include="Content\styles\bootstrap-3.1.1\bootstrap.css.map" />
-    <None Include="Properties\PublishProfiles\autodem - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\autodem - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap-notify-1.0.js" />
     <Content Include="Scripts\bootstrap-3.1.1.js" />

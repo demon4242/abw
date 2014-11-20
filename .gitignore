@@ -3,7 +3,6 @@ obj/
 logs/
 abw.Web/photos/
 
-abw.Web/abw.Web.csproj.user
-
 *.suo
 *.psess
+*.user
