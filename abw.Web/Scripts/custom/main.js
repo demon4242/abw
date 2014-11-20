@@ -1,6 +1,11 @@
 ﻿define(['jquery'], function ($) {
 	var self = {};
 
+	// todo: use knockout instead of selectors
+	$('#signInLink').on('click', function () {
+		$('#signInModal').modal();
+	});
+
 	self.setActivePage = function () {
 		var links = $('header ul.nav li a');
 		for (var i = 0; i < links.length; i++) {

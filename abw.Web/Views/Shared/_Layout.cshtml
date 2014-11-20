@@ -12,6 +12,8 @@
 		<div id="authInfo">
 			@if (!User.Identity.IsAuthenticated)
 			{
+				@* todo: uncomment when logic is implemented *@
+				@*<a id="signInLink">Войти</a>*@
 				@Html.ActionLink("Войти", "SignIn", "Account")
 			}
 			else
@@ -111,6 +113,8 @@
 			</div>
 		</div>
 	</div>
+
+	@Html.Partial("_SignInModal")
 
 	@* todo: add scripts minification *@
 	<script src="@Url.Content("~/Scripts/require-2.1.9.js")"></script>
