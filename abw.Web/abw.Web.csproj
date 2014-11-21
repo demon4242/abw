@@ -245,7 +245,10 @@
     <Content Include="Views\Shared\_SubmitArea.cshtml" />
     <Content Include="Views\Account\SignIn.cshtml" />
     <Content Include="Views\Home\Cars.cshtml" />
-    <Content Include="Views\Shared\_SignInModal.cshtml" />
+    <Content Include="Views\Shared\Layout\_SignInModal.cshtml" />
+    <Content Include="Views\Shared\Layout\_Notifications.cshtml" />
+    <Content Include="Views\Shared\Layout\_Loader.cshtml" />
+    <Content Include="Views\Shared\Layout\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abw.DAL\abw.DAL.csproj">

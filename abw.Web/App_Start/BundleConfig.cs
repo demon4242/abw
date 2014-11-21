@@ -16,7 +16,8 @@ namespace abw.App_Start
 			Bundle globalStyles = new Bundle(customStylesDirectory + "global")
 				.Include(customStylesDirectory + "global.less")
 				.Include(customStylesDirectory + "notifications.less")
-				.Include(customStylesDirectory + "spinner.less");
+				.Include(customStylesDirectory + "spinner.less")
+				.Include(customStylesDirectory + "forms.less");
 			AddStyleBundle(ref bundles, globalStyles);
 
 			Bundle carStyles = new Bundle(customStylesDirectory + "car")
@@ -34,10 +35,6 @@ namespace abw.App_Start
 			Bundle contactsStyles = new Bundle(customStylesDirectory + "contacts")
 				.Include(customStylesDirectory + "contacts.less");
 			AddStyleBundle(ref bundles, contactsStyles);
-
-			Bundle formsStyles = new Bundle(customStylesDirectory + "forms")
-				.Include(customStylesDirectory + "forms.less");
-			AddStyleBundle(ref bundles, formsStyles);
 		}
 
 		private static void AddStyleBundle(ref BundleCollection bundles, Bundle bundle, bool isLess = true)

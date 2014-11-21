@@ -1,0 +1,63 @@
+﻿<header>
+	<div id="authInfo">
+		@if (!User.Identity.IsAuthenticated)
+		{
+			@* todo: uncomment when logic is implemented *@
+			<a id="signInLink">Войти</a>
+			@Html.ActionLink("Войти", "SignIn", "Account")
+		}
+		else
+		{
+			string returnUrl = Request.Url != null
+				? Request.Url.AbsolutePath
+				: null;
+
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+					@User.Identity.Name
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					<li role="presentation">
+						@Html.ActionLink("Машины", "Grid", "Cars")
+					</li>
+					<li role="presentation" class="divider"></li>
+					<li role="presentation">
+						@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
+					</li>
+				</ul>
+			</div>
+		}
+	</div>
+
+	@{ Html.RenderPartial("_Phones"); }
+
+	<div id="carLogos">
+		<div>
+			Оригинальные б/у запчасти из Европы
+		</div>
+		<a href="@Url.Action("CarsByMake", "Home", new { make = "seat" })">
+			<img src="@Url.Content("~/Content/images/car-logos/seat.jpg")" alt="seat logo" />
+		</a>
+		<a href="@Url.Action("CarsByMake", "Home", new { make = "skoda" })">
+			<img src="@Url.Content("~/Content/images/car-logos/skoda.jpg")" alt="skoda logo" />
+		</a>
+		<a href="@Url.Action("CarsByMake", "Home", new { make = "volkswagen" })">
+			<img src="@Url.Content("~/Content/images/car-logos/volkswagen.png")" alt="volkswagen logo" />
+		</a>
+		<a href="@Url.Action("CarsByMake", "Home", new { make = "nissan" })">
+			<img src="@Url.Content("~/Content/images/car-logos/nissan.jpg")" alt="nissan logo" />
+		</a>
+		<a href="@Url.Action("CarsByMake", "Home", new { make = "toyota" })">
+			<img src="@Url.Content("~/Content/images/car-logos/toyota.png")" alt="toyota logo" />
+		</a>
+	</div>
+
+
+	<ul class="nav nav-tabs">
+		<li>@Html.ActionLink("Главная", "Index", "Home")</li>
+		<li>@Html.ActionLink("Машины", "Cars", "Home")</li>
+		<li>@Html.ActionLink("О нас", "About", "Home")</li>
+		<li>@Html.ActionLink("Контакты", "Contacts", "Home")</li>
+	</ul>
+</header>
