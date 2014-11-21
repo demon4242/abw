@@ -1,5 +1,4 @@
-﻿define(['knockout'],
-function (ko) {
+﻿define(['main'], function (main) {
 	var viewModel = {};
 
 	function initGoogleMap(elements, title, center, markerPosition) {
@@ -44,8 +43,7 @@ function (ko) {
 		var markerPosition = new googleMaps.LatLng(LATITUDE, LONGITUDE);
 
 		initGoogleMap(elements, TITLE, center, markerPosition);
-
 	};
 
-	ko.applyBindings(viewModel);
+	main.extendMainViewModel(viewModel);
 });

@@ -1,12 +1,7 @@
-﻿define(['jquery'], function ($) {
-	var self = {};
-
-	// todo: use knockout instead of selectors
-	$('#signInLink').on('click', function () {
-		$('#signInModal').modal();
-	});
-
-	self.setActivePage = function () {
+﻿define(['jquery',
+		'knockout'],
+function ($, ko) {
+	function setActivePage() {
 		var links = $('header ul.nav li a');
 		for (var i = 0; i < links.length; i++) {
 			var link = links[i];
@@ -27,7 +22,50 @@
 				break;
 			}
 		}
+	}
+
+	var modulesToLoad;
+	var modulesCallback;
+
+	function loadModules(modules, callback) {
+		modulesToLoad = modules;
+		modulesCallback = callback;
 	};
 
+	var mainViewModel = {
+		openSignInModal: function () {
+			// todo: use knockout instead of jquery selector
+			$('#signInModal').modal();
+		}
+	};
+
+	function extendMainViewModel(viewModel) {
+		$.extend(mainViewModel, viewModel);
+	};
+
+	function applyBindings() {
+		setActivePage();
+
+		function mainCallBack() {
+			ko.applyBindings(mainViewModel);
+		}
+
+		if (!modulesToLoad) {
+			mainCallBack();
+		} else {
+			require(modulesToLoad, function () {
+				if (modulesCallback) {
+					modulesCallback.apply(null, arguments);
+				}
+				mainCallBack();
+			});
+		}
+	};
+
+	var self = {
+		loadModules: loadModules,
+		extendMainViewModel: extendMainViewModel,
+		applyBindings: applyBindings
+	};
 	return self;
 });

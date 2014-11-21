@@ -3,7 +3,7 @@
 		@if (!User.Identity.IsAuthenticated)
 		{
 			@* todo: uncomment when logic is implemented *@
-			<a id="signInLink">Войти</a>
+			<a data-bind="click: openSignInModal" id="signInLink">Войти</a>
 			@Html.ActionLink("Войти", "SignIn", "Account")
 		}
 		else

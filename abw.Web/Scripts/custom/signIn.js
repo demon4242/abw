@@ -1,6 +1,6 @@
-﻿define(['knockout',
-		'baseForm'],
-function (ko, baseForm) {
+﻿define(['baseForm',
+		'main'],
+function (baseForm, main) {
 	function signIn(viewModel, errorMessages) {
 		// set name and password in order to maintain autocomplete
 		viewModel.name = $('input[type=text]#Name').val();
@@ -8,7 +8,7 @@ function (ko, baseForm) {
 
 		viewModel = baseForm(viewModel, errorMessages, 'Войти');
 
-		ko.applyBindings(viewModel);
+		main.extendMainViewModel(viewModel);
 	}
 
 	return signIn;

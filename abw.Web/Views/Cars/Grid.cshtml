@@ -12,8 +12,10 @@
 @section scripts
 {
 	<script type="text/javascript">
-		require(['carsGrid'], function (carsGrid) {
-			carsGrid(@Html.ToJs(Model), '@Url.Action("Delete")', '@Url.Action("cars", "admin")');
+		require(['main'], function (main) {
+			main.loadModules(['carsGrid'], function (carsGrid) {
+				carsGrid(@Html.ToJs(Model), '@Url.Action("Delete")', '@Url.Action("cars", "admin")');
+			});
 		});
 	</script>
 }

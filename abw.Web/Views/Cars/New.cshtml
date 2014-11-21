@@ -12,16 +12,18 @@
 @section scripts
 {
 	<script type="text/javascript">
-		require(['car'], function (car) {
-			@{
-				List<string> errorMessages = CommonHelpers.GetErrorMessages(ViewData.ModelState);
-			}
-			car(@Html.ToJs(Model), @Html.ToJs(errorMessages));
+		require(['main'], function (main) {
+			main.loadModules(['car'], function (car) {
+				@{
+					List<string> errorMessages = CommonHelpers.GetErrorMessages(ViewData.ModelState);
+				}
+				car(@Html.ToJs(Model), @Html.ToJs(errorMessages));
+			});
 		});
 	</script>
 }
 @{
-	Html.RenderPartial("Buttons/_Back", title);
+	Html.RenderPartial("_BackButton", title);
 	using (Html.BeginForm("New", "Cars", FormMethod.Post, new { data_bind = "submit: submit", enctype = "multipart/form-data" }))
 	{
 		Html.RenderPartial("_Car");

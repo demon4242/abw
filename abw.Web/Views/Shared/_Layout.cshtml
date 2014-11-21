@@ -43,6 +43,7 @@
 					'knockout': knockoutFolder + 'knockout-3.0.0',
 					'knockout-mapping': knockoutFolder + 'knockout.mapping-2.4.0',
 					// custom
+					// todo: refactor names, use 'modules/moduleName' principle
 					'main': customFolder + 'main',
 					'baseForm': customFolder + 'baseForm',
 					'car': customFolder + 'car',
@@ -77,14 +78,18 @@
 				}
 			});
 
+			@* todo: get rid of 'window.$' *@
 			require(['jquery', 'bootstrap']);
 		}());
 	</script>
+
+	@RenderSection("scripts", false)
+
 	<script type="text/javascript">
 		require(['main'], function (main) {
-			main.setActivePage();
+			main.applyBindings();
 		});
 	</script>
-	@RenderSection("scripts", false)
+
 </body>
 </html>

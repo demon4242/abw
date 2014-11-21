@@ -239,7 +239,7 @@
     <Content Include="Views\Cars\Grid.cshtml" />
     <Content Include="Views\Cars\New.cshtml" />
     <Content Include="Views\Cars\Edit.cshtml" />
-    <Content Include="Views\Shared\Buttons\_Back.cshtml" />
+    <Content Include="Views\Shared\_BackButton.cshtml" />
     <Content Include="Views\Shared\_GridFooter.cshtml" />
     <Content Include="Views\Shared\_Car.cshtml" />
     <Content Include="Views\Shared\_SubmitArea.cshtml" />

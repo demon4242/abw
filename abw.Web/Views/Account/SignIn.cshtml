@@ -6,11 +6,13 @@
 @section scripts
 {
 	<script type="text/javascript">
-		require(['signIn'], function (signIn) {
-			@{
-				List<string> errorMessages = CommonHelpers.GetErrorMessages(ViewData.ModelState);
-			}
-			signIn(@Html.ToJs(Model), @Html.ToJs(errorMessages));
+		require(['main'], function(main) {
+			main.loadModules(['signIn'], function (signIn) {
+				@{
+					List<string> errorMessages = CommonHelpers.GetErrorMessages(ViewData.ModelState);
+				}
+				signIn(@Html.ToJs(Model), @Html.ToJs(errorMessages));
+			});
 		});
 	</script>
 }

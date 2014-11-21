@@ -1,7 +1,8 @@
 ﻿define(['knockout',
 		'notifications',
-		'loader'],
-function (ko, notifications, loader) {
+		'loader',
+		'main'],
+function (ko, notifications, loader, main) {
 	function carsGrid(viewModel, deleteUrl, getUrl) {
 		viewModel.list = ko.observableArray(viewModel.list);
 		viewModel.totalCount = ko.observable(viewModel.totalCount);
@@ -62,7 +63,7 @@ function (ko, notifications, loader) {
 			});
 		};
 
-		ko.applyBindings(viewModel);
+		main.extendMainViewModel(viewModel);
 
 		function loadMoreByScrollDown() {
 			if ($(window).scrollTop() !== ($(document).height() - $(window).height())) {

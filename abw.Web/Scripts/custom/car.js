@@ -1,10 +1,10 @@
-﻿define(['knockout',
-		'knockout-mapping',
+﻿define(['jquery',
 		'baseForm',
+		'main',
 		'customValidation/maxFileSize',
 		'customValidation/validFileExtensions',
 		'customValidation/notLessThan'],
-function (ko, koMapping, baseForm) {
+function ($, baseForm, main) {
 	function car(viewModel, errorMessages) {
 		viewModel = baseForm(viewModel, errorMessages);
 
@@ -16,7 +16,7 @@ function (ko, koMapping, baseForm) {
 			validator.element(target);
 		};
 
-		ko.applyBindings(viewModel);
+		main.extendMainViewModel(viewModel);
 	}
 
 	return car;
