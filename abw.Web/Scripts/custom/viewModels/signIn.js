@@ -1,4 +1,4 @@
-﻿define(['baseForm',
+﻿define(['viewModels/baseForm',
 		'main'],
 function (baseForm, main) {
 	function signIn(viewModel, errorMessages) {

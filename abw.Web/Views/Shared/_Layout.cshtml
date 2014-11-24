@@ -41,17 +41,11 @@
 					// knockout
 					'knockout': knockoutFolder + 'knockout-3.0.0',
 					'knockout-mapping': knockoutFolder + 'knockout.mapping-2.4.0',
-					// custom
-					// todo: refactor names, use 'modules/moduleName' principle
+
 					'main': customFolder + 'main',
-					'baseForm': customFolder + 'baseForm',
-					'car': customFolder + 'car',
-					'signIn': customFolder + 'signIn',
-					'carsGrid': customFolder + 'carsGrid',
-					'notifications': customFolder + 'notifications',
-					'loader': customFolder + 'loader',
-					'contacts': customFolder + 'contacts',
 					// folders
+					'viewModels': customFolder + 'viewModels',
+					'modules': customFolder + 'modules',
 					'customValidation': customFolder + 'validation',
 					'bindings': customFolder + 'bindings'
 				},
@@ -69,7 +63,7 @@
 					'knockout-mapping': {
 						deps: ['knockout']
 					},
-					'notifications': {
+					'modules/notifications': {
 						deps: ['bootstrap-notify']
 					},
 					'bootstrap-notify': {

@@ -2,7 +2,6 @@
 	<div id="authInfo">
 		@if (!User.Identity.IsAuthenticated)
 		{
-			@* todo: uncomment when logic is implemented *@
 			<a data-bind="click: openSignInModal" id="signInLink">Войти</a>
 			@Html.ActionLink("Войти", "SignIn", "Account")
 		}

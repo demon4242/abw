@@ -1,5 +1,5 @@
 ﻿define(['jquery',
-		'baseForm',
+		'viewModels/baseForm',
 		'main',
 		'customValidation/maxFileSize',
 		'customValidation/validFileExtensions',

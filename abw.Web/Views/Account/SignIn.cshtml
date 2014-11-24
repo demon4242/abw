@@ -7,7 +7,7 @@
 {
 	<script type="text/javascript">
 		require(['main'], function(main) {
-			main.loadModules(['signIn'], function (signIn) {
+			main.loadModules(['viewModels/signIn'], function (signIn) {
 				@{
 					List<string> errorMessages = CommonHelpers.GetErrorMessages(ViewData.ModelState);
 				}

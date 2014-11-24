@@ -1,6 +1,6 @@
 ﻿define(['knockout',
-		'notifications',
-		'loader',
+		'modules/notifications',
+		'modules/loader',
 		'main'],
 function (ko, notifications, loader, main) {
 	function carsGrid(viewModel, deleteUrl, getUrl) {
