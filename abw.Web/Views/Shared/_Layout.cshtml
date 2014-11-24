@@ -25,7 +25,6 @@
 	@* todo: add scripts minification *@
 	<script src="@Url.Content("~/Scripts/require-2.1.9.js")"></script>
 	<script type="text/javascript">
-		@* todo: move majority of js to separate file *@
 		(function () {
 			var baseUrl = '@Url.Content("~/Scripts/")';
 			var validationFolder = baseUrl + 'validation/';
@@ -53,7 +52,8 @@
 					'loader': customFolder + 'loader',
 					'contacts': customFolder + 'contacts',
 					// folders
-					'customValidation': customFolder + 'validation'
+					'customValidation': customFolder + 'validation',
+					'bindings': customFolder + 'bindings'
 				},
 				shim: {
 					'bootstrap': {
@@ -65,7 +65,7 @@
 					'unobtrusive-validation': {
 						deps: ['validation']
 					},
-					@* todo: load ko mapping with knockout *@
+					// todo: load ko mapping with knockout
 					'knockout-mapping': {
 						deps: ['knockout']
 					},
@@ -78,9 +78,9 @@
 				}
 			});
 
-			@* todo: get rid of 'window.$' *@
+			// todo: get rid of 'window.$'
 			require(['jquery', 'bootstrap']);
-		}());
+		})();
 	</script>
 
 	@RenderSection("scripts", false)
@@ -90,6 +90,5 @@
 			main.applyBindings();
 		});
 	</script>
-
 </body>
 </html>

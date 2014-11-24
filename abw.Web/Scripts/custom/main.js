@@ -1,5 +1,6 @@
 ﻿define(['jquery',
-		'knockout'],
+		'knockout',
+		'bindings/modal'],
 function ($, ko) {
 	function setActivePage() {
 		var links = $('header ul.nav li a');
@@ -32,12 +33,17 @@ function ($, ko) {
 		modulesCallback = callback;
 	};
 
-	var mainViewModel = {
-		openSignInModal: function () {
-			// todo: use knockout instead of jquery selector
-			$('#signInModal').modal();
-		}
-	};
+	function MainViewModel() {
+		var that = this;
+
+		this.signInModalIsOpened = ko.observable();
+
+		this.openSignInModal = function () {
+			that.signInModalIsOpened(true);
+		};
+	}
+
+	var mainViewModel = new MainViewModel();
 
 	function extendMainViewModel(viewModel) {
 		$.extend(mainViewModel, viewModel);

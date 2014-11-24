@@ -1,6 +1,6 @@
 ﻿@using abw.ViewModels
 @model SignInModel
-<div id="signInModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div data-bind="modal: signInModalIsOpened" id="signInModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		@using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "modal-content" }))
 		{
