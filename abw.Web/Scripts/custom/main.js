@@ -1,5 +1,6 @@
 ﻿define(['jquery',
 		'knockout',
+		'bootstrap',
 		'bindings/modal'],
 function ($, ko) {
 	function setActivePage() {
