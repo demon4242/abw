@@ -22,10 +22,10 @@
 		});
 	</script>
 }
-@{
-	Html.RenderPartial("_BackButton", title);
-	using (Html.BeginForm("New", "Cars", FormMethod.Post, new { data_bind = "submit: submit", enctype = "multipart/form-data" }))
-	{
-		Html.RenderPartial("_Car");
-	}
+@Html.Partial("_BackButton", title);
+<!-- ko with: carForm -->
+@using (Html.BeginForm("New", "Cars", FormMethod.Post, new { data_bind = "submit: submit", enctype = "multipart/form-data" }))
+{
+	@Html.Partial("_Car");
 }
+<!-- /ko -->

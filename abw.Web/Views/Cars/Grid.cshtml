@@ -20,6 +20,7 @@
 	</script>
 }
 @Html.ActionLink("Новая", "New", null, new { id = "newButton", @class = "btn btn-primary" })
+<!-- ko with: carsGrid -->
 <table data-bind="css: css" class="table table-striped table-bordered grid">
 	@* todo: add sorting *@
 	<thead>
@@ -45,10 +46,11 @@
 				<a data-bind="attr: { href: '@Url.Action("Edit")' + '/' + id }" title="Редактировать">
 					<i class="glyphicon glyphicon-edit"></i>
 				</a>
-				<i data-bind="click: $root.deleteCar" class="glyphicon glyphicon-remove" title="Удалить"></i>
+				<i data-bind="click: $parent.deleteCar" class="glyphicon glyphicon-remove" title="Удалить"></i>
 			</td>
 		</tr>
 		<!-- /ko -->
-		@{ Html.RenderPartial("_GridFooter", 4); }
+		@Html.Partial("_GridFooter", 4)
 	</tbody>
 </table>
+<!-- /ko -->

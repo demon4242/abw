@@ -45,5 +45,5 @@
 		initGoogleMap(elements, TITLE, center, markerPosition);
 	};
 
-	main.extendMainViewModel(viewModel);
+	main.extendMainViewModel({ contactsPage: viewModel });
 });

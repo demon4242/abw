@@ -63,7 +63,7 @@ function (ko, notifications, loader, main) {
 			});
 		};
 
-		main.extendMainViewModel(viewModel);
+		main.extendMainViewModel({ carsGrid: viewModel });
 
 		function loadMoreByScrollDown() {
 			if ($(window).scrollTop() !== ($(document).height() - $(window).height())) {

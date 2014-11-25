@@ -26,12 +26,12 @@ function ($, ko) {
 		}
 	}
 
-	var modulesToLoad;
-	var modulesCallback;
+	var modulesToLoadArray = [];
+	var modulesCallbacks = [];
 
 	function loadModules(modules, callback) {
-		modulesToLoad = modules;
-		modulesCallback = callback;
+		modulesToLoadArray.push(modules);
+		modulesCallbacks.push(callback);
 	};
 
 	function MainViewModel() {
@@ -57,15 +57,27 @@ function ($, ko) {
 			ko.applyBindings(mainViewModel);
 		}
 
-		if (!modulesToLoad) {
+		if (modulesToLoadArray.length === 0) {
 			mainCallBack();
 		} else {
-			require(modulesToLoad, function () {
-				if (modulesCallback) {
-					modulesCallback.apply(null, arguments);
-				}
-				mainCallBack();
-			});
+			var i = 0;
+
+			function load() {
+				require(modulesToLoadArray[i], function () {
+					var modulesCallback = modulesCallbacks[i];
+					if (modulesCallback) {
+						modulesCallback.apply(null, arguments);
+					}
+					i++;
+					if (i === modulesToLoadArray.length) {
+						mainCallBack();
+					} else {
+						load();
+					}
+				});
+			}
+
+			load();
 		}
 	};
 

@@ -16,7 +16,7 @@ function ($, baseForm, main) {
 			validator.element(target);
 		};
 
-		main.extendMainViewModel(viewModel);
+		main.extendMainViewModel({ carForm: viewModel });
 	}
 
 	return car;

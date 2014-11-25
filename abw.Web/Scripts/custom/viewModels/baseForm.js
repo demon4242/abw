@@ -16,6 +16,9 @@ function (ko, koMapping) {
 
 		viewModel.submitButtonText = submitButtonText || 'Сохранить';
 
+		if (!errorMessages) {
+			errorMessages = [];
+		}
 		viewModel.errorMessages = errorMessages;
 		if (errorMessages.length) {
 			$('body').animate({ scrollTop: $(document).height() }, 500);

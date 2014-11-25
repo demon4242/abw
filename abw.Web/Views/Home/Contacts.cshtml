@@ -17,7 +17,7 @@
 }
 @* todo: add yandex maps and mapbox *@
 @* todo: add button 'Get directions' *@
-<div>
+<div data-bind="with: contactsPage">
 	<div id="googleMapsTitle">Время и место работы</div>
 	@* todo: if header width is longer than google maps width maps are not centered *@
 	<div class="google-map-wrapper">
@@ -56,7 +56,7 @@
 			Телефоны
 		</td>
 		<td>
-			@{ Html.RenderPartial("_Phones"); }
+			@Html.Partial("_Phones")
 		</td>
 	</tr>
 	<tr>

@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@using abw.Helpers
 @using abw.ViewModels
 <!DOCTYPE html>
 <html>
@@ -17,9 +18,13 @@
 
 	@Html.Partial("Layout/_Loader")
 
+	@{
+		SignInModel signInModel = null;
+	}
 	@if (!User.Identity.IsAuthenticated)
 	{
-		@Html.Partial("Layout/_SignInModal", new SignInModel())
+		signInModel = new SignInModel();
+		@Html.Partial("Layout/_SignInModal", signInModel)
 	}
 
 	@* todo: add scripts minification *@
@@ -73,6 +78,17 @@
 			});
 		})();
 	</script>
+
+	@if (signInModel != null)
+	{
+		<script type="text/javascript">
+			require(['main'], function (main) {
+				main.loadModules(['viewModels/signInModal'], function (signInModal) {
+					signInModal(@Html.ToJs(signInModel));
+				});
+			});
+		</script>
+	}
 
 	@RenderSection("scripts", false)
 
