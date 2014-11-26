@@ -46,13 +46,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DAL\abw.DAL\abw.DAL.csproj">
+      <Project>{19F73776-3170-4121-9F0B-F8EEB41D14FB}</Project>
+      <Name>abw.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">
       <Project>{F255E5D3-4FBE-4F97-B5DC-A14A06BE4109}</Project>
       <Name>abw.BusinessLogic.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\abw.DAL\abw.DAL.csproj">
-      <Project>{19F73776-3170-4121-9F0B-F8EEB41D14FB}</Project>
-      <Name>abw.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

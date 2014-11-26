@@ -81,7 +81,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\abw.Common\abw.Common.csproj">
+    <ProjectReference Include="..\..\Common\abw.Common\abw.Common.csproj">
       <Project>{402516c1-c07c-490d-8fdd-fdf458499c9e}</Project>
       <Name>abw.Common</Name>
     </ProjectReference>
