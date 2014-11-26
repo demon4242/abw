@@ -22,18 +22,9 @@
 @using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { data_bind = "submit: submit", id = "signInForm" }))
 {
 	@Html.HiddenFor(m => m.ReturnUrl, new { data_bind = "value: returnUrl" })
-	<div>
-		@Html.LabelFor(m => m.Name)
-		@Html.TextBoxFor(m => m.Name, new { data_bind = "value: name", autocomplete = "off" })
-		@Html.ValidationMessageFor(m => m.Name)
-	</div>
+	@Html.Partial("_SignInContent")
 
-	<div>
-		@Html.LabelFor(m => m.Password)
-		@Html.PasswordFor(m => m.Password, new { data_bind = "value: password" })
-		@Html.ValidationMessageFor(m => m.Password)
-	</div>
-
+	<hr />
 	@Html.Partial("_SubmitArea")
 }
 <!-- /ko -->

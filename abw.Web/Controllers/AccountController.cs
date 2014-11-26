@@ -1,8 +1,10 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using System.Web.Security;
 using abw.Attributes;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
+using abw.Helpers;
 using abw.Resources;
 using abw.ViewModels;
 
@@ -16,7 +18,6 @@ namespace abw.Controllers
 		{
 		}
 
-		// todo: implement logIn popup
 		[NonAuthorize]
 		[Route("signIn")]
 		public ActionResult SignIn(string returnUrl)
@@ -48,6 +49,28 @@ namespace abw.Controllers
 				return Redirect(signInModel.ReturnUrl);
 			}
 			return RedirectToAction("Grid", "Cars");
+		}
+
+		[HttpPost]
+		[NonAuthorize]
+		[Route("signInModal")]
+		public JsonNetResult SignInModal(SignInModal signInModal)
+		{
+			if (!ModelState.IsValid)
+			{
+				List<string> errorMessages = CommonHelpers.GetErrorMessages(ModelState);
+				return new JsonNetResult(new { success = false, errorMessages });
+			}
+			User user = Service.GetUser(signInModal.Name, signInModal.Password);
+			if (user == null)
+			{
+				List<string> errorMessages = new List<string> { ErrorMessages.InvalidUsernameOrPassword };
+				return new JsonNetResult(new { success = false, errorMessages });
+			}
+			FormsAuthentication.SetAuthCookie(signInModal.Name, true);
+
+			string returnUrl = Url.Action("Grid", "Cars");
+			return new JsonNetResult(new { success = true, returnUrl });
 		}
 
 		[Authorize]

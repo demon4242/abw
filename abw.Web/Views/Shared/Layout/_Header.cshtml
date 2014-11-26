@@ -3,7 +3,6 @@
 		@if (!User.Identity.IsAuthenticated)
 		{
 			<a data-bind="click: openSignInModal" id="signInLink">Войти</a>
-			@Html.ActionLink("Войти", "SignIn", "Account")
 		}
 		else
 		{

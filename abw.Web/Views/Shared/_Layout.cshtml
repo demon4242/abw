@@ -19,12 +19,12 @@
 	@Html.Partial("Layout/_Loader")
 
 	@{
-		SignInModel signInModel = null;
+		SignInModal signInModal = null;
 	}
 	@if (!User.Identity.IsAuthenticated)
 	{
-		signInModel = new SignInModel();
-		@Html.Partial("Layout/_SignInModal", signInModel)
+		signInModal = new SignInModal();
+		@Html.Partial("Layout/_SignInModal", signInModal)
 	}
 
 	@* todo: add scripts minification *@
@@ -79,12 +79,12 @@
 		})();
 	</script>
 
-	@if (signInModel != null)
+	@if (signInModal != null)
 	{
 		<script type="text/javascript">
 			require(['main'], function (main) {
 				main.loadModules(['viewModels/signInModal'], function (signInModal) {
-					signInModal(@Html.ToJs(signInModel));
+					signInModal(@Html.ToJs(signInModal));
 				});
 			});
 		</script>

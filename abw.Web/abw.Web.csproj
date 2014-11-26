@@ -173,7 +173,8 @@
     <Compile Include="ViewModels\Cars\CarViewModel.cs" />
     <Compile Include="ViewModels\Cars\CarForDisplay.cs" />
     <Compile Include="ViewModels\Grid.cs" />
-    <Compile Include="ViewModels\SignInModel.cs" />
+    <Compile Include="ViewModels\SignIn\SignInModal.cs" />
+    <Compile Include="ViewModels\SignIn\SignInModel.cs" />
     <Compile Include="ViewModels\ViewModelsProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +221,7 @@
     <Content Include="Scripts\custom\validation\notLessThan.js" />
     <Content Include="Scripts\custom\validation\validFileExtensions.js" />
     <Content Include="Scripts\custom\validation\maxFileSize.js" />
+    <Content Include="Scripts\custom\viewModels\signInModal.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <None Include="Scripts\validation\jquery.validate-1.11.1-vsdoc.js" />
     <Content Include="Scripts\knockout\knockout-3.0.0.js" />
@@ -250,6 +252,7 @@
     <Content Include="Views\Shared\Layout\_Notifications.cshtml" />
     <Content Include="Views\Shared\Layout\_Loader.cshtml" />
     <Content Include="Views\Shared\Layout\_Header.cshtml" />
+    <Content Include="Views\Shared\_SignInContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abw.DAL\abw.DAL.csproj">

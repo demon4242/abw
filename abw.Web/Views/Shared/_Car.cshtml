@@ -32,7 +32,10 @@
 		<div class="car-photo-wrapper">
 			<img src="@Url.Content(currentPhoto.Key)" class="car-photo" alt="@Model.Make @Model.Model @Model.YearFrom-@Model.YearTo photo" />
 			<label class="checkbox-wrapper">
-				@Html.CheckBoxFor(m => m.CurrentPhotos[currentPhoto.Key], new { data_val = false })
+				@{
+					string key = currentPhoto.Key;
+				}
+				@Html.CheckBoxFor(m => m.CurrentPhotos[key], new { data_val = false })
 				Удалить фото
 			</label>
 		</div>
@@ -42,4 +45,5 @@
 	@Html.ValidationMessageFor(m => m.Photos)
 </div>
 
+<hr />
 @Html.Partial("_SubmitArea")

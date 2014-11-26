@@ -1,10 +1,9 @@
-﻿<hr />
-@* 'cancel' class prevents double call of submit method *@
+﻿@* 'cancel' class prevents double call of submit method *@
 <input type="submit" data-bind="value: submitButtonText, css: { loading: loading }, disable: loading" class="btn btn-primary cancel" />
 <br />
 
-<div data-bind="css: { show: errorMessages.length }" class="alert alert-danger">
-	<button type="button" class="close" data-dismiss="alert" aria-hidden="true" title="Закрыть">&times;</button>
+<div data-bind="css: { show: errorMessages().length }" class="alert alert-danger">
+	<button type="button" data-bind="click: closeErrorMessages" class="close" title="Закрыть">&times;</button>
 	<!-- ko foreach: errorMessages -->
 	<div data-bind="text: $data"></div>
 	<!-- /ko -->

@@ -19,10 +19,14 @@ function (ko, koMapping) {
 		if (!errorMessages) {
 			errorMessages = [];
 		}
-		viewModel.errorMessages = errorMessages;
+		viewModel.errorMessages = ko.observableArray(errorMessages);
 		if (errorMessages.length) {
 			$('body').animate({ scrollTop: $(document).height() }, 500);
 		}
+
+		viewModel.closeErrorMessages = function () {
+			viewModel.errorMessages.removeAll();
+		};
 
 		return viewModel;
 	}
