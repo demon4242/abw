@@ -2,9 +2,10 @@
 using System.Linq;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
-using abw.Helpers;
+using abw.ViewModels;
+using abw.Web.Utilities.Helpers;
 
-namespace abw.ViewModels
+namespace abw.Web.Utilities
 {
 	public static class ViewModelsProvider
 	{

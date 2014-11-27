@@ -8,7 +8,7 @@ using abw.DAL.Entities;
 using abw.Logging;
 using abw.ViewModels;
 
-namespace abw.Helpers
+namespace abw.Web.Utilities.Helpers
 {
 	public static class PhotoManager
 	{

@@ -50,9 +50,6 @@
     <Compile Include="Contracts\ICarsRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IUsersRepository.cs" />
-    <Compile Include="Entities\BaseEntity.cs" />
-    <Compile Include="Entities\Car.cs" />
-    <Compile Include="Entities\User.cs" />
     <Compile Include="Migrations\201411101325574_AddBaseTables.cs" />
     <Compile Include="Migrations\201411101325574_AddBaseTables.Designer.cs">
       <DependentUpon>201411101325574_AddBaseTables.cs</DependentUpon>
@@ -84,6 +81,10 @@
     <ProjectReference Include="..\..\Common\abw.Common\abw.Common.csproj">
       <Project>{402516c1-c07c-490d-8fdd-fdf458499c9e}</Project>
       <Name>abw.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abw.DAL.Entities\abw.DAL.Entities.csproj">
+      <Project>{3DBC145C-2A4E-479A-B39D-C037630140AC}</Project>
+      <Name>abw.DAL.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace abw.Helpers
+namespace abw.Web.Utilities.Helpers
 {
 	/// <summary>
 	/// Makes json lower case

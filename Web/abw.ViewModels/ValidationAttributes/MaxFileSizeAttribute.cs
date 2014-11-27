@@ -1,36 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using abw.Resources;
 using abw.Logging;
+using abw.Resources;
 
-namespace abw.Attributes.Validation
+namespace abw.ViewModels.ValidationAttributes
 {
 	/// <summary>
-	/// Restricts file extension.
+	/// Restricts max file size.
 	/// Applicable only for a List of HttpPostedFileBase
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Property)]
-	public class ValidFileExtensionsAttribute : ValidationAttribute, IClientValidatable
+	public class MaxFileSizeAttribute : ValidationAttribute, IClientValidatable
 	{
-		private readonly List<string> _extensions;
+		private readonly int _sizeInMb;
 
-		/// <param name="extensions">extensions separated by comma</param>
-		public ValidFileExtensionsAttribute(string extensions)
+		public MaxFileSizeAttribute(int sizeInMb)
 		{
+			_sizeInMb = sizeInMb;
 			ErrorMessageResourceType = typeof(ErrorMessages);
-			ErrorMessageResourceName = "ValidFileExtensions";
-			_extensions = extensions.Split(',').Select(m => m.Trim().ToLower()).ToList();
+			ErrorMessageResourceName = "MaxFileSize";
 		}
 
 		public override string FormatErrorMessage(string name)
 		{
-			string extensions = string.Join(", ", _extensions);
-			string errorMessage = string.Format(ErrorMessageString, name, extensions);
+			string errorMessage = string.Format(ErrorMessageString, name, _sizeInMb);
 			return errorMessage;
 		}
 
@@ -57,17 +53,9 @@ namespace abw.Attributes.Validation
 
 			foreach (HttpPostedFileBase file in files)
 			{
-				string extension = Path.GetExtension(file.FileName);
-				if (string.IsNullOrWhiteSpace(extension))
-				{
-					const string errorMessage = "File extension cannot be determined";
-					Logger.Error(errorMessage);
-					throw new Exception(errorMessage);
-				}
-				// convert .jpg → jpg, .gif → gif, etc.
-				extension = extension.Replace(".", string.Empty).ToLower();
+				int sizeInBytes = _sizeInMb * 1024 * 1024;
 
-				bool isValid = _extensions.Contains(extension);
+				bool isValid = file.ContentLength <= sizeInBytes;
 				if (!isValid)
 				{
 					return false;
@@ -80,10 +68,10 @@ namespace abw.Attributes.Validation
 		{
 			ModelClientValidationRule rule = new ModelClientValidationRule
 			{
-				ValidationType = "validfileextensions",
+				ValidationType = "maxfilesize",
 				ErrorMessage = FormatErrorMessage(metadata.DisplayName),
 			};
-			rule.ValidationParameters.Add("extensions", string.Join(",", _extensions));
+			rule.ValidationParameters.Add("sizeinmb", _sizeInMb);
 			yield return rule;
 		}
 	}

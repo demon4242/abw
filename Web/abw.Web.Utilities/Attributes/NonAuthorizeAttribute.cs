@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.WebPages;
 
-namespace abw.Attributes
+namespace abw.Web.Utilities.Attributes
 {
 	/// <summary>
 	/// Restrics authorized users from access

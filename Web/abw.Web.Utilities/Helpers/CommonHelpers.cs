@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 
-namespace abw.Helpers
+namespace abw.Web.Utilities.Helpers
 {
 	public static class CommonHelpers
 	{

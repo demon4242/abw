@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
-using abw.Attributes.Validation;
 using abw.Common;
 using abw.DAL.Entities;
 using abw.Resources;
+using abw.ViewModels.ValidationAttributes;
 
 namespace abw.ViewModels
 {
@@ -31,7 +31,7 @@ namespace abw.ViewModels
 		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
 		public override int YearFrom { get; set; }
 
-		[NotLessThanAttribute("YearFrom", ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "InvalidYearTo")]
+		[NotLessThan("YearFrom", ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "InvalidYearTo")]
 		[Display(ResourceType = typeof(DisplayNames), Name = "Year")]
 		public override int? YearTo { get; set; }
 

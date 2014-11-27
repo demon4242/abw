@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Web.Mvc;
 using abw.Logging;
 
-namespace abw.Attributes.Validation
+namespace abw.ViewModels.ValidationAttributes
 {
 	/// <summary>
 	/// Ensures that one int value is not less than another one

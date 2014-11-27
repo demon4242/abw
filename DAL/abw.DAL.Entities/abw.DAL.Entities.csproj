@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F255E5D3-4FBE-4F97-B5DC-A14A06BE4109}</ProjectGuid>
+    <ProjectGuid>{3DBC145C-2A4E-479A-B39D-C037630140AC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>abw.BusinessLogic.Interfaces</RootNamespace>
-    <AssemblyName>abw.BusinessLogic.Interfaces</AssemblyName>
+    <RootNamespace>abw.DAL.Entities</RootNamespace>
+    <AssemblyName>abw.DAL.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,20 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAccountService.cs" />
-    <Compile Include="Base\IBaseService.cs" />
-    <Compile Include="ICarsService.cs" />
-    <Compile Include="Base\ICrudService.cs" />
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="Car.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DAL\abw.DAL.Entities\abw.DAL.Entities.csproj">
-      <Project>{3DBC145C-2A4E-479A-B39D-C037630140AC}</Project>
-      <Name>abw.DAL.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DAL\abw.DAL\abw.DAL.csproj">
-      <Project>{19F73776-3170-4121-9F0B-F8EEB41D14FB}</Project>
-      <Name>abw.DAL</Name>
+    <ProjectReference Include="..\..\Common\abw.Common\abw.Common.csproj">
+      <Project>{402516C1-C07C-490D-8FDD-FDF458499C9E}</Project>
+      <Name>abw.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Security;
-using abw.Attributes;
 using abw.BusinessLogic.Interfaces;
 using abw.DAL.Entities;
-using abw.Helpers;
 using abw.Resources;
 using abw.ViewModels;
+using abw.Web.Utilities.Attributes;
+using abw.Web.Utilities.Helpers;
 
 namespace abw.Controllers
 {
