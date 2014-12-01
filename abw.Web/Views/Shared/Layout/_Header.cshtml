@@ -10,20 +10,14 @@
 				? Request.Url.AbsolutePath
 				: null;
 
-			<div class="dropdown">
-				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-					@User.Identity.Name
-					<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-					<li role="presentation">
-						@Html.ActionLink("Машины", "Grid", "Cars")
-					</li>
-					<li role="presentation" class="divider"></li>
-					<li role="presentation">
-						@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
-					</li>
-				</ul>
+			<div>
+				@User.Identity.Name
+				<span class="caret"></span>
+			</div>
+			<div>
+				@Html.ActionLink("Машины", "Grid", "Cars")
+				<hr />
+				@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
 			</div>
 		}
 	</div>

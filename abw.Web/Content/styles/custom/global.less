@@ -10,12 +10,72 @@ header {
 
 	#authInfo {
 		float: right;
-		height: 62px;
+		position: relative;
+		height: 22px;
+
+		&:hover > div:last-child {
+			display: block;
+		}
+
+		> div {
+			&:first-child {
+				cursor: default;
+				margin-right: 9px;
+				height: 22px;
+			}
+
+			&:last-child {
+				@border-color: rgb(216, 216, 216);
+
+				display: none;
+				position: absolute;
+				top: 22px;
+				right: 0;
+				background-color: white;
+				border: 1px solid #ccc;
+				border: 1px solid @border-color;
+				border-radius: 4px;
+				-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+				box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+
+				&:before,
+				&:after {
+					border-left: 8px solid transparent;
+					border-right: 8px solid transparent;
+					display: inline-block;
+					position: absolute;
+					content: "";
+					right: 4px;
+					left: auto;
+				}
+
+				&:before {
+					border-bottom: 8px solid @border-color;
+					top: -8px;
+				}
+
+				&:after {
+					border-bottom: 8px solid white;
+					top: -6px;
+				}
+
+				a {
+					display: inline-block;
+					padding: 10px;
+					width: 100%;
+				}
+
+				hr {
+					margin: 0;
+				}
+			}
+		}
 	}
 
 	.phones {
 		float: right;
 		clear: right;
+		margin-top: 40px;
 	}
 
 	#carLogos {
