@@ -15,26 +15,18 @@
 		});
 	</script>
 }
-@* todo: add yandex maps and mapbox *@
-@* todo: add button 'Get directions' *@
-<div data-bind="with: contactsPage">
-	<div id="googleMapsTitle">Время и место работы</div>
-	@* todo: if header width is longer than google maps width maps are not centered *@
-	<div class="google-map-wrapper">
+
+<div data-bind="with: contactsPage" id="mapWrapper">
+	<div id="mapTitle">Время и место работы</div>
+	<div id="map">
 		<span>
 			09:00 - 14:00
 		</span>
-		<div data-bind="template: { afterRender: initMarketMap }">
-		</div>
-	</div>
-	<div class="google-map-wrapper">
-		<span>
-			14:00 - 21:00
-		</span>
-		<div data-bind="template: { afterRender: initStorehouseMap }">
+		<div data-bind="template: { afterRender: initMap }">
 		</div>
 	</div>
 </div>
+
 <div id="dayOff">
 	Выходной: понедельник
 </div>
