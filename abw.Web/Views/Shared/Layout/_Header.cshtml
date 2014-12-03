@@ -1,5 +1,5 @@
 ﻿<header>
-	<div id="authInfo">
+	<div id="adminMenuWrapper">
 		@if (!User.Identity.IsAuthenticated)
 		{
 			<a data-bind="click: openSignInModal" id="signInLink">Войти</a>
@@ -10,11 +10,11 @@
 				? Request.Url.AbsolutePath
 				: null;
 
-			<div>
+			<div id="username">
 				@User.Identity.Name
 				<span class="caret"></span>
 			</div>
-			<div>
+			<div id="adminMenu">
 				@Html.ActionLink("Машины", "Grid", "Cars")
 				<hr />
 				@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
