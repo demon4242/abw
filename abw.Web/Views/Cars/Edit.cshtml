@@ -15,8 +15,8 @@
 		require(['main'], function (main) {
 			main.loadModules(['viewModels/car'], function (car) {
 				@{
-				List<string> errorMessages = CommonHelpers.GetErrorMessages(ViewData.ModelState);
-			}
+					List<string> errorMessages = CommonHelpers.GetErrorMessages(ViewData.ModelState);
+				}
 				car(@Html.ToJs(Model), @Html.ToJs(errorMessages));
 			});
 		});
