@@ -1,8 +1,10 @@
 ﻿define(['jquery',
 		'knockout',
+		'modules/loader',
+		'modules/notifications',
 		'bootstrap',
 		'bindings/modal'],
-function ($, ko) {
+function ($, ko, loader, notifications) {
 	function setActivePage() {
 		var links = $('header ul.nav li a');
 		for (var i = 0; i < links.length; i++) {
@@ -42,6 +44,11 @@ function ($, ko) {
 		this.openSignInModal = function () {
 			that.signInModalIsOpened(true);
 		};
+
+		this.initLoader = loader.init;
+
+		this.initNotification = notifications.init;
+		this.initConfirm = notifications.initConfirm;
 	}
 
 	var mainViewModel = new MainViewModel();

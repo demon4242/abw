@@ -3,12 +3,23 @@
 
 	var ERROR_MESSAGE = 'Извините, произошла ошибка';
 
+	var notification;
+	var confirmModal;
+
 	function showNotification(type, message) {
-		$('#notification').notify({
+		notification.notify({
 			type: type,
 			message: { html: message },
 			closable: true
 		}).show();
+	};
+
+	self.init = function (elements) {
+		notification = $(elements).parent();
+	};
+
+	self.initConfirm = function (elements) {
+		confirmModal = $(elements).parent();
 	};
 
 	self.success = function (message) {
@@ -23,16 +34,15 @@
 	};
 
 	self.confirm = function (title, message, yesHandler) {
-		var modal = $('#confirm');
-		modal.find('.modal-title').html(title);
-		modal.find('.modal-body').html(message);
-		var yesButton = modal.find('.btn-primary');
+		confirmModal.find('.modal-title').html(title);
+		confirmModal.find('.modal-body').html(message);
+		var yesButton = confirmModal.find('.btn-primary');
 		yesButton.off('click');
 		yesButton.on('click', function () {
-			modal.modal('hide');
+			confirmModal.modal('hide');
 			yesHandler();
 		});
-		modal.modal();
+		confirmModal.modal();
 	};
 
 	return self;

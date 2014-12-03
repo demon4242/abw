@@ -1,14 +1,18 @@
 ﻿define(function () {
 	var self = {};
 
-	var LOADER_SELECTOR = '#spinnerComplex';
+	var loader;
+
+	self.init = function (elements) {
+		loader = $(elements).parent();
+	};
 
 	self.show = function () {
-		$(LOADER_SELECTOR).show();
+		loader.show();
 	};
 
 	self.hide = function () {
-		$(LOADER_SELECTOR).hide();
+		loader.hide();
 	};
 
 	return self;
