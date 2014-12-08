@@ -2,6 +2,8 @@
 		'viewModels/baseForm',
 		'main'],
 function ($, baseForm, main) {
+	'use strict';
+
 	function signInModal(viewModel, errorMessages) {
 		// set name and password in order to maintain autocomplete
 		viewModel.name = $('input[type=text]#Name').val();

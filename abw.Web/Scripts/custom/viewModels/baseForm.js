@@ -2,6 +2,8 @@
 		'knockout-mapping',
 		'unobtrusive-validation'],
 function (ko, koMapping) {
+	'use strict';
+
 	function baseForm(viewModel, errorMessages, submitButtonText) {
 		viewModel = koMapping.fromJS(viewModel);
 

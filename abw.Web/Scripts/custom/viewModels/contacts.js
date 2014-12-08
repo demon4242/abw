@@ -1,4 +1,6 @@
 ﻿define(['main'], function (main) {
+	'use strict';
+
 	var viewModel = {};
 
 	viewModel.initMap = function (elements) {

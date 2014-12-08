@@ -5,6 +5,8 @@
 		'customValidation/validFileExtensions',
 		'customValidation/notLessThan'],
 function ($, baseForm, main) {
+	'use strict';
+
 	function car(viewModel, errorMessages) {
 		viewModel = baseForm(viewModel, errorMessages);
 

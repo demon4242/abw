@@ -2,6 +2,8 @@
 define(['jquery',
 		'unobtrusive-validation'],
 function ($) {
+	'use strict';
+
 	var METHOD = 'validFileExtensions';
 
 	$.validator.addMethod(METHOD, function (value, element, extensions) {

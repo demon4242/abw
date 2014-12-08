@@ -5,19 +5,21 @@
 		'bootstrap',
 		'bindings/modal'],
 function ($, ko, loader, notifications) {
+	'use strict';
+
+	// converts http://localhost/abw → http://localhost/abw/, http://localhost/abw/Home/Cars → http://localhost/abw/Home/Cars/
+	function getHref(href) {
+		href = href.toLowerCase();
+		if (href[href.length - 1] !== '/') {
+			href += '/';
+		}
+		return href;
+	}
+
 	function setActivePage() {
 		var links = $('header ul.nav li a');
 		for (var i = 0; i < links.length; i++) {
 			var link = links[i];
-
-			// converts http://localhost/abw → http://localhost/abw/, http://localhost/abw/Home/Cars → http://localhost/abw/Home/Cars/
-			function getHref(href) {
-				href = href.toLowerCase();
-				if (href[href.length - 1] !== '/') {
-					href += '/';
-				}
-				return href;
-			}
 
 			var locationHref = getHref(location.href);
 			var linkHref = getHref(link.href);
@@ -69,7 +71,7 @@ function ($, ko, loader, notifications) {
 		} else {
 			var i = 0;
 
-			function load() {
+			(function load() {
 				require(modulesToLoadArray[i], function () {
 					var modulesCallback = modulesCallbacks[i];
 					if (modulesCallback) {
@@ -82,9 +84,7 @@ function ($, ko, loader, notifications) {
 						load();
 					}
 				});
-			}
-
-			load();
+			}());
 		}
 	};
 

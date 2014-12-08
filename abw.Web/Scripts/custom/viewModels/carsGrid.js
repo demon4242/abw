@@ -3,6 +3,8 @@
 		'modules/loader',
 		'main'],
 function (ko, notifications, loader, main) {
+	'use strict';
+
 	function carsGrid(viewModel, deleteUrl, getUrl) {
 		viewModel.list = ko.observableArray(viewModel.list);
 		viewModel.totalCount = ko.observable(viewModel.totalCount);

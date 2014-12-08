@@ -1,6 +1,8 @@
 ﻿define(['jquery',
 		'knockout'],
 function ($, ko) {
+	'use strict';
+
 	function modal($element, value) {
 		var valueUnwrapped = ko.unwrap(value);
 		if (valueUnwrapped) {

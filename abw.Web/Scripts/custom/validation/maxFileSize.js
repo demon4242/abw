@@ -2,6 +2,8 @@
 define(['jquery',
 		'unobtrusive-validation'],
 function ($) {
+	'use strict';
+
 	var METHOD = 'maxFileSize';
 
 	$.validator.addMethod(METHOD, function (value, element, sizeInMb) {
