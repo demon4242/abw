@@ -1,73 +1,16 @@
-﻿/*#map, #contacts {
-	box-shadow: 0 0 5px #40310a;
-}
-
-#mapWrapper {
-	text-align: center;
-}
-
-#mapTitle {
-	font-weight: bold;
-	text-align: center;
-	margin-bottom: 10px;
-}
-
-#map {
-	padding: 5px;
+﻿.section-wrapper {
+	margin: 0 10px 10px 10px;
 	display: inline-block;
 
-	&:not(:last-child) {
-		margin-right: 10px;
+	&:first-of-type {
+		vertical-align: top;
 	}
 
-	> div {
-		height: 400px;
-		width: 400px;
-	}
-
-	> span {
-		display: block;
+	.title {
 		font-weight: bold;
 		text-align: center;
 		margin-bottom: 5px;
 	}
-
-	.scroll-fix {
-		font-weight: bold;
-		line-height: 1.35;
-		overflow: hidden;
-		white-space: nowrap;
-	}
-}
-
-#dayOff {
-	font-weight: bold;
-	text-align: center;
-	margin: 10px 0;
-}
-
-#contacts {
-	width: auto;
-	margin: 0 auto;
-
-	th {
-		text-align: center;
-	}
-
-	> tbody > tr > td:first-child {
-		font-weight: bold;
-	}
-}*/
-
-/* ************************** */
-
-.title {
-	font-weight: bold;
-	text-align: center;
-}
-
-.section-wrapper {
-	display: inline-block;
 
 	.section {
 		box-shadow: 0 0 5px #40310a;
@@ -82,9 +25,12 @@
 
 		width: @size;
 		height: @size;
-	}
-}
 
-#fuck {
-	content: "\00a0\2013\00a0";
+		.scroll-fix {
+			font-weight: bold;
+			line-height: 1.35;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
 }
