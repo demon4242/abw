@@ -1,7 +1,8 @@
 ﻿define(['jquery',
 		'viewModels/baseForm',
-		'main'],
-function ($, baseForm, main) {
+		'main',
+		'modules/notifications'],
+function ($, baseForm, main, notifications) {
 	'use strict';
 
 	function signInModal(viewModel, errorMessages) {
@@ -26,7 +27,7 @@ function ($, baseForm, main) {
 					viewModel.loading(false);
 				}
 			}).fail(function () {
-				// todo: show error message
+				notifications.error();
 				viewModel.loading(false);
 			});
 

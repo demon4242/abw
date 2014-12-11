@@ -6,7 +6,7 @@ namespace abw.DAL.Repositories
 	{
 		#region Private
 
-		private readonly AbwDbContext _dbContext = new AbwDbContext();
+		private readonly AbwDbContext _dbContext;
 
 		private ICarsRepository _cars;
 
@@ -15,6 +15,11 @@ namespace abw.DAL.Repositories
 		#endregion Private
 
 		#region Public
+
+		public UnitOfWork(AbwDbContext dbContext)
+		{
+			_dbContext = dbContext;
+		}
 
 		public ICarsRepository Cars
 		{

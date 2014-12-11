@@ -13,7 +13,6 @@ namespace abw.DAL.Migrations
 				dbContext.Users.Add(new User
 				{
 					Name = "admin",
-					// todo: do not use hash code for encryption
 					Password = "demon_4242".GetHashCode().ToString()
 				});
 				dbContext.SaveChanges();
