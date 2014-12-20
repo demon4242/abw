@@ -19,12 +19,12 @@ namespace abw.ViewModels
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Make")]
 		[RequiredRestriction]
-		[StringLengthRestriction(Constants.MaxStringLength)]
+		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
 		public override string Make { get; set; }
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Model")]
 		[RequiredRestriction]
-		[StringLengthRestriction(Constants.MaxStringLength)]
+		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
 		public override string Model { get; set; }
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Year")]

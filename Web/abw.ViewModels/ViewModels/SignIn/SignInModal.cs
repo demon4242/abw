@@ -9,12 +9,12 @@ namespace abw.ViewModels
 	{
 		[Display(ResourceType = typeof(DisplayNames), Name = "Name")]
 		[RequiredRestriction]
-		[StringLengthRestriction(Constants.MaxStringLength)]
+		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
 		public string Name { get; set; }
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Password")]
 		[RequiredRestriction]
-		[StringLengthRestriction(Constants.MaxStringLength)]
+		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
 		public string Password { get; set; }
 	}
 }

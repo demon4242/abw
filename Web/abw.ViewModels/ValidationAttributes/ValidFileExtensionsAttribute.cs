@@ -82,7 +82,7 @@ namespace abw.ViewModels.ValidationAttributes
 			ModelClientValidationRule rule = new ModelClientValidationRule
 			{
 				ValidationType = "validfileextensions",
-				ErrorMessage = FormatErrorMessage(metadata.DisplayName),
+				ErrorMessage = FormatErrorMessage(metadata.DisplayName)
 			};
 			rule.ValidationParameters.Add("extensions", string.Join(",", _extensions));
 			yield return rule;

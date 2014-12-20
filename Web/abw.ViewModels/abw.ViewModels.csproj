@@ -67,8 +67,7 @@
   <ItemGroup>
     <Compile Include="ValidationAttributes\MaxFileSizeAttribute.cs" />
     <Compile Include="ValidationAttributes\NotLessThanAttribute.cs" />
-    <Compile Include="ValidationAttributes\Restrictions\RequiredRestrictionAttribute.cs" />
-    <Compile Include="ValidationAttributes\Restrictions\StringLengthRestrictionAttribute.cs" />
+    <Compile Include="ValidationAttributes\RequiredRestrictionAttribute.cs" />
     <Compile Include="ValidationAttributes\ValidFileExtensionsAttribute.cs" />
     <Compile Include="ViewModels\Cars\CarForDisplay.cs" />
     <Compile Include="ViewModels\Cars\CarForGrid.cs" />

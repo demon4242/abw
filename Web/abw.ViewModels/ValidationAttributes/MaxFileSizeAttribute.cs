@@ -70,7 +70,7 @@ namespace abw.ViewModels.ValidationAttributes
 			ModelClientValidationRule rule = new ModelClientValidationRule
 			{
 				ValidationType = "maxfilesize",
-				ErrorMessage = FormatErrorMessage(metadata.DisplayName),
+				ErrorMessage = FormatErrorMessage(metadata.DisplayName)
 			};
 			rule.ValidationParameters.Add("sizeinmb", _sizeInMb);
 			yield return rule;
