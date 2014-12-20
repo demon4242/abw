@@ -20,6 +20,7 @@ namespace abw.ViewModels.ValidationAttributes
 		public MaxFileSizeAttribute(int sizeInMb)
 		{
 			_sizeInMb = sizeInMb;
+
 			ErrorMessageResourceType = typeof(ErrorMessages);
 			ErrorMessageResourceName = "MaxFileSize";
 		}

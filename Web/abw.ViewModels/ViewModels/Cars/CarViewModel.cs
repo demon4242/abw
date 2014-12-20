@@ -18,20 +18,20 @@ namespace abw.ViewModels
 		}
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Make")]
-		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
-		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
+		[RequiredRestriction]
+		[StringLengthRestriction(Constants.MaxStringLength)]
 		public override string Make { get; set; }
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Model")]
-		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
-		[StringLength(Constants.MaxStringLength, ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "StringMaxLength")]
+		[RequiredRestriction]
+		[StringLengthRestriction(Constants.MaxStringLength)]
 		public override string Model { get; set; }
 
 		[Display(ResourceType = typeof(DisplayNames), Name = "Year")]
-		[Required(ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "Required")]
+		[RequiredRestriction]
 		public override int YearFrom { get; set; }
 
-		[NotLessThan("YearFrom", ErrorMessageResourceType = typeof(ErrorMessages), ErrorMessageResourceName = "InvalidYearTo")]
+		[NotLessThan("YearFrom")]
 		[Display(ResourceType = typeof(DisplayNames), Name = "Year")]
 		public override int? YearTo { get; set; }
 

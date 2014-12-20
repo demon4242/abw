@@ -22,9 +22,10 @@ namespace abw.ViewModels.ValidationAttributes
 		/// <param name="extensions">extensions separated by comma</param>
 		public ValidFileExtensionsAttribute(string extensions)
 		{
+			_extensions = extensions.Split(',').Select(m => m.Trim().ToLower()).ToList();
+
 			ErrorMessageResourceType = typeof(ErrorMessages);
 			ErrorMessageResourceName = "ValidFileExtensions";
-			_extensions = extensions.Split(',').Select(m => m.Trim().ToLower()).ToList();
 		}
 
 		public override string FormatErrorMessage(string name)

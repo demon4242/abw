@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Web.Mvc;
 using abw.Logging;
+using abw.Resources;
 
 namespace abw.ViewModels.ValidationAttributes
 {
@@ -18,6 +19,9 @@ namespace abw.ViewModels.ValidationAttributes
 		public NotLessThanAttribute(string anotherPropertyName)
 		{
 			_anotherPropertyName = anotherPropertyName;
+
+			ErrorMessageResourceType = typeof(ErrorMessages);
+			ErrorMessageResourceName = "InvalidYearTo";
 		}
 
 		protected override ValidationResult IsValid(object value, ValidationContext validationContext)
