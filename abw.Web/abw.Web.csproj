@@ -155,6 +155,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\CarsController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,6 +239,9 @@
     <Content Include="Views\Shared\Layout\_Loader.cshtml" />
     <Content Include="Views\Shared\Layout\_Header.cshtml" />
     <Content Include="Views\Shared\_SignInContent.cshtml" />
+    <Content Include="Views\Errors\PageNotFound.cshtml" />
+    <Content Include="Views\Errors\InternalServerError.cshtml" />
+    <Content Include="Views\Errors\GenericError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">
