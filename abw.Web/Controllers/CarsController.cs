@@ -4,11 +4,12 @@ using abw.DAL.Entities;
 using abw.Resources;
 using abw.ViewModels;
 using abw.Web.Utilities;
+using abw.Web.Utilities.Attributes;
 using abw.Web.Utilities.Helpers;
 
 namespace abw.Controllers
 {
-	[Authorize]
+	[CustomAuthorize]
 	[RoutePrefix("admin/cars")]
 	public class CarsController : BaseController<ICarsService>
 	{

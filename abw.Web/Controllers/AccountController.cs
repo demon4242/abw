@@ -73,11 +73,18 @@ namespace abw.Controllers
 			return new JsonNetResult(new { success = true, returnUrl });
 		}
 
-		[Authorize]
+		[CustomAuthorize]
 		[Route("signOut")]
 		public ActionResult SignOut(string returnUrl)
 		{
 			FormsAuthentication.SignOut();
+
+			string adminRoutePrefix = string.Format("{0}admin/cars", Url.RouteUrl(string.Empty));
+			if (returnUrl.ToLower().StartsWith(adminRoutePrefix))
+			{
+				return RedirectToAction("SignIn", "Account", new { returnUrl });
+			}
+
 			return Redirect(returnUrl);
 		}
 	}
