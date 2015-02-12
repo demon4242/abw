@@ -13,7 +13,6 @@ namespace abw.BusinessLogic
 		{
 		}
 
-		// todo: get repository using reflection
 		protected abstract IRepository<T> Repository { get; }
 
 		public List<T> GetAll(int page, out int totalCount)
