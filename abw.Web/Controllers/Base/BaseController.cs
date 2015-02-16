@@ -1,9 +1,9 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using abw.BusinessLogic.Interfaces;
 
 namespace abw.Controllers
 {
-	public abstract class BaseController<T> : Controller where T : class, IDisposable
+	public abstract class BaseController<T> : Controller where T : class, IBaseService
 	{
 		protected readonly T Service;
 

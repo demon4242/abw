@@ -4,16 +4,10 @@ namespace abw.DAL.Repositories
 {
 	public class UnitOfWork : IUnitOfWork
 	{
-		#region Private fields
-
 		private readonly AbwDbContext _dbContext;
 
 		private ICarsRepository _cars;
 		private IUsersRepository _users;
-
-		#endregion Private fields
-
-		#region Public methods
 
 		public UnitOfWork(AbwDbContext dbContext)
 		{
@@ -47,7 +41,5 @@ namespace abw.DAL.Repositories
 		{
 			_dbContext.Dispose();
 		}
-
-		#endregion Public methods
 	}
 }
