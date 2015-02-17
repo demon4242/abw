@@ -1,5 +1,3 @@
-using abw.DAL.Entities;
-
 namespace abw.DAL.Migrations
 {
 	using System.Data.Entity.Migrations;
@@ -8,19 +6,15 @@ namespace abw.DAL.Migrations
 	{
 		public override void Up()
 		{
-			using (AbwDbContext dbContext = new AbwDbContext())
-			{
-				dbContext.Users.Add(new User
-				{
-					Name = "admin",
-					Password = "demon_4242".GetHashCode().ToString()
-				});
-				dbContext.SaveChanges();
-			}
+			const string name = "admin";
+			string password = "demon_4242".GetHashCode().ToString();
+			string sql = string.Format("INSERT INTO Users (Name, Password) VALUES ('{0}', '{1}')", name, password);
+			Sql(sql);
 		}
 
 		public override void Down()
 		{
+			Sql("DELETE FROM Users");
 		}
 	}
 }

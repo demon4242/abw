@@ -36,6 +36,7 @@ namespace abw.DAL.Migrations
 
 		public override void Up()
 		{
+			// todo: dbContext and entities should not be used; only pure sql
 			using (AbwDbContext dbContext = new AbwDbContext())
 			{
 				foreach (string carString in _cars)
