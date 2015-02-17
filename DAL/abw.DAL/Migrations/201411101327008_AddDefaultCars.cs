@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity.Infrastructure;
-using abw.DAL.Entities;
 
 namespace abw.DAL.Migrations
 {
@@ -36,52 +33,28 @@ namespace abw.DAL.Migrations
 
 		public override void Up()
 		{
-			// todo: dbContext and entities should not be used; only pure sql
-			using (AbwDbContext dbContext = new AbwDbContext())
+			foreach (string carString in _cars)
 			{
-				foreach (string carString in _cars)
-				{
-					Car car = CreateCar(carString);
-					dbContext.Cars.Add(car);
-				}
-				dbContext.SaveChanges();
+				const int yearToIndex = 3;
+				const string nullValue = "null";
+
+				string[] parts = carString.Split(' ');
+
+				string make = parts[0];
+				string model = parts[1];
+				int yearFrom = int.Parse(parts[2]);
+				string yearTo = yearToIndex < parts.Length
+					? int.Parse(parts[yearToIndex]).ToString()
+					: nullValue;
+
+				string sql = string.Format("INSERT INTO Cars (Make, Model, YearFrom, YearTo) VALUES ('{0}', '{1}', {2}, {3})", make, model, yearFrom, yearTo);
+				Sql(sql);
 			}
 		}
 
 		public override void Down()
 		{
-			using (AbwDbContext dbContext = new AbwDbContext())
-			{
-				foreach (Car car in dbContext.Cars)
-				{
-					DbEntityEntry<Car> dbEntityEntry = dbContext.Entry(car);
-					dbEntityEntry.State = EntityState.Deleted;
-				}
-				dbContext.SaveChanges();
-			}
-		}
-
-		private Car CreateCar(string carString)
-		{
-			const int yearToIndex = 3;
-
-			string[] parts = carString.Split(' ');
-
-			string make = parts[0];
-			string model = parts[1];
-			int yearFrom = int.Parse(parts[2]);
-			int? yearTo = yearToIndex < parts.Length
-				? int.Parse(parts[yearToIndex])
-				: default(int?);
-
-			Car car = new Car
-			{
-				Make = make,
-				Model = model,
-				YearFrom = yearFrom,
-				YearTo = yearTo
-			};
-			return car;
+			Sql("DELETE FROM Cars");
 		}
 	}
 }
