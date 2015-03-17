@@ -1,4 +1,5 @@
 ﻿using System.Web.Optimization;
+using BundleTransformer.Core.Bundles;
 
 namespace abw.App_Start
 {
@@ -9,42 +10,32 @@ namespace abw.App_Start
 			const string stylesDirectory = "~/Content/styles/";
 			string customStylesDirectory = string.Format("{0}custom/", stylesDirectory);
 
-			Bundle bootstrapStyles = new Bundle(stylesDirectory + "bootstrap-3.1.1/css")
+			Bundle bootstrapStyles = new CustomStyleBundle(stylesDirectory + "bootstrap-3.1.1/css")
 				.IncludeDirectory(stylesDirectory + "bootstrap-3.1.1", "*.css");
-			AddStyleBundle(ref bundles, bootstrapStyles, false);
+			bundles.Add(bootstrapStyles);
 
-			Bundle globalStyles = new Bundle(customStylesDirectory + "global")
+			Bundle globalStyles = new CustomStyleBundle(customStylesDirectory + "global")
 				.Include(customStylesDirectory + "global.less")
 				.Include(customStylesDirectory + "notifications.less")
 				.Include(customStylesDirectory + "spinner.less")
 				.Include(customStylesDirectory + "forms.less");
-			AddStyleBundle(ref bundles, globalStyles);
+			bundles.Add(globalStyles);
 
-			Bundle carStyles = new Bundle(customStylesDirectory + "car")
+			Bundle carStyles = new CustomStyleBundle(customStylesDirectory + "car")
 				.Include(customStylesDirectory + "car.less");
-			AddStyleBundle(ref bundles, carStyles);
+			bundles.Add(carStyles);
 
-			Bundle gridStyles = new Bundle(customStylesDirectory + "grid")
+			Bundle gridStyles = new CustomStyleBundle(customStylesDirectory + "grid")
 				.Include(customStylesDirectory + "grid.less");
-			AddStyleBundle(ref bundles, gridStyles);
+			bundles.Add(gridStyles);
 
-			Bundle carsStyles = new Bundle(customStylesDirectory + "cars")
+			Bundle carsStyles = new CustomStyleBundle(customStylesDirectory + "cars")
 				.Include(customStylesDirectory + "cars.less");
-			AddStyleBundle(ref bundles, carsStyles);
+			bundles.Add(carsStyles);
 
-			Bundle contactsStyles = new Bundle(customStylesDirectory + "contacts")
+			Bundle contactsStyles = new CustomStyleBundle(customStylesDirectory + "contacts")
 				.Include(customStylesDirectory + "contacts.less");
-			AddStyleBundle(ref bundles, contactsStyles);
-		}
-
-		private static void AddStyleBundle(ref BundleCollection bundles, Bundle bundle, bool isLess = true)
-		{
-			if (isLess)
-			{
-				bundle.Transforms.Add(new LessTransform());
-			}
-			bundle.Transforms.Add(new CssMinify());
-			bundles.Add(bundle);
+			bundles.Add(contactsStyles);
 		}
 	}
 }
