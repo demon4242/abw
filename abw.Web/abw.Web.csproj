@@ -207,8 +207,8 @@
     <Content Include="Content\styles\bootstrap-3.1.1\bootstrap-theme.css.map" />
     <Content Include="Content\styles\bootstrap-3.1.1\bootstrap.css.map" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
-    <Content Include="Scripts\bootstrap-notify-1.0.js" />
-    <Content Include="Scripts\bootstrap-3.1.1.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-notify-1.0.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-3.1.1.js" />
     <Content Include="Scripts\custom\viewModels\carsGrid.js" />
     <Content Include="Scripts\custom\viewModels\baseForm.js" />
     <Content Include="Scripts\custom\viewModels\car.js" />

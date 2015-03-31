@@ -20,25 +20,27 @@
 
 	@{
 		SignInModal signInModal = null;
-	}
-	@if (!User.Identity.IsAuthenticated)
-	{
-		signInModal = new SignInModal();
-		@Html.Partial("Layout/_SignInModal", signInModal)
+		if (!User.Identity.IsAuthenticated)
+		{
+			signInModal = new SignInModal();
+			@Html.Partial("Layout/_SignInModal", signInModal)
+		}
 	}
 
 	<script src="@Url.Content("~/Scripts/require-2.1.9.js")"></script>
 	<script type="text/javascript">
 		(function () {
 			var baseUrl = '@Url.Content("~/Scripts/")';
+			var bootstrapFolder = baseUrl + 'bootstrap/';
 			var validationFolder = baseUrl + 'validation/';
 			var knockoutFolder = baseUrl + 'knockout/';
 			var customFolder = baseUrl + 'custom/';
 			requirejs.config({
 				paths: {
 					'jquery': baseUrl + 'jquery-2.0.3',
-					'bootstrap': baseUrl + 'bootstrap-3.1.1',
-					'bootstrap-notify': baseUrl + 'bootstrap-notify-1.0',
+					// bootstrap
+					'bootstrap': bootstrapFolder + 'bootstrap-3.1.1',
+					'bootstrap-notify': bootstrapFolder + 'bootstrap-notify-1.0',
 					// validation
 					'validation': validationFolder + 'jquery.validate-1.11.1',
 					'unobtrusive-validation': validationFolder + 'jquery.validate.unobtrusive',
