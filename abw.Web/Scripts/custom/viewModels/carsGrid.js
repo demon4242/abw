@@ -40,7 +40,7 @@ function (ko, notifications, loader, main) {
 		};
 
 		viewModel.pageInfo = ko.computed(function () {
-			var pageInfo = '1-' + viewModel.list().length + ' of ' + viewModel.totalCount();
+			var pageInfo = '1-' + viewModel.list().length + ' из ' + viewModel.totalCount();
 			return pageInfo;
 		});
 		viewModel.loading = ko.observable(false);

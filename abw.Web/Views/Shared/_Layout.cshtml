@@ -5,7 +5,7 @@
 <html>
 <head>
 	<title>@ViewBag.Title</title>
-	@Styles.Render("~/Content/styles/bootstrap-3.1.1/css")
+	@Styles.Render("~/Content/styles/bootstrap/css")
 	@Styles.Render("~/Content/styles/custom/global")
 	@RenderSection("styles", false)
 </head>
@@ -39,8 +39,8 @@
 				paths: {
 					'jquery': baseUrl + 'jquery-2.0.3',
 					// bootstrap
-					'bootstrap': bootstrapFolder + 'bootstrap-3.1.1',
-					'bootstrap-notify': bootstrapFolder + 'bootstrap-notify-1.0',
+					'bootstrap': bootstrapFolder + 'bootstrap',
+					'bootstrap-notify': bootstrapFolder + 'bootstrap-notify',
 					// validation
 					'validation': validationFolder + 'jquery.validate-1.11.1',
 					'unobtrusive-validation': validationFolder + 'jquery.validate.unobtrusive',

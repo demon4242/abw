@@ -10,8 +10,8 @@ namespace abw.App_Start
 			const string stylesDirectory = "~/Content/styles/";
 			string customStylesDirectory = string.Format("{0}custom/", stylesDirectory);
 
-			Bundle bootstrapStyles = new CustomStyleBundle(stylesDirectory + "bootstrap-3.1.1/css")
-				.IncludeDirectory(stylesDirectory + "bootstrap-3.1.1", "*.css");
+			Bundle bootstrapStyles = new CustomStyleBundle(stylesDirectory + "bootstrap/css")
+				.IncludeDirectory(stylesDirectory + "bootstrap", "*.css");
 			bundles.Add(bootstrapStyles);
 
 			Bundle globalStyles = new CustomStyleBundle(customStylesDirectory + "global")
