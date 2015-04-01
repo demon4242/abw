@@ -14,8 +14,14 @@ header {
 		height: 22px;
 
 		&:hover #adminMenu {
+			@transform: perspective(400) rotate3d(0, 0, 0, 0);
+
 			max-height: 83px;
-			-webkit-transform: perspective(400) rotate3d(0,0,0,0);
+			-webkit-transform: @transform;
+			-moz-transform: @transform;
+			-ms-transform: @transform;
+			-o-transform: @transform;
+			transform: @transform;
 		}
 
 		#username {
@@ -26,6 +32,9 @@ header {
 
 		#adminMenu {
 			@border-color: rgb(216, 216, 216);
+			@transform: perspective(400) rotate3d(1,0,0,-90deg);
+			@transform-origin: 50% 0;
+			@transition: 350ms;
 
 			position: absolute;
 			top: 22px;
@@ -38,12 +47,20 @@ header {
 			box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 			// 'fold out' effect
 			max-height: 0;
-			-webkit-transform: perspective(400) rotate3d(1,0,0,-90deg);
-			-webkit-transform-origin: 50% 0;
-			-webkit-transition: 350ms;
-			-moz-transition: 350ms;
-			-o-transition: 350ms;
-			transition: 350ms;
+			-webkit-transform: @transform;
+			-moz-transform: @transform;
+			-ms-transform: @transform;
+			-o-transform: @transform;
+			transform: @transform;
+			-webkit-transform-origin: @transform-origin;
+			-moz-transform-origin: @transform-origin;
+			-ms-transform-origin: @transform-origin;
+			-o-transform-origin: @transform-origin;
+			transform-origin: @transform-origin;
+			-webkit-transition: @transition;
+			-moz-transition: @transition;
+			-o-transition: @transition;
+			transition: @transition;
 
 			&:before,
 			&:after {
@@ -160,4 +177,8 @@ header {
 
 #allCarsButton {
 	margin-bottom: 10px;
+}
+
+.fotorama {
+	visibility: hidden;
 }

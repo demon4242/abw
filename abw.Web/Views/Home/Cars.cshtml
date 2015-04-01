@@ -12,7 +12,13 @@
 {
 	<script type="text/javascript">
 		require(['main'], function (main) {
-			main.loadModules(['fotorama']);
+			main.loadModules(['jquery', 'fotorama'], function ($) {
+				// todo: do not use jquery, remove duplication
+				$('.fotorama').on('fotorama:ready', function (event) {
+					var element = event.target || event.srcElement;
+					element.style.visibility = 'visible';
+				});
+			});
 		});
 	</script>
 }

@@ -39,12 +39,12 @@ function ($, ko, loader, notifications) {
 	};
 
 	function MainViewModel() {
-		var self = this;
+		var that = this;
 
 		this.signInModalIsOpened = ko.observable();
 
 		this.openSignInModal = function () {
-			self.signInModalIsOpened(true);
+			that.signInModalIsOpened(true);
 		};
 
 		this.initLoader = loader.init;

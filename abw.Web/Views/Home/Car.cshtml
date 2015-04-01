@@ -6,14 +6,18 @@
 }
 @section styles
 {
-	@Styles.Render("~/Content/styles/custom/cars")
 	@Styles.Render("~/Content/styles/fotorama.css")
 }
 @section scripts
 {
 	<script type="text/javascript">
 		require(['main'], function (main) {
-			main.loadModules(['fotorama']);
+			main.loadModules(['jquery', 'fotorama'], function ($) {
+				$('.fotorama').on('fotorama:ready', function (event) {
+					var element = event.target || event.srcElement;
+					element.style.visibility = 'visible';
+				});
+			});
 		});
 	</script>
 }
@@ -22,7 +26,7 @@
 <div>
 	<strong>@Model.Name</strong>
 </div>
-<div class="fotorama" data-width="800" data-allowfullscreen="native" data-nav="thumbs">
+<div class="fotorama" data-width="800" data-allowfullscreen="native" data-nav="thumbs" data-keyboard="true">
 	@foreach (string photo in Model.Photos)
 	{
 		<img src="@Url.Content(photo)" class="car-photo" alt="@Model.Name photo" />
