@@ -5,6 +5,7 @@ namespace abw.App_Start
 {
 	public class BundleConfig
 	{
+		// todo: styles are not minimized
 		public static void RegisterBundles(BundleCollection bundles)
 		{
 			const string stylesDirectory = "~/Content/styles/";
@@ -28,10 +29,6 @@ namespace abw.App_Start
 			Bundle gridStyles = new CustomStyleBundle(customStylesDirectory + "grid")
 				.Include(customStylesDirectory + "grid.less");
 			bundles.Add(gridStyles);
-
-			Bundle carsStyles = new CustomStyleBundle(customStylesDirectory + "cars")
-				.Include(customStylesDirectory + "cars.less");
-			bundles.Add(carsStyles);
 
 			Bundle contactsStyles = new CustomStyleBundle(customStylesDirectory + "contacts")
 				.Include(customStylesDirectory + "contacts.less");

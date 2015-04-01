@@ -6,8 +6,17 @@
 }
 @section styles
 {
-	@Styles.Render("~/Content/styles/custom/cars")
+	@Styles.Render("~/Content/styles/fotorama.css")
 }
+@section scripts
+{
+	<script type="text/javascript">
+		require(['main'], function (main) {
+			main.loadModules(['fotorama']);
+		});
+	</script>
+}
+
 @if (!Model.Any())
 {
 	@: Машин не найдено
@@ -19,9 +28,11 @@ else
 		<div>
 			<strong>@Html.ActionLink(car.Name, "Car", new { id = car.Id })</strong>
 		</div>
-		foreach (string photo in car.Photos)
-		{
-			<img src="@Url.Content(photo)" class="car-photo" alt="@car.Name photo" />
-		}
+		<div class="fotorama" data-width="800" data-allowfullscreen="native" data-nav="thumbs">
+			@foreach (string photo in car.Photos)
+			{
+				<img src="@Url.Content(photo)" class="car-photo" alt="@car.Name photo" />
+			}
+		</div>
 	}
 }

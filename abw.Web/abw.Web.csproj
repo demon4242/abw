@@ -181,6 +181,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\images\fotorama\fotorama%402x.png" />
+    <Content Include="Content\images\fotorama\fotorama.png" />
     <Content Include="Content\styles\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\styles\bootstrap\bootstrap.css" />
     <Content Include="Content\images\car-logos\nissan.jpg" />
@@ -193,6 +195,7 @@
     <Content Include="Content\images\mts.gif" />
     <Content Include="Content\images\velcom.gif" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\styles\fotorama.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\styles\custom\car.less" />
     <Content Include="Content\styles\custom\notifications.less" />
@@ -200,7 +203,6 @@
     <Content Include="Content\styles\custom\grid.less" />
     <Content Include="Content\styles\custom\forms.less" />
     <Content Include="Content\styles\custom\contacts.less" />
-    <Content Include="Content\styles\custom\cars.less" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -221,6 +223,7 @@
     <Content Include="Scripts\custom\validation\validFileExtensions.js" />
     <Content Include="Scripts\custom\validation\maxFileSize.js" />
     <Content Include="Scripts\custom\viewModels\signInModal.js" />
+    <Content Include="Scripts\fotorama.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <None Include="Scripts\validation\jquery.validate-1.11.1-vsdoc.js" />
     <Content Include="Scripts\knockout\knockout-3.0.0.js" />
