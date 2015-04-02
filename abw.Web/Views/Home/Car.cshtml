@@ -21,9 +21,11 @@
 <div>
 	<strong>@Model.Name</strong>
 </div>
-<div class="fotorama" data-width="800" data-allowfullscreen="native" data-nav="thumbs" data-keyboard="true" data-loop="true">
-	@foreach (string photo in Model.Photos)
-	{
-		<img src="@Url.Content(photo)" class="car-photo" alt="@Model.Name photo" />
-	}
+<div id="fotoramaWrapper">
+	<div class="fotorama" data-width="800" data-allowfullscreen="native" data-nav="thumbs" data-keyboard="true" data-loop="true">
+		@foreach (string photo in Model.Photos)
+		{
+			<img src="@Url.Content(photo)" class="car-photo" alt="@Model.Name photo" />
+		}
+	</div>
 </div>

@@ -23,16 +23,18 @@
 }
 else
 {
-	foreach (CarForDisplay car in Model)
-	{
-		<div>
-			<strong>@Html.ActionLink(car.Name, "Car", new { id = car.Id })</strong>
-		</div>
-		<div class="fotorama" data-width="800" data-allowfullscreen="native" data-nav="thumbs" data-loop="true">
-			@foreach (string photo in car.Photos)
-			{
-				<img src="@Url.Content(photo)" class="car-photo" alt="@car.Name photo" />
-			}
-		</div>
-	}
+	<div id="fotoramaWrapper">
+		@foreach (CarForDisplay car in Model)
+		{
+			<div>
+				<strong>@Html.ActionLink(car.Name, "Car", new { id = car.Id })</strong>
+			</div>
+			<div class="fotorama" data-width="800" data-allowfullscreen="native" data-nav="thumbs" data-loop="true">
+				@foreach (string photo in car.Photos)
+				{
+					<img src="@Url.Content(photo)" class="car-photo" alt="@car.Name photo" />
+				}
+			</div>
+		}
+	</div>
 }

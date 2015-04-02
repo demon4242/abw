@@ -5,9 +5,16 @@ function ($) {
 
 	function initFotorama() {
 		// jquery selector is required
-		$('.fotorama').on('fotorama:ready', function (event) {
-			var element = event.target || event.srcElement;
-			element.style.visibility = 'visible';
+		var fotorama = $('.fotorama');
+		var fotoramaWrapper = fotorama.parent();
+		var totalCount = fotorama.length;
+		var count = 0;
+
+		fotorama.on('fotorama:ready', function () {
+			count++;
+			if (count === totalCount) {
+				fotoramaWrapper.css('visibility', 'visible');
+			}
 		});
 	}
 
