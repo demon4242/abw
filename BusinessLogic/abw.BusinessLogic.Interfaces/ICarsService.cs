@@ -7,7 +7,7 @@ namespace abw.BusinessLogic.Interfaces
 	{
 		List<Car> GetAll();
 
-		List<Car> GetByMake(string make);
+		List<Car> GetByMakeAndModel(string make, string model);
 
 		bool CheckIfCarExists(Car car, Car originalCar = null);
 	}

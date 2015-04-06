@@ -38,9 +38,9 @@ namespace abw.Web.Utilities
 			return result;
 		}
 
-		public static List<CarForDisplay> GetCarsForDisplay(this ICarsService carsService, string make)
+		public static List<CarForDisplay> GetCarsForDisplay(this ICarsService carsService, string make, string model = null)
 		{
-			List<Car> cars = carsService.GetByMake(make);
+			List<Car> cars = carsService.GetByMakeAndModel(make, model);
 			List<CarForDisplay> result = cars.ConvertAll(ToDisplayViewModel);
 			return result;
 		}

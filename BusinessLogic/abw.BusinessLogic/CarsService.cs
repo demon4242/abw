@@ -27,10 +27,18 @@ namespace abw.BusinessLogic
 			return cars;
 		}
 
-		public List<Car> GetByMake(string make)
+		public List<Car> GetByMakeAndModel(string make, string model)
 		{
-			List<Car> cars = Uow.Cars.All.Where(m => m.Make.ToLower() == make.ToLower()).ToList();
-			return cars;
+			string lowerMake = make.ToLower();
+			IQueryable<Car> cars = Uow.Cars.All.Where(m => m.Make.ToLower() == lowerMake);
+			if (!string.IsNullOrWhiteSpace(model))
+			{
+				string lowerModel = model.ToLower();
+				cars = cars.Where(m => m.Model.ToLower() == lowerModel);
+			}
+
+			List<Car> result = cars.ToList();
+			return result;
 		}
 
 		public bool CheckIfCarExists(Car car, Car originalCar = null)

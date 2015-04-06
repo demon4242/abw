@@ -33,6 +33,13 @@ namespace abw.Controllers
 			return View("Cars", cars);
 		}
 
+		[Route("cars/{make}/{model}")]
+		public ActionResult CarsByMakeAndModel(string make, string model)
+		{
+			List<CarForDisplay> cars = Service.GetCarsForDisplay(make, model);
+			return View("Cars", cars);
+		}
+
 		[Route("cars/{id:int}")]
 		public ActionResult Car(int id)
 		{
