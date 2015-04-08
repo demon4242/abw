@@ -1,27 +1,24 @@
-﻿<header>
-	<div id="adminMenuWrapper">
-		@if (!User.Identity.IsAuthenticated)
-		{
-			<a data-bind="click: openSignInModal" id="signInLink">Войти</a>
-		}
-		else
-		{
-			string returnUrl = Request.Url != null
-				? Request.Url.AbsolutePath
-				: null;
+﻿<div id="headerBackground"></div>
+<div id="header">
+	@if (!User.Identity.IsAuthenticated)
+	{
+		<a data-bind="click: openSignInModal" id="signInLink">Войти</a>
+	}
+	else
+	{
+		string returnUrl = Request.Url != null
+			? Request.Url.AbsolutePath
+			: null;
 
-			<div id="username">
-				@User.Identity.Name
-				<span class="caret"></span>
-			</div>
-			<div id="adminMenu">
-				@Html.ActionLink("Машины", "Grid", "Cars")
-				<hr />
-				@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
-			</div>
-		}
-	</div>
+		<text>Здравствуйте, @User.Identity.Name</text>
+		<span class="border"></span>
+		@Html.ActionLink("Машины", "Grid", "Cars")
+		<span class="border"></span>
+		@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
+	}
+</div>
 
+<header>
 	@Html.Partial("_Phones")
 
 	<div id="carLogos">

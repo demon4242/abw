@@ -1,99 +1,52 @@
-﻿body {
+﻿@black: #222;
+@header-height: 28px;
+
+body {
 	display: table;
-	margin: 10px auto;
+	margin: 0 auto 10px auto;
+}
+
+#headerBackground {
+	background-color: @black;
+	height: @header-height;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	z-index: -1;
+}
+
+#header {
+	@white: #fff;
+	@border: 1px solid @white;
+
+	background-color: @black;
+	color: @white;
+	text-align: right;
+	height: @header-height;
+	line-height: @header-height;
+	font-size: 12px;
+
+	.border {
+		border-left: @border;
+	}
+
+	a {
+		color: @white;
+		border-bottom: @border;
+		margin-left: 5px;
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			border-bottom: none;
+		}
+	}
 }
 
 header {
 	display: table;
 	margin: 0 auto 10px auto;
 	width: 834px;
-
-	#adminMenuWrapper {
-		float: right;
-		position: relative;
-		height: 22px;
-
-		&:hover #adminMenu {
-			@transform: perspective(400) rotate3d(0, 0, 0, 0);
-
-			max-height: 83px;
-			-webkit-transform: @transform;
-			-moz-transform: @transform;
-			-ms-transform: @transform;
-			-o-transform: @transform;
-			transform: @transform;
-		}
-
-		#username {
-			cursor: default;
-			margin-right: 9px;
-			height: 22px;
-		}
-
-		#adminMenu {
-			@border-color: rgb(216, 216, 216);
-			@transform: perspective(400) rotate3d(1,0,0,-90deg);
-			@transform-origin: 50% 0;
-			@transition: 350ms;
-
-			position: absolute;
-			top: 22px;
-			right: 0;
-			background-color: white;
-			border: 1px solid #ccc;
-			border: 1px solid @border-color;
-			border-radius: 4px;
-			-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-			box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-			// 'fold out' effect
-			max-height: 0;
-			-webkit-transform: @transform;
-			-moz-transform: @transform;
-			-ms-transform: @transform;
-			-o-transform: @transform;
-			transform: @transform;
-			-webkit-transform-origin: @transform-origin;
-			-moz-transform-origin: @transform-origin;
-			-ms-transform-origin: @transform-origin;
-			-o-transform-origin: @transform-origin;
-			transform-origin: @transform-origin;
-			-webkit-transition: @transition;
-			-moz-transition: @transition;
-			-o-transition: @transition;
-			transition: @transition;
-
-			&:before,
-			&:after {
-				border-left: 8px solid transparent;
-				border-right: 8px solid transparent;
-				display: inline-block;
-				position: absolute;
-				content: "";
-				right: 4px;
-				left: auto;
-			}
-
-			&:before {
-				border-bottom: 8px solid @border-color;
-				top: -8px;
-			}
-
-			&:after {
-				border-bottom: 8px solid white;
-				top: -6px;
-			}
-
-			a {
-				display: inline-block;
-				padding: 10px;
-				width: 100%;
-			}
-
-			hr {
-				margin: 0;
-			}
-		}
-	}
 
 	.phones {
 		float: right;
