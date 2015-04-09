@@ -52,6 +52,36 @@ namespace abw.Web.Utilities
 			return viewModel;
 		}
 
+		public static List<CarTree> GetCarsTree(this ICarsService carsService)
+		{
+			List<Car> cars = carsService.GetAll();
+			List<CarTree> carsTree = new List<CarTree>();
+			foreach (Car car in cars)
+			{
+				CarTree carTree = carsTree.SingleOrDefault(m => m.Make == car.Make);
+				if (carTree != null)
+				{
+					if (!carTree.Models.Contains(car.Model))
+					{
+						carTree.Models.Add(car.Model);
+					}
+				}
+				else
+				{
+					carTree = new CarTree
+					{
+						Make = car.Make,
+						Models = new List<string>
+						{
+							car.Model
+						}
+					};
+					carsTree.Add(carTree);
+				}
+			}
+			return carsTree;
+		}
+
 		#endregion Public
 
 		#region Private

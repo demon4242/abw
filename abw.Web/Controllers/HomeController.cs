@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using abw.BusinessLogic.Interfaces;
 using abw.ViewModels;
 using abw.Web.Utilities;
+using abw.Web.Utilities.Helpers;
 
 namespace abw.Controllers
 {
@@ -17,6 +18,13 @@ namespace abw.Controllers
 		public ActionResult Index()
 		{
 			return View();
+		}
+
+		[Route("carsTree")]
+		public JsonNetResult CarsTree()
+		{
+			List<CarTree> carsTree = Service.GetCarsTree();
+			return new JsonNetResult(carsTree);
 		}
 
 		[Route("cars")]

@@ -69,6 +69,7 @@
     <Compile Include="ValidationAttributes\NotLessThanAttribute.cs" />
     <Compile Include="ValidationAttributes\RequiredRestrictionAttribute.cs" />
     <Compile Include="ValidationAttributes\ValidFileExtensionsAttribute.cs" />
+    <Compile Include="ViewModels\CarTree.cs" />
     <Compile Include="ViewModels\Cars\CarForDisplay.cs" />
     <Compile Include="ViewModels\Cars\CarForGrid.cs" />
     <Compile Include="ViewModels\Cars\CarViewModel.cs" />
