@@ -210,6 +210,7 @@
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap-notify.js" />
+    <Content Include="Scripts\custom\modules\carsTreeLoader.js" />
     <Content Include="Scripts\custom\modules\initFotorama.js" />
     <Content Include="Scripts\custom\viewModels\carsGrid.js" />
     <Content Include="Scripts\custom\viewModels\baseForm.js" />
@@ -259,6 +260,7 @@
     <Content Include="Views\Errors\PageNotFound.cshtml" />
     <Content Include="Views\Errors\InternalServerError.cshtml" />
     <Content Include="Views\Errors\GenericError.cshtml" />
+    <Content Include="Views\Shared\_CarsTree.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">

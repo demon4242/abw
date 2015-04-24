@@ -59,6 +59,15 @@ function ($, ko, loader, notifications) {
 		$.extend(mainViewModel, viewModel);
 	};
 
+	function updateMainViewModel(propName, value) {
+		var prop = mainViewModel[propName];
+		if (ko.isObservable(prop)) {
+			prop(value);
+		} else {
+			mainViewModel[propName] = value;
+		}
+	}
+
 	function applyBindings() {
 		setActivePage();
 
@@ -91,6 +100,7 @@ function ($, ko, loader, notifications) {
 	var self = {
 		loadModules: loadModules,
 		extendMainViewModel: extendMainViewModel,
+		updateMainViewModel: updateMainViewModel,
 		applyBindings: applyBindings
 	};
 	return self;
