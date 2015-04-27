@@ -1,6 +1,12 @@
 ﻿<div data-bind="foreach: carsTree">
-	<strong data-bind="text: make"></strong>
-	<div data-bind="foreach: models">
-		<div data-bind="text: $data"></div>
-	</div>
+	<!-- ko with: make -->
+	<strong data-bind="template: { name: 'link' }"></strong>
+	<!-- /ko -->
+	<!-- ko foreach: models -->
+	<div data-bind="template: { name: 'link' }"></div>
+	<!-- /ko -->
 </div>
+
+<script type="text/html" id="link">
+	<a data-bind="text: text, attr: { href: href }"></a>
+</script>

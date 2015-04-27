@@ -21,27 +21,9 @@
 <header>
 	@Html.Partial("_Phones")
 
-	<div id="carLogos">
-		<div>
-			Оригинальные б/у запчасти из Европы
-		</div>
-		<a href="@Url.Action("CarsByMake", "Home", new { make = "seat" })">
-			<img src="@Url.Content("~/Content/images/car-logos/seat.jpg")" alt="seat logo" />
-		</a>
-		<a href="@Url.Action("CarsByMake", "Home", new { make = "skoda" })">
-			<img src="@Url.Content("~/Content/images/car-logos/skoda.jpg")" alt="skoda logo" />
-		</a>
-		<a href="@Url.Action("CarsByMake", "Home", new { make = "volkswagen" })">
-			<img src="@Url.Content("~/Content/images/car-logos/volkswagen.png")" alt="volkswagen logo" />
-		</a>
-		<a href="@Url.Action("CarsByMake", "Home", new { make = "nissan" })">
-			<img src="@Url.Content("~/Content/images/car-logos/nissan.jpg")" alt="nissan logo" />
-		</a>
-		<a href="@Url.Action("CarsByMake", "Home", new { make = "toyota" })">
-			<img src="@Url.Content("~/Content/images/car-logos/toyota.png")" alt="toyota logo" />
-		</a>
-	</div>
-
+	<strong>
+		autodem.by - оригинальные б/у запчасти из Европы
+	</strong>
 
 	<ul class="nav nav-tabs">
 		<li>@Html.ActionLink("Главная", "Index", "Home")</li>

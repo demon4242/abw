@@ -4,8 +4,34 @@
 		'main'],
 function ($, ko, notifications, main) {
 	main.extendMainViewModel({ carsTree: ko.observableArray() });
-	var result = $.get('carsTree').done(function (data) {
-		main.updateMainViewModel('carsTree', data);
+
+	var PATH = '/abw';
+	var href = location.origin;
+	if (location.pathname.indexOf(PATH) === 0) {
+		href += PATH;
+	}
+	href += '/';
+
+	var result = $.get(href + 'carsTree').done(function (data) {
+		var carsTree = [];
+		ko.utils.arrayForEach(data, function (car) {
+			var make = {
+				text: car.make,
+				href: href + 'cars/' + car.make.toLowerCase()
+			};
+			var models = [];
+			ko.utils.arrayForEach(car.models, function (model) {
+				models.push({
+					text: model,
+					href: make.href + '/' + model.toLowerCase()
+				});
+			});
+			carsTree.push({
+				make: make,
+				models: models
+			});
+		});
+		main.updateMainViewModel('carsTree', carsTree);
 	}).fail(function () {
 		notifications.error();
 	});
