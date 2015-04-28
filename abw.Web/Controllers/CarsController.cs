@@ -102,6 +102,7 @@ namespace abw.Controllers
 		}
 
 		[HttpPost]
+		[Route("delete/{id}")]
 		public JsonResult Delete(int id)
 		{
 			Car car = Service.GetById(id);
