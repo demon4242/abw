@@ -6,7 +6,7 @@ function ($, ko, notifications, main) {
 	main.extendMainViewModel({ carsTree: ko.observableArray() });
 
 	var PATH = '/abw';
-	var href = location.origin;
+	var href = location.protocol + '//' + location.host;
 	if (location.pathname.indexOf(PATH) === 0) {
 		href += PATH;
 	}
