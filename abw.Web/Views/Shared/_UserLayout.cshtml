@@ -1,0 +1,21 @@
+﻿@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles
+{
+	@RenderSection("styles", false)
+}
+@section scripts
+{
+	<script type="text/javascript">
+		require(['main'], function (main) {
+			main.loadModules(['modules/carsTreeLoader']);
+		});
+	</script>
+	@RenderSection("scripts", false)
+}
+
+@Html.Partial("_CarsTree")
+
+@RenderBody()

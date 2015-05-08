@@ -1,11 +1,14 @@
 ﻿@using System.Web.Optimization
 @{
 	ViewBag.Title = "Контакты";
+	Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+
 @section styles
 {
 	@Styles.Render("~/Content/styles/custom/contacts")
 }
+
 @section scripts
 {
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD0NvPmuC93QnT8a9mQGEXfpEM1UgMps4Q&sensor=false&language=ru"></script>

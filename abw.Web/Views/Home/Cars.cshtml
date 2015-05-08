@@ -3,11 +3,14 @@
 @model List<CarForDisplay>
 @{
 	ViewBag.Title = "Машины";
+	Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+
 @section styles
 {
 	@Styles.Render("~/Content/styles/fotorama")
 }
+
 @section scripts
 {
 	<script type="text/javascript">

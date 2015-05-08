@@ -256,6 +256,7 @@
     <Content Include="Views\Errors\InternalServerError.cshtml" />
     <Content Include="Views\Errors\GenericError.cshtml" />
     <Content Include="Views\Shared\_CarsTree.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\abw.BusinessLogic.Interfaces\abw.BusinessLogic.Interfaces.csproj">

@@ -1,16 +1,6 @@
 ﻿@{
 	ViewBag.Title = "Главная";
+	Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-
-@section scripts
-{
-	<script type="text/javascript">
-		require(['main'], function (main) {
-			main.loadModules(['modules/carsTreeLoader']);
-		});
-	</script>
-}
-
-@Html.Partial("_CarsTree")
 
 Запчасти к а/м SEAT, Skoda, Volkswagen, Nissan, Toyota

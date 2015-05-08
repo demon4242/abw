@@ -3,11 +3,14 @@
 @model CarForDisplay
 @{
 	ViewBag.Title = Model.Name;
+	Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+
 @section styles
 {
 	@Styles.Render("~/Content/styles/fotorama")
 }
+
 @section scripts
 {
 	<script type="text/javascript">
