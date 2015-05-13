@@ -1,5 +1,7 @@
 ﻿@black: #222;
 @header-height: 28px;
+@header-width: 900px;
+@cars-tree-width: 90px;
 
 body {
 	display: table;
@@ -46,7 +48,7 @@ body {
 header {
 	display: table;
 	margin: 0 auto 10px auto;
-	width: 834px;
+	width: @header-width;
 
 	strong {
 		display: block;
@@ -123,6 +125,20 @@ header {
 	visibility: hidden;
 }
 
-#carsTree div {
-	margin-left: 15px;
+#bodyContainer,
+#carsTree {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#carsTree {
+	min-width: @cars-tree-width;
+
+	div {
+		margin-left: 15px;
+	}
+}
+
+#bodyContainer {
+	max-width: @header-width - @cars-tree-width;
 }

@@ -16,6 +16,19 @@
 	@RenderSection("scripts", false)
 }
 
-@Html.Partial("_CarsTree")
+<div data-bind="foreach: carsTree" id="carsTree">
+	<!-- ko with: make -->
+	<strong data-bind="template: { name: 'link' }"></strong>
+	<!-- /ko -->
+	<!-- ko foreach: models -->
+	<div data-bind="template: { name: 'link' }"></div>
+	<!-- /ko -->
+</div>
 
-@RenderBody()
+<script type="text/html" id="link">
+	<a data-bind="text: text, attr: { href: href }"></a>
+</script>
+
+<div id="bodyContainer">
+	@RenderBody()
+</div>
