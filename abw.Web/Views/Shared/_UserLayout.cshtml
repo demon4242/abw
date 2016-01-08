@@ -16,7 +16,7 @@
 	@RenderSection("scripts", false)
 }
 
-<div data-bind="foreach: carsTree" id="carsTree">
+<div data-bind="foreach: carsTree" class="cars-tree">
 	<!-- ko with: make -->
 	<strong data-bind="template: { name: 'link' }"></strong>
 	<!-- /ko -->
@@ -29,6 +29,6 @@
 	<a data-bind="text: text, attr: { href: href }"></a>
 </script>
 
-<div id="bodyContainer">
+<div class="body-container">
 	@RenderBody()
 </div>

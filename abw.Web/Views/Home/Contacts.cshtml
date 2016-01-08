@@ -23,8 +23,8 @@
 
 <div class="section-wrapper">
 	<div class="title">Место</div>
-	<div id="mapWrapper" class="section">
-		<div data-bind="template: { afterRender: initMap }" id="map">
+	<div class="map-wrapper section">
+		<div data-bind="template: { afterRender: initMap }" class="map">
 			@* closing 'div' must be placed on the next line in order to init map properly *@
 		</div>
 	</div>
@@ -73,7 +73,7 @@
 
 <div class="section-wrapper">
 	<div class="title">Контакты</div>
-	<table id="contacts" class="table table-bordered section">
+	<table class="table table-bordered section">
 		<tr>
 			<td>
 				Контактное лицо

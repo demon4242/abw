@@ -20,11 +20,11 @@
 	</script>
 }
 
-@Html.ActionLink("Все машины", "Cars", null, new { id = "allCarsButton", @class = "btn btn-primary" })
+@Html.ActionLink("Все машины", "Cars", null, new { @class = "all-cars-button btn btn-primary" })
 <div>
 	<strong>@Model.Name</strong>
 </div>
-<div id="fotoramaWrapper">
+<div class="fotorama-wrapper">
 	<div class="fotorama" data-width="800" data-allowfullscreen="native" data-nav="thumbs" data-keyboard="true" data-loop="true">
 		@foreach (string photo in Model.Photos)
 		{

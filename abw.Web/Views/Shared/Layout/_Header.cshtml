@@ -1,8 +1,8 @@
-﻿<div id="headerBackground"></div>
-<div id="header">
+﻿<div class="header-background"></div>
+<div class="header">
 	@if (!User.Identity.IsAuthenticated)
 	{
-		<a data-bind="click: openSignInModal" id="signInLink">Войти</a>
+		<a data-bind="click: openSignInModal" class="sign-in-link">Войти</a>
 	}
 	else
 	{
@@ -18,7 +18,7 @@
 	}
 </div>
 
-<header>
+<div class="main-title">
 	@Html.Partial("_Phones")
 
 	<strong>
@@ -31,4 +31,4 @@
 		<li>@Html.ActionLink("О нас", "About", "Home")</li>
 		<li>@Html.ActionLink("Контакты", "Contacts", "Home")</li>
 	</ul>
-</header>
+</div>

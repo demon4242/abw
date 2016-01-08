@@ -19,14 +19,14 @@
 		});
 	</script>
 }
-@Html.ActionLink("Новая", "New", null, new { id = "newButton", @class = "btn btn-primary" })
+@Html.ActionLink("Новая", "New", null, new { @class = "new-button btn btn-primary" })
 <!-- ko with: carsGrid -->
 <table data-bind="css: css" class="table table-striped table-bordered grid">
 	<thead>
 		<tr>
 			<th rowspan="2">Марка</th>
 			<th rowspan="2">Модель</th>
-			<th colspan="2" id="yearHeader">Год</th>
+			<th colspan="2" class="year-header">Год</th>
 			<th rowspan="2"></th>
 		</tr>
 		<tr>

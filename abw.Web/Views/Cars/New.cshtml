@@ -24,7 +24,7 @@
 }
 @Html.Partial("_BackButton", title);
 <!-- ko with: carForm -->
-@using (Html.BeginForm("New", "Cars", FormMethod.Post, new { data_bind = "submit: submit", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("New", "Cars", FormMethod.Post, new { data_bind = "submit: submit", @class = "form", enctype = "multipart/form-data" }))
 {
 	@Html.Partial("_Car")
 }

@@ -1,4 +1,4 @@
-﻿#newButton {
+﻿.new-button {
 	margin-bottom: 10px;
 }
 
@@ -7,13 +7,13 @@
 	max-width: 500px;
 
 	&.no-data tbody {
-		tr#noRecordsFound {
+		tr.no-records-found {
 			display: table-row;
 		}
 	}
 
 	&:not(.no-data) tbody {
-		tr:not(#noRecordsFound) {
+		tr:not(.no-records-found) {
 			display: table-row;
 		}
 	}
@@ -22,15 +22,15 @@
 		border-bottom-width: 1px !important;
 		vertical-align: middle;
 
-		&#yearHeader {
+		&.year-header {
 			text-align: center;
 		}
 	}
 
-	tbody tr:not(#noRecordsFound) {
+	tbody tr:not(.no-records-found) {
 		display: none;
 
-		&:last-child#pageInfo {
+		&:last-child.page-info {
 			display: none;
 
 			&.visible {
@@ -51,7 +51,7 @@
 						font-weight: bold;
 					}
 
-					&#scrollingTip {
+					&.scrolling-tip {
 						font-size: 13px;
 						color: gray;
 						font-style: italic;
@@ -62,13 +62,13 @@
 		}
 	}
 
-	tr:hover:not(#noRecordsFound) {
+	tr:hover:not(.no-records-found) {
 		td {
 			background-color: #EBEBEB !important;
 		}
 	}
 
-	tr:not(#noRecordsFound) td:last-of-type:not([colspan]) {
+	tr:not(.no-records-found) td:last-of-type:not([colspan]) {
 		padding: 7px 8px;
 		text-align: center;
 		vertical-align: middle;
@@ -91,22 +91,8 @@
 		}
 	}
 
-	#noRecordsFound {
+	.no-records-found {
 		display: none;
 		text-align: center;
-	}
-}
-
-#carMakesColumn {
-	width: 250px;
-	padding: 8px 6px 6px 8px;
-
-	span {
-		border: 1px solid gray;
-		border-radius: 5px;
-		padding: 2px 4px;
-		display: inline-block;
-		margin: 0 4px 4px 0;
-		background-color: lightgray;
 	}
 }

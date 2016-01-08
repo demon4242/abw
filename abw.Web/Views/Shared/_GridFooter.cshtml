@@ -1,12 +1,12 @@
 ﻿@* number of colums in table *@
 @model int
-<tr id="noRecordsFound">
+<tr class="no-records-found">
 	<td colspan="@Model">Записей не найдено</td>
 </tr>
-<tr data-bind="css: { visible: list().length }" id="pageInfo">
+<tr data-bind="css: { visible: list().length }" class="page-info">
 	<td colspan="@Model">
 		<div data-bind="text: pageInfo"></div>
-		<div data-bind="click: loadMore, if: list().length !== totalCount() && !loading()" id="scrollingTip">
+		<div data-bind="click: loadMore, if: list().length !== totalCount() && !loading()" class="scrolling-tip">
 			Прокрутите вниз или нажмите здесь, чтобы загрузить больше
 		</div>
 		<img data-bind="visible: loading" src="@Url.Content("~/Content/images/facebook-loader.gif")"
