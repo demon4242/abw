@@ -12,7 +12,23 @@
 <body>
 	@Html.Partial("Layout/_Header")
 
-	@RenderBody()
+	<div class="page-content main-title-wrapper">
+		<strong class="main-title">
+			autodem.by - оригинальные б/у запчасти из Европы
+		</strong>
+
+		@Html.Partial("_Phones")
+	</div>
+
+	<div class="page-content main-content">
+		<div data-bind="template: { afterRender: setActivePage }" class="navigation">
+			@Html.ActionLink("Главная", "Index", "Home")
+			@Html.ActionLink("Машины", "Cars", "Home")
+			@Html.ActionLink("О нас", "About", "Home")
+			@Html.ActionLink("Контакты", "Contacts", "Home")
+		</div>
+		@RenderBody()
+	</div>
 
 	@Html.Partial("Layout/_Notifications")
 
@@ -29,7 +45,7 @@
 
 	<script src="@Url.Content("~/Scripts/require-2.1.9.js")"></script>
 	<script type="text/javascript">
-		(function () {
+		(function() {
 			var baseUrl = '@Url.Content("~/Scripts/")';
 			var bootstrapFolder = baseUrl + 'bootstrap/';
 			var validationFolder = baseUrl + 'validation/';
@@ -84,8 +100,8 @@
 	@if (signInModal != null)
 	{
 		<script type="text/javascript">
-			require(['main'], function (main) {
-				main.loadModules(['viewModels/signInModal'], function (signInModal) {
+			require(['main'], function(main) {
+				main.loadModules(['viewModels/signInModal'], function(signInModal) {
 					signInModal(@Html.ToJs(signInModal));
 				});
 			});
@@ -95,7 +111,7 @@
 	@RenderSection("scripts", false)
 
 	<script type="text/javascript">
-		require(['main'], function (main) {
+		require(['main'], function(main) {
 			main.applyBindings();
 		});
 	</script>

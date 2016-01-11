@@ -1,22 +1,20 @@
 ﻿@header-background: #2f2f2f;
-@header-height: 28px;
-@header-width: 900px;
-@cars-tree-width: 90px;
 
 body {
-	display: table;
-	margin: 0 auto 10px auto;
-	// todo: use this background color in future
 	background-color: #292929;
+}
+
+.page-content-wrapper {
+	width: 100%;
+}
+
+.page-content {
+	width: 900px;
+	margin: 0 auto;
 }
 
 .header-background {
 	background-color: @header-background;
-	height: @header-height;
-	position: absolute;
-	width: 100%;
-	left: 0;
-	z-index: -1;
 }
 
 .header {
@@ -26,9 +24,8 @@ body {
 	background-color: @header-background;
 	color: @white;
 	text-align: right;
-	height: @header-height;
-	line-height: @header-height;
 	font-size: 12px;
+	padding: 5px 0;
 
 	.border {
 		border-left: @border;
@@ -37,7 +34,7 @@ body {
 	a {
 		color: @white;
 		border-bottom: @border;
-		margin-left: 5px;
+		margin: 0 5px;
 
 		&:hover,
 		&:focus {
@@ -47,35 +44,24 @@ body {
 	}
 }
 
-.main-title {
-	display: table;
-	margin: 0 auto 10px auto;
-	width: @header-width;
+.main-title-wrapper {
 	color: white;
+	padding: 10px 0;
 
-	strong {
-		display: block;
-		margin: 5px 0 10px 0;
+	.main-title {
+		display: table-cell;
+		white-space: nowrap;
 	}
 
 	.phones {
-		float: right;
-		margin-top: 5px;
+		display: table-cell;
+		width: 100%;
+		text-align: right;
 	}
 }
 
-.phones {
-	tr td:not(:last-child) {
-		padding-right: 5px;
-	}
-
-	tr td:first-child {
-		text-align: right;
-	}
-
-	img {
-		vertical-align: sub;
-	}
+.main-content {
+	background-color: white;
 }
 
 .input-validation-error {
@@ -93,7 +79,7 @@ body {
 
 .car-photo {
 	display: block;
-	max-width: 800px;
+	width: 100%;
 }
 
 .certificate-info {
@@ -129,20 +115,61 @@ body {
 }
 
 .body-container,
-.cars-tree {
-	display: inline-block;
+.cars-tree-wrapper {
+	display: table-cell;
 	vertical-align: top;
 }
 
-.cars-tree {
-	min-width: @cars-tree-width;
+.cars-tree-wrapper {
+	margin-right: 10px;
+}
 
-	div {
-		margin-left: 15px;
+.cars-tree {
+	background-color: #676767;
+
+	a {
+		display: block;
+		color: white;
+		border-bottom: 1px solid #444;
+		text-decoration: none;
+		padding: 7px 12px;
+
+		&:hover {
+			background-color: #333;
+			color: #EEDF00;
+		}
+	}
+
+	.sub-item a {
+		padding-left: 25px;
+	}
+
+	.tree-item:last-child a {
+		border-bottom: none;
 	}
 }
 
-.body-container {
-	max-width: @header-width - @cars-tree-width;
-	background-color: white;
+.navigation a {
+	margin-right: -4px;
+
+	.active() {
+		background: #e5d600;
+		background: -moz-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
+		background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e5d600),color-stop(0%,#e5d600),color-stop(100%,#e0bb00));
+		background: -webkit-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
+		background: -o-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
+		background: -ms-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
+		background: linear-gradient(to bottom,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
+	}
+
+	display: inline-block;
+	padding: 15px 20px;
+	text-decoration: none;
+	color: rgb(34, 34, 34);
+	text-transform: uppercase;
+
+	&.active,
+	&:hover {
+		.active();
+	}
 }

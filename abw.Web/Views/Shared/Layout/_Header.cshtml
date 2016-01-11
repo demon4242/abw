@@ -1,34 +1,20 @@
-﻿<div class="header-background"></div>
-<div class="header">
-	@if (!User.Identity.IsAuthenticated)
-	{
-		<a data-bind="click: openSignInModal" class="sign-in-link">Войти</a>
-	}
-	else
-	{
-		string returnUrl = Request.Url != null
-			? Request.Url.AbsolutePath
-			: null;
+﻿<div class="page-content-wrapper header-background">
+	<div class="page-content header">
+		@if (!User.Identity.IsAuthenticated)
+		{
+			<a data-bind="click: openSignInModal" class="sign-in-link">Войти</a>
+		}
+		else
+		{
+			string returnUrl = Request.Url != null
+				? Request.Url.AbsolutePath
+				: null;
 
-		<text>Здравствуйте, @User.Identity.Name</text>
-		<span class="border"></span>
-		@Html.ActionLink("Машины", "Grid", "Cars")
-		<span class="border"></span>
-		@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
-	}
-</div>
-
-<div class="main-title">
-	@Html.Partial("_Phones")
-
-	<strong>
-		autodem.by - оригинальные б/у запчасти из Европы
-	</strong>
-
-	<ul class="nav nav-tabs">
-		<li>@Html.ActionLink("Главная", "Index", "Home")</li>
-		<li>@Html.ActionLink("Машины", "Cars", "Home")</li>
-		<li>@Html.ActionLink("О нас", "About", "Home")</li>
-		<li>@Html.ActionLink("Контакты", "Contacts", "Home")</li>
-	</ul>
+			<text>Здравствуйте, @User.Identity.Name</text>
+			<span class="border"></span>
+			@Html.ActionLink("Машины", "Grid", "Cars")
+			<span class="border"></span>
+			@Html.ActionLink("Выйти", "SignOut", "Account", new { returnUrl }, null)
+		}
+	</div>
 </div>

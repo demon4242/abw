@@ -4,31 +4,8 @@
 		'modules/notifications',
 		'bootstrap',
 		'bindings/modal'],
-function ($, ko, loader, notifications) {
+function($, ko, loader, notifications) {
 	'use strict';
-
-	// converts http://localhost/abw → http://localhost/abw/, http://localhost/abw/Home/Cars → http://localhost/abw/Home/Cars/
-	function getHref(href) {
-		href = href.toLowerCase();
-		if (href[href.length - 1] !== '/') {
-			href += '/';
-		}
-		return href;
-	}
-
-	function setActivePage() {
-		var links = $('header ul.nav li a');
-		for (var i = 0; i < links.length; i++) {
-			var link = links[i];
-
-			var locationHref = getHref(location.href);
-			var linkHref = getHref(link.href);
-			if (linkHref === locationHref) {
-				$(link).removeAttr('href').closest('li').addClass('active');
-				break;
-			}
-		}
-	}
 
 	var modulesToLoadArray = [];
 	var modulesCallbacks = [];
@@ -41,9 +18,18 @@ function ($, ko, loader, notifications) {
 	function MainViewModel() {
 		var that = this;
 
+		// converts http://localhost/abw → http://localhost/abw/, http://localhost/abw/Home/Cars → http://localhost/abw/Home/Cars/
+		function getHref(href) {
+			href = href.toLowerCase();
+			if (href[href.length - 1] !== '/') {
+				href += '/';
+			}
+			return href;
+		}
+
 		this.signInModalIsOpened = ko.observable();
 
-		this.openSignInModal = function () {
+		this.openSignInModal = function() {
 			that.signInModalIsOpened(true);
 		};
 
@@ -51,6 +37,20 @@ function ($, ko, loader, notifications) {
 
 		this.initNotification = notifications.init;
 		this.initConfirm = notifications.initConfirm;
+
+		this.setActivePage = function(elements) {
+			var links = $(elements).parent().find('a');
+			for (var i = 0; i < links.length; i++) {
+				var link = links[i];
+
+				var locationHref = getHref(location.href);
+				var linkHref = getHref(link.href);
+				if (linkHref === locationHref) {
+					$(link).removeAttr('href').addClass('active');
+					break;
+				}
+			}
+		}
 	}
 
 	var mainViewModel = new MainViewModel();
@@ -69,8 +69,6 @@ function ($, ko, loader, notifications) {
 	}
 
 	function applyBindings() {
-		setActivePage();
-
 		function mainCallBack() {
 			ko.applyBindings(mainViewModel);
 		}
@@ -81,7 +79,7 @@ function ($, ko, loader, notifications) {
 			var i = 0;
 
 			(function load() {
-				require(modulesToLoadArray[i], function () {
+				require(modulesToLoadArray[i], function() {
 					var modulesCallback = modulesCallbacks[i];
 					if (modulesCallback) {
 						modulesCallback.apply(null, arguments);
