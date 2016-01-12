@@ -25,7 +25,7 @@
 	<strong>@Model.Name</strong>
 </div>
 <div class="fotorama-wrapper">
-	<div class="fotorama" data-width="800" data-allowfullscreen="native" data-nav="thumbs" data-keyboard="true" data-loop="true">
+	<div class="fotorama" data-width="750" data-allowfullscreen="native" data-nav="thumbs" data-keyboard="true" data-loop="true">
 		@foreach (string photo in Model.Photos)
 		{
 			<img src="@Url.Content(photo)" class="car-photo" alt="@Model.Name photo" />

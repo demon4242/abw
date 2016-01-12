@@ -9,7 +9,7 @@
 @section scripts
 {
 	<script type="text/javascript">
-		require(['main'], function(main) {
+		require(['main'], function (main) {
 			main.loadModules(['modules/carsTreeLoader']);
 		});
 	</script>
@@ -27,10 +27,12 @@
 	</div>
 </div>
 
+<div class="user-page-wrapper">
+	<div class="user-page-content">
+		@RenderBody()
+	</div>
+</div>
+
 <script type="text/html" id="link">
 	<a data-bind="text: text, attr: { href: href }"></a>
 </script>
-
-<div class="body-container">
-	@RenderBody()
-</div>

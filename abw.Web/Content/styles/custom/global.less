@@ -60,6 +60,31 @@ body {
 	}
 }
 
+.navigation a {
+	margin-right: -4px;
+
+	.active() {
+		background: #e5d600;
+		background: -moz-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
+		background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e5d600),color-stop(0%,#e5d600),color-stop(100%,#e0bb00));
+		background: -webkit-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
+		background: -o-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
+		background: -ms-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
+		background: linear-gradient(to bottom,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
+	}
+
+	display: inline-block;
+	padding: 15px 20px;
+	text-decoration: none;
+	color: rgb(34, 34, 34);
+	text-transform: uppercase;
+
+	&.active,
+	&:hover {
+		.active();
+	}
+}
+
 .main-content {
 	background-color: white;
 }
@@ -89,9 +114,7 @@ body {
 }
 
 .certificate {
-	max-width: 700px;
-	display: block;
-	margin: 0 auto;
+	width: 700px;
 }
 
 .sign-in-link {
@@ -114,10 +137,19 @@ body {
 	visibility: hidden;
 }
 
-.body-container,
+.user-page-wrapper,
 .cars-tree-wrapper {
 	display: table-cell;
 	vertical-align: top;
+}
+
+.user-page-wrapper {
+	width: 100%;
+}
+
+.user-page-content {
+	display: table;
+	margin: 5px auto;
 }
 
 .cars-tree {
@@ -142,30 +174,5 @@ body {
 
 	.tree-item:last-child a {
 		border-bottom: none;
-	}
-}
-
-.navigation a {
-	margin-right: -4px;
-
-	.active() {
-		background: #e5d600;
-		background: -moz-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
-		background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e5d600),color-stop(0%,#e5d600),color-stop(100%,#e0bb00));
-		background: -webkit-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
-		background: -o-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
-		background: -ms-linear-gradient(top,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
-		background: linear-gradient(to bottom,#e5d600 0%,#e5d600 0%,#e0bb00 100%);
-	}
-
-	display: inline-block;
-	padding: 15px 20px;
-	text-decoration: none;
-	color: rgb(34, 34, 34);
-	text-transform: uppercase;
-
-	&.active,
-	&:hover {
-		.active();
 	}
 }

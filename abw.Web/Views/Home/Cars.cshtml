@@ -32,7 +32,7 @@ else
 			<div>
 				<strong>@Html.ActionLink(car.Name, "Car", new { id = car.Id })</strong>
 			</div>
-			<div class="fotorama" data-width="800" data-allowfullscreen="native" data-nav="thumbs" data-loop="true">
+			<div class="fotorama" data-width="750" data-allowfullscreen="native" data-nav="thumbs" data-loop="true">
 				@foreach (string photo in car.Photos)
 				{
 					<img src="@Url.Content(photo)" class="car-photo" alt="@car.Name photo" />
