@@ -16,20 +16,22 @@
 	@RenderSection("scripts", false)
 }
 
-<div class="cars-tree-wrapper">
-	<div data-bind="foreach: carsTree" class="cars-tree">
-		<!-- ko with: make -->
-		<div data-bind="template: { name: 'link' }" class="tree-item"></div>
-		<!-- /ko -->
-		<!-- ko foreach: models -->
-		<div data-bind="template: { name: 'link' }" class="tree-item sub-item"></div>
-		<!-- /ko -->
+<div class="table-row">
+	<div class="cars-tree-wrapper table-cell">
+		<div data-bind="foreach: carsTree" class="cars-tree">
+			<!-- ko with: make -->
+			<div data-bind="template: { name: 'link' }" class="tree-item"></div>
+			<!-- /ko -->
+			<!-- ko foreach: models -->
+			<div data-bind="template: { name: 'link' }" class="tree-item sub-item"></div>
+			<!-- /ko -->
+		</div>
 	</div>
-</div>
 
-<div class="user-page-wrapper">
-	<div class="user-page-content">
-		@RenderBody()
+	<div class="user-page-wrapper table-cell">
+		<div class="user-page-content">
+			@RenderBody()
+		</div>
 	</div>
 </div>
 

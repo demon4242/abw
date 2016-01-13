@@ -21,11 +21,16 @@
 	</div>
 
 	<div class="page-content main-content">
-		<div data-bind="template: { afterRender: setActivePage }" class="navigation">
-			@Html.ActionLink("Главная", "Index", "Home")
-			@Html.ActionLink("Машины", "Cars", "Home")
-			@Html.ActionLink("О нас", "About", "Home")
-			@Html.ActionLink("Контакты", "Contacts", "Home")
+		<div class="table-row">
+			<div class="table-cell"></div>
+
+			<div data-bind="template: { afterRender: setActivePage }"
+				 class="navigation table-cell">
+				@Html.ActionLink("Главная", "Index", "Home")
+				@Html.ActionLink("Машины", "Cars", "Home")
+				@Html.ActionLink("О нас", "About", "Home")
+				@Html.ActionLink("Контакты", "Contacts", "Home")
+			</div>
 		</div>
 		@RenderBody()
 	</div>
