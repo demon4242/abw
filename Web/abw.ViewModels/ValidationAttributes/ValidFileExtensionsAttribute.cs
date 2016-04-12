@@ -46,7 +46,7 @@ namespace abw.ViewModels.ValidationAttributes
 			if (files == null)
 			{
 				Type attributeType = GetType();
-				string errorMessage = string.Format(ErrorMessages.InvalidAttributeUsage, attributeType.Name, "List<HttpPostedFileBase>");
+				string errorMessage = string.Format(ErrorMessages.InvalidAttributeUsage, attributeType.Name, nameof(List<HttpPostedFileBase>));
 				Logger.Error(errorMessage);
 				throw new Exception(errorMessage);
 			}

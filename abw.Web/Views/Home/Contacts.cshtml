@@ -1,5 +1,4 @@
 ﻿@using System.Web.Optimization
-@using System.Globalization;
 @{
 	ViewBag.Title = "Контакты";
 	Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -14,7 +13,7 @@
 {
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD0NvPmuC93QnT8a9mQGEXfpEM1UgMps4Q&sensor=false&language=ru"></script>
 	<script type="text/javascript">
-		require(['main'], function (main) {
+		require(['main'], function(main) {
 			main.loadModules(['viewModels/contacts']);
 		});
 	</script>
@@ -22,18 +21,18 @@
 
 <!-- ko with: contactsPage -->
 
-<div class="section-wrapper">
-	<div class="title">Место</div>
-	<div class="map-wrapper section">
+<div class="section">
+	<div class="section-title">Место</div>
+	<div class="map-wrapper">
 		<div data-bind="template: { afterRender: initMap }" class="map">
 			@* closing 'div' must be placed on the next line in order to init map properly *@
 		</div>
 	</div>
 </div>
 
-<div class="section-wrapper">
-	<div class="title">Время</div>
-	<table class="table table-bordered section">
+<div class="section">
+	<div class="section-title">Время</div>
+	<table class="table table-bordered">
 		@{
 			string[] days = { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье" };
 			string time = "09:00 - 21:00";
@@ -53,9 +52,9 @@
 	</table>
 </div>
 
-<div class="section-wrapper">
-	<div class="title">Контакты</div>
-	<table class="table table-bordered section">
+<div class="section">
+	<div class="section-title">Контакты</div>
+	<table class="table table-bordered">
 		<tr>
 			<td>
 				Контактное лицо

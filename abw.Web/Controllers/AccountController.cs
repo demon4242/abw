@@ -79,7 +79,7 @@ namespace abw.Controllers
 		{
 			FormsAuthentication.SignOut();
 
-			string adminRoutePrefix = string.Format("{0}admin/cars", Url.RouteUrl(string.Empty));
+			string adminRoutePrefix = $"{Url.RouteUrl(string.Empty)}admin/cars";
 			if (returnUrl.ToLower().StartsWith(adminRoutePrefix))
 			{
 				return RedirectToAction("SignIn", "Account", new { returnUrl });

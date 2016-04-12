@@ -35,8 +35,8 @@ namespace abw.Web.Utilities.Helpers
 
 			foreach (HttpPostedFileBase photo in car.Photos)
 			{
-				string fileName = string.Format("{0}{1}", Guid.NewGuid(), Path.GetExtension(photo.FileName));
-				photo.SaveAs(string.Format("{0}/{1}", path, fileName));
+				string fileName = $"{Guid.NewGuid()}{Path.GetExtension(photo.FileName)}";
+				photo.SaveAs($"{path}/{fileName}");
 			}
 		}
 
@@ -142,7 +142,7 @@ namespace abw.Web.Utilities.Helpers
 
 		private static string GetPath(string carName)
 		{
-			string path = Server.MapPath(string.Format("~/{0}/{1}", Folder, carName));
+			string path = Server.MapPath($"~/{Folder}/{carName}");
 			return path;
 		}
 

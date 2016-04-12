@@ -1,7 +1,30 @@
 ﻿@header-background: #2f2f2f;
+@gray: #676767;
+@dark-gray: #333;
+@yellow: #EEDF00;
+@fotorama-width: 750px;
+
+.section-title {
+	display: block;
+	background-color: @gray;
+	color: white;
+	padding: 7px 12px;
+}
+
+.car-link-hover() {
+	&:hover {
+		background-color: @dark-gray;
+		color: @yellow;
+		text-decoration: none;
+	}
+}
 
 body {
 	background-color: #292929;
+}
+
+.admin-layout {
+	padding: 5px 10px;
 }
 
 .page-content-wrapper {
@@ -10,7 +33,7 @@ body {
 
 .page-content {
 	width: 900px;
-	margin: 0 auto;
+	margin: 0 auto 10px auto;
 }
 
 .header-background {
@@ -51,13 +74,18 @@ body {
 	.main-title {
 		display: table-cell;
 		white-space: nowrap;
+		vertical-align: middle;
+		font-size: 20px;
 	}
 
 	.phones {
 		display: table-cell;
 		width: 100%;
-		text-align: right;
 	}
+}
+
+.phones {
+	text-align: right;
 }
 
 .navigation a {
@@ -87,6 +115,17 @@ body {
 
 .main-content {
 	background-color: white;
+	/* IE10+ */
+	background-image: -ms-linear-gradient(top, #D4D4D4 0%, #FFFCFC 200px);
+	/* Mozilla Firefox */
+	background-image: -moz-linear-gradient(top, #D4D4D4 0%, #FFFCFC 200px);
+	/* Opera */
+	background-image: -o-linear-gradient(top, #D4D4D4 0%, #FFFCFC 200px);
+	/* Webkit (Chrome 11+) */
+	background-image: -webkit-linear-gradient(top, #D4D4D4 0%, #FFFCFC 200px);
+	/* W3C Markup */
+	background-image: linear-gradient(to bottom, #D4D4D4 0%, #FFFCFC 200px);
+	border-radius: 10px 10px 0 0;
 }
 
 .input-validation-error {
@@ -129,10 +168,6 @@ body {
 	width: 540px;
 }
 
-.all-cars-button {
-	margin-bottom: 10px;
-}
-
 .fotorama-wrapper {
 	visibility: hidden;
 }
@@ -152,19 +187,10 @@ body {
 }
 
 .cars-tree {
-	background-color: #676767;
-
 	a {
-		display: block;
-		color: white;
+		.section-title;
 		border-bottom: 1px solid #444;
-		text-decoration: none;
-		padding: 7px 12px;
-
-		&:hover {
-			background-color: #333;
-			color: #EEDF00;
-		}
+		.car-link-hover();
 	}
 
 	.sub-item a {
@@ -182,4 +208,55 @@ body {
 
 .table-cell {
 	display: table-cell;
+}
+
+.car-link {
+	.section-title;
+	.car-link-hover();
+	width: @fotorama-width;
+}
+
+.car-name {
+	.section-title;
+	width: @fotorama-width;
+}
+
+.navigation-indent {
+	min-width: 100px;
+}
+
+.btn {
+	border-radius: 0;
+	box-shadow: none;
+	text-shadow: none;
+	border: 1px solid @gray;
+
+	&.btn-default, &.btn-primary {
+		&:hover {
+			border-color: @gray;
+			background-color: @dark-gray;
+			color: @yellow;
+		}
+
+		&:focus {
+			border-color: @gray;
+		}
+	}
+
+	&:focus, &:focus:active {
+		outline: none;
+	}
+
+	&.btn-primary {
+		background-color: @gray;
+		color: white;
+	}
+
+	&.btn-default {
+		background-color: white;
+	}
+}
+
+.btn-primary[disabled] {
+	border-color: @gray;
 }

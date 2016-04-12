@@ -8,7 +8,7 @@ namespace abw.DAL.Migrations
 		{
 			const string name = "admin";
 			string password = "demon_4242".GetHashCode().ToString();
-			string sql = string.Format("INSERT INTO Users (Name, Password) VALUES ('{0}', '{1}')", name, password);
+			string sql = $"INSERT INTO Users (Name, Password) VALUES ('{name}', '{password}')";
 			Sql(sql);
 		}
 

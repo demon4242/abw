@@ -8,7 +8,7 @@ namespace abw.App_Start
 		public static void RegisterBundles(BundleCollection bundles)
 		{
 			const string stylesDirectory = "~/Content/styles/";
-			string customStylesDirectory = string.Format("{0}custom/", stylesDirectory);
+			string customStylesDirectory = $"{stylesDirectory}custom/";
 
 			Bundle bootstrapStyles = new CustomStyleBundle(stylesDirectory + "bootstrap/css")
 				.IncludeDirectory(stylesDirectory + "bootstrap", "*.css");

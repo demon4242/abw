@@ -35,7 +35,7 @@ namespace abw.ViewModels.ValidationAttributes
 			bool parseResult = int.TryParse(value.ToString(), out intValue);
 			if (!parseResult)
 			{
-				string errorMessage = string.Format("Attribute '{0}' is only applicable for properties of integer type", GetType().Name);
+				string errorMessage = $"Attribute '{GetType().Name}' is only applicable for properties of integer type";
 				Logger.Error(errorMessage);
 				throw new Exception(errorMessage);
 			}
@@ -43,7 +43,7 @@ namespace abw.ViewModels.ValidationAttributes
 			PropertyInfo propertyInfo = validationContext.ObjectType.GetProperty(_anotherPropertyName);
 			if (propertyInfo == null)
 			{
-				string errorMessage = string.Format("Property '{0}' has not been found in the model", _anotherPropertyName);
+				string errorMessage = $"Property '{_anotherPropertyName}' has not been found in the model";
 				Logger.Error(errorMessage);
 				throw new Exception(errorMessage);
 			}

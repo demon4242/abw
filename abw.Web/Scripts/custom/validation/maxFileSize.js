@@ -1,12 +1,12 @@
 ﻿// restricts max file size
 define(['jquery',
 		'unobtrusive-validation'],
-function ($) {
+function($) {
 	'use strict';
 
 	var METHOD = 'maxFileSize';
 
-	$.validator.addMethod(METHOD, function (value, element, sizeInMb) {
+	$.validator.addMethod(METHOD, function(value, element, sizeInMb) {
 		var files = element.files;
 		if (!files.length) {
 			return true;
@@ -23,7 +23,7 @@ function ($) {
 		return true;
 	});
 
-	$.validator.unobtrusive.adapters.add(METHOD, ['sizeInMb'], function (options) {
+	$.validator.unobtrusive.adapters.add(METHOD, ['sizeInMb'], function(options) {
 		options.messages[METHOD] = options.message;
 		options.rules[METHOD] = options.params.sizeInMb;
 	});

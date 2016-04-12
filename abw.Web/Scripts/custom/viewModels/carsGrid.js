@@ -2,28 +2,28 @@
 		'modules/notifications',
 		'modules/loader',
 		'main'],
-function (ko, notifications, loader, main) {
+function(ko, notifications, loader, main) {
 	'use strict';
 
 	function carsGrid(viewModel, deleteUrl, getUrl) {
 		viewModel.list = ko.observableArray(viewModel.list);
 		viewModel.totalCount = ko.observable(viewModel.totalCount);
 
-		viewModel.css = ko.computed(function () {
+		viewModel.css = ko.computed(function() {
 			var css = !viewModel.list().length
 				? 'no-data'
 				: null;
 			return css;
 		});
 
-		viewModel.deleteCar = function (car) {
+		viewModel.deleteCar = function(car) {
 			var yearTo = car.yearTo
 				? car.yearTo
 				: '';
 			var nameHtml = '<strong>' + (car.make + ' ' + car.model + ' ' + car.yearFrom + '-' + yearTo) + '</strong>';
-			notifications.confirm('Удалить машину <br />' + nameHtml, 'Вы уверены?', function () {
+			notifications.confirm('Удалить машину <br />' + nameHtml, 'Вы уверены?', function() {
 				loader.show();
-				$.post(deleteUrl + '/' + car.id).done(function (data) {
+				$.post(deleteUrl + '/' + car.id).done(function(data) {
 					if (!data.success) {
 						notifications.error(data.errorMessage);
 					} else {
@@ -31,15 +31,15 @@ function (ko, notifications, loader, main) {
 						viewModel.totalCount(viewModel.totalCount() - 1);
 						notifications.success('Машина ' + nameHtml + ' удалена');
 					}
-				}).fail(function () {
+				}).fail(function() {
 					notifications.error();
-				}).always(function () {
+				}).always(function() {
 					loader.hide();
 				});
 			});
 		};
 
-		viewModel.pageInfo = ko.computed(function () {
+		viewModel.pageInfo = ko.computed(function() {
 			var pageInfo = '1-' + viewModel.list().length + ' из ' + viewModel.totalCount();
 			return pageInfo;
 		});
@@ -47,10 +47,10 @@ function (ko, notifications, loader, main) {
 
 		var page = 1;
 
-		viewModel.loadMore = function () {
+		viewModel.loadMore = function() {
 			viewModel.loading(true);
-			$.get(getUrl + '/' + ++page).done(function (data) {
-				ko.utils.arrayForEach(data.list, function (car) {
+			$.get(getUrl + '/' + ++page).done(function(data) {
+				ko.utils.arrayForEach(data.list, function(car) {
 					viewModel.list.push(car);
 				});
 				viewModel.totalCount(data.totalCount);
@@ -58,9 +58,9 @@ function (ko, notifications, loader, main) {
 				if (viewModel.list().length === viewModel.totalCount()) {
 					$(window).off('scroll', loadMoreByScrollDown);
 				}
-			}).fail(function () {
+			}).fail(function() {
 				notifications.error();
-			}).always(function () {
+			}).always(function() {
 				viewModel.loading(false);
 			});
 		};

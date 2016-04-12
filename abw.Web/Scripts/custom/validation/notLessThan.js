@@ -1,12 +1,12 @@
 ﻿// ensures that one int value is not less than another one
 define(['jquery',
 		'unobtrusive-validation'],
-function ($) {
+function($) {
 	'use strict';
 
 	var METHOD = 'notLessThan';
 
-	$.validator.addMethod(METHOD, function (value, element, property) {
+	$.validator.addMethod(METHOD, function(value, element, property) {
 		if (!value) {
 			return true;
 		}
@@ -19,7 +19,7 @@ function ($) {
 		return isValid;
 	});
 
-	$.validator.unobtrusive.adapters.add(METHOD, ['property'], function (options) {
+	$.validator.unobtrusive.adapters.add(METHOD, ['property'], function(options) {
 		options.messages[METHOD] = options.message;
 		options.rules[METHOD] = options.params.property;
 	});

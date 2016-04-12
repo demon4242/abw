@@ -13,16 +13,16 @@
 	@Html.Partial("Layout/_Header")
 
 	<div class="page-content main-title-wrapper">
-		<strong class="main-title">
-			autodem.by - оригинальные б/у запчасти из Европы
-		</strong>
+		<span class="main-title">
+			autodem.by &ndash; оригинальные б/у запчасти из Европы
+		</span>
 
 		@Html.Partial("_Phones")
 	</div>
 
 	<div class="page-content main-content">
 		<div class="table-row">
-			<div class="table-cell"></div>
+			<div class="table-cell navigation-indent"></div>
 
 			<div data-bind="template: { afterRender: setActivePage }"
 				 class="navigation table-cell">

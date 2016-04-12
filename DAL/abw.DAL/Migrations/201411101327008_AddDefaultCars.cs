@@ -47,7 +47,7 @@ namespace abw.DAL.Migrations
 					? int.Parse(parts[yearToIndex]).ToString()
 					: nullValue;
 
-				string sql = string.Format("INSERT INTO Cars (Make, Model, YearFrom, YearTo) VALUES ('{0}', '{1}', {2}, {3})", make, model, yearFrom, yearTo);
+				string sql = $"INSERT INTO Cars (Make, Model, YearFrom, YearTo) VALUES ('{make}', '{model}', {yearFrom}, {yearTo})";
 				Sql(sql);
 			}
 		}

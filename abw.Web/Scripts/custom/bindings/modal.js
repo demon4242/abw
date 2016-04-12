@@ -1,6 +1,6 @@
 ﻿define(['jquery',
 		'knockout'],
-function ($, ko) {
+function($, ko) {
 	'use strict';
 
 	function modal($element, value) {
@@ -11,17 +11,17 @@ function ($, ko) {
 	}
 
 	ko.bindingHandlers.modal = {
-		init: function (element, valueAccessor) {
+		init: function(element, valueAccessor) {
 			var $element = $(element);
 			var value = valueAccessor();
 
-			$element.on('hidden.bs.modal', function () {
+			$element.on('hidden.bs.modal', function() {
 				value(false);
 			});
 
 			modal($element, value);
 		},
-		update: function (element, valueAccessor) {
+		update: function(element, valueAccessor) {
 			var $element = $(element);
 			var value = valueAccessor();
 

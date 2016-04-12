@@ -1,9 +1,9 @@
-﻿define(['main'], function (main) {
+﻿define(['main'], function(main) {
 	'use strict';
 
 	var viewModel = {};
 
-	viewModel.initMap = function (elements) {
+	viewModel.initMap = function(elements) {
 		var TITLE = 'Авторынок "Малиновка", павильон 34/12н';
 
 		var googleMaps = window.google.maps;

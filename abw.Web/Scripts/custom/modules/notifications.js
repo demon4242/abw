@@ -1,4 +1,4 @@
-﻿define(function () {
+﻿define(function() {
 	'use strict';
 
 	var self = {};
@@ -16,31 +16,31 @@
 		}).show();
 	};
 
-	self.init = function (elements) {
+	self.init = function(elements) {
 		notification = $(elements).parent();
 	};
 
-	self.initConfirm = function (elements) {
+	self.initConfirm = function(elements) {
 		confirmModal = $(elements).parent();
 	};
 
-	self.success = function (message) {
+	self.success = function(message) {
 		showNotification('success', message);
 	};
 
-	self.error = function (message) {
+	self.error = function(message) {
 		if (!message) {
 			message = ERROR_MESSAGE;
 		}
 		showNotification('danger', message);
 	};
 
-	self.confirm = function (title, message, yesHandler) {
+	self.confirm = function(title, message, yesHandler) {
 		confirmModal.find('.modal-title').html(title);
 		confirmModal.find('.modal-body').html(message);
 		var yesButton = confirmModal.find('.btn-primary');
 		yesButton.off('click');
-		yesButton.on('click', function () {
+		yesButton.on('click', function() {
 			confirmModal.modal('hide');
 			yesHandler();
 		});

@@ -1,12 +1,12 @@
 ﻿// restricts file extension
 define(['jquery',
 		'unobtrusive-validation'],
-function ($) {
+function($) {
 	'use strict';
 
 	var METHOD = 'validFileExtensions';
 
-	$.validator.addMethod(METHOD, function (value, element, extensions) {
+	$.validator.addMethod(METHOD, function(value, element, extensions) {
 		var files = element.files;
 		if (!files.length) {
 			return true;
@@ -25,7 +25,7 @@ function ($) {
 		return true;
 	});
 
-	$.validator.unobtrusive.adapters.add(METHOD, ['extensions'], function (options) {
+	$.validator.unobtrusive.adapters.add(METHOD, ['extensions'], function(options) {
 		options.messages[METHOD] = options.message;
 		options.rules[METHOD] = options.params.extensions;
 	});

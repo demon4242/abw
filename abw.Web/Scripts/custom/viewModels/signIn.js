@@ -1,6 +1,6 @@
 ﻿define(['viewModels/baseForm',
 		'main'],
-function (baseForm, main) {
+function(baseForm, main) {
 	'use strict';
 
 	function signIn(viewModel, errorMessages) {

@@ -1,33 +1,19 @@
-﻿.section-wrapper {
-	margin: 0 10px 10px 10px;
+﻿.section {
+	margin: 0 10px 15px 10px;
 	display: inline-block;
 	vertical-align: top;
-
-	.title {
-		font-weight: bold;
-		text-align: center;
-		margin-bottom: 5px;
-	}
-
-	.section {
-		box-shadow: 0 0 5px #40310a;
-	}
 }
 
-.map-wrapper {
-	padding: 5px;
+.map {
+	@size: 400px;
 
-	.map {
-		@size: 400px;
+	width: @size;
+	height: @size;
 
-		width: @size;
-		height: @size;
-
-		.scroll-fix {
-			font-weight: bold;
-			line-height: 1.35;
-			overflow: hidden;
-			white-space: nowrap;
-		}
+	.scroll-fix {
+		font-weight: bold;
+		line-height: 1.35;
+		overflow: hidden;
+		white-space: nowrap;
 	}
 }

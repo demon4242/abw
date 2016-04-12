@@ -111,7 +111,7 @@ namespace abw.Web.Utilities
 			string yearTo = car.YearTo.HasValue
 				? car.YearTo.ToString()
 				: nullYearToReplacer;
-			viewModel.Name = string.Format("{0} {1} {2} - {3}", car.Make, car.Model, car.YearFrom, yearTo);
+			viewModel.Name = $"{car.Make} {car.Model} {car.YearFrom} - {yearTo}";
 			List<string> photos = PhotoManager.Get(car);
 			viewModel.Photos = photos;
 

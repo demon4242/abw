@@ -1,14 +1,14 @@
 ﻿define(['knockout',
 		'knockout-mapping',
 		'unobtrusive-validation'],
-function (ko, koMapping) {
+function(ko, koMapping) {
 	'use strict';
 
 	function baseForm(viewModel, errorMessages, submitButtonText) {
 		viewModel = koMapping.fromJS(viewModel);
 
 		viewModel.loading = ko.observable(false);
-		viewModel.submit = function (form) {
+		viewModel.submit = function(form) {
 			if (!$(form).valid()) {
 				return false;
 			}
@@ -26,7 +26,7 @@ function (ko, koMapping) {
 			$('body').animate({ scrollTop: $(document).height() }, 500);
 		}
 
-		viewModel.closeErrorMessages = function () {
+		viewModel.closeErrorMessages = function() {
 			viewModel.errorMessages.removeAll();
 		};
 

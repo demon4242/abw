@@ -2,7 +2,7 @@
 		'viewModels/baseForm',
 		'main',
 		'modules/notifications'],
-function ($, baseForm, main, notifications) {
+function($, baseForm, main, notifications) {
 	'use strict';
 
 	function signInModal(viewModel, errorMessages) {
@@ -12,21 +12,21 @@ function ($, baseForm, main, notifications) {
 
 		viewModel = baseForm(viewModel, errorMessages, 'Войти');
 
-		viewModel.submit = function (form) {
+		viewModel.submit = function(form) {
 			if (!$(form).valid()) {
 				return false;
 			}
 
 			var model = $(form).serialize();
 			viewModel.loading(true);
-			$.post(form.action, model).done(function (data) {
+			$.post(form.action, model).done(function(data) {
 				if (data.success) {
 					location.href = data.returnUrl;
 				} else {
 					viewModel.errorMessages(data.errorMessages);
 					viewModel.loading(false);
 				}
-			}).fail(function () {
+			}).fail(function() {
 				notifications.error();
 				viewModel.loading(false);
 			});

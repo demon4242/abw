@@ -20,7 +20,7 @@ namespace abw.Common
 			string value = ConfigurationManager.AppSettings[name];
 			if (string.IsNullOrWhiteSpace(value))
 			{
-				string errorMessage = string.Format("Value '{0}' has not been found in Web.config'", name);
+				string errorMessage = $"Value '{name}' has not been found in Web.config'";
 				Logger.LogAndThrow(errorMessage);
 			}
 			T result = (T)Convert.ChangeType(value, typeof(T));

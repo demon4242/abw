@@ -2,7 +2,7 @@
 		'knockout',
 		'modules/notifications',
 		'main'],
-function ($, ko, notifications, main) {
+function($, ko, notifications, main) {
 	main.extendMainViewModel({ carsTree: ko.observableArray() });
 
 	var PATH = '/abw';
@@ -12,15 +12,15 @@ function ($, ko, notifications, main) {
 	}
 	href += '/';
 
-	var result = $.get(href + 'carsTree').done(function (data) {
+	var result = $.get(href + 'carsTree').done(function(data) {
 		var carsTree = [];
-		ko.utils.arrayForEach(data, function (car) {
+		ko.utils.arrayForEach(data, function(car) {
 			var make = {
 				text: car.make,
 				href: href + 'cars/' + car.make.toLowerCase()
 			};
 			var models = [];
-			ko.utils.arrayForEach(car.models, function (model) {
+			ko.utils.arrayForEach(car.models, function(model) {
 				models.push({
 					text: model,
 					href: make.href + '/' + model.toLowerCase()
@@ -32,7 +32,7 @@ function ($, ko, notifications, main) {
 			});
 		});
 		main.updateMainViewModel('carsTree', carsTree);
-	}).fail(function () {
+	}).fail(function() {
 		notifications.error();
 	});
 	return result;
