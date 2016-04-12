@@ -3,4 +3,49 @@
 	Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-Запчасти к а/м SEAT, Skoda, Volkswagen, Nissan, Toyota
+@section scripts
+{
+	<script type="text/javascript">
+		require(['main'], function(main) {
+			main.loadModules(['viewModels/index']);
+		});
+	</script>
+}
+
+<!-- ko with: homePage -->
+
+<div class="main-page-title">
+	<strong>
+		Запчасти к автомобилям
+		<br />
+		SEAT, Skoda, Volkswagen, Nissan, Toyota
+	</strong>
+</div>
+
+<div class="carousel">
+	<a href="@Url.Action("CarsByMake", new {make = "skoda"})">
+		<img src="@Url.Content("~/Content/images/carousel/skoda.jpg")" class="active" alt="skoda" data-image="1" />
+	</a>
+	<a href="@Url.Action("CarsByMake", new {make = "seat"})">
+		<img src="@Url.Content("~/Content/images/carousel/seat.jpg")" alt="seat" data-image="2" />
+	</a>
+	<a href="@Url.Action("CarsByMake", new {make = "volkswagen"})">
+		<img src="@Url.Content("~/Content/images/carousel/volkswagen.jpg")" alt="volkswagen" data-image="3" />
+	</a>
+	<a href="@Url.Action("CarsByMake", new {make = "toyota"})">
+		<img src="@Url.Content("~/Content/images/carousel/toyota.jpg")" alt="toyota" data-image="4" />
+	</a>
+	<a href="@Url.Action("CarsByMake", new {make = "nissan"})">
+		<img src="@Url.Content("~/Content/images/carousel/nissan.jpg")" alt="nissan" data-image="5" />
+	</a>
+
+	<div class="carousel-navigation">
+		<div class="circle active" data-bind="click: changeImage" data-image="1"></div>
+		<div class="circle" data-bind="click: changeImage" data-image="2"></div>
+		<div class="circle" data-bind="click: changeImage" data-image="3"></div>
+		<div class="circle" data-bind="click: changeImage" data-image="4"></div>
+		<div class="circle" data-bind="click: changeImage" data-image="5"></div>
+	</div>
+</div>
+
+<!-- /ko -->

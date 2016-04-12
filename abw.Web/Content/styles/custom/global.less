@@ -1,8 +1,4 @@
-﻿@header-background: #2f2f2f;
-@gray: #676767;
-@dark-gray: #333;
-@yellow: #EEDF00;
-@fotorama-width: 750px;
+﻿@import 'variables.less';
 
 .section-title {
 	display: block;
@@ -213,12 +209,12 @@ body {
 .car-link {
 	.section-title;
 	.car-link-hover();
-	width: @fotorama-width;
+	width: @image-width;
 }
 
 .car-name {
 	.section-title;
-	width: @fotorama-width;
+	width: @image-width;
 }
 
 .navigation-indent {
@@ -259,4 +255,10 @@ body {
 
 .btn-primary[disabled] {
 	border-color: @gray;
+}
+
+.main-page-title {
+	text-align: center;
+	margin-bottom: 5px;
+	font-size: 20px;
 }

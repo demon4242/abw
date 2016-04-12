@@ -20,6 +20,7 @@ namespace abw.App_Start
 
 			Bundle globalStyles = new CustomStyleBundle(customStylesDirectory + "global")
 				.Include(customStylesDirectory + "global.less")
+				.Include(customStylesDirectory + "carousel.less")
 				.Include(customStylesDirectory + "notifications.less")
 				.Include(customStylesDirectory + "spinner.less")
 				.Include(customStylesDirectory + "forms.less");

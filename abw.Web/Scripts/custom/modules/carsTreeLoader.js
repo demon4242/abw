@@ -3,6 +3,8 @@
 		'modules/notifications',
 		'main'],
 function($, ko, notifications, main) {
+	'use strict';
+
 	main.extendMainViewModel({ carsTree: ko.observableArray() });
 
 	var PATH = '/abw';

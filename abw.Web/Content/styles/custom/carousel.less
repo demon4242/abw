@@ -1,0 +1,75 @@
+﻿@import 'variables.less';
+
+.carousel {
+	width: @image-width;
+	height: 378px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+
+		&:not(.active) {
+			display: none;
+		}
+	}
+}
+
+.carousel-navigation {
+	@first: 10px;
+	@indent: 25px;
+
+	.circle:nth-child(1) {
+		right: @first + @indent * 4;
+	}
+
+	.circle:nth-child(2) {
+		right: @first + @indent * 3;
+	}
+
+	.circle:nth-child(3) {
+		right: @first + @indent * 2;
+	}
+
+	.circle:nth-child(4) {
+		right: @first + @indent;
+	}
+
+	.circle:nth-child(5) {
+		right: @first;
+	}
+}
+
+.circle {
+	@outer-size: 18px;
+
+	.box-shadow(@color) {
+		box-shadow: 0px 0px 0px 3px @color;
+	}
+
+	position: absolute;
+	// todo: store in var
+	bottom: 10px;
+	width: @outer-size;
+	height: @outer-size;
+	overflow: hidden;
+	border-radius: 100%;
+	cursor: pointer;
+
+	&:after {
+		@border-width: 4px;
+		@inner-size: @outer-size - @border-width * 2;
+
+		content: '';
+		position: absolute;
+		left: @border-width;
+		top: @border-width;
+		border-radius: 100%;
+		width: @inner-size;
+		height: @inner-size;
+		.box-shadow(white);
+	}
+
+	&.active:after {
+		.box-shadow(@yellow);
+	}
+}
