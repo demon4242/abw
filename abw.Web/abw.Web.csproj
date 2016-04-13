@@ -190,6 +190,7 @@
     <Content Include="Content\images\facebook-loader.gif" />
     <Content Include="Content\images\fotorama\fotorama%402x.png" />
     <Content Include="Content\images\fotorama\fotorama.png" />
+    <Content Include="Content\images\slider-arrows.png" />
     <Content Include="Content\styles\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\styles\bootstrap\bootstrap.css" />
     <Content Include="Content\images\certificate.jpg" />
@@ -215,7 +216,6 @@
     <Content Include="Scripts\bootstrap\bootstrap-notify.js" />
     <Content Include="Scripts\custom\modules\carsTreeLoader.js" />
     <Content Include="Scripts\custom\modules\initFotorama.js" />
-    <Content Include="Scripts\custom\modules\carousel.js" />
     <Content Include="Scripts\custom\viewModels\carsGrid.js" />
     <Content Include="Scripts\custom\viewModels\baseForm.js" />
     <Content Include="Scripts\custom\viewModels\car.js" />

@@ -1,41 +1,29 @@
 ﻿@import 'variables.less';
 
+@slider-size: 30px;
+@slider-indent: 20px;
+
 .carousel {
 	width: @image-width;
-	height: 378px;
+	height: @image-height;
 	overflow: hidden;
 
 	img {
 		width: 100%;
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0.5s, opacity 0.5s linear;
 
-		&:not(.active) {
-			display: none;
+		&.active {
+			visibility: visible;
+			opacity: 1;
 		}
 	}
-}
 
-.carousel-navigation {
-	@first: 10px;
-	@indent: 25px;
-
-	.circle:nth-child(1) {
-		right: @first + @indent * 4;
-	}
-
-	.circle:nth-child(2) {
-		right: @first + @indent * 3;
-	}
-
-	.circle:nth-child(3) {
-		right: @first + @indent * 2;
-	}
-
-	.circle:nth-child(4) {
-		right: @first + @indent;
-	}
-
-	.circle:nth-child(5) {
-		right: @first;
+	&:hover .slider {
+		visibility: visible;
+		opacity: 1;
 	}
 }
 
@@ -43,12 +31,11 @@
 	@outer-size: 18px;
 
 	.box-shadow(@color) {
-		box-shadow: 0px 0px 0px 3px @color;
+		box-shadow: 0 0 0 3px @color;
 	}
 
 	position: absolute;
-	// todo: store in var
-	bottom: 10px;
+	bottom: 20px;
 	width: @outer-size;
 	height: @outer-size;
 	overflow: hidden;
@@ -69,7 +56,30 @@
 		.box-shadow(white);
 	}
 
-	&.active:after {
+	&.active:after,
+	&:hover:after {
 		.box-shadow(@yellow);
 	}
+}
+
+.slider {
+	background-image: url('../../images/slider-arrows.png');
+	width: @slider-size;
+	height: @slider-size;
+	position: absolute;
+	top: 100px;
+	top: @image-height / 2 - @slider-size / 2;
+	cursor: pointer;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.1s linear;
+}
+
+.slider-left {
+	left: @slider-indent;
+}
+
+.slider-right {
+	right: @slider-indent;
+	background-position-x: -@slider-size;
 }

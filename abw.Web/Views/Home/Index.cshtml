@@ -12,7 +12,7 @@
 	</script>
 }
 
-<!-- ko with: homePage -->
+<!-- ko with: indexPage -->
 
 <div class="main-page-title">
 	<strong>
@@ -22,30 +22,29 @@
 	</strong>
 </div>
 
-<div class="carousel">
-	<a href="@Url.Action("CarsByMake", new {make = "skoda"})">
-		<img src="@Url.Content("~/Content/images/carousel/skoda.jpg")" class="active" alt="skoda" data-image="1" />
+<div data-bind="template: { afterRender: init }" class="carousel">
+	<a href="@Url.Action("CarsByMake", new { make = "skoda" })">
+		<img src="@Url.Content("~/Content/images/carousel/skoda.jpg")" alt="skoda" />
 	</a>
-	<a href="@Url.Action("CarsByMake", new {make = "seat"})">
-		<img src="@Url.Content("~/Content/images/carousel/seat.jpg")" alt="seat" data-image="2" />
+	<a href="@Url.Action("CarsByMake", new { make = "seat" })">
+		<img src="@Url.Content("~/Content/images/carousel/seat.jpg")" alt="seat" />
 	</a>
-	<a href="@Url.Action("CarsByMake", new {make = "volkswagen"})">
-		<img src="@Url.Content("~/Content/images/carousel/volkswagen.jpg")" alt="volkswagen" data-image="3" />
+	<a href="@Url.Action("CarsByMake", new { make = "volkswagen" })">
+		<img src="@Url.Content("~/Content/images/carousel/volkswagen.jpg")" alt="volkswagen" />
 	</a>
-	<a href="@Url.Action("CarsByMake", new {make = "toyota"})">
-		<img src="@Url.Content("~/Content/images/carousel/toyota.jpg")" alt="toyota" data-image="4" />
+	<a href="@Url.Action("CarsByMake", new { make = "toyota" })">
+		<img src="@Url.Content("~/Content/images/carousel/toyota.jpg")" alt="toyota" />
 	</a>
-	<a href="@Url.Action("CarsByMake", new {make = "nissan"})">
-		<img src="@Url.Content("~/Content/images/carousel/nissan.jpg")" alt="nissan" data-image="5" />
+	<a href="@Url.Action("CarsByMake", new { make = "nissan" })">
+		<img src="@Url.Content("~/Content/images/carousel/nissan.jpg")" alt="nissan" />
 	</a>
 
-	<div class="carousel-navigation">
-		<div class="circle active" data-bind="click: changeImage" data-image="1"></div>
-		<div class="circle" data-bind="click: changeImage" data-image="2"></div>
-		<div class="circle" data-bind="click: changeImage" data-image="3"></div>
-		<div class="circle" data-bind="click: changeImage" data-image="4"></div>
-		<div class="circle" data-bind="click: changeImage" data-image="5"></div>
+	<div data-bind="foreach: array">
+		<div class="circle" data-bind="click: $parent.change, css: { 'active': $parent.activeIndex() === $data }, style: { 'right': $parent.right($index()) }"></div>
 	</div>
+
+	<div data-bind="click: moveLeft" class="slider slider-left"></div>
+	<div data-bind="click: moveRight" class="slider slider-right"></div>
 </div>
 
 <!-- /ko -->
