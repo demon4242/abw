@@ -1,18 +1,14 @@
 ﻿define(['jquery',
 		'knockout',
 		'modules/notifications',
+		'modules/constants',
 		'main'],
-function($, ko, notifications, main) {
+function($, ko, notifications, constants, main) {
 	'use strict';
 
 	main.extendMainViewModel({ carsTree: ko.observableArray() });
 
-	var PATH = '/abw';
-	var href = location.protocol + '//' + location.host;
-	if (location.pathname.indexOf(PATH) === 0) {
-		href += PATH;
-	}
-	href += '/';
+	var href = location.protocol + '//' + location.host + constants.APP_URL;
 
 	var result = $.get(href + 'carsTree').done(function(data) {
 		var carsTree = [];

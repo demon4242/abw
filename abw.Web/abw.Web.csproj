@@ -216,6 +216,7 @@
     <Content Include="Scripts\bootstrap\bootstrap-notify.js" />
     <Content Include="Scripts\custom\modules\carsTreeLoader.js" />
     <Content Include="Scripts\custom\modules\initFotorama.js" />
+    <Content Include="Scripts\custom\modules\constants.js" />
     <Content Include="Scripts\custom\viewModels\carsGrid.js" />
     <Content Include="Scripts\custom\viewModels\baseForm.js" />
     <Content Include="Scripts\custom\viewModels\car.js" />

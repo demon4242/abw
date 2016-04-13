@@ -113,6 +113,12 @@
 		</script>
 	}
 
+	<script type="text/javascript">
+		require(['modules/constants'], function(constants) {
+			constants.APP_URL = '@Url.Content("~")';
+		});
+	</script>
+
 	@RenderSection("scripts", false)
 
 	<script type="text/javascript">
