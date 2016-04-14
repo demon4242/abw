@@ -2,7 +2,6 @@
 bin/
 obj/
 logs/
-abw.Web/photos/
 
 *.suo
 *.psess
