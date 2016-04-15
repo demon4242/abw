@@ -23,14 +23,14 @@ namespace abw.BusinessLogic
 
 		public List<Car> GetAll()
 		{
-			List<Car> cars = Uow.Cars.All.ToList();
+			List<Car> cars = Uow.Cars.GetAll();
 			return cars;
 		}
 
 		public List<Car> GetByMakeAndModel(string make, string model)
 		{
 			string lowerMake = make.ToLower();
-			IQueryable<Car> cars = Uow.Cars.All.Where(m => m.Make.ToLower() == lowerMake);
+			IEnumerable<Car> cars = Uow.Cars.GetAll().Where(m => m.Make.ToLower() == lowerMake);
 			if (!string.IsNullOrWhiteSpace(model))
 			{
 				string lowerModel = model.ToLower();
@@ -41,13 +41,19 @@ namespace abw.BusinessLogic
 			return result;
 		}
 
+		public Car Get(string make, string model, int yearFrom, int? yearTo)
+		{
+			Car car = Uow.Cars.Get(make, model, yearFrom, yearTo);
+			return car;
+		}
+
 		public bool CheckIfCarExists(Car car, Car originalCar = null)
 		{
-			Car carFromDb = Uow.Cars.All.SingleOrDefault(m => m.Make.ToLower() == car.Make.ToLower()
+			Car carFromDb = Uow.Cars.GetAll().SingleOrDefault(m => m.Make.ToLower() == car.Make.ToLower()
 				&& m.Model.ToLower() == car.Model.ToLower()
 				&& m.YearFrom == car.YearFrom
 				&& (m.YearTo == car.YearTo
-				// next line is required
+					// next line is required
 					|| m.YearTo == null && car.YearTo == null));
 
 			if (carFromDb == null)
@@ -56,19 +62,22 @@ namespace abw.BusinessLogic
 			}
 
 			// check if original car is equal to car from db (it might happen in while editing)
-			if (originalCar != null &&
-					(
-						carFromDb.Make.ToLower() == originalCar.Make.ToLower()
-						&& carFromDb.Model.ToLower() == originalCar.Model.ToLower()
-						&& carFromDb.YearFrom == originalCar.YearFrom
-						&& carFromDb.YearTo == originalCar.YearTo
-					)
+			if (originalCar != null
+					&& carFromDb.Make.ToLower() == originalCar.Make.ToLower()
+					&& carFromDb.Model.ToLower() == originalCar.Model.ToLower()
+					&& carFromDb.YearFrom == originalCar.YearFrom
+					&& carFromDb.YearTo == originalCar.YearTo
 				)
 			{
 				return false;
 			}
 
 			return true;
+		}
+
+		public void Delete(Car car)
+		{
+			Uow.Cars.Delete(car);
 		}
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace abw.BusinessLogic.Interfaces
 {
-	public interface IBaseService : IDisposable
+	public interface IBaseService
 	{
 	}
 }

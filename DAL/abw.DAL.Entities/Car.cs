@@ -1,16 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using abw.Common;
-
-namespace abw.DAL.Entities
+﻿namespace abw.DAL.Entities
 {
-	public class Car : BaseEntity
+	public class Car
 	{
-		[Required]
-		[MaxLength(Constants.MaxStringLength)]
 		public string Make { get; set; }
 
-		[Required]
-		[MaxLength(Constants.MaxStringLength)]
 		public string Model { get; set; }
 
 		public int YearFrom { get; set; }

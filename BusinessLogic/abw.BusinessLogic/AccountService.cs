@@ -14,8 +14,7 @@ namespace abw.BusinessLogic
 
 		public User GetUser(string name, string password)
 		{
-			string passwordHash = password.GetHashCode().ToString();
-			User user = Uow.Users.All.SingleOrDefault(m => m.Name == name && m.Password == passwordHash);
+			User user = Uow.Users.GetAll().SingleOrDefault(m => m.Name == name && m.Password == password);
 			return user;
 		}
 	}

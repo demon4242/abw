@@ -10,7 +10,34 @@ namespace abw.Common
 		{
 			get
 			{
-				int value = GetValueFromWebConfig<int>("GridPageSize");
+				int value = GetValueFromWebConfig<int>(nameof(GridPageSize));
+				return value;
+			}
+		}
+
+		public static string XmlFilesPath
+		{
+			get
+			{
+				string value = GetValueFromWebConfig<string>(nameof(XmlFilesPath));
+				return value;
+			}
+		}
+
+		public static string CarsFileName
+		{
+			get
+			{
+				string value = GetValueFromWebConfig<string>(nameof(CarsFileName));
+				return value;
+			}
+		}
+
+		public static string UsersFileName
+		{
+			get
+			{
+				string value = GetValueFromWebConfig<string>(nameof(UsersFileName));
 				return value;
 			}
 		}

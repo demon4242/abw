@@ -11,11 +11,5 @@ namespace abw.Controllers
 		{
 			Service = service;
 		}
-
-		protected override void Dispose(bool disposing)
-		{
-			Service.Dispose();
-			base.Dispose(disposing);
-		}
 	}
 }

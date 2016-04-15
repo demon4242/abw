@@ -24,51 +24,51 @@ namespace abw.Web.Utilities
 			return grid;
 		}
 
-		public static CarForDisplay GetCarForDisplay(this ICarsService carsService, int carId)
+		public static CarForDisplay GetCarForDisplay(this ICarsService carsService, string make, string model, int yearFrom, int? yearTo)
 		{
-			Car car = carsService.GetById(carId);
+			Car car = carsService.Get(make, model, yearFrom, yearTo);
 			CarForDisplay carForDisplay = car.ToDisplayViewModel();
 			return carForDisplay;
 		}
 
-		public static List<CarForDisplay> GetCarsForDisplay(this ICarsService carsService)
+		public static List<CarForFullDisplay> GetCarsForFullDisplay(this ICarsService carsService)
 		{
 			List<Car> cars = carsService.GetAll();
-			List<CarForDisplay> result = cars.ConvertAll(ToDisplayViewModel);
+			List<CarForFullDisplay> result = cars.ConvertAll(ToFullDisplayViewModel);
 			return result;
 		}
 
-		public static List<CarForDisplay> GetCarsForDisplay(this ICarsService carsService, string make, string model = null)
+		public static List<CarForFullDisplay> GetCarsForFullDisplay(this ICarsService carsService, string make, string model = null)
 		{
 			List<Car> cars = carsService.GetByMakeAndModel(make, model);
-			List<CarForDisplay> result = cars.ConvertAll(ToDisplayViewModel);
+			List<CarForFullDisplay> result = cars.ConvertAll(ToFullDisplayViewModel);
 			return result;
 		}
 
-		public static CarViewModel GetCar(this ICarsService carsService, int id)
+		public static EditCarViewModel GetCar(this ICarsService carsService, string make, string model, int yearFrom, int? yearTo)
 		{
-			Car car = carsService.GetById(id);
-			CarViewModel viewModel = car.ToViewModel();
+			Car car = carsService.Get(make, model, yearFrom, yearTo);
+			EditCarViewModel viewModel = car.ToViewModel();
 			return viewModel;
 		}
 
-		public static List<CarTree> GetCarsTree(this ICarsService carsService)
+		public static List<CarTreeItem> GetCarsTree(this ICarsService carsService)
 		{
 			List<Car> cars = carsService.GetAll();
-			List<CarTree> carsTree = new List<CarTree>();
+			List<CarTreeItem> carsTree = new List<CarTreeItem>();
 			foreach (Car car in cars)
 			{
-				CarTree carTree = carsTree.SingleOrDefault(m => m.Make == car.Make);
-				if (carTree != null)
+				CarTreeItem carTreeItem = carsTree.SingleOrDefault(m => m.Make == car.Make);
+				if (carTreeItem != null)
 				{
-					if (!carTree.Models.Contains(car.Model))
+					if (!carTreeItem.Models.Contains(car.Model))
 					{
-						carTree.Models.Add(car.Model);
+						carTreeItem.Models.Add(car.Model);
 					}
 				}
 				else
 				{
-					carTree = new CarTree
+					carTreeItem = new CarTreeItem
 					{
 						Make = car.Make,
 						Models = new List<string>
@@ -76,7 +76,7 @@ namespace abw.Web.Utilities
 							car.Model
 						}
 					};
-					carsTree.Add(carTree);
+					carsTree.Add(carTreeItem);
 				}
 			}
 			return carsTree;
@@ -86,11 +86,10 @@ namespace abw.Web.Utilities
 
 		#region Private
 
-		private static CarViewModel ToViewModel(this Car car)
+		private static EditCarViewModel ToViewModel(this Car car)
 		{
-			CarViewModel viewModel = new CarViewModel();
+			EditCarViewModel viewModel = new EditCarViewModel();
 
-			viewModel.Id = car.Id;
 			viewModel.Make = car.Make;
 			viewModel.Model = car.Model;
 			viewModel.YearFrom = car.YearFrom;
@@ -98,20 +97,42 @@ namespace abw.Web.Utilities
 			List<string> paths = PhotoManager.Get(car);
 			viewModel.CurrentPhotos = paths.ToDictionary(m => m, m => default(bool));
 
+			viewModel.OriginalCar = new CarForGrid
+			{
+				Make = car.Make,
+				Model = car.Model,
+				YearFrom = car.YearFrom,
+				YearTo = car.YearTo
+			};
+
 			return viewModel;
 		}
 
 		private static CarForDisplay ToDisplayViewModel(this Car car)
 		{
-			const string nullYearToReplacer = "настоящее время";
+			if (car == null)
+			{
+				return null;
+			}
 
-			CarForDisplay viewModel = new CarForDisplay();
+			CarForFullDisplay viewModel = new CarForFullDisplay();
 
-			viewModel.Id = car.Id;
-			string yearTo = car.YearTo.HasValue
-				? car.YearTo.ToString()
-				: nullYearToReplacer;
-			viewModel.Name = $"{car.Make} {car.Model} {car.YearFrom} - {yearTo}";
+			viewModel.Name = GetCarName(car);
+			List<string> photos = PhotoManager.Get(car);
+			viewModel.Photos = photos;
+
+			return viewModel;
+		}
+
+		private static CarForFullDisplay ToFullDisplayViewModel(this Car car)
+		{
+			CarForFullDisplay viewModel = new CarForFullDisplay();
+
+			viewModel.Make = car.Make;
+			viewModel.Model = car.Model;
+			viewModel.YearFrom = car.YearFrom;
+			viewModel.YearTo = car.YearTo;
+			viewModel.Name = GetCarName(car);
 			List<string> photos = PhotoManager.Get(car);
 			viewModel.Photos = photos;
 
@@ -122,13 +143,21 @@ namespace abw.Web.Utilities
 		{
 			CarForGrid viewModel = new CarForGrid();
 
-			viewModel.Id = car.Id;
 			viewModel.Make = car.Make;
 			viewModel.Model = car.Model;
 			viewModel.YearFrom = car.YearFrom;
 			viewModel.YearTo = car.YearTo;
 
 			return viewModel;
+		}
+
+		private static string GetCarName(Car car)
+		{
+			string yearTo = car.YearTo.HasValue
+				? car.YearTo.ToString()
+				: "настоящее время";
+			string name = $"{car.Make} {car.Model} {car.YearFrom} - {yearTo}";
+			return name;
 		}
 
 		#endregion Private

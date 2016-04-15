@@ -30,16 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,24 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbwDbContext.cs" />
-    <Compile Include="AbwDbInitializer.cs" />
     <Compile Include="Contracts\ICarsRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IUsersRepository.cs" />
-    <Compile Include="Migrations\201411101325574_AddBaseTables.cs" />
-    <Compile Include="Migrations\201411101325574_AddBaseTables.Designer.cs">
-      <DependentUpon>201411101325574_AddBaseTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201411101326420_AddAdminUser.cs" />
-    <Compile Include="Migrations\201411101326420_AddAdminUser.Designer.cs">
-      <DependentUpon>201411101326420_AddAdminUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201411101327008_AddDefaultCars.cs" />
-    <Compile Include="Migrations\201411101327008_AddDefaultCars.Designer.cs">
-      <DependentUpon>201411101327008_AddDefaultCars.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\AbwDbMigrationsConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Repositories\CarsRepository.cs" />
@@ -73,11 +53,7 @@
     <Compile Include="Repositories\UsersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Migrations\MigrationScripts.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\abw.Common\abw.Common.csproj">
@@ -88,17 +64,6 @@
       <Project>{3DBC145C-2A4E-479A-B39D-C037630140AC}</Project>
       <Name>abw.DAL.Entities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201411101325574_AddBaseTables.resx">
-      <DependentUpon>201411101325574_AddBaseTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201411101326420_AddAdminUser.resx">
-      <DependentUpon>201411101326420_AddAdminUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201411101327008_AddDefaultCars.resx">
-      <DependentUpon>201411101327008_AddDefaultCars.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

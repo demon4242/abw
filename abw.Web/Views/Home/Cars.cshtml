@@ -1,6 +1,6 @@
 ﻿@using System.Web.Optimization
 @using abw.ViewModels;
-@model List<CarForDisplay>
+@model List<CarForFullDisplay>
 @{
 	ViewBag.Title = "Машины";
 	Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -26,14 +26,14 @@
 }
 else
 {
-	foreach (CarForDisplay car in Model)
+	foreach (CarForFullDisplay car in Model)
 	{
 		string wrapperClass = car.Photos.Any()
 			? "fotorama-wrapper"
 			: string.Empty;
 		<div class="@wrapperClass">
-			@Html.ActionLink(car.Name, "Car", new { id = car.Id }, new { @class = "car-link" })
-			
+			@Html.ActionLink(car.Name, "Car", new { make = car.Make.ToLower(), model = car.Model.ToLower(), yearFrom = car.YearFrom, yearTo = car.YearTo }, new { @class = "car-link" })
+
 			<div class="fotorama" data-width="750" data-allowfullscreen="native" data-nav="thumbs" data-loop="true">
 				@foreach (string photo in car.Photos)
 				{

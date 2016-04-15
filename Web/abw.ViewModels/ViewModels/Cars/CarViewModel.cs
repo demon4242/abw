@@ -67,7 +67,6 @@ namespace abw.ViewModels
 		{
 			Car car = new Car();
 
-			car.Id = Id;
 			car.Make = Make.Trim();
 			car.Model = Model.Trim();
 			car.YearFrom = YearFrom;

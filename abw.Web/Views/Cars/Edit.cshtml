@@ -1,6 +1,6 @@
 ﻿@using System.Web.Optimization
 @using abw.Web.Utilities.Helpers
-@model abw.ViewModels.CarViewModel
+@model abw.ViewModels.EditCarViewModel
 @{
 	const string title = "Редактировать машину";
 	ViewBag.Title = title;
@@ -27,6 +27,11 @@
 <!-- ko with: carForm -->
 @using (Html.BeginForm("Edit", "Cars", FormMethod.Post, new { data_bind = "submit: submit", @class = "form", enctype = "multipart/form-data" }))
 {
-	@Html.Partial("_Car");
+	@Html.HiddenFor(m => m.OriginalCar.Make)
+	@Html.HiddenFor(m => m.OriginalCar.Model)
+	@Html.HiddenFor(m => m.OriginalCar.YearFrom)
+	@Html.HiddenFor(m => m.OriginalCar.YearTo)
+
+	@Html.Partial("_Car")
 }
 <!-- /ko -->

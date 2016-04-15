@@ -48,7 +48,7 @@ namespace abw.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				PrepareInvalidCarForView(ref car);
+				car = PrepareInvalidCarForView(car);
 				return View(car);
 			}
 			Car entity = car.ToEntity();
@@ -56,7 +56,7 @@ namespace abw.Controllers
 			if (carExists)
 			{
 				ModelState.AddModelError(string.Empty, ErrorMessages.CarAlreadyExists);
-				PrepareInvalidCarForView(ref car);
+				car = PrepareInvalidCarForView(car);
 				return View(car);
 			}
 			Service.Create(entity);
@@ -64,69 +64,72 @@ namespace abw.Controllers
 			return RedirectToAction("Grid");
 		}
 
-		[Route("edit/{id}")]
-		public ActionResult Edit(int id)
+		[Route("edit/{make}/{model}/{yearFrom:int}/{yearTo:int?}")]
+		public ActionResult Edit(string make, string model, int yearFrom, int? yearTo)
 		{
-			CarViewModel car = Service.GetCar(id);
+			EditCarViewModel car = Service.GetCar(make, model, yearFrom, yearTo);
 			return View(car);
 		}
 
 		[HttpPost]
 		[Route("edit")]
-		public ActionResult Edit(CarViewModel car)
+		public ActionResult Edit(EditCarViewModel car)
 		{
 			if (!ModelState.IsValid)
 			{
-				PrepareInvalidCarForView(ref car);
+				car = (EditCarViewModel)PrepareInvalidCarForView(car);
 				return View(car);
 			}
 
 			Car entity = car.ToEntity();
-			Car originalEntity = Service.GetById(car.Id);
+			CarForGrid originalCar = car.OriginalCar;
+			Car originalEntity = Service.Get(originalCar.Make, originalCar.Model, originalCar.YearFrom, originalCar.YearTo);
 
 			bool carExists = Service.CheckIfCarExists(entity, originalEntity);
 			if (carExists)
 			{
 				ModelState.AddModelError(string.Empty, ErrorMessages.CarAlreadyExists);
-				PrepareInvalidCarForView(ref car);
+				car = (EditCarViewModel)PrepareInvalidCarForView(car);
 				return View(car);
 			}
 
 			// need to get original name before entity is updated
 			string originalName = PhotoManager.GetCarName(originalEntity);
-			Service.Update(entity);
+			Service.Update(entity, originalEntity);
 
 			PhotoManager.Update(originalName, car);
 
 			return RedirectToAction("Grid");
 		}
 
+		// todo: use 'CarForGrid' viewModel as input parameter
 		[HttpPost]
-		[Route("delete/{id}")]
-		public JsonResult Delete(int id)
+		[Route("delete/{make}/{model}/{yearFrom:int}/{yearTo:int?}")]
+		public JsonResult Delete(string make, string model, int yearFrom, int? yearTo)
 		{
-			Car car = Service.GetById(id);
-			bool success = Service.Delete(id);
-			if (success)
+			Car car = Service.Get(make, model, yearFrom, yearTo);
+			if (car == null)
 			{
-				PhotoManager.Delete(car);
-				return Json(new { success = true });
+				return Json(new
+				{
+					success = false,
+					errorMessage = ErrorMessages.CarNotFound
+				});
 			}
 
-			return Json(new
-			{
-				success = false,
-				errorMessage = ErrorMessages.CarNotFound
-			});
+			Service.Delete(car);
+			PhotoManager.Delete(car);
+			return Json(new { success = true });
 		}
 
 		/// <summary>
 		/// Prepares <see cref="CarViewModel"/> for a view if it has validation errors
 		/// </summary>
-		private void PrepareInvalidCarForView(ref CarViewModel car)
+		private CarViewModel PrepareInvalidCarForView(CarViewModel car)
 		{
 			// hack in order to make 'HtmlHelpers.ToJs' method work
 			car.Photos = null;
+			return car;
 		}
 	}
 }

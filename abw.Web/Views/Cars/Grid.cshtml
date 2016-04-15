@@ -43,7 +43,7 @@
 			<td data-bind="text: yearFrom"></td>
 			<td data-bind="text: yearTo"></td>
 			<td>
-				<a data-bind="attr: { href: '@Url.Action("Edit")' + '/' + id }" title="Редактировать">
+				<a data-bind="attr: { href: '@Url.Action("Edit")' + '/' + make + '/' + model + '/' + yearFrom + '/' + (yearTo ? yearTo : '') }" title="Редактировать">
 					<i class="glyphicon glyphicon-edit"></i>
 				</a>
 				<i data-bind="click: $parent.deleteCar" class="glyphicon glyphicon-remove" title="Удалить"></i>

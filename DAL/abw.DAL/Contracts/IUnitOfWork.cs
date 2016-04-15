@@ -1,11 +1,7 @@
-﻿using System;
-
-namespace abw.DAL.Contracts
+﻿namespace abw.DAL.Contracts
 {
-	public interface IUnitOfWork : IDisposable
+	public interface IUnitOfWork
 	{
-		void Save();
-
 		ICarsRepository Cars { get; }
 
 		IUsersRepository Users { get; }

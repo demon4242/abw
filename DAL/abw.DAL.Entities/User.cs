@@ -1,13 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace abw.DAL.Entities
+﻿namespace abw.DAL.Entities
 {
-	public class User : BaseEntity
+	public class User
 	{
-		[Required]
 		public string Name { get; set; }
 
-		[Required]
 		public string Password { get; set; }
 	}
 }

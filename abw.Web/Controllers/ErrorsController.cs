@@ -2,7 +2,6 @@
 
 namespace abw.Controllers
 {
-	// todo: prevent actions from direct access
 	public class ErrorsController : Controller
 	{
 		public ActionResult GenericError()

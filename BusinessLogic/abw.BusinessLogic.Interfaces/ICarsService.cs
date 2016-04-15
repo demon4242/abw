@@ -9,6 +9,10 @@ namespace abw.BusinessLogic.Interfaces
 
 		List<Car> GetByMakeAndModel(string make, string model);
 
+		Car Get(string make, string model, int yearFrom, int? yearTo);
+
 		bool CheckIfCarExists(Car car, Car originalCar = null);
+
+		void Delete(Car car);
 	}
 }
