@@ -126,10 +126,4 @@
     <yearFrom>2000</yearFrom>
     <yearTo>2005</yearTo>
   </car>
-  <car>
-    <make>new_name</make>
-    <model>this_is</model>
-    <yearFrom>2001</yearFrom>
-    <yearTo></yearTo>
-  </car>
 </cars>
