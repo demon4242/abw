@@ -23,7 +23,6 @@ function(ko, notifications, loader, main) {
 			var nameHtml = '<strong>' + (car.make + ' ' + car.model + ' ' + car.yearFrom + '-' + yearTo) + '</strong>';
 			notifications.confirm('Удалить машину <br />' + nameHtml, 'Вы уверены?', function() {
 				loader.show();
-				// todo: refator
 				$.post(deleteUrl + '/' + car.make + '/' + car.model + '/' + car.yearFrom + '/' + yearTo).done(function(data) {
 					if (!data.success) {
 						notifications.error(data.errorMessage);

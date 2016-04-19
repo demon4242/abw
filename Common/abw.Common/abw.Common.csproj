@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="StringExtenstions.cs" />
+    <Compile Include="Extenstions\XDocumentExtenstions.cs" />
+    <Compile Include="Extenstions\StringExtenstions.cs" />
     <Compile Include="WebConfigManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -11,5 +11,7 @@ namespace abw.DAL.Contracts
 		void Create(T entity);
 
 		void Update(T entity, T originalEntity);
+
+		void Delete(T entity);
 	}
 }

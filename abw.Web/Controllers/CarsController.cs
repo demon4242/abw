@@ -102,7 +102,6 @@ namespace abw.Controllers
 			return RedirectToAction("Grid");
 		}
 
-		// todo: use 'CarForGrid' viewModel as input parameter
 		[HttpPost]
 		[Route("delete/{make}/{model}/{yearFrom:int}/{yearTo:int?}")]
 		public JsonResult Delete(string make, string model, int yearFrom, int? yearTo)

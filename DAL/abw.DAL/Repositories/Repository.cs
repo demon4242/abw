@@ -77,14 +77,87 @@ namespace abw.DAL.Repositories
 			}
 
 			XElement entityXml = new XElement(EntityNameForXml, xElements);
-			var xDocument = XDocument.Load(FilePath);
+			XDocument xDocument = XDocument.Load(FilePath);
 			xDocument.Elements(PluralEntityNameForXml).First().Add(entityXml);
-			xDocument.Save(FilePath);
+
+			xDocument.SaveWithTags(FilePath);
 		}
 
 		public virtual void Update(T entity, T originalEntity)
 		{
-			throw new NotImplementedException();
+			XDocument xDocument = XDocument.Load(FilePath);
+			XElement xElement = Get(xDocument, originalEntity);
+
+			PropertyInfo[] properties = GetProperties(entity);
+			foreach (PropertyInfo propertyInfo in properties)
+			{
+				string xmlName = GetXmlName(propertyInfo);
+				string xmlValue = GetXmlValue(propertyInfo, entity);
+				var element = xElement.Element(xmlName);
+				if (element == null)
+				{
+					throw new NullReferenceException();
+				}
+				element.Value = xmlValue;
+			}
+
+			xDocument.SaveWithTags(FilePath);
+		}
+
+		public virtual void Delete(T entity)
+		{
+			XDocument xDocument = XDocument.Load(FilePath);
+			XElement xElement = Get(xDocument, entity);
+			xElement.Remove();
+			xDocument.SaveWithTags(FilePath);
+		}
+
+		private XElement Get(XDocument xDocument, T entity)
+		{
+			PropertyInfo[] properties = GetProperties(entity);
+			Func<XElement, bool> predicates = null;
+			foreach (PropertyInfo propertyInfo in properties)
+			{
+				string xmlName = GetXmlName(propertyInfo);
+				string xmlValue = GetXmlValue(propertyInfo, entity);
+				Func<XElement, bool> predicate = m => m.Element(xmlName)?.Value.ToLower() == xmlValue;
+
+				if (predicates == null)
+				{
+					predicates = predicate;
+				}
+				else
+				{
+					Func<XElement, bool> currentPredicates = predicates;
+					predicates = m => currentPredicates(m) && predicate(m);
+				}
+			}
+
+			if (predicates == null)
+			{
+				throw new NullReferenceException();
+			}
+
+			XElement xElement = xDocument.Elements(PluralEntityNameForXml).Elements(EntityNameForXml).SingleOrDefault(predicates);
+			return xElement;
+		}
+
+		private PropertyInfo[] GetProperties(T entity)
+		{
+			PropertyInfo[] properties = entity.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
+			return properties;
+		}
+
+		private string GetXmlName(PropertyInfo propertyInfo)
+		{
+			string xmlName = propertyInfo.Name.LowerFirstLetter();
+			return xmlName;
+		}
+
+		private string GetXmlValue(PropertyInfo propertyInfo, T entity)
+		{
+			string xmlValue = propertyInfo.GetValue(entity)?.ToString().ToLower() ?? string.Empty;
+			return xmlValue;
 		}
 	}
 }
